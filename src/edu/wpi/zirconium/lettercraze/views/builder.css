@@ -1,0 +1,41 @@
+
+.lc-grid-tile:disabled {
+	-fx-stroke: #aaaaaa;
+}
+
+.tab-pane {
+	-fx-border-color: #434343;
+	-fx-font-color: #434343;
+	-fx-background-color: TRANSPARENT;
+	-fx-border-width: 2px;
+}
+
+.tab-header-background {
+	-fx-background-color: TRANSPARENT;
+}
+
+.lc-builder-leftbar .button {
+	-fx-border-color: #434343;
+	-fx-font-color: #434343;
+	-fx-background-color: TRANSPARENT;
+	-fx-border-width: 2px;
+}
+
+.lc-main-grid {
+	-fx-border-color: #434343;
+	-fx-border-width: 2px;
+}
+.lc-grid-tile {
+	-fx-fill: TRANSPARENT;
+	-fx-stroke: #434343;
+	-fx-stroke-width: 2px;
+}
+
+.lc-grid-letter {
+	-fx-font-family: Arial;
+	-fx-font-size: 36px;
+}
+
+.lc-back-button {
+	-fx-fill: TRANSPARENT;
+}

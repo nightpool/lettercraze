@@ -1,0 +1,30 @@
+
+/* Open Sans */
+@font-face {
+    src: url('/fonts/OpenSans/OpenSans-Regular.ttf');
+}
+@font-face {
+    src: url('/fonts/OpenSans/OpenSans-Bold.ttf');
+}
+@font-face {
+    src: url('/fonts/OpenSans/OpenSans-Light.ttf');
+}
+
+/* Josefin Sans */
+@font-face {
+    src: url('/fonts/Josefin_Sans/JosefinSans-Regular.ttf');
+}
+@font-face {
+    src: url('/fonts/Josefin_Sans/JosefinSans-Bold.ttf');
+}
+@font-face {
+    src: url('/fonts/Josefin_Sans/JosefinSans-Light.ttf');
+}
+@font-face {
+    src: url('/fonts/Josefin_Sans/JosefinSans-Thin.ttf');
+}
+
+/* Coming Soon*/
+@font-face {
+    src: url('/fonts/Coming_Soon/ComingSoon.ttf');
+}

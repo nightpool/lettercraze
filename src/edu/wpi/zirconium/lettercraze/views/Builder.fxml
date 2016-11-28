@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@builder.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets left="30.0" top="30.0" />
+         </BorderPane.margin>
+      </Rectangle>
+   </top>
+   <left>
+      <VBox spacing="30.0" styleClass="lc-builder-leftbar" BorderPane.alignment="CENTER">
+         <children>
+            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Save" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="New" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Load" />
+            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Player" />
+         </children>
+         <BorderPane.margin>
+            <Insets left="30.0" top="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <TilePane hgap="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="514.0" styleClass="lc-main-grid" vgap="30.0" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text Text="C" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane disable="true" styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text Text="A" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane disable="true" styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane disable="true" styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text Text="T" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane disable="true" styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane disable="true" styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane disable="true" styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+            <StackPane styleClass="lc-grid-container">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="lc-grid-tile" width="50.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" />
+               </children>
+            </StackPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" left="30.0" top="30.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </TilePane>
+   </center>
+   <right>
+      <VBox BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="30.0" right="30.0" />
+         </BorderPane.margin>
+         <children>
+            <TextField id="lc-title" prefColumnCount="2" promptText="Title">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </TextField>
+            <TabPane prefHeight="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Puzzle">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab text="Theme">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                  <Tab text="Lightning">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
