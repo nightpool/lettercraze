@@ -1,0 +1,17 @@
+
+@import url("/fonts/fonts.css");
+
+.rectangle {
+    -fx-background-color: DODGERBLUE;
+    -fx-fill: DODGERBLUE;
+}
+
+#title-block {
+	-fx-border-color: #434343;
+	-fx-border-width: 2px;
+	-fx-border-radius: 3px 3px 0 3px;
+}
+
+#subtitle-rect {
+	-fx-fill: #434343;
+}
