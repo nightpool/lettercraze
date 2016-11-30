@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="700.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <VBox layoutY="45.0" prefHeight="615.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puzzle Levels" textOrigin="TOP">
+                                 <font>
+                                    <Font name="Candara" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="95.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane prefHeight="1000.0" prefWidth="300.0">
+                                 <content>
+                                    <VBox alignment="CENTER" prefWidth="280.0">
+                                       <children>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="47.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="38.0" top="-5.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="47.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="38.0" top="-5.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" disable="true" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <VBox layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lightning Levels" textOrigin="TOP">
+                                 <font>
+                                    <Font name="Candara" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="72.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane prefHeight="1000.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox alignment="CENTER" prefWidth="280.0">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                       <children>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" top="10.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2:00" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="47.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="8.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <VBox layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theme Levels" textOrigin="TOP">
+                                 <font>
+                                    <Font name="Candara" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="93.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane prefHeight="1000.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox alignment="CENTER" prefWidth="280.0">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                       <children>
+                                          <AnchorPane fx:id="digitsOfPiButton" maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara" size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="20.0" top="8.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digits of Pi" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="90.0" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Candara Bold" size="24.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets left="6.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbf00" stroke="BLACK" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fbd00" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="#180fc100" stroke="#000000ed" strokeType="INSIDE">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+                                                      <SVGPath content="M23.5,0C10.522,0,0,10.522,0,23.5C0,36.479,10.522,47,23.5,47C36.479,47,47,36.479,47,23.5C47,10.522,36.479,0,23.5,0z M30.07,34.686L30.07,34.686c0,2.53-2.941,4.58-6.573,4.58c-3.631,0-6.577-2.05-6.577-4.58c0-0.494,3.648-14.979,3.648-14.979c-2.024-1.06-3.418-3.161-3.418-5.609c0-3.515,2.838-6.362,6.361-6.362c3.514,0,6.35,2.848,6.35,6.362c0,2.448-1.391,4.55-3.416,5.609c0,0,3.598,14.455,3.611,14.88l0.022,0.099H30.07z" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </center>
+         <top>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Text layoutY="23.1875" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Select" textAlignment="CENTER" AnchorPane.leftAnchor="375.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font name="Candara Bold Italic" size="32.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="backToMenuButton" layoutY="23.1875" mnemonicParsing="false" prefHeight="50.0" prefWidth="175.0" styleClass="lc-menu-item" stylesheets="@../builder/views/menu.css" text="Return to Title" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0" />
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
