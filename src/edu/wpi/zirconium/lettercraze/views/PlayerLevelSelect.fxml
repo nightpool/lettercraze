@@ -315,7 +315,7 @@
                      <children>
                         <VBox layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lightenning Levels" textOrigin="TOP">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lightning Levels" textOrigin="TOP">
                                  <font>
                                     <Font name="Candara" size="20.0" />
                                  </font>
