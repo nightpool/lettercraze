@@ -3,6 +3,7 @@
 
 .root {
     -fx-background-color: white;
+    -fx-font-family: "Open Sans";
 }
 
 #title-block, .lc-menu-item {
@@ -27,16 +28,29 @@
     -fx-background-color: #555;
 }
 
-.lc-menu-container:hover {
+.hamburger-menu {
+    -fx-spacing: 2px;
+}
+
+.hamburger-item {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 1em;
+    -fx-font-size: 15px;
+    -fx-font-family: "Open Sans Light";
+}
+
+.lc-menu-item:hover {
     -fx-cursor: hand;
 }
 
-.lc-menu-container:hover .lc-menu-item {
+.lc-menu-item:hover {
     -fx-border-color: black;
     -fx-background-color: #efefef;
 }
 
-.lc-menu-container:pressed .lc-menu-item {
+.lc-menu-item:pressed {
     -fx-background-color: #eee;
 }
 
