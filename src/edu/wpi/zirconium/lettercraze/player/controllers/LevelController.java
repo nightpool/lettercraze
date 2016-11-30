@@ -1,28 +1,26 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
+import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
+public class LevelController implements Initializable {
 
-public class MenuController implements Initializable {
-
-    @FXML private StackPane playButton;
-    @FXML private StackPane achievementsButton;
-    @FXML private Pane hamburger;
+    @FXML private StackPane exitLevel;
+    @FXML private StackPane resetButton;
+    @FXML private StackPane submitButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        playButton.setOnMouseClicked(this::onPlayClicked);
+        exitLevel.setOnMouseClicked(this::onExitClicked);
     }
 
-    private void onPlayClicked(MouseEvent mouseEvent) {
+    private void onExitClicked(MouseEvent mouseEvent) {
         try {
             LetterCrazePlayer.showLevelSelectScreen();
         } catch (Exception e) {
