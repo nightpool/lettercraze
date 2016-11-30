@@ -1,0 +1,131 @@
+
+.root {
+    -fx-background-color: white;
+}
+
+#back-button {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+}
+
+#back-button:hover {
+    -fx-background-color: #efefef;
+}
+
+#builder-sidebar .title {
+    -fx-background-color: TRANSPARENT;
+    -fx-border-width: 0 0 4px 0;
+    -fx-border-color: #434343;
+    -fx-border-style: dashed;
+
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: lighter;
+    -fx-font-size: 50px;
+    -fx-padding: -5px 0 -10px 0;
+}
+
+.settings-pane .text-field {
+    -fx-background-color: TRANSPARENT;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #434343;
+    -fx-alignment: center-right;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 15px;
+    -fx-font-weight: lighter;
+    -fx-padding: 0;
+}
+
+.settings-pane .label {
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 15px;
+    -fx-font-weight: lighter;
+    -fx-padding: 2px 5px;
+}
+
+.settings-pane {
+    -fx-background-color: TRANSPARENT;
+}
+
+.settings-pane .control-buttons-tab {
+    visibility: hidden;
+}
+
+.settings-pane .tab-header-area {
+    -fx-padding: 5px;
+}
+
+.settings-pane .tab {
+    -fx-background-color: white;
+    -fx-border-color: #434343, white;
+    -fx-border-width: 2px 6px, 0px 4px;
+    -fx-padding: 2px 10px;
+    -fx-align: center;
+}
+
+.settings-pane .tab:selected {
+    -fx-background-color: #e5e5e5;
+}
+
+.settings-pane .tab:selected .focus-indicator {
+    -fx-border-color: TRANSPARENT;
+}
+
+.settings-pane .text-area {
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+}
+
+.settings-pane .text-area .content {
+    -fx-background-color: white;
+}
+
+.settings-pane .text-area:focused {
+    -fx-background-color: white;
+}
+
+.settings-pane .tab-content {
+    -fx-border-color: #434343, white;
+    -fx-border-width: 4px 11px, 2px 9px;
+}
+
+.tab-header-background {
+    -fx-background-color: TRANSPARENT;
+}
+
+.builder-menu .button {
+    -fx-border-color: #434343;
+    -fx-font-color: #434343;
+    -fx-background-color: TRANSPARENT;
+    -fx-border-width: 2px;
+	-fx-font-family: "Josefin Sans";
+}
+
+.lc-main-grid {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+	
+	-fx-pref-width: 550px;
+    -fx-pref-height: 550px;
+}
+
+.lc-grid-tile {
+    -fx-fill: TRANSPARENT;
+    -fx-stroke: #434343;
+    -fx-border-color: #434343;
+    -fx-stroke-width: 2px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 2px;
+
+    -fx-pref-width: 55px;
+    -fx-pref-height: 50px;
+}
+
+.lc-grid-tile:disabled {
+    -fx-border-color: #aaaaaa;
+}
+
+.lc-grid-letter {
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 36px;
+}
