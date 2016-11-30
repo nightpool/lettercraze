@@ -1,4 +1,8 @@
 
+.root {
+    -fx-background-color: white;
+}
+
 .lc-grid-tile:disabled {
 	-fx-stroke: #aaaaaa;
 }

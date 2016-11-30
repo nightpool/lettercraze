@@ -19,7 +19,7 @@ public class PlayerMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("views/Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("builder/views/Builder.fxml"));
         primaryStage.setTitle("Lettercraze");
         primaryStage.setScene(new Scene(root, 1024, 712));
         primaryStage.show();
