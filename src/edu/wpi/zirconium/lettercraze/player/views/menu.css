@@ -1,0 +1,54 @@
+
+/*@import "/fonts/fonts.css";*/
+
+.root {
+    -fx-background-color: white;
+}
+
+#title-block, .lc-menu-item {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+    -fx-background-color: WHITE;
+}
+
+#hamburger:hover {
+    -fx-cursor: hand;
+}
+
+#hamburger:pressed, #hamburger.active {
+    -fx-background-color: #efefef;
+}
+
+.hamburger-component {
+    -fx-background-color: #999;
+}
+
+#hamburger:hover .hamburger-component {
+    -fx-background-color: #555;
+}
+
+.lc-menu-container:hover {
+    -fx-cursor: hand;
+}
+
+.lc-menu-container:hover .lc-menu-item {
+    -fx-border-color: black;
+    -fx-background-color: #efefef;
+}
+
+.lc-menu-container:pressed .lc-menu-item {
+    -fx-background-color: #eee;
+}
+
+.lc-menu-row {
+    -fx-pref-width: 350px;
+    -fx-pref-height: 60px;
+}
+
+#title-block {
+    -fx-border-radius: 3px 3px 0 3px;
+}
+
+#subtitle-rect {
+    -fx-fill: #434343;
+}
