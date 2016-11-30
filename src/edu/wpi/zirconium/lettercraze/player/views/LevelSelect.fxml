@@ -2,18 +2,18 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="700.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -22,21 +22,21 @@
                   <Insets top="20.0" />
                </BorderPane.margin>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="300.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="341.33">
                      <children>
-                        <VBox layoutY="45.0" prefHeight="615.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="TOP_CENTER" layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puzzle Levels" textOrigin="TOP">
                                  <font>
-                                    <Font name="Candara" size="20.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="95.0" top="15.0" />
+                                    <Insets bottom="15.0" top="15.0" />
                                  </VBox.margin>
                               </Text>
-                              <ScrollPane prefHeight="1000.0" prefWidth="300.0">
+                              <ScrollPane hbarPolicy="NEVER" hmax="0.0" prefHeight="1000.0" prefWidth="300.0">
                                  <content>
-                                    <VBox alignment="CENTER" prefWidth="280.0">
+                                    <VBox alignment="CENTER" minWidth="-Infinity" prefWidth="320.0">
                                        <children>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
@@ -59,25 +59,25 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
                                                          <children>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="20.0" />
+                                                                  <Font size="20.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="20.0" top="10.0" />
+                                                                  <Insets top="10.0" />
                                                                </VBox.margin>
                                                             </Text>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="47.0" />
+                                                                  <Font name="Open Sans" size="33.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="38.0" top="-5.0" />
+                                                                  <Insets />
                                                                </VBox.margin>
                                                             </Text>
                                                          </children>
@@ -110,25 +110,25 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group layoutX="10.0" layoutY="10.0" styleClass="lc-active-level">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
                                                          <children>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="20.0" />
+                                                                  <Font size="20.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="20.0" top="10.0" />
+                                                                  <Insets top="10.0" />
                                                                </VBox.margin>
                                                             </Text>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="47.0" />
+                                                                  <Font name="Open Sans" size="33.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="38.0" top="-5.0" />
+                                                                  <Insets />
                                                                </VBox.margin>
                                                             </Text>
                                                          </children>
@@ -311,28 +311,28 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="300.0">
+                  <AnchorPane prefWidth="341.0">
                      <children>
-                        <VBox layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="TOP_CENTER" layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lightning Levels" textOrigin="TOP">
                                  <font>
-                                    <Font name="Candara" size="20.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="72.0" top="15.0" />
+                                    <Insets bottom="15.0" top="15.0" />
                                  </VBox.margin>
                               </Text>
-                              <ScrollPane prefHeight="1000.0" prefWidth="200.0">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="1000.0" prefWidth="200.0">
                                  <content>
-                                    <VBox alignment="CENTER" prefWidth="280.0">
+                                    <VBox alignment="CENTER" prefWidth="320.0">
                                        <padding>
                                           <Insets left="10.0" />
                                        </padding>
                                        <children>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
-                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-54.0" AnchorPane.topAnchor="-12.0">
                                                    <children>
                                                       <SVGPath content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000" fill="TRANSPARENT" stroke="BLACK" strokeType="INSIDE">
                                                          <VBox.margin>
@@ -351,25 +351,25 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group styleClass="lc-active-level">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" layoutY="-2.0" prefHeight="100.0" prefWidth="100.0">
                                                          <children>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="20.0" />
+                                                                  <Font size="20.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="20.0" top="10.0" />
+                                                                  <Insets top="10.0" />
                                                                </VBox.margin>
                                                             </Text>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2:00" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="47.0" />
+                                                                  <Font name="Open Sans" size="33.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="8.0" />
+                                                                  <Insets />
                                                                </VBox.margin>
                                                             </Text>
                                                          </children>
@@ -380,6 +380,9 @@
                                              <padding>
                                                 <Insets left="5.0" top="5.0" />
                                              </padding>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                             </VBox.margin>
                                           </AnchorPane>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
@@ -581,26 +584,26 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="300.0">
+                  <AnchorPane prefWidth="341.0">
                      <children>
-                        <VBox layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="TOP_CENTER" layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theme Levels" textOrigin="TOP">
                                  <font>
-                                    <Font name="Candara" size="20.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="15.0" left="93.0" top="15.0" />
+                                    <Insets bottom="15.0" top="15.0" />
                                  </VBox.margin>
                               </Text>
-                              <ScrollPane prefHeight="1000.0" prefWidth="200.0">
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="1000.0" prefWidth="200.0">
                                  <content>
-                                    <VBox alignment="CENTER" prefWidth="280.0">
+                                    <VBox alignment="CENTER" prefWidth="320.0">
                                        <padding>
                                           <Insets left="10.0" />
                                        </padding>
                                        <children>
-                                          <AnchorPane fx:id="digitsOfPiButton" maxWidth="-Infinity" minWidth="-Infinity">
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
                                                 <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
                                                    <children>
@@ -621,25 +624,25 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group layoutX="10.0" layoutY="6.0" styleClass="lc-active-level">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                                      <VBox prefHeight="100.0" prefWidth="100.0">
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
                                                          <children>
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara" size="20.0" />
+                                                                  <Font size="20.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="20.0" top="8.0" />
+                                                                  <Insets top="10.0" />
                                                                </VBox.margin>
                                                             </Text>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digits of Pi" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="90.0" x="18.0" y="5.0">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digits of Pi" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="80.0" x="18.0" y="5.0">
                                                                <font>
-                                                                  <Font name="Candara Bold" size="24.0" />
+                                                                  <Font name="Open Sans" size="22.0" />
                                                                </font>
                                                                <VBox.margin>
-                                                                  <Insets left="6.0" top="5.0" />
+                                                                  <Insets />
                                                                </VBox.margin>
                                                             </Text>
                                                          </children>
@@ -650,6 +653,9 @@
                                              <padding>
                                                 <Insets left="5.0" top="5.0" />
                                              </padding>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
                                           </AnchorPane>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
@@ -860,12 +866,16 @@
                   <Insets />
                </BorderPane.margin>
                <children>
-                  <Text layoutY="23.1875" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Select" textAlignment="CENTER" AnchorPane.leftAnchor="375.0" AnchorPane.topAnchor="20.0">
+                  <Text layoutX="413.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Select" textAlignment="CENTER" AnchorPane.leftAnchor="413.0" AnchorPane.topAnchor="24.0625">
                      <font>
-                        <Font name="Candara Bold Italic" size="32.0" />
+                        <Font size="32.0" />
                      </font>
                   </Text>
-                  <Button fx:id="backToMenuButton" layoutY="23.1875" mnemonicParsing="false" prefHeight="50.0" prefWidth="175.0" styleClass="lc-menu-item" text="Return to Title" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0" />
+                  <Pane id="back-button" fx:id="backButton" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: #434343; -fx-border-width: 2px;" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="18.0">
+                     <children>
+                        <SVGPath content="M 1.55413 23.54587 L 25.10102 1.50895 25.10102 14.67997 52.35188 14.67997 52.35188 32.41176 25.10102 32.41176 25.10102 45.58279 Z" fill="TRANSPARENT" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="2.1" translateX="-2.0" translateY="2.0" />
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
          </top>
