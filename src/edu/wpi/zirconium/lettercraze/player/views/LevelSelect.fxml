@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.player.controllers.LevelSelectController">
    <children>
       <BorderPane prefHeight="700.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -59,7 +59,7 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group fx:id="level1" styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
                                                       <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
@@ -110,7 +110,7 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group layoutX="10.0" layoutY="10.0" styleClass="lc-active-level">
+                                                <Group fx:id="level2" layoutX="10.0" layoutY="10.0" styleClass="lc-active-level">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
                                                       <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
@@ -351,7 +351,7 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group styleClass="lc-active-level">
+                                                <Group fx:id="level3" styleClass="lc-active-level">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
                                                       <VBox alignment="TOP_CENTER" layoutY="-2.0" prefHeight="100.0" prefWidth="100.0">
@@ -624,7 +624,7 @@
                                                       </SVGPath>
                                                    </children>
                                                 </VBox>
-                                                <Group layoutX="10.0" layoutY="6.0" styleClass="lc-active-level">
+                                                <Group fx:id="level4" layoutX="10.0" layoutY="6.0" styleClass="lc-active-level">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
                                                       <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
