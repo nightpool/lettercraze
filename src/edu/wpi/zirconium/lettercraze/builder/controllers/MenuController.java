@@ -21,6 +21,14 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         newButton.setOnMouseClicked(this::onNewClicked);
+
+        loadButton.setOnMouseClicked(this::showNotImplemented);
+        collectionsButton.setOnMouseClicked(this::showNotImplemented);
+        achievementsButton.setOnMouseClicked(this::showNotImplemented);
+    }
+
+    private void showNotImplemented(MouseEvent mouseEvent) {
+        
     }
 
     private void onNewClicked(MouseEvent mouseEvent) {
