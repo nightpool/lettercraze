@@ -46,22 +46,6 @@
     -fx-background-color: TRANSPARENT;
 }
 
-.settings-pane .control-buttons-tab {
-    visibility: hidden;
-}
-
-.settings-pane .tab-header-area {
-    -fx-padding: 5px;
-}
-
-.settings-pane .tab {
-    -fx-background-color: white;
-    -fx-border-color: #434343, white;
-    -fx-border-width: 2px 6px, 0px 4px;
-    -fx-padding: 2px 10px;
-    -fx-align: center;
-}
-
 .settings-pane .tab:selected {
     -fx-background-color: #e5e5e5;
 }
@@ -98,14 +82,19 @@
     -fx-font-color: #434343;
     -fx-background-color: TRANSPARENT;
     -fx-border-width: 2px;
-	-fx-font-family: "Josefin Sans";
+    -fx-font-family: "Josefin Sans";
+    -fx-font-size: 18px;
+}
+
+.builder-menu .button:hover {
+    -fx-background-color: #efefef;
+    -fx-cursor: hand;
 }
 
 .lc-main-grid {
     -fx-border-color: #434343;
     -fx-border-width: 2px;
-	
-	-fx-pref-width: 550px;
+    -fx-pref-width: 550px;
     -fx-pref-height: 550px;
 }
 

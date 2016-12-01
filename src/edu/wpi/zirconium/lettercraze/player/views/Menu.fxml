@@ -77,7 +77,7 @@
                   </Region>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Play">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Josefin Sans" size="22.0" />
                      </font>
                   </Text>
                </children>

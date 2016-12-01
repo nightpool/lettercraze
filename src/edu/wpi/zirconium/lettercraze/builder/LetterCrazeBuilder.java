@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class LetterCrazeBuilder extends Application {
 
     static private Stage stage;
@@ -32,14 +34,23 @@ public class LetterCrazeBuilder extends Application {
         LetterCrazeBuilder.stage = null;
     }
 
-    public static void showMenuScreen() throws Exception {
-        Parent menu = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/Menu.fxml"));
-        stage.setScene(new Scene(menu, 1024, 712));
+    public static void showMenuScreen() {
+        try {
+            Parent menu = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/Menu.fxml"));
+            stage.setScene(new Scene(menu, 1024, 712));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public static void showBuilderScreen() throws Exception {
-        Parent builder = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/Builder.fxml"));
-        stage.setScene(new Scene(builder, 1024, 712));
+    public static void showBuilderScreen() {
+        try {
+            Parent builder = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/Builder.fxml"));
+            stage.setScene(new Scene(builder, 1024, 712));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
