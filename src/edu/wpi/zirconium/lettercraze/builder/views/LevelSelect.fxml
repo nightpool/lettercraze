@@ -142,9 +142,9 @@
                                           </AnchorPane>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
-                                                <Group styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group fx:id="newPuzzle" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
                                                       <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
                                                    </children>
                                                 </Group>
@@ -236,9 +236,9 @@
                                           </AnchorPane>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
-                                                <Group styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group fx:id="newLightning" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
                                                       <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
                                                    </children>
                                                 </Group>
@@ -276,9 +276,9 @@
                                        <children>
                                           <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
                                              <children>
-                                                <Group styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <Group fx:id="newTheme" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
                                                       <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
                                                    </children>
                                                 </Group>
