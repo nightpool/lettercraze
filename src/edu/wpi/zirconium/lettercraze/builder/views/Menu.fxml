@@ -6,52 +6,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import edu.wpi.zirconium.components.HamburgerMenu?>
+<?import edu.wpi.zirconium.components.HamburgerMenu.Item?>
+
 <AnchorPane fx:id="root" prefHeight="712.0" prefWidth="1024.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.MenuController">
-   <Pane layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
-      <children>
-         <Pane fx:id="hamburger" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="60.0">
-            <children>
-               <Group layoutX="10.0" layoutY="10.0">
-                  <children>
-                     <Region prefHeight="5.0" prefWidth="40.0" styleClass="hamburger-component" />
-                     <Region layoutY="10.0" prefHeight="5.0" prefWidth="40.0" styleClass="hamburger-component" />
-                     <Region layoutY="20.0" prefHeight="5.0" prefWidth="40.0" styleClass="hamburger-component" />
-                  </children>
-               </Group>
-            </children>
-            <padding>
-               <Insets left="10.0" top="10.0" />
-            </padding>
-         </Pane>
-         <VBox fx:id="hamburgerMenu" layoutY="47.0" prefWidth="120.0" styleClass="hamburger-menu" visible="false">
-            <children>
-               <StackPane prefHeight="40.0" prefWidth="120.0" styleClass="hamburger-item">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                  </children>
-               </StackPane>
-               <StackPane prefHeight="40.0" prefWidth="120.0" styleClass="hamburger-item">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                  </children>
-               </StackPane>
-               <StackPane prefHeight="40.0" prefWidth="120.0" styleClass="hamburger-item">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                  </children>
-               </StackPane>
-            </children>
-         </VBox>
-      </children>
-   </Pane>
+   <HamburgerMenu AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+     <items>
+        <HamburgerMenu.Item label="hey" onAction="#showNotImplemented"/>
+        <HamburgerMenu.Item label="hey" onAction="#showNotImplemented"/>
+        <HamburgerMenu.Item label="hey" onAction="#showNotImplemented"/>
+     </items>
+   </HamburgerMenu>
    <BorderPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
       <center>
          <VBox alignment="CENTER" fillWidth="false" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">

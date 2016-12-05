@@ -12,35 +12,6 @@
     -fx-background-color: WHITE;
 }
 
-#hamburger:hover {
-    -fx-cursor: hand;
-}
-
-#hamburger:pressed, #hamburger.active {
-    -fx-background-color: #efefef;
-}
-
-.hamburger-component {
-    -fx-background-color: #999;
-}
-
-#hamburger:hover .hamburger-component {
-    -fx-background-color: #555;
-}
-
-.hamburger-menu {
-    -fx-spacing: 2px;
-}
-
-.hamburger-item {
-    -fx-border-color: #434343;
-    -fx-border-width: 2px;
-    -fx-alignment: CENTER_LEFT;
-    -fx-padding: 0 0 0 1em;
-    -fx-font-size: 15px;
-    -fx-font-family: "Open Sans Light";
-}
-
 .lc-menu-item:hover {
     -fx-cursor: hand;
 }

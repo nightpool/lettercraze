@@ -1,0 +1,29 @@
+.hamburger:hover {
+    -fx-cursor: hand;
+}
+
+.hamburger:pressed, .hamburger.active {
+    -fx-background-color: #efefef;
+}
+
+.hamburger--rect {
+    -fx-background-color: #999;
+}
+
+.hamburger:hover .hamburger--rect {
+    -fx-background-color: #555;
+}
+
+.hamburger--menu {
+    -fx-spacing: 2px;
+}
+
+.hamburger--menu-item {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 1em;
+    -fx-font-size: 15px;
+    -fx-font-family: "Open Sans Light";
+    -fx-cursor: hand;
+}
