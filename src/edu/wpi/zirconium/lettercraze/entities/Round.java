@@ -84,4 +84,40 @@ public class Round {
 			return true;
 		}
 	}
+	
+	
+	/**
+	 * Returns the current round score.
+	 * @return return the point score
+	 */
+	public int getScore() {
+		return this.score;
+	}
+	
+	/**
+	 * Returns the current time.
+	 * @return the time in seconds
+	 */
+	public int getTime() {
+		return this.seconds;
+	}
+	
+	
+	/**
+	 * Determines, based on level type, if the game is over. 
+	 * @return true if game has ended
+	 */
+	public boolean isOver() {
+		// TODO
+		
+	}
+	
+	/**
+	 * Increments the number of seconds by one.
+	 * @return true if able to increment the time.
+	 */
+	public boolean incrementTime() {
+		this.seconds ++;
+	}
+	
 }
