@@ -16,7 +16,9 @@ public class Tile {
 		this.selected = false;
 	}
 	
-	
+	/**
+	 * get the score of the Tile from the Letter object
+	 */
 	public int getScore() {
 		return character.getScore();
 	}
