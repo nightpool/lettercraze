@@ -11,4 +11,12 @@ public class Level {
 		this.shape = shape;
 		this.scoreThresholds = scoreThresh;
 	}
+	
+	/**
+	 * Return the letter shape of this level.
+	 * @return this level's levelshape
+	 */
+	LevelShape getLevelShape() {
+		return this.shape;
+	}
 }
