@@ -1,0 +1,32 @@
+
+.board--container {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+}
+
+.board--tile-shape {
+    -fx-fill: TRANSPARENT;
+    -fx-stroke: #434343;
+    -fx-stroke-width: 2px;
+    /*-fx-arc-width: 2px;
+    -fx-arc-height: 2px;*/
+    -fx-stroke-type: outside;
+}
+
+.board--tile.blocked .board--tile-shape {
+    -fx-stroke: #aaaaaa;
+}
+
+.board--tile.selected .board--tile-shape {
+    -fx-fill: #b1f2fa;
+    -fx-stroke: black;
+}
+
+.board--letter {
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 36px;
+}
+
+.board--tile.blocked .board--letter {
+    visibility: hidden;
+}
