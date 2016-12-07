@@ -16,16 +16,16 @@ import java.util.List;
 /**
  * This is the main application class for the letter craze builder.
  * <p>
- * 
+ *
  * @author Zirconium
  *
  */
 public class LetterCrazeBuilder extends Application {
 
-	/** The holder for the stage. TODO  */
+    /** The holder for the stage. TODO  */
     static private Stage stage;
-    
-    /** Array that holds the level packs, each one containing all the levels for a game. */ 
+
+    /** Array that holds the level packs, each one containing all the levels for a game. */
     protected List<LevelPackData> levelPacks = new ArrayList<LevelPackData>();
 
     /**
@@ -34,18 +34,18 @@ public class LetterCrazeBuilder extends Application {
      * @return true if pack was successfully loaded
      */
     public boolean loadPack(String file){
-    	// TODO
-    	return false;
+        // TODO
+        return false;
     }
-    
+
     /**
      * Saves the entire pack of level data to disk.
      * @param file full path to file to save the current level pack data to.
      * @return true if operation was successful
      */
     public boolean savePack(String file){
-    	// TODO
-    	return false;
+        // TODO
+        return false;
     }
 
     @Override
@@ -74,6 +74,7 @@ public class LetterCrazeBuilder extends Application {
             stage.setScene(new Scene(menu, 1024, 712));
         } catch (IOException e) {
             e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : Menu");
         }
 
     }
@@ -84,6 +85,7 @@ public class LetterCrazeBuilder extends Application {
             stage.setScene(new Scene(builder, 1024, 712));
         } catch (IOException e) {
             e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : Builder");
         }
     }
 

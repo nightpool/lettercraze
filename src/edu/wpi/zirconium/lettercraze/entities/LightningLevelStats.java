@@ -2,11 +2,11 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class LightningLevelStats extends LevelStats{
 
-	int mostWords;
+    int mostWords;
 
-	LightningLevelStats(Level l, int words) {
-		super(l);
-		this.mostWords = words;
-	}
+    LightningLevelStats(Level l, int words) {
+        super(l);
+        this.mostWords = words;
+    }
 
 }
