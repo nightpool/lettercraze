@@ -15,6 +15,9 @@ public class Letter {
 		this.score = score;
 	}
 	
+	/**
+	 * returns the score of the character
+	 */
 	public int getScore() {
 		return score;
 	}

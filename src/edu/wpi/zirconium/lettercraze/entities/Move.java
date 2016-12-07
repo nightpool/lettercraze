@@ -28,7 +28,7 @@ public class Move {
 	 * @return boolean whether the Tile is valid to add to the word
 	 */
 	public boolean isTileValid(Tile t) {
-		boolean adjacent = (lastTile().getPostition().adjacent(t.getPostition()));
+		boolean adjacent = (lastTile().getPoint().adjacent(t.getPoint()));
 		boolean selected = selectedTiles.contains(t);
 		
 		return adjacent && !selected;

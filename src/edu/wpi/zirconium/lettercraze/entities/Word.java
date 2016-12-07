@@ -16,6 +16,7 @@ public class Word {
 	
 	/**
 	 * gets the score of the word from all the letters in each word
+	 * @return the score of the Word
 	 */
 	public int getScore() {
 		int score = 0;
@@ -23,6 +24,10 @@ public class Word {
 		return score;
 	}
 	
+	/**
+	 * gets the score of the word from all the letters in each word
+	 * @return the validity of the word from the dictionary
+	 */
 	public boolean isValid() {
 		return false;	//TODO check the dictionary for this word
 	}

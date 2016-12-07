@@ -17,13 +17,18 @@ public class Tile {
 	}
 	
 	/**
-	 * get the score of the Tile from the Letter object
+	 * gets the score of the Tile from the Letter object
+	 * @return the score of the Tile's Letter
 	 */
 	public int getScore() {
 		return character.getScore();
 	}
 
-	public Point getPostition() {
+	/**
+	 * gets the position of the Tile
+	 * @return the Point where the Tile is
+	 */
+	public Point getPoint() {
 		return position;
 	}
 	
