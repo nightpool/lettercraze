@@ -35,6 +35,18 @@
     -fx-padding: 0;
 }
 
+.level--preview-box {
+    -fx-fill: TRANSPARENT;
+    -fx-stroke: #434343;
+    -fx-border-color: #434343;
+    -fx-stroke-width: 2px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 2px;
+
+    -fx-pref-width: 55px;
+    -fx-pref-height: 50px;
+}
+
 .settings-pane .label {
     -fx-font-family: "Open Sans";
     -fx-font-size: 15px;
@@ -91,30 +103,6 @@
     -fx-cursor: hand;
 }
 
-.lc-main-grid {
-    -fx-border-color: #434343;
-    -fx-border-width: 2px;
-    -fx-pref-width: 550px;
-    -fx-pref-height: 550px;
-}
-
-.lc-grid-tile {
-    -fx-fill: TRANSPARENT;
-    -fx-stroke: #434343;
-    -fx-border-color: #434343;
-    -fx-stroke-width: 2px;
-    -fx-border-width: 2px;
-    -fx-border-radius: 2px;
-
-    -fx-pref-width: 55px;
-    -fx-pref-height: 50px;
-}
-
-.lc-grid-tile:disabled {
-    -fx-border-color: #aaaaaa;
-}
-
-.lc-grid-letter {
-    -fx-font-family: "Open Sans";
-    -fx-font-size: 36px;
+#board .board--tile.blocked .board--tile-shape {
+    -fx-stroke: TRANSPARENT;
 }
