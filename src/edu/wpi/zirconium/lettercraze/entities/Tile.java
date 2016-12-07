@@ -4,48 +4,48 @@ public class Tile {
 
     private final Letter character;
     private Point position;
-	private boolean selected;
-	
-	/**
-	 * creates Tile object with a Letter, at a Position
-	 * @param c the Letter object
-	 * @param ps the position of Tile
-	 */
-	public Tile(Letter c, Point ps) {
-		this.character = c;
-		this.position = ps;
-		this.selected = false;
-	}
-	
-	/**
-	 * gets the score of the Tile from the Letter object
-	 * @return the score of the Tile's Letter
-	 */
-	public int getScore() {
-		return character.getScore();
-	}
+    private boolean selected;
 
-	/**
-	 * gets the position of the Tile
-	 * @return the Point where the Tile is
-	 */
-	public Point getPoint() {
-		return position;
-	}
+    /**
+     * creates Tile object with a Letter, at a Position
+     * @param c the Letter object
+     * @param ps the position of Tile
+     */
+    public Tile(Letter c, Point ps) {
+        this.character = c;
+        this.position = ps;
+        this.selected = false;
+    }
 
-	public void setPosition(Point position) {
-		this.position = position;
-	}
+    /**
+     * gets the score of the Tile from the Letter object
+     * @return the score of the Tile's Letter
+     */
+    public int getScore() {
+        return character.getScore();
+    }
 
-	public boolean isAdjacent(Tile t) {
-		return getPoint().isAdjacent(t.getPoint());
-	}
+    /**
+     * gets the position of the Tile
+     * @return the Point where the Tile is
+     */
+    public Point getPoint() {
+        return position;
+    }
 
-	public boolean isSelected() {
-		return selected;
-	}
+    public void setPosition(Point position) {
+        this.position = position;
+    }
 
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
+    public boolean isAdjacent(Tile t) {
+        return getPoint().isAdjacent(t.getPoint());
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 }

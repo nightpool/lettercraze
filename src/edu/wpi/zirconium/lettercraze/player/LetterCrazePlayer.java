@@ -22,15 +22,15 @@ import java.util.ArrayList;
  *
  */
 public class LetterCrazePlayer extends Application {
-	/** Holder for the Java FX stage.  */
+    /** Holder for the Java FX stage.  */
     static private Stage stage;
-    
+
     // TODO - achievements
     // Achievement achievements...
-    
-    /** Array that holds the level packs, each one containing all the levels for a game. */ 
+
+    /** Array that holds the level packs, each one containing all the levels for a game. */
     protected ArrayList<LevelPack> levelPacks = new ArrayList<LevelPack>();
-    
+
     /** The current round of the game. */
     Round currentRound;
 
@@ -78,35 +78,35 @@ public class LetterCrazePlayer extends Application {
             throw new IllegalStateException("Can't load FXML : Level");
         }
     }
-    
+
 // TODO achievement data stuff
-    
+
     /**
      * Loads the LevelPack
      * @param file the File to load the level pack from.
      */
     public LevelPackData loadData(String file){
-    	return new LevelPackData("bla");
-//    	levelPacks.add(LevelPackData(file));
-//    	return levelPacks.get(0);
+        return new LevelPackData("bla");
+//        levelPacks.add(LevelPackData(file));
+//        return levelPacks.get(0);
     }
-    
+
     /**
      * Starts the round from the given level.
      * @param level to start round with
      * @return true if no errors occurred
      */
     public boolean startRound(Level level){
-    	currentRound = new Round(level);
-    	// TODO - is this where the check happens if a locked level can be played?
-    	return true;
+        currentRound = new Round(level);
+        // TODO - is this where the check happens if a locked level can be played?
+        return true;
     }
-    
+
     /**
      * Updates the stats for the current round's progress.
      */
     public void updateStatsFromCurrentRound() {
-    	// TODO no idea.
+        // TODO no idea.
     }
 
     public static void main(String[] args) {

@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 
 public class LevelSelectController implements Initializable {
 
-	@FXML private Pane backButton;
+    @FXML private Pane backButton;
     @FXML private Group level1;
     @FXML private Group level2;
     @FXML private Group level3;
@@ -32,7 +32,7 @@ public class LevelSelectController implements Initializable {
     private void showLevelScreen(MouseEvent mouseEvent) {
         LetterCrazePlayer.showPlayerLevelScreen();
     }
-    
+
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
         LetterCrazePlayer.showMenuScreen();
     }
