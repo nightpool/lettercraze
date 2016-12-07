@@ -2,24 +2,41 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
 
+/**
+ * Executable state of a level in the Letter Craze Player Application.
+ * <p>
+ * 
+ * <p>
+ * @author Christopher Bove (cpbove@wpi.edu)
+ */
 public class Round {
+	/** The level that is loaded into this current round.	*/
 	protected Level level;
 	
+	/** The board that is formed from the level of this Round. */
 	protected Board board;
 	
+	/** the current move in progress. Either null or happenning. */
 	protected Move moveInProgress;
 	
-	/** Stack of recent Moves */
+	/** Stack of recent Moves. */
 	protected java.util.Stack<Move> completedMoves = new java.util.Stack<Move>();
 	
+	/** The number of seconds that the game has been played for.*/
 	protected int seconds;
 	
+	/** The score accumulated in this level so far. */
 	protected int score;
 	
+	/** The number of words found in this round so far. */
+	protected int numWordsFound;
+	
+	/** Array list of the words found so far in the game. */
+	// TODO implement the logic for this if needed.
 	protected ArrayList<Word> wordsFound = new ArrayList<Word>();
 	
 	/**
-	 * creates round object and initializes the board
+	 * Creates round object and initializes the board with level.
 	 * @param level to fill board with
 	 */
 	public Round(Level level){
@@ -30,25 +47,19 @@ public class Round {
 	}
 	
 	/**
-	 * reinitializes the round according to level type.
+	 * Reinitializes the round according to level type.
 	 * @return true if board has reset successfully
 	 */
-	protected boolean reset() {
+	public boolean reset() {
 		score = 0;
+		numWordsFound = 0;
 		// current time does not reset if level is lightning
+		if (!(this.level instanceof LightningLevel))
+			seconds = 0;
 		board = new Board(level.getLevelShape());
 		moveInProgress = null; // TODO maybe this should be different
 		completedMoves.clear();
 		wordsFound.clear();
-		
-	}
-	
-	/**
-	 * ???
-	 * @param word
-	 * @return
-	 */
-	public boolean removeWord(Word word){
 		
 	}
 	
@@ -58,9 +69,12 @@ public class Round {
 	 */
 	public boolean doMove() {
 		if(moveInProgress.do(this)){
+			this.score += moveInProgress.getScore();
+			numWordsFound ++;
 			completedMoves.push(moveInProgress);
 			// TODO how to reset the current Move?
 			moveInProgress = null;
+			
 			return true;
 			
 		}
@@ -69,19 +83,26 @@ public class Round {
 	
 	/**
 	 * Undos the last move.
-	 * @return true if successful
+	 * @return true if either current move or last move was undone
 	 */
 	public boolean undoMove() {
+		// clear out current move if it is in progress (not null)
 		if(moveInProgress){
-			// TODO unselect this move???
-			
+			moveInProgress.clear();
+			return true;
 		}
 		else{
+			// if don't have any completed moves, no undo
 			if (completedMoves.empty()){
 				return false;
 			}
-			completedMoves.pop();
-			return true;
+			// otherwise, undo last move 
+			Move lastMove = completedMoves.pop();
+			score -= lastMove.getScore();
+			numWordsFound --;
+			
+			return lastMove.undo(this);
+			
 		}
 	}
 	
@@ -104,19 +125,26 @@ public class Round {
 	
 	
 	/**
-	 * Determines, based on level type, if the game is over. 
+	 * Returns the number of words successfully found during this round.
+	 * @return number of words successfully found
+	 */
+	public int getNumWordsFound() {
+		return this.numWordsFound;
+	}
+	
+	
+	/**
+	 * Determines, based on level type, if the game is over.
 	 * @return true if game has ended
 	 */
 	public boolean isOver() {
-		// TODO
-		
+		return this.level.isOver(this);
 	}
 	
 	/**
 	 * Increments the number of seconds by one.
-	 * @return true if able to increment the time.
 	 */
-	public boolean incrementTime() {
+	public void incrementTime() {
 		this.seconds ++;
 	}
 	
