@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -48,27 +49,41 @@ public class LetterCrazePlayer extends Application {
         LetterCrazePlayer.stage.show();
     }
 
-    public static void showMenuScreen() throws Exception {
-        Parent menu = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Menu.fxml"));
-        stage.setScene(new Scene(menu, 1024, 712));
+    public static void showMenuScreen() {
+        try {
+            Parent menu = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Menu.fxml"));
+            stage.setScene(new Scene(menu, 1024, 712));
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : Menu");
+        }
     }
 
-    public static void showLevelSelectScreen() throws Exception {
-        Parent builder = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/LevelSelect.fxml"));
-        stage.setScene(new Scene(builder, 1024, 712));
+    public static void showLevelSelectScreen() {
+        try {
+            Parent builder = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/LevelSelect.fxml"));
+            stage.setScene(new Scene(builder, 1024, 712));
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : LevelSelect");
+        }
     }
 
-    public static void showPlayerLevelScreen() throws Exception {
-        Parent player = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Level.fxml"));
-        stage.setScene(new Scene(player, 1024, 712));
+    public static void showPlayerLevelScreen() {
+        try {
+            Parent player = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Level.fxml"));
+            stage.setScene(new Scene(player, 1024, 712));
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : Level");
+        }
     }
     
 // TODO achievement data stuff
     
     /**
-     * Loads the LavelPack
-     * @param file
-     * @return
+     * Loads the LevelPack
+     * @param file the File to load the level pack from.
      */
     public LevelPackData loadData(String file){
     	return new LevelPackData("bla");

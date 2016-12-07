@@ -41,11 +41,7 @@ public class LevelControllers implements Initializable {
     }
 
     private void onExitClicked(MouseEvent mouseEvent) {
-        try {
-            LetterCrazePlayer.showLevelSelectScreen();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LetterCrazePlayer.showLevelSelectScreen();
     }
 
     private static class ToggleTileStateController implements EventHandler<MouseEvent> {

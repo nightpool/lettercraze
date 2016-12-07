@@ -30,18 +30,10 @@ public class LevelSelectController implements Initializable {
     }
 
     private void showLevelScreen(MouseEvent mouseEvent) {
-        try {
-            LetterCrazePlayer.showPlayerLevelScreen();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LetterCrazePlayer.showPlayerLevelScreen();
     }
     
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
-        try {
-            LetterCrazePlayer.showMenuScreen();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LetterCrazePlayer.showMenuScreen();
     }
 }

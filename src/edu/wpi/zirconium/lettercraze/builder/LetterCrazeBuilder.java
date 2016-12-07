@@ -74,6 +74,7 @@ public class LetterCrazeBuilder extends Application {
             stage.setScene(new Scene(menu, 1024, 712));
         } catch (IOException e) {
             e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : Menu");
         }
 
     }
@@ -84,6 +85,7 @@ public class LetterCrazeBuilder extends Application {
             stage.setScene(new Scene(builder, 1024, 712));
         } catch (IOException e) {
             e.printStackTrace();
+            throw new IllegalStateException("Can't load FXML : Builder");
         }
     }
 

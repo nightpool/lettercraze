@@ -11,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import sun.plugin.dom.exception.InvalidStateException;
 
 import java.io.IOException;
 
@@ -26,7 +25,7 @@ public class BoardView extends Pane {
             fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
-            throw new InvalidStateException("Can't load FXML : "+getClass().getSimpleName());
+            throw new IllegalStateException("Can't load FXML : "+getClass().getSimpleName());
         }
 
         this.prefHeightProperty().bind(this.widthProperty());
@@ -128,7 +127,7 @@ public class BoardView extends Pane {
                 fxmlLoader.load();
             } catch (IOException e) {
                 e.printStackTrace();
-                throw new InvalidStateException("Can't load FXML : "+getClass().getSimpleName());
+                throw new IllegalStateException("Can't load FXML : "+getClass().getSimpleName());
             }
 
             getRectangle().widthProperty().bind(getSizedTileWidth());
