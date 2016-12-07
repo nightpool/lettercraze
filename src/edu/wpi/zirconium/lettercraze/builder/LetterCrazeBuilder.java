@@ -9,10 +9,49 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+/**
+ * This is the main application class for the letter craze builder.
+ * <p>
+ * 
+ * @author Zirconium
+ *
+ */
 public class LetterCrazeBuilder extends Application {
 
+	/** The holder for the stage. TODO  */
     static private Stage stage;
+    
+    /** Array that holds the level packs, each one containing all the levels for a game. */ 
+    protected ArrayList<LevelPackData> levelPacks = new ArrayList<LevelPackData>();
+    
+    /**
+     * Default constructor.
+     */
+    public LetterCrazeBuilder() {
+    	
+    }
+    
+    /**
+     *     Loads the level pack at the path specified.
+     * @param file full path to file of the desired pack to load.
+     * @return true if pack was successfully loaded
+     */
+    public boolean loadPack(String file){
+    	// TODO
+    	return false;
+    }
+    
+    /**
+     * Saves the entire pack of level data to disk.
+     * @param file full path to file to save the current level pack data to.
+     * @return true if operation was successful
+     */
+    public boolean savePack(String file){
+    	// TODO
+    	return false;
+    }
 
     @Override
     public void init() {
