@@ -1,8 +1,6 @@
 package edu.wpi.zirconium.lettercraze.player;
 
-import java.util.ArrayList;
 import com.sun.javafx.application.LauncherImpl;
-
 import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.entities.LevelPackData;
@@ -13,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 /**
  * Main application class for the letter craze player.
@@ -32,14 +32,7 @@ public class LetterCrazePlayer extends Application {
     
     /** The current round of the game. */
     Round currentRound;
-    
-    /**
-     * Default constructor.
-     */
-//    LetterCrazePlayer() {
-//    	
-//    }
-    
+
     @Override
     public void init() {
         try {

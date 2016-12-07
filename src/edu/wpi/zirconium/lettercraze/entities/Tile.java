@@ -1,9 +1,10 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 public class Tile {
-	protected Letter character;
-	protected Point position;
-	protected boolean selected;
+
+    private final Letter character;
+    private Point position;
+	private boolean selected;
 	
 	/**
 	 * creates Tile object with a Letter, at a Position
@@ -31,5 +32,20 @@ public class Tile {
 	public Point getPoint() {
 		return position;
 	}
-	
+
+	public void setPosition(Point position) {
+		this.position = position;
+	}
+
+	public boolean isAdjacent(Tile t) {
+		return getPoint().isAdjacent(t.getPoint());
+	}
+
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
 }

@@ -1,6 +1,7 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class LevelPack {
@@ -8,10 +9,8 @@ public class LevelPack {
 	
 	protected LevelPackData data;
 	
-	//protected File saveFile; //TODO Evan! (dunno what to import)
-	
 	public LevelPack(String saveFile){
-	
+
 	}
 
 	public void saveStats(){
@@ -23,7 +22,7 @@ public class LevelPack {
 		
 	}
 	
-	public LevelStats unlockedLevels(){
+	public List<LevelStats> unlockedLevels(){
 		return null;
 		
 	}

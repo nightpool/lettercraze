@@ -1,27 +1,26 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Word {
 	
-	protected ArrayList<Letter> letters;
+	protected List<Letter> letters;
 	
 	/**
 	 * creates Word object with a collection of Letters
-	 * @param l the ArrayList of Letter objects that goes into to Word
+	 * @param letters The new letters to construct the word out of
 	 */
-	public Word(ArrayList<Letter> l) {
-		this.letters = l;
+	public Word(Letter... letters) {
+		this.letters = Arrays.asList(letters);
 	}
-	
-	/**
+
+    /**
 	 * gets the score of the word from all the letters in each word
 	 * @return the score of the Word
 	 */
 	public int getScore() {
-		int score = 0;
-		for (Letter l : letters) score += l.getScore();
-		return score;
+		return letters.stream().mapToInt(Letter::getScore).sum();
 	}
 	
 	/**

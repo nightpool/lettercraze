@@ -1,6 +1,7 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Executable state of a level in the Letter Craze Player Application.
@@ -20,7 +21,7 @@ public class Round {
 	protected Move moveInProgress;
 	
 	/** Stack of recent Moves. */
-	protected java.util.Stack<Move> completedMoves = new java.util.Stack<Move>();
+	protected List<Move> completedMoves;
 	
 	/** The number of seconds that the game has been played for.*/
 	protected int seconds;
@@ -33,7 +34,7 @@ public class Round {
 	
 	/** Array list of the words found so far in the game. */
 	// TODO implement the logic for this if needed.
-	protected ArrayList<Word> wordsFound = new ArrayList<Word>();
+	protected ArrayList<Word> wordsFound;
 	
 	/**
 	 * Creates round object and initializes the board with level.
@@ -43,7 +44,8 @@ public class Round {
 		this.level = level;
 		seconds = 0;
 		reset();
-		
+		completedMoves = new ArrayList<>();
+		wordsFound = new ArrayList<>();
 	}
 	
 	/**
@@ -69,12 +71,11 @@ public class Round {
 		if(moveInProgress.doMove(this)){
 			this.score += moveInProgress.getScore();
 			numWordsFound ++;
-			completedMoves.push(moveInProgress);
+			completedMoves.add(moveInProgress);
 			// TODO how to reset the current Move?
 			moveInProgress = null;
-			
+
 			return true;
-			
 		}
 		return false;
 	}
@@ -88,23 +89,21 @@ public class Round {
 		if(moveInProgress.getNumberSelectedTiles() == 0){
 			moveInProgress = null;
 			return true;
-		}
-		else{
+		} else {
 			// if don't have any completed moves, no undo
-			if (completedMoves.empty()){
+			if (completedMoves.size() == 0){
 				return false;
 			}
 			// otherwise, undo last move 
-			Move lastMove = completedMoves.pop();
+			Move lastMove = completedMoves.remove(completedMoves.size() - 1);
 			score -= lastMove.getScore();
-			numWordsFound --;
+			numWordsFound--;
 			
 			return lastMove.undo(this);
 			
 		}
 	}
-	
-	
+
 	/**
 	 * Returns the current round score.
 	 * @return return the point score
@@ -120,8 +119,7 @@ public class Round {
 	public int getTime() {
 		return this.seconds;
 	}
-	
-	
+
 	/**
 	 * Returns the number of words successfully found during this round.
 	 * @return number of words successfully found
@@ -129,8 +127,7 @@ public class Round {
 	public int getNumWordsFound() {
 		return this.numWordsFound;
 	}
-	
-	
+
 	/**
 	 * Determines, based on level type, if the game is over.
 	 * @return true if game has ended
@@ -143,7 +140,7 @@ public class Round {
 	 * Increments the number of seconds by one.
 	 */
 	public void incrementTime() {
-		this.seconds ++;
+		this.seconds++;
 	}
 	
 }

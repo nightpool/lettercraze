@@ -8,6 +8,4 @@ public class PuzzleLevelStats extends LevelStats{
 		super(l);
 		this.mostPoints = points;
 	}
-
-
 }

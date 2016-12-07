@@ -1,19 +1,16 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Move {
 	protected Word word;
-	protected ArrayList<Tile> selectedTiles;
+	protected List<Tile> selectedTiles;
 	protected Board prevBoard;
-	
-	/**
-	 * creates Word object with a collection of Letters
-	 * @param prevBoard the Board object that represents the state of the board before this move is made
-	 */
+
 	public Move() {
-		// TODO this shouldn't be here - a move
-//		this.prevBoard = prevBoard;
+		this.word = new Word();
+		this.selectedTiles = new ArrayList<>();
 	}
 	
 	/**
@@ -29,7 +26,7 @@ public class Move {
 	 * @return boolean whether the Tile is valid to add to the word
 	 */
 	public boolean isTileValid(Tile t) {
-		boolean adjacent = (lastTile().getPoint().adjacent(t.getPoint()));
+		boolean adjacent = lastTile().isAdjacent(t);
 		boolean selected = selectedTiles.contains(t);
 		
 		return adjacent && !selected;
@@ -72,13 +69,11 @@ public class Move {
 	 * @return whether the Move was completer
 	 */
 	public int getScore() {
-		int score = 0;
-		for (Tile t : selectedTiles) score += t.getScore();
-		return score;
+		return word.getScore();
 	}
 	
 	private Tile lastTile() {
-		return selectedTiles.get(selectedTiles.size() - 1);
+        return selectedTiles.get(selectedTiles.size() - 1);
 	}
 
 	public boolean undo(Round round) {

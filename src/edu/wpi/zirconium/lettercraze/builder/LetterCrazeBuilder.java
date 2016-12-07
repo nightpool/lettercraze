@@ -1,7 +1,6 @@
 package edu.wpi.zirconium.lettercraze.builder;
 
 import com.sun.javafx.application.LauncherImpl;
-
 import edu.wpi.zirconium.lettercraze.entities.LevelPackData;
 import edu.wpi.zirconium.lettercraze.views.SplashScreen;
 import javafx.application.Application;
@@ -12,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the main application class for the letter craze builder.
@@ -26,15 +26,8 @@ public class LetterCrazeBuilder extends Application {
     static private Stage stage;
     
     /** Array that holds the level packs, each one containing all the levels for a game. */ 
-    protected ArrayList<LevelPackData> levelPacks = new ArrayList<LevelPackData>();
-    
-    /**
-     * Default constructor.
-     */
-    public LetterCrazeBuilder() {
-    	
-    }
-    
+    protected List<LevelPackData> levelPacks = new ArrayList<LevelPackData>();
+
     /**
      *     Loads the level pack at the path specified.
      * @param file full path to file of the desired pack to load.

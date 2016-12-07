@@ -1,10 +1,11 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
 	protected LevelShape shape;
-	protected ArrayList<Tile> tiles;
+	protected List<Tile> tiles = new ArrayList<>();
 	
 	/**
 	 * creates Board object with a LevelShape

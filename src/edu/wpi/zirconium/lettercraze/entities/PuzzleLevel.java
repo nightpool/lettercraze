@@ -7,7 +7,4 @@ public class PuzzleLevel extends Level{
 	PuzzleLevel(String key) {
 		super(key);
 	}
-
-	
-	
 }

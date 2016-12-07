@@ -2,22 +2,26 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class LevelShape {
 
-	boolean[][] isTile = new boolean[6][6];
+    private final int size;
+    private boolean[][] shape;
 	
-	LevelShape(boolean[][] shape){
-		this.isTile = shape;
+	public LevelShape(int size, boolean[][] shape){
+        // TODO assert shape is of the right size
+        this.size = size;
+		this.shape = shape;
 	}
+
+    public LevelShape(int size) {
+        this.size = size;
+        this.shape = new boolean[size][size];
+    }
 	
 	boolean isTile(int x, int y){
-		if (isTile[x][y] == true){
-			return true;
-		} else {
-			return false;
-		}
+		return this.shape[x][y];
 	}
 	
 	boolean setTile(int x, int y, boolean tile){
-		isTile[x][y] = tile;
+		this.shape[x][y] = tile;
 		return true;
 	}
 }

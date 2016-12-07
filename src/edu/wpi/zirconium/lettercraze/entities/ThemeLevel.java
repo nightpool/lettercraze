@@ -1,12 +1,16 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThemeLevel extends Level{
 
-	Word[] words = new Word[0];//TODO Change this 0 to something else!
-	String[][] letters = new String[6][6];
+	List<Word> words;
+	List<Letter> letters;
 	
 	ThemeLevel(String key) {
 		super(key);
+		this.words = new ArrayList<>();
+		this.letters = new ArrayList<>();
 	}
-
 }

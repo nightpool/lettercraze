@@ -2,20 +2,19 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class Level {
 
-	String key;
-	LevelShape shape;
-	int[] scoreThresholds = new int[3];
-	
-	
-	
+	private final String key;
+	private LevelShape shape;
+	private int[] scoreThresholds = new int[3];
+
 	Level(String key){
 		this.key = key;
+		this.shape = new LevelShape(6);
+
 		scoreThresholds[0] = 0;
 		scoreThresholds[1] = 0;
 		scoreThresholds[2] = 0;
 	}
-	
-	
+
 	int numAchievedStars(int score){
 		if(score < scoreThresholds[0]){
 			return 0;
@@ -37,9 +36,11 @@ public class Level {
 	}
 	
 	boolean isOver(Round r){
-		//TODO Fill this shit in with how to determine if a level is over
-		
+		//TODO
 		return false;
 	}
-	
+
+	public String getKey() {
+		return key;
+	}
 }

@@ -1,15 +1,15 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LevelPackData {
 	
-	protected ArrayList<Level> levels = new ArrayList<Level>();
-	
+	protected List<Level> levels;
 	protected String saveFile;
 	
 	public LevelPackData(String saveFile){
-		
+		levels = new ArrayList<Level>();
 	}
 	
 	public boolean saveLevels(){
@@ -22,7 +22,7 @@ public class LevelPackData {
 		
 	}
 	
-	public boolean moveLevel(Level level, int i){
+	public boolean moveLevel(Level level, int toIndex){
 		return false;
 		
 	}
