@@ -54,13 +54,11 @@ public class Round {
 		score = 0;
 		numWordsFound = 0;
 		// current time does not reset if level is lightning
-		if (!(this.level instanceof LightningLevel))
-			seconds = 0;
 		board = new Board(level.getLevelShape());
 		moveInProgress = new Move(); // TODO maybe this should be different
 		completedMoves.clear();
 		wordsFound.clear();
-		
+		return true;
 	}
 	
 	/**
