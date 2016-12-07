@@ -66,8 +66,8 @@ public class LetterCrazePlayer extends Application {
     }
 
     public static void showPlayerLevelScreen() throws Exception {
-        Parent builder = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Level.fxml"));
-        stage.setScene(new Scene(builder, 1024, 712));
+        Parent player = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Level.fxml"));
+        stage.setScene(new Scene(player, 1024, 712));
     }
     
 // TODO achievement data stuff
