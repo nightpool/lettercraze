@@ -22,4 +22,8 @@ public class Word {
 		for (Letter l : letters) score += l.getScore();
 		return score;
 	}
+	
+	public boolean isValid() {
+		return false;	//TODO check the dictionary for this word
+	}
 }

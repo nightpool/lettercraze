@@ -22,5 +22,9 @@ public class Tile {
 	public int getScore() {
 		return character.getScore();
 	}
+
+	public Point getPostition() {
+		return position;
+	}
 	
 }

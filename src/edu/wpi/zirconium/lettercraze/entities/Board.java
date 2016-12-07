@@ -8,20 +8,19 @@ public class Board {
 	
 	public Board(LevelShape ls) {
 		this.shape = ls;
+		this.tiles = null;
 	}
 	
 	public Tile getTile(int row, int col) {
-		//TODO return the tile
+		//TODO return the tile in the spot
 		return null;
 	}
 	
 	public boolean addTile(Tile t) {
-		//TODO add tile to ArrayList of tiles
-		return false;
+		return tiles.add(t);
 	}
 	
 	public boolean removeTile(Tile t) {
-		//TODO remove tile from ArrayList of tiles
-		return false;
+		return tiles.remove(t);
 	}
 }
