@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="Pane" minWidth="200"
+         minHeight="-Infinity" maxHeight="-Infinity"
+         styleClass="board--container" stylesheets="@board.css"
+         xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1" >
+</fx:root>
