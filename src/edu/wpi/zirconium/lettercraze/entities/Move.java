@@ -11,8 +11,9 @@ public class Move {
 	 * creates Word object with a collection of Letters
 	 * @param prevBoard the Board object that represents the state of the board before this move is made
 	 */
-	public Move(Board prevBoard) {
-		this.prevBoard = prevBoard;
+	public Move() {
+		// TODO this shouldn't be here - a move
+//		this.prevBoard = prevBoard;
 	}
 	
 	/**
@@ -59,6 +60,7 @@ public class Move {
 	 */
 	public boolean doMove(Round r) {
 		if (isMoveValid()) {
+			// TODO this is where the board state gets saved.
 			//TODO move logic. Does Round do the move, or does Move do the move?
 			return true;
 		} else return false;
@@ -77,6 +79,15 @@ public class Move {
 	
 	private Tile lastTile() {
 		return selectedTiles.get(selectedTiles.size() - 1);
+	}
+
+	public boolean undo(Round round) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int getNumberSelectedTiles() {
+		return selectedTiles.size();
 	}
 	
 }

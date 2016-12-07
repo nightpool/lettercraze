@@ -1,6 +1,8 @@
 package edu.wpi.zirconium.lettercraze.builder;
 
 import com.sun.javafx.application.LauncherImpl;
+
+import edu.wpi.zirconium.lettercraze.entities.LevelPackData;
 import edu.wpi.zirconium.lettercraze.views.SplashScreen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import com.sun.javafx.application.LauncherImpl;
 
 import edu.wpi.zirconium.lettercraze.entities.Level;
+import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.entities.LevelPackData;
 import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.views.SplashScreen;
@@ -35,9 +36,9 @@ public class LetterCrazePlayer extends Application {
     /**
      * Default constructor.
      */
-    LetterCrazePlayer() {
-    	
-    }
+//    LetterCrazePlayer() {
+//    	
+//    }
     
     @Override
     public void init() {
@@ -77,8 +78,9 @@ public class LetterCrazePlayer extends Application {
      * @return
      */
     public LevelPackData loadData(String file){
-    	// TODO 
-    	return new LevelPackData;
+    	return new LevelPackData("bla");
+//    	levelPacks.add(LevelPackData(file));
+//    	return levelPacks.get(0);
     }
     
     /**

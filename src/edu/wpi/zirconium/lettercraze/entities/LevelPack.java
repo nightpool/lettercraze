@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 
 public class LevelPack {
-	protected ArrayList<LevelStat> levelStats = new ArrayList<LevelStat>();
+	protected ArrayList<LevelStats> levelStats = new ArrayList<LevelStats>();
 	
 	protected LevelPackData data;
 	
-	protected File saveFile; //TODO Evan! (dunno what to import)
+	//protected File saveFile; //TODO Evan! (dunno what to import)
 	
 	public LevelPack(String saveFile){
 	
@@ -18,15 +18,18 @@ public class LevelPack {
 		
 	}
 	
-	public Boolean isUnlocked(Level level){
+	public boolean isUnlocked(Level level){
+		return false;
 		
 	}
 	
-	public LevelStat unlockedLevels(){
+	public LevelStats unlockedLevels(){
+		return null;
 		
 	}
 	
-	public LevelStat lastUnlockedLevel(){
+	public LevelStats lastUnlockedLevel(){
+		return null;
 		
 	}
 }

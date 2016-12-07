@@ -1,5 +1,7 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import java.lang.Math;
+
 public class Point {
 	
 	protected int row, column;
@@ -20,7 +22,7 @@ public class Point {
 	 * @return whether it is adjacent or not
 	 */
 	public boolean adjacent(Point p) {
-		return (abs(column - p.column) == 1 || abs(row - p.row) == 1);	//TODO abs no worky?
+		return (java.lang.Math.abs(column - p.column) == 1 || java.lang.Math.abs(row - p.row) == 1);	//TODO abs no worky?
 	}
 	
 	

@@ -13,18 +13,22 @@ public class LevelPackData {
 	}
 	
 	public boolean saveLevels(){
+		return false;
 		
 	}
 	
 	public boolean addLevel(Level level){
+		return false;
 		
 	}
 	
 	public boolean moveLevel(Level level, int i){
+		return false;
 		
 	}
 	
 	public boolean removeLevel(Level level){
+		return false;
 		
 	}
 }

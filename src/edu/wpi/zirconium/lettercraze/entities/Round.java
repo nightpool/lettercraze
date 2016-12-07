@@ -57,7 +57,7 @@ public class Round {
 		if (!(this.level instanceof LightningLevel))
 			seconds = 0;
 		board = new Board(level.getLevelShape());
-		moveInProgress = null; // TODO maybe this should be different
+		moveInProgress = new Move(); // TODO maybe this should be different
 		completedMoves.clear();
 		wordsFound.clear();
 		
@@ -68,7 +68,7 @@ public class Round {
 	 * @return true if move can be made, false otherwise
 	 */
 	public boolean doMove() {
-		if(moveInProgress.do(this)){
+		if(moveInProgress.doMove(this)){
 			this.score += moveInProgress.getScore();
 			numWordsFound ++;
 			completedMoves.push(moveInProgress);
@@ -87,8 +87,8 @@ public class Round {
 	 */
 	public boolean undoMove() {
 		// clear out current move if it is in progress (not null)
-		if(moveInProgress){
-			moveInProgress.clear();
+		if(moveInProgress.getNumberSelectedTiles() == 0){
+			moveInProgress = null;
 			return true;
 		}
 		else{
