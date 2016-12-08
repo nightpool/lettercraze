@@ -42,10 +42,10 @@ public class Round {
      */
     public Round(Level level){
         this.level = level;
-        seconds = 0;
-        reset();
         completedMoves = new ArrayList<>();
         wordsFound = new ArrayList<>();
+        seconds = 0;
+        reset();
     }
 
     /**
@@ -142,5 +142,9 @@ public class Round {
     public void incrementTime() {
         this.seconds++;
     }
+
+	public Level getLevel() {
+		return this.level;
+	}
 
 }
