@@ -1,11 +1,14 @@
 /**
  * 
  */
-package edu.wpi.zirconium.lettercraze.test.entities;
+package edu.wpi.zirconium.lettercraze.entities;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import edu.wpi.zirconium.lettercraze.entities.Round;
+import edu.wpi.zirconium.lettercraze.entities.Level;
 
 /**
  * @author Chris B
@@ -18,7 +21,13 @@ public class TestRound {
 	 */
 	@Test
 	public void testRound() {
-		fail("Not yet implemented");
+		Level level = new Level("1");
+		Round round = new Round(level);
+		assertEquals(0, round.getScore());
+		assertEquals(0, round.getTime());
+		assertEquals(0, round.getNumWordsFound());
+		assertFalse(round.isOver());
+		assertEquals(level, round.getLevel());
 	}
 
 	/**
