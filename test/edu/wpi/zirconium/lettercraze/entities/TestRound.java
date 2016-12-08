@@ -27,7 +27,7 @@ public class TestRound {
 		assertEquals(0, round.getTime());
 		assertEquals(0, round.getNumWordsFound());
 		assertFalse(round.isOver());
-		assertEquals(level, round.level);
+		assertEquals(level, round.getLevel());
 	}
 
 	/**
