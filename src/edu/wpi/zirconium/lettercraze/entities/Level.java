@@ -2,9 +2,9 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class Level {
 
-    private final String key;
-    private LevelShape shape;
-    private int[] scoreThresholds = new int[3];
+    final String key;
+    LevelShape shape;
+    int[] scoreThresholds = new int[3];
 
     public Level(String key){
         this.key = key;
