@@ -3,12 +3,9 @@
  */
 package edu.wpi.zirconium.lettercraze.entities;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import edu.wpi.zirconium.lettercraze.entities.Round;
-import edu.wpi.zirconium.lettercraze.entities.Level;
+import static org.junit.Assert.*;
 
 /**
  * @author Chris B
@@ -17,17 +14,17 @@ import edu.wpi.zirconium.lettercraze.entities.Level;
 public class TestRound {
 
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Round#Round(edu.wpi.zirconium.lettercraze.entities.Level)}.
+	 * Test method for {@link Round#Round(Level)}.
 	 */
 	@Test
 	public void testRound() {
-		Level level = new Level("1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		assertEquals(0, round.getScore());
 		assertEquals(0, round.getTime());
 		assertEquals(0, round.getNumWordsFound());
 		assertFalse(round.isOver());
-		assertEquals(level, round.level);
+		assertEquals(level, round.getLevel());
 	}
 
 	/**
@@ -39,7 +36,7 @@ public class TestRound {
 	}
 
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Round#doMove()}.
+	 * Test method for {@link Round#submitMove()}}.
 	 */
 	@Test
 	public void testDoMove() {
