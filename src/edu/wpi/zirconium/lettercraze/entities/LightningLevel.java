@@ -4,8 +4,7 @@ public class LightningLevel extends Level{
 
     int maxTime = 0;
 
-    LightningLevel(String key) {
-        super(key);
+    public LightningLevel(int size, String key) {
+        super(size, key);
     }
-
 }

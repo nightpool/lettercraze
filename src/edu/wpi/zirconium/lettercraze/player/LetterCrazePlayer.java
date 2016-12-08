@@ -5,6 +5,7 @@ import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.entities.LevelPackData;
 import edu.wpi.zirconium.lettercraze.entities.Round;
+import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.views.SplashScreen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -69,14 +70,9 @@ public class LetterCrazePlayer extends Application {
         }
     }
 
-    public static void showPlayerLevelScreen() {
-        try {
-            Parent player = FXMLLoader.load(LetterCrazePlayer.class.getResource("views/Level.fxml"));
-            stage.setScene(new Scene(player, 1024, 712));
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalStateException("Can't load FXML : Level");
-        }
+    public static void showLevelScreen(String key) {
+        LevelScreen screen = new LevelScreen(key);
+        stage.setScene(new Scene(screen, 1024, 712));
     }
 
 // TODO achievement data stuff

@@ -1,20 +1,21 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+
 public class Tile {
 
-    private final Letter character;
-    private Point position;
-    private boolean selected;
+    private final Letter letter;
+    private ObjectProperty<Point> position;
 
     /**
      * creates Tile object with a Letter, at a Position
-     * @param c the Letter object
-     * @param ps the position of Tile
+     * @param point the position of Tile
+     * @param letter the Letter object
      */
-    public Tile(Letter c, Point ps) {
-        this.character = c;
-        this.position = ps;
-        this.selected = false;
+    public Tile(Point point, Letter letter) {
+        this.letter = letter;
+        this.position = new SimpleObjectProperty<>(this, "position", point);
     }
 
     /**
@@ -22,30 +23,26 @@ public class Tile {
      * @return the score of the Tile's Letter
      */
     public int getScore() {
-        return character.getScore();
-    }
-
-    /**
-     * gets the position of the Tile
-     * @return the Point where the Tile is
-     */
-    public Point getPoint() {
-        return position;
-    }
-
-    public void setPosition(Point position) {
-        this.position = position;
+        return getLetter().getScore();
     }
 
     public boolean isAdjacent(Tile t) {
-        return getPoint().isAdjacent(t.getPoint());
+        return getPos().isAdjacent(t.getPos());
     }
 
-    public boolean isSelected() {
-        return selected;
+    public Letter getLetter() {
+        return letter;
     }
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
+    public Point getPos() {
+        return position.get();
+    }
+
+    public void setPosition(Point position) {
+        this.position.set(position);
+    }
+
+    public ObjectProperty<Point> positionProperty() {
+        return position;
     }
 }
