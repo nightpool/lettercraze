@@ -6,7 +6,7 @@ public class Level {
     private LevelShape shape;
     private int[] scoreThresholds = new int[3];
 
-    Level(String key){
+    public Level(String key){
         this.key = key;
         this.shape = new LevelShape(6);
 
