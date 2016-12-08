@@ -51,7 +51,7 @@ public class LetterCrazeBuilder extends Application {
     @Override
     public void init() {
         try {
-            Thread.sleep(2500);
+            Thread.sleep(1);
         } catch (InterruptedException ignored) {}
     }
 

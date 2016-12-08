@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.*?>
+
+<fx:root prefHeight="45.0" prefWidth="60.0" stylesheets="@hamburger-menu.css" type="Pane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane fx:id="hamburger" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="60.0" styleClass="hamburger">
+         <children>
+            <Group layoutX="10.0" layoutY="10.0">
+               <children>
+                  <Region prefHeight="5.0" prefWidth="40.0" styleClass="hamburger--rect" />
+                  <Region layoutY="10.0" prefHeight="5.0" prefWidth="40.0" styleClass="hamburger--rect" />
+                  <Region layoutY="20.0" prefHeight="5.0" prefWidth="40.0" styleClass="hamburger--rect" />
+               </children>
+            </Group>
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </Pane>
+      <VBox fx:id="hamburgerMenu" layoutY="47.0" prefWidth="120.0" styleClass="hamburger--menu" visible="false">
+      </VBox>
+   </children>
+</fx:root>

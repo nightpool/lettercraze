@@ -3,6 +3,7 @@
 
 .root {
     -fx-background-color: white;
+    -fx-font-family: "Open Sans";
 }
 
 #title-block, .lc-menu-item {
@@ -11,32 +12,16 @@
     -fx-background-color: WHITE;
 }
 
-#hamburger:hover {
+.lc-menu-item:hover {
     -fx-cursor: hand;
 }
 
-#hamburger:pressed, #hamburger.active {
-    -fx-background-color: #efefef;
-}
-
-.hamburger-component {
-    -fx-background-color: #999;
-}
-
-#hamburger:hover .hamburger-component {
-    -fx-background-color: #555;
-}
-
-.lc-menu-container:hover {
-    -fx-cursor: hand;
-}
-
-.lc-menu-container:hover .lc-menu-item {
+.lc-menu-item:hover {
     -fx-border-color: black;
     -fx-background-color: #efefef;
 }
 
-.lc-menu-container:pressed .lc-menu-item {
+.lc-menu-item:pressed {
     -fx-background-color: #eee;
 }
 
