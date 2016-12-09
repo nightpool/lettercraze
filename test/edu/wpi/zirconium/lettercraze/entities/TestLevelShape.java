@@ -5,6 +5,10 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.Test;
 
 /**
@@ -12,57 +16,43 @@ import org.junit.Test;
  *
  */
 public class TestLevelShape {
-
+	
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#LevelShape(int, boolean[][])}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#getSize()}.
 	 */
 	@Test
-	public void testLevelShapeIntBooleanArrayArray() {
+	public void testGetSize() {
+		LevelShape testShapeGetSize = new LevelShape(6);
 		
-		boolean[][] testDoubleArray = new boolean[6][6];
-		for(int i = 0; i < 6; i++){
-			for(int j = 0; j < 6; j++){
-				if(i == j){
-					testDoubleArray[i][j] = false;
-				} else {
-					testDoubleArray[i][j] = true;
-				}
-			}
-		}
-		LevelShape testShapeIBAA = new LevelShape(36, testDoubleArray);
+		int size = testShapeGetSize.getSize();
 		
-		assertTrue(testShapeIBAA.size == 36);
-		assertTrue(testShapeIBAA.shape == testDoubleArray);
-		assertFalse(testShapeIBAA.shape[5][5] == true);
-		assertTrue(testShapeIBAA.shape[3][1] == true);
+		assertEquals(size, 6);
 		
-	}
-
+		LevelShape testShapeGetSize5 = new LevelShape(5);
+		int size5 = testShapeGetSize5.getSize();
+		
+		assertEquals(size5, 5);
+    }
+    
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#LevelShape(int)}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#getShape()}.
 	 */
 	@Test
-	public void testLevelShapeInt() {
-		boolean[][] testBool = new boolean[6][6];
+    public void testGetShape(){
+		LevelShape testShapeGetShape = new LevelShape(6);
 		
-		LevelShape testShapeI = new LevelShape(6);
-		
+		List<Boolean> testShape = new ArrayList<Boolean>(36);
+		testShape.addAll(Collections.nCopies(36, false));
 		
 		for(int i = 0; i < 6; i++){
 			for(int j = 0; j < 6; j++){
-				if(i == j){
-					testBool[i][j] = false;
-					testShapeI.shape[i][j] = false;
-				} else {
-					testShapeI.shape[i][j] = true;
-					testBool[i][j] = true;
-				}
+					testShapeGetShape.setTile(i, j, false);
 			}
 		}
 		
-		assertEquals(testShapeI.shape, testBool);
+		assertEquals(testShapeGetShape.getShape(), testShape);
 		
-	}
+    }
 
 	/**
 	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#isTile(int, int)}.
@@ -74,15 +64,20 @@ public class TestLevelShape {
 		for(int i = 0; i < 6; i++){
 			for(int j = 0; j < 6; j++){
 				if(i == j){
-					testShapeIsTile.shape[i][j] = false;
+					testShapeIsTile.setTile(i, j, false);
 				} else {
-					testShapeIsTile.shape[i][j] = true;
+					testShapeIsTile.setTile(i, j, true);
 				}
 			}
 		}
 		
-		assertFalse(testShapeIsTile.isTile(5,5));
-		assertTrue(testShapeIsTile.isTile(4, 5));
+		Point test1 = new Point(0,0);
+		Point test2 = new Point(5,4);
+		Point test3 = new Point(3,3);
+		
+		assertFalse(testShapeIsTile.isTile(test1));
+		assertTrue(testShapeIsTile.isTile(test2));
+		assertFalse(testShapeIsTile.isTile(test3));
 	}
 
 	/**
@@ -95,8 +90,6 @@ public class TestLevelShape {
 		testShapeSetTile.setTile(0, 3, true);
 		testShapeSetTile.setTile(0, 4, false);
 		
-		assertFalse(testShapeSetTile.shape[0][4]);
-		assertTrue(testShapeSetTile.shape[0][3]);
 	}
 
 }
