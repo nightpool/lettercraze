@@ -30,14 +30,11 @@ public class Point {
      * @return whether it is isAdjacent or not
      */
     public boolean isAdjacent(Point p) {
-        return (Math.abs(column - p.column) == 1 || Math.abs(row - p.row) == 1);
+        return (Math.abs(getColumn() - p.getColumn()) <= 1 && Math.abs(getRow() - p.getRow()) <= 1);
     }
 
     @Override
     public String toString() {
-        return "Point{" +
-            "row=" + row +
-            ", column=" + column +
-            '}';
+        return "Point{" + "row=" + row + ", column=" + column + '}';
     }
 }
