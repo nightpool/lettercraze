@@ -37,9 +37,9 @@ public class LetterCrazePlayer extends Application {
 
     @Override
     public void init() {
-        try {
-            Thread.sleep(2500);
-        } catch (InterruptedException ignored) {}
+//        try {
+//            Thread.sleep(2500);
+//        } catch (InterruptedException ignored) {}
     }
 
     @Override
