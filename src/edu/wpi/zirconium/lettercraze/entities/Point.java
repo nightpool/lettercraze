@@ -35,9 +35,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
-            "row=" + row +
-            ", column=" + column +
-            '}';
+        return "Point{" + "row=" + row + ", column=" + column + '}';
     }
 }
