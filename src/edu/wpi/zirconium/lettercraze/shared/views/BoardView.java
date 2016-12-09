@@ -1,4 +1,4 @@
-package edu.wpi.zirconium.lettercraze.shared;
+package edu.wpi.zirconium.lettercraze.shared.views;
 
 import edu.wpi.zirconium.lettercraze.entities.Point;
 import javafx.beans.binding.DoubleBinding;

@@ -1,4 +1,4 @@
-package edu.wpi.zirconium.lettercraze.views;
+package edu.wpi.zirconium.lettercraze.shared.views;
 
 import javafx.application.Preloader;
 import javafx.fxml.FXMLLoader;

@@ -2,7 +2,7 @@ package edu.wpi.zirconium.lettercraze.player.controllers;
 
 import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.entities.Tile;
-import edu.wpi.zirconium.lettercraze.shared.TileView;
+import edu.wpi.zirconium.lettercraze.shared.views.TileView;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 

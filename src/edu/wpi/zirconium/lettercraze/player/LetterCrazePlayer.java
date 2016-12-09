@@ -6,7 +6,7 @@ import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.entities.LevelPackData;
 import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
-import edu.wpi.zirconium.lettercraze.views.SplashScreen;
+import edu.wpi.zirconium.lettercraze.shared.views.SplashScreen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
