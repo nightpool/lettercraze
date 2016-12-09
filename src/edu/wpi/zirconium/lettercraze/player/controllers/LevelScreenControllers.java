@@ -3,6 +3,7 @@ package edu.wpi.zirconium.lettercraze.player.controllers;
 import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.entities.Tile;
+import edu.wpi.zirconium.lettercraze.entities.bindings.WordStringBinding;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.shared.BoardView;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -24,6 +26,9 @@ public class LevelScreenControllers implements Initializable {
     @FXML private Button exitLevel;
     @FXML private BoardView board;
     @FXML private Text title;
+
+    @FXML private Text wordPreview;
+    @FXML private Rectangle wordPreviewBox;
 
     private Round currentRound;
 
@@ -40,6 +45,13 @@ public class LevelScreenControllers implements Initializable {
             TileView v = board.newTile(t.getPos());
             this.bindTile(v, t);
             board.getTiles().add(v);
+        });
+
+        wordPreviewBox.widthProperty().bind(board.widthProperty());
+        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
+            newMove.wordBinding().addListener((wordBinding, __o, _n) -> {
+                wordPreview.textProperty().bind(new WordStringBinding(wordBinding));
+            });
         });
     }
 

@@ -154,7 +154,7 @@ public class Round {
     }
 
     public boolean deselectTile(Tile t) {
-        return getMoveInProgress().map(m -> m.addTile(t)).orElse(false);
+        return getMoveInProgress().map(m -> m.removeTile(t)).orElse(false);
     }
 
     /**

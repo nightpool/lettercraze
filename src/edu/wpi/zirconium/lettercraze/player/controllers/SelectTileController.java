@@ -22,7 +22,7 @@ public class SelectTileController implements EventHandler<MouseEvent> {
         if (round.canSelectTile(tile)) {
             boolean success = round.selectTile(tile);
         } else if (round.canDeselectTile(tile)) {
-            boolean success = round.canDeselectTile(tile);
+            boolean success = round.deselectTile(tile);
         }
     }
 }
