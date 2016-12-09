@@ -7,9 +7,9 @@ import java.util.stream.IntStream;
 
 public class Level {
 
-    final String key;
-    LevelShape shape;
-    int[] scoreThresholds = new int[3];
+    private final String key;
+    private LevelShape shape;
+    private int[] scoreThresholds = new int[3];
 
     private StringProperty title = new SimpleStringProperty(this, "title", "Game Title");
 
