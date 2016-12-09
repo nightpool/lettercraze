@@ -55,9 +55,9 @@ public class TestRound {
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
 		Tile t2 = new Tile(new Point(1, 0),new Letter("c",3));
 		Tile t3 = new Tile(new Point(2, 0),new Letter("t",4));
-		round.moveInProgress.get().addTile(t1);
-		round.moveInProgress.get().addTile(t2);
-		round.moveInProgress.get().addTile(t3);
+		round.selectTile(t1);
+		round.selectTile(t2);
+		round.selectTile(t3);
 		assertTrue(round.submitMove());
 		assertEquals(1, round.getNumWordsFound());
 	}
@@ -72,9 +72,9 @@ public class TestRound {
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
 		Tile t2 = new Tile(new Point(1, 0),new Letter("c",3));
 		Tile t3 = new Tile(new Point(2, 0),new Letter("t",4));
-		round.moveInProgress.get().addTile(t1);
-		round.moveInProgress.get().addTile(t2);
-		round.moveInProgress.get().addTile(t3);
+		round.selectTile(t1);
+		round.selectTile(t2);
+		round.selectTile(t3);
 		assertTrue(round.submitMove());
 		assertEquals(1, round.getNumWordsFound());
 		assertTrue(round.undoMove());
@@ -91,12 +91,12 @@ public class TestRound {
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
 		Tile t2 = new Tile(new Point(1, 0),new Letter("c",3));
 		Tile t3 = new Tile(new Point(2, 0),new Letter("t",4));
-		round.moveInProgress.get().addTile(t1);
-		round.moveInProgress.get().addTile(t2);
-		round.moveInProgress.get().addTile(t3);
+		round.selectTile(t1);
+		round.selectTile(t2);
+		round.selectTile(t3);
 		assertTrue(round.undoMove());
 		assertEquals(0, round.getNumWordsFound());
-		assertTrue(round.moveInProgress.get().selectedTiles.isEmpty());
+		assertFalse(round.getMoveInProgress().isPresent());
 	}
 	
 	/**
