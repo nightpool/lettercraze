@@ -1,9 +1,11 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import java.util.Random;
+
 public class Letter {
 
-    protected String character;
-    protected int score;
+    protected final String character;
+    protected final int score;
 
     /**
      * creates Letter object with a String and a score
@@ -22,4 +24,12 @@ public class Letter {
         return score;
     }
 
+    public String getCharacter() {
+        return character;
+    }
+
+    public static Letter random() {
+        Random r = new Random();
+        return new Letter(String.valueOf((char)(r.nextInt(26) + 'a')), 0);
+    }
 }

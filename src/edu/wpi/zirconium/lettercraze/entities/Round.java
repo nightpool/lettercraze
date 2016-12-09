@@ -1,7 +1,10 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.beans.property.SimpleObjectProperty;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Executable state of a level in the Letter Craze Player Application.
@@ -11,14 +14,15 @@ import java.util.List;
  * @author Christopher Bove (cpbove@wpi.edu)
  */
 public class Round {
+
     /** The level that is loaded into this current round.    */
-    protected Level level;
+    protected final Level level;
 
     /** The board that is formed from the level of this Round. */
     protected Board board;
 
     /** the current move in progress. Either null or happenning. */
-    protected Move moveInProgress;
+    protected SimpleObjectProperty<Move> moveInProgress = new SimpleObjectProperty<>();
 
     /** Stack of recent Moves. */
     protected List<Move> completedMoves;
@@ -28,9 +32,6 @@ public class Round {
 
     /** The score accumulated in this level so far. */
     protected int score;
-
-    /** The number of words found in this round so far. */
-    protected int numWordsFound;
 
     /** Array list of the words found so far in the game. */
     // TODO implement the logic for this if needed.
@@ -42,8 +43,9 @@ public class Round {
      */
     public Round(Level level){
         this.level = level;
-        completedMoves = new ArrayList<>();
-        wordsFound = new ArrayList<>();
+        this.completedMoves = new ArrayList<>();
+        this.wordsFound = new ArrayList<>();
+
         seconds = 0;
         reset();
     }
@@ -54,10 +56,9 @@ public class Round {
      */
     public boolean reset() {
         score = 0;
-        numWordsFound = 0;
         // current time does not reset if level is lightning
-        board = new Board(level.getLevelShape());
-        moveInProgress = new Move(); // TODO maybe this should be different
+        board = Board.random(level.getShape());
+        setMoveInProgress(null);
         completedMoves.clear();
         wordsFound.clear();
         return true;
@@ -67,14 +68,16 @@ public class Round {
      * Does the move currently in progress if possible.
      * @return true if move can be made, false otherwise
      */
-    public boolean doMove() {
-        if(moveInProgress.doMove(this)){
-            this.score += moveInProgress.getScore();
-            numWordsFound ++;
-            completedMoves.add(moveInProgress);
-            // TODO how to reset the current Move?
-            moveInProgress = null;
-
+    public boolean submitMove() {
+        Optional<Move> moveInProgress = getMoveInProgress();
+        if (!moveInProgress.isPresent()) {
+            return false;
+        }
+        Move move = moveInProgress.get();
+        if (move.isMoveValid()){
+            this.score += move.getScore();
+            completedMoves.add(move);
+            this.moveInProgress = null;
             return true;
         }
         return false;
@@ -86,8 +89,8 @@ public class Round {
      */
     public boolean undoMove() {
         // clear out current move if it is in progress (not null)
-        if(moveInProgress.getNumberSelectedTiles() == 0){
-            moveInProgress = null;
+        if(getMoveInProgress().isPresent()){
+            setMoveInProgress(null);
             return true;
         } else {
             // if don't have any completed moves, no undo
@@ -97,10 +100,8 @@ public class Round {
             // otherwise, undo last move
             Move lastMove = completedMoves.remove(completedMoves.size() - 1);
             score -= lastMove.getScore();
-            numWordsFound--;
 
             return lastMove.undo(this);
-
         }
     }
 
@@ -125,7 +126,7 @@ public class Round {
      * @return number of words successfully found
      */
     public int getNumWordsFound() {
-        return this.numWordsFound;
+        return this.wordsFound.size();
     }
 
     /**
@@ -136,6 +137,26 @@ public class Round {
         return this.level.isOver(this);
     }
 
+    public boolean canSelectTile(Tile tile) {
+        return getMoveInProgress().map(m -> m.canAdd(tile)).orElse(true);
+    }
+
+    public boolean selectTile(Tile t) {
+        return getMoveInProgress().orElseGet(() -> {
+            Move m = new Move();
+            this.setMoveInProgress(m);
+            return m;
+        }).addTile(t);
+    }
+
+    public boolean canDeselectTile(Tile tile) {
+        return getMoveInProgress().map(m -> m.canRemove(tile)).orElse(false);
+    }
+
+    public boolean deselectTile(Tile t) {
+        return getMoveInProgress().map(m -> m.addTile(t)).orElse(false);
+    }
+
     /**
      * Increments the number of seconds by one.
      */
@@ -143,8 +164,36 @@ public class Round {
         this.seconds++;
     }
 
-	public Level getLevel() {
-		return this.level;
-	}
+    public Level getLevel() {
+        return level;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public Optional<Move> getMoveInProgress() {
+        return Optional.ofNullable(moveInProgress.get());
+    }
+
+    public List<Move> getCompletedMoves() {
+        return completedMoves;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public ArrayList<Word> getWordsFound() {
+        return wordsFound;
+    }
+
+    public SimpleObjectProperty<Move> moveInProgressProperty() {
+        return moveInProgress;
+    }
+
+    public void setMoveInProgress(Move moveInProgress) {
+        this.moveInProgress.set(moveInProgress);
+    }
 
 }

@@ -1,18 +1,25 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+import java.util.stream.IntStream;
+
 public class Level {
 
     final String key;
     LevelShape shape;
     int[] scoreThresholds = new int[3];
 
-    public Level(String key){
+    private StringProperty title = new SimpleStringProperty(this, "title", "Game Title");
+
+    public Level(int size, String key){
         this.key = key;
-        this.shape = new LevelShape(6);
+        this.shape = new LevelShape(size);
 
         scoreThresholds[0] = 0;
-        scoreThresholds[1] = 0;
-        scoreThresholds[2] = 0;
+        scoreThresholds[1] = 1;
+        scoreThresholds[2] = 2;
     }
 
     int numAchievedStars(int score){
@@ -31,7 +38,7 @@ public class Level {
      * Return the letter shape of this level.
      * @return this level's levelshape
      */
-    LevelShape getLevelShape() {
+    LevelShape getShape() {
         return this.shape;
     }
 
@@ -43,4 +50,37 @@ public class Level {
     public String getKey() {
         return key;
     }
+
+    public String getTitle() {
+        return title.get();
+    }
+
+    public StringProperty titleProperty() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title.set(title);
+    }
+
+    /**
+     * Load the Level for the given key. Will cache levels to prevent loading them multiple times.
+     * @return the new or cached loaded level.
+     */
+    public static Level get(String levelKey) {
+        return Level.dummy(6);
+    }
+
+    public static Level dummy(int size) {
+        Level level = new Level(size, "");
+        IntStream.range(0, size).forEach(i -> {
+            IntStream.range(0, size).forEach(j -> level.getShape().setTile(i, j, true));
+//            level.getShape().setTile(i, 0, true);
+//            level.getShape().setTile(0, i, true);
+//            level.getShape().setTile(i, size-1, true);
+//            level.getShape().setTile(size-1, i, true);
+        });
+        return level;
+    }
+
 }

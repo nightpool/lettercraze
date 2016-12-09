@@ -9,7 +9,6 @@ import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.stream.IntStream;
 
 public class BuilderControllers implements Initializable {
 
@@ -25,15 +24,6 @@ public class BuilderControllers implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         backButton.setOnMouseClicked(_me -> LetterCrazeBuilder.showMenuScreen());
 
-        createDummyTiles();
-
-        board.getTiles().forEach(t -> t.setOnMouseClicked(c -> t.toggleInactive()));
-    }
-
-    private void createDummyTiles() {
-        int tiles = board.getBoardHeight() * board.getBoardWidth();
-        IntStream.range(0, tiles)
-            .mapToObj(i -> board.newTile(i%board.getBoardWidth(), i/board.getBoardWidth()))
-            .forEach(board.getTiles()::add);
+        board.getTiles().forEach(t -> t.setOnMouseClicked(c -> t.toggleBlocked()));
     }
 }

@@ -4,7 +4,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import edu.wpi.zirconium.lettercraze.entities.Round;
@@ -21,7 +20,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testRound() {
-		Level level = new Level("1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		assertEquals(0, round.getScore());
 		assertEquals(0, round.getTime());

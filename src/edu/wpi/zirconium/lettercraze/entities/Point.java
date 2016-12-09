@@ -2,7 +2,8 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class Point {
 
-    protected int row, column;
+    protected int row;
+    protected int column;
 
     /**
      * creates Point object at the given row and column
@@ -14,6 +15,15 @@ public class Point {
         this.column = column;
     }
 
+    public int getRow() {
+        return row;
+    }
+
+
+    public int getColumn() {
+        return column;
+    }
+
     /**
      * checks in the given Point is isAdjacent to this Point
      * @param p the Point object to check
@@ -21,5 +31,13 @@ public class Point {
      */
     public boolean isAdjacent(Point p) {
         return (Math.abs(column - p.column) == 1 || Math.abs(row - p.row) == 1);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+            "row=" + row +
+            ", column=" + column +
+            '}';
     }
 }

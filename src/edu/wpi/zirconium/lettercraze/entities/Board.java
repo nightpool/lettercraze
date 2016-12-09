@@ -2,10 +2,11 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Board {
     protected LevelShape shape;
-    protected List<Tile> tiles = new ArrayList<>();
+    protected List<Tile> tiles;
 
     /**
      * creates Board object with a LevelShape
@@ -13,18 +14,7 @@ public class Board {
      */
     public Board(LevelShape ls) {
         this.shape = ls;
-        this.tiles = null;
-    }
-
-    /**
-     * gets the Tile from the given position
-     * @param row the row to get the Tile from
-     * @param col the column to get the Tile from
-     * @return the Tile at the position
-     */
-    public Tile getTile(int row, int col) {
-        //TODO return the tile in the spot
-        return null;
+        this.tiles = new ArrayList<>();
     }
 
     /**
@@ -43,5 +33,22 @@ public class Board {
      */
     public boolean removeTile(Tile t) {
         return tiles.remove(t);
+    }
+
+    public Stream<Tile> getTiles() {
+        return tiles.stream();
+    }
+
+    public static Board dummy(int size) {
+        LevelShape shape = Level.dummy(size).getShape();
+        return Board.random(shape);
+    }
+
+    public static Board random(LevelShape shape) {
+        Board board = new Board(shape);
+        shape.unblockedPoints()
+            .map(p -> new Tile(p, Letter.random()))
+            .forEach(board::addTile);
+        return board;
     }
 }
