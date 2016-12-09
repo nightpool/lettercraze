@@ -10,29 +10,33 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<fx:root fx:id="root" type="BorderPane"
+
+<fx:root fx:id="root" type="LevelScreen"
          prefHeight="712.0" prefWidth="1024.0"
          stylesheets="@level.css"
          fx:controller="edu.wpi.zirconium.lettercraze.player.controllers.LevelScreenControllers"
          xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <Group BorderPane.alignment="TOP_CENTER">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
-            <Insets left="-102.0" top="30.0"/>
+            <Insets left="180" top="30" />
          </BorderPane.margin>
-         <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE"
-                    styleClass="level--preview-box" width="505.0"/>
-         <Text layoutX="226.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="_______"/>
-      </Group>
+         <Rectangle fx:id="wordPreviewBox" arcHeight="5.0" arcWidth="5.0" height="60.0" stroke="BLACK" strokeType="INSIDE" styleClass="level--preview-box" width="500" />
+         <Text fx:id="wordPreview" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+               <Font name="Open Sans Light" size="36.0" />
+            </font>
+         </Text>
+      </StackPane>
    </top>
    <left>
       <VBox prefHeight="251.0" prefWidth="120.0" spacing="30.0" styleClass="builder-menu" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets left="30.0" top="30.0"/>
+            <Insets left="30.0" top="30.0" />
          </BorderPane.margin>
          <Button fx:id="exitLevel" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0"
                  styleClass="builder-menu" text="Exit Level"/>
-         <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Reset"/>
+         <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Reset" />
       </VBox>
    </left>
    <center>
@@ -45,27 +49,21 @@
    <right>
       <VBox alignment="TOP_CENTER" spacing="20.0" styleClass="builder-menu" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets left="30.0" right="30.0"/>
+            <Insets left="30.0" right="30.0" />
          </BorderPane.margin>
          <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="TITLE" wrappingWidth="230.6708984375">
             <font>
-               <Font size="36.0"/>
+               <Font size="36.0" />
             </font>
          </Text>
          <HBox>
-            <SVGPath
-                    content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000"
-                    fill="#ffe10000" stroke="#00000033" strokeWidth="2.0"/>
-            <SVGPath
-                    content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000"
-                    fill="#ffe10000" stroke="#00000033" strokeWidth="2.0"/>
-            <SVGPath
-                    content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000"
-                    fill="#ffe10000" stroke="#00000033" strokeWidth="2.0"/>
+            <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
+            <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
+            <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
          </HBox>
          <TextArea prefHeight="286.0" prefWidth="231.0" text="-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;">
             <VBox.margin>
-               <Insets top="15.0"/>
+               <Insets top="15.0" />
             </VBox.margin>
          </TextArea>
          <Button alignment="BASELINE_CENTER" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0"

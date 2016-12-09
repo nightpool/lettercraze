@@ -2,10 +2,11 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Word {
 
-    protected List<Letter> letters;
+    protected final List<Letter> letters;
 
     /**
      * creates Word object with a collection of Letters
@@ -13,6 +14,10 @@ public class Word {
      */
     public Word(Letter... letters) {
         this.letters = Arrays.asList(letters);
+    }
+
+    public String asString() {
+        return letters.stream().map(Letter::getCharacter).collect(Collectors.joining(""));
     }
 
     /**

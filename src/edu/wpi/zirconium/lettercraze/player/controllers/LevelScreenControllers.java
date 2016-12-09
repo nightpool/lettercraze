@@ -25,6 +25,9 @@ public class LevelScreenControllers implements Initializable {
     @FXML private BoardView board;
     @FXML private Text title;
 
+    @FXML private Text wordPreview;
+    @FXML private Rectangle wordPreviewBox;
+
     private Round currentRound;
 
     @Override
@@ -40,6 +43,13 @@ public class LevelScreenControllers implements Initializable {
             TileView v = board.newTile(t.getPos());
             this.bindTile(v, t);
             board.getTiles().add(v);
+        });
+
+        wordPreviewBox.widthProperty().bind(board.widthProperty());
+        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
+            newMove.wordBinding().addListener((wordBinding, __o, _n) -> {
+                wordPreview.textProperty().bind(new WordStringBinding(wordBinding));
+            });
         });
     }
 
