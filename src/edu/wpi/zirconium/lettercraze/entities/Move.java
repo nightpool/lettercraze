@@ -7,12 +7,14 @@ import javafx.beans.binding.ObjectBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Move {
 
     protected ObservableList<Tile> selectedTiles;
-    protected Board prevBoard;
+    protected List<Tile> prevTiles;
 
     public Move() {
         this.selectedTiles = FXCollections.observableArrayList();
@@ -72,6 +74,7 @@ public class Move {
      */
     public boolean doMove(Round r) {
         if (isMoveValid()) {
+            prevTiles = r.getBoard().getTiles().collect(Collectors.toList());
             getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
             getSelectedTiles().forEach(t ->
                 r.getBoard().addTile(new Tile(t.getPos(), Letter.random())));
