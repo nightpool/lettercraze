@@ -36,60 +36,112 @@ public class Letter {
     public static Letter random() {
     	double rand = new Random().nextDouble(); // generate number between 0 and 1
     	String letter;
+    	int points;
     	// get ready for the cascade of doom...
-    	if (rand <= 0.12702)
+    	if (rand <= 0.12702) {
     		letter = "E";
-    	else if (rand <= 0.21758)
+    		points = 1;
+    	}
+    	else if (rand <= 0.21758) {
     		letter = "T";
-    	else if (rand <= 0.29925)
+    		points = 1;
+    	}
+    	else if (rand <= 0.29925) {
     		letter = "A";
-    	else if (rand <= 0.37432)
+    		points = 2;
+    	}
+    	else if (rand <= 0.37432) {
     		letter = "O";
-    	else if (rand <= 0.44398)
+    		points = 2;
+    	}
+    	else if (rand <= 0.44398) {
     		letter = "I";
-    	else if (rand <= 0.51147)
+    		points = 2;
+    	}
+    	else if (rand <= 0.51147) {
     		letter = "N";
-    	else if (rand <= 0.57474)
+    		points = 2;
+    	}
+    	else if (rand <= 0.57474) {
     		letter = "S";
-    	else if (rand <= 0.63568)
+    		points = 2;
+    	}
+    	else if (rand <= 0.63568) {
     		letter = "H";
-    	else if (rand <= 0.69555)
+    		points = 2;
+    	}
+    	else if (rand <= 0.69555) {
     		letter = "R";
-    	else if (rand <= 0.73808)
+    		points = 2;
+    	}
+    	else if (rand <= 0.73808) {
     		letter = "D";
-    	else if (rand <= 0.77833)
+    		points = 3;
+    	}
+    	else if (rand <= 0.77833) {
     		letter = "L";
-    	else if (rand <= 0.80615)
+    		points = 3;
+    	}
+    	else if (rand <= 0.80615) {
     		letter = "C";
-    	else if (rand <= 0.83373)
+    		points = 3;
+    	}
+    	else if (rand <= 0.83373) {
     		letter = "U";
-    	else if (rand <= 0.85779)
+    		points = 3;
+    	}
+    	else if (rand <= 0.85779) {
     		letter = "M";
-    	else if (rand <= 0.88139)
+    		points = 3;
+    	}
+    	else if (rand <= 0.88139) {
     		letter = "W";
-    	else if (rand <= 0.90367)
+    		points = 3;
+    	}
+    	else if (rand <= 0.90367) {
     		letter = "F";
-    	else if (rand <= 0.92382)
+    		points = 4;
+    	}
+    	else if (rand <= 0.92382) {
     		letter = "G";
-    	else if (rand <= 0.94356)
+    		points = 4;
+    	}
+    	else if (rand <= 0.94356) {
     		letter = "Y";
-    	else if (rand <= 0.96285)
+    		points = 4;
+    	}
+    	else if (rand <= 0.96285) {
     		letter = "P";
-    	else if (rand <= 0.97777)
+    		points = 4;
+    	}
+    	else if (rand <= 0.97777) {
     		letter = "B";
-    	else if (rand <= 0.98755)
+    		points = 4;
+    	}
+    	else if (rand <= 0.98755) {
     		letter = "V";
-    	else if (rand <= 0.99527)
+    		points = 5;
+    	}
+    	else if (rand <= 0.99527) {
     		letter = "K";
-    	else if (rand <= 0.99680)
+    		points = 5;
+    	}
+    	else if (rand <= 0.99680) {
     		letter = "J";
-    	else if (rand <= 0.99830)
+    		points = 7;
+    	}
+    	else if (rand <= 0.99830) {
     		letter = "X";
-    	else if (rand <= 0.99925)
+    		points = 7;
+    	}
+    	else if (rand <= 0.99925) {
     		letter = "Qu";
-    	else
+    		points = 11;
+    	}
+    	else {
     		letter = "Z";
-    	
-        return new Letter(letter, 0);
+    		points = 8;
+    	}
+        return new Letter(letter, points);
     }
 }
