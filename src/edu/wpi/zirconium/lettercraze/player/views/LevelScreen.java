@@ -36,5 +36,5 @@ public class LevelScreen extends BorderPane {
         this.levelKey.set(levelKey);
     }
 
-    StringProperty levelKey = new SimpleStringProperty(this, "levelKey");
+    private StringProperty levelKey = new SimpleStringProperty(this, "levelKey");
 }
