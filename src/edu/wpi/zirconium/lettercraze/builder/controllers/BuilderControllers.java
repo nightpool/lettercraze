@@ -1,7 +1,7 @@
 package edu.wpi.zirconium.lettercraze.builder.controllers;
 
 import edu.wpi.zirconium.lettercraze.builder.LetterCrazeBuilder;
-import edu.wpi.zirconium.lettercraze.shared.BoardView;
+import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
