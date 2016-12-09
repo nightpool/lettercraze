@@ -1,16 +1,14 @@
 package edu.wpi.zirconium.lettercraze.shared;
 
-import edu.wpi.zirconium.utils.StyleClassProperty;
+import edu.wpi.zirconium.lettercraze.entities.Point;
 import javafx.beans.binding.DoubleBinding;
+import javafx.beans.binding.IntegerExpression;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -46,12 +44,12 @@ public class BoardView extends Pane {
         return tiles;
     }
 
-    private DoubleBinding getTileX(int x) {
-        return getSizedTileWidth().multiply(x).add(getSpacingWidth().multiply(x+1));
+    DoubleBinding getTileX(IntegerExpression x) {
+        return getSizedTileWidth().multiply(x).add(getSpacingWidth().multiply(x.add(1)));
     }
 
-    private DoubleBinding getTileY(int y) {
-        return getSizedTileHeight().multiply(y).add(getSpacingHeight().multiply(y+1));
+    DoubleBinding getTileY(IntegerExpression y) {
+        return getSizedTileHeight().multiply(y).add(getSpacingHeight().multiply(y.add(1)));
     }
 
 
@@ -114,73 +112,8 @@ public class BoardView extends Pane {
         this.boardHeight.set(boardHeight);
     }
 
-    public TileView newTile(int x, int y) {
-        return new TileView(x, y);
+    public TileView newTile(Point p) {
+        return new TileView(this, p.getRow(), p.getColumn());
     }
 
-    public class TileView extends StackPane {
-        TileView(int x, int y) {
-            FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("Tile.fxml"));
-            fxmlLoader.setRoot(this);
-
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new IllegalStateException("Can't load FXML : "+getClass().getSimpleName());
-            }
-
-            getRectangle().widthProperty().bind(getSizedTileWidth());
-            getRectangle().heightProperty().bind(getSizedTileHeight());
-
-            layoutXProperty().bind(getTileX(x));
-            layoutYProperty().bind(getTileY(y));
-
-            blockedProperty().addListener(new StyleClassProperty(this, "blocked"));
-            selectedProperty().addListener(new StyleClassProperty(this, "selected"));
-        }
-
-        public StringProperty valueProperty() {
-            return getText().textProperty();
-        }
-
-        private Rectangle getRectangle() {
-            return (Rectangle) this.lookup(".board--tile-shape");
-        }
-        private Text getText() {
-            return (Text) this.lookup(".board--letter");
-        }
-
-        private BooleanProperty blocked = new SimpleBooleanProperty(this, "blocked", false);
-
-        public boolean getBlocked() {
-            return blocked.get();
-        }
-
-        public BooleanProperty blockedProperty() {
-            return blocked;
-        }
-
-        public void setBlocked(boolean blocked) {
-            this.blocked.set(blocked);
-        }
-
-        public void toggleInactive() {
-            setBlocked(!getBlocked());
-        }
-
-        private BooleanProperty selected = new SimpleBooleanProperty(this, "selected", false);
-
-        public boolean isSelected() {
-            return selected.get();
-        }
-
-        public BooleanProperty selectedProperty() {
-            return selected;
-        }
-
-        public void setSelected(boolean selected) {
-            this.selected.set(selected);
-        }
-    }
 }

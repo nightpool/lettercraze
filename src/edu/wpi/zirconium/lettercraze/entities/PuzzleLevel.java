@@ -4,7 +4,8 @@ public class PuzzleLevel extends Level{
 
     int wordLimit = 0;
 
-    PuzzleLevel(String key) {
-        super(key);
+    public PuzzleLevel(int size, String key, int wordLimit) {
+        super(size, key);
+        this.wordLimit = wordLimit;
     }
 }

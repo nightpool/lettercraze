@@ -8,8 +8,8 @@ public class ThemeLevel extends Level{
     List<Word> words;
     List<Letter> letters;
 
-    ThemeLevel(String key) {
-        super(key);
+    ThemeLevel(int size, String key) {
+        super(size, key);
         this.words = new ArrayList<>();
         this.letters = new ArrayList<>();
     }
