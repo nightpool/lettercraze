@@ -106,7 +106,7 @@ public class TestRound {
 	public void testUndoEmptyMove() {
 		Level level = new Level(6, "1");
 		Round round = new Round(level);
-		assertTrue(round.undoMove());
+		assertFalse(round.undoMove());
 		assertEquals(0, round.getNumWordsFound());
 		// TODO see why this throws a null pointer exception.
 //		assertTrue(round.moveInProgress.selectedTiles.isEmpty());
