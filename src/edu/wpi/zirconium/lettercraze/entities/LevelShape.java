@@ -20,10 +20,6 @@ public class LevelShape {
     public int getSize() {
         return size;
     }
-    
-    public List<Boolean> getShape(){
-    	return shape;
-    }
 
     public boolean isTile(Point p){
         return this.shape.get(p.getRow() * size + p.getColumn());
