@@ -61,7 +61,7 @@ public class LevelScreenControllers implements Initializable {
 
         currentRound.getCompletedMoves().addListener((InvalidationListener) o -> {
             String moves = currentRound.getCompletedMoves().stream()
-                .map(Move::getWord).map(Word::asString).collect(Collectors.joining("\n"));
+                .map(Move::asString).collect(Collectors.joining("\n"));
             previousMovesDisplay.setText(moves);
         });
 

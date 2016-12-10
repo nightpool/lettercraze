@@ -25,7 +25,7 @@ public class Word {
      * @return the score of the Word
      */
     public int getScore() {
-        return letters.stream().mapToInt(Letter::getScore).sum();
+        return letters.stream().mapToInt(Letter::getScore).sum() * letters.size();
     }
 
     /**
