@@ -54,7 +54,7 @@ public class LevelScreenControllers implements Initializable {
         title.textProperty().bind(level.titleProperty());
         score.textProperty().bind(currentRound.scoreBinding().asString());
 
-        time.textProperty().bind(new TimeFormatter(currentRound.timeProperty()));
+        time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
         time.setOnMouseClicked(_me -> currentRound.incrementTime());
         currentRound.timeProperty().greaterThan(60).addListener(
             (_p, _o, value) -> wordLabel.setText(value ? "minutes" : "seconds"));
