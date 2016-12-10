@@ -41,6 +41,24 @@ public class Level {
     LevelShape getShape() {
         return this.shape;
     }
+    
+    /**
+     * 
+     * @param shape The Shape to set this.shape to
+     */
+    public void setShape(LevelShape ls){
+    	this.shape = ls;
+    }
+    
+    /**
+     * 
+     * @param l, m, h Integer for each score threshold
+     */
+    public void setThresholds(int l, int m, int h){
+    	this.scoreThresholds[0] = l;
+    	this.scoreThresholds[1] = m;
+    	this.scoreThresholds[2] = h;
+    }
 
     boolean isOver(Round r){
         //TODO
