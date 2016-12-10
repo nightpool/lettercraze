@@ -42,9 +42,9 @@ public class Board {
     }
     
     /**
-     * gets the tile at the given position
-     * @param p the Point where you want to get the tile
-     * @return Tile at the Point; if no Tile at the Point, returns null
+     * gets the Optional<Tile> at the given position
+     * @param p the Point where you want to get the Optional<Tile>
+     * @return Optional<Tile> at the Point
      */
     public Optional<Tile> getTile(Point p) {
     	for (Tile t : tiles) {
@@ -57,8 +57,8 @@ public class Board {
      * floats all the tiles upward, generating new tiles until all slots are filled
      */
     public void floatAllUp() {
-    	for (int row = 0; row <= 5; row ++) {
-    		for (int col = 0; col <= 5; col ++) {
+    	for (int row = 0; row <= shape.getSize(); row ++) {
+    		for (int col = 0; col <= shape.getSize(); col ++) {
     			Point p = new Point(row, col);
         		if (shape.isTile(p) && getTile(p).isPresent()) {
         			Tile nextNonEmpty = getNextTile(col);
@@ -75,11 +75,11 @@ public class Board {
      * @return Tile that is not empty
      */
     private Tile getNextTile(int col) {
-	    for (int row = 0; row <= 5; row ++) {
+	    for (int row = 0; row <= shape.getSize(); row ++) {
 			Point pBelow = new Point(row, col);
 			Optional<Tile> tBelow = getTile(pBelow);
 			if (shape.isTile(pBelow) && !tBelow.isPresent()) {
-				return tBelow.get();
+			    return tBelow.get();
 			}
 		}
 	    return null;
