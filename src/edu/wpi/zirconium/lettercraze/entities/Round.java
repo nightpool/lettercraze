@@ -237,6 +237,20 @@ public class Round {
     public ListExpression<Word> getWordsFound() {
         if (wordsFound == null) {
            wordsFound = new ListBinding<Word>() {
+               {
+                   bind(completedMoves);
+               }
+
+               @Override
+               public void dispose() {
+                   unbind(completedMoves);
+               }
+
+               @Override
+               public ObservableList<?> getDependencies() {
+                   return FXCollections.singletonObservableList(completedMoves);
+               }
+
                @Override
                protected ObservableList<Word> computeValue() {
                    return FXCollections.observableList(
