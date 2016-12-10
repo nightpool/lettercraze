@@ -1,5 +1,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.binding.ListBinding;
 import javafx.beans.binding.ListExpression;
@@ -97,24 +98,9 @@ public class Round {
     private IntegerBinding scoreBinding;
     public IntegerBinding scoreBinding() {
         if (scoreBinding == null) {
-            scoreBinding = new IntegerBinding() {
-                {
-                    bind(completedMoves);
-                }
-                @Override
-                public void dispose() {
-                    unbind(completedMoves);
-                }
-
-                @Override
-                public ObservableList<?> getDependencies() {
-                    return FXCollections.singletonObservableList(completedMoves);
-                }
-                @Override
-                protected int computeValue() {
-                    return completedMoves.stream().mapToInt(Move::getScore).sum();
-                }
-            };
+            scoreBinding = Bindings.createIntegerBinding(
+                () -> completedMoves.stream().mapToInt(Move::getScore).sum(),
+                completedMoves);
         }
         return scoreBinding;
     }
@@ -236,27 +222,27 @@ public class Round {
     private ListBinding<Word> wordsFound;
     public ListExpression<Word> getWordsFound() {
         if (wordsFound == null) {
-           wordsFound = new ListBinding<Word>() {
-               {
-                   bind(completedMoves);
-               }
+            wordsFound = new ListBinding<Word>() {
+                {
+                    bind(completedMoves);
+                }
 
-               @Override
-               public void dispose() {
+                @Override
+                public void dispose() {
                    unbind(completedMoves);
-               }
+                }
 
-               @Override
-               public ObservableList<?> getDependencies() {
-                   return FXCollections.singletonObservableList(completedMoves);
-               }
+                @Override
+                public ObservableList<?> getDependencies() {
+                    return FXCollections.singletonObservableList(completedMoves);
+                }
 
-               @Override
-               protected ObservableList<Word> computeValue() {
+                @Override
+                protected ObservableList<Word> computeValue() {
                    return FXCollections.observableList(
                        completedMoves.stream().map(Move::getWord).collect(Collectors.toList()));
-               }
-           };
+                }
+            };
         }
         return wordsFound;
     }
