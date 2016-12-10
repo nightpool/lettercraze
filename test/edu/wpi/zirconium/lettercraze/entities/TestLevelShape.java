@@ -34,25 +34,6 @@ public class TestLevelShape {
 		assertEquals(size5, 5);
     }
     
-	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#getShape()}.
-	 */
-	@Test
-    public void testGetShape(){
-		LevelShape testShapeGetShape = new LevelShape(6);
-		
-		List<Boolean> testShape = new ArrayList<Boolean>(36);
-		testShape.addAll(Collections.nCopies(36, false));
-		
-		for(int i = 0; i < 6; i++){
-			for(int j = 0; j < 6; j++){
-					testShapeGetShape.setTile(i, j, false);
-			}
-		}
-		
-		assertEquals(testShapeGetShape.getShape(), testShape);
-		
-    }
 
 	/**
 	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#isTile(int, int)}.
