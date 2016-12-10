@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleObjectProperty;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Executable state of a level in the Letter Craze Player Application.
@@ -21,7 +20,7 @@ public class Round {
     /** The board that is formed from the level of this Round. */
     protected Board board;
 
-    /** the current move in progress. Either null or happenning. */
+    /** The current move in progress. Always non-null. */
     protected SimpleObjectProperty<Move> moveInProgress = new SimpleObjectProperty<>();
 
     /** Stack of recent Moves. */
@@ -58,7 +57,7 @@ public class Round {
         score = 0;
         // current time does not reset if level is lightning
         board = Board.random(level.getShape());
-        setMoveInProgress(null);
+        setMoveInProgress(new Move());
         completedMoves.clear();
         wordsFound.clear();
         return true;
@@ -69,15 +68,11 @@ public class Round {
      * @return true if move can be made, false otherwise
      */
     public boolean submitMove() {
-        Optional<Move> moveInProgress = getMoveInProgress();
-        if (!moveInProgress.isPresent()) {
-            return false;
-        }
-        Move move = moveInProgress.get();
+        Move move = getMoveInProgress();
         if (move.isMoveValid()){
             this.score += move.getScore();
             completedMoves.add(move);
-            this.moveInProgress = null;
+            setMoveInProgress(new Move());
             return true;
         }
         return false;
@@ -88,9 +83,9 @@ public class Round {
      * @return true if either current move or last move was undone
      */
     public boolean undoMove() {
-        // clear out current move if it is in progress (not null)
-        if(getMoveInProgress().isPresent()){
-            setMoveInProgress(null);
+        // clear out current move if it is in progress
+        if (getMoveInProgress().getNumberSelectedTiles() > 0) {
+            setMoveInProgress(new Move());
             return true;
         } else {
             // if don't have any completed moves, no undo
@@ -137,24 +132,40 @@ public class Round {
         return this.level.isOver(this);
     }
 
+    /**
+     * Returns true if it's possible to select the given tile
+     * @param tile the tile in question
+     * @return whether it can be selected or now
+     */
     public boolean canSelectTile(Tile tile) {
-        return getMoveInProgress().map(m -> m.canAdd(tile)).orElse(true);
+        return getMoveInProgress().canAdd(tile);
     }
 
-    public boolean selectTile(Tile t) {
-        return getMoveInProgress().orElseGet(() -> {
-            Move m = new Move();
-            this.setMoveInProgress(m);
-            return m;
-        }).addTile(t);
+    /**
+     * Selects the given tile
+     * @param tile the tile to be selected
+     * @return true if the tile was successfully selected, false otherwise
+     */
+    public boolean selectTile(Tile tile) {
+        return getMoveInProgress().addTile(tile);
     }
 
+    /**
+     * Can the player deselect the given tile
+     * @param tile the tile in question
+     * @return true if the player can deselected the tile, false otherwise
+     */
     public boolean canDeselectTile(Tile tile) {
-        return getMoveInProgress().map(m -> m.canRemove(tile)).orElse(false);
+        return getMoveInProgress().canRemove(tile);
     }
 
-    public boolean deselectTile(Tile t) {
-        return getMoveInProgress().map(m -> m.removeTile(t)).orElse(false);
+    /**
+     * Deselects the given tile
+     * @param tile the tile to deselect
+     * @return true if the tile was successfully deselected, false otherwise
+     */
+    public boolean deselectTile(Tile tile) {
+        return getMoveInProgress().removeTile(tile);
     }
 
     /**
@@ -164,22 +175,37 @@ public class Round {
         this.seconds++;
     }
 
+    /**
+     * @return the base level for this round
+     */
     public Level getLevel() {
         return level;
     }
 
+    /**
+     * @return the current state of the board
+     */
     public Board getBoard() {
         return board;
     }
 
-    public Optional<Move> getMoveInProgress() {
-        return Optional.ofNullable(moveInProgress.get());
+    /**
+     * @return the current, uncompleted move. Always non-null
+     */
+    public Move getMoveInProgress() {
+        return moveInProgress.get();
     }
 
+    /**
+     * @return moves the player has made so far
+     */
     public List<Move> getCompletedMoves() {
         return completedMoves;
     }
 
+    /**
+     * @return number of seconds since the beginning of the game.
+     */
     public int getSeconds() {
         return seconds;
     }
