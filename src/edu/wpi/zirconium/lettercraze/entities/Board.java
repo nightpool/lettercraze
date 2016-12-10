@@ -39,6 +39,50 @@ public class Board {
     public Stream<Tile> getTiles() {
         return tiles.stream();
     }
+    
+    /**
+     * gets the tile at the given position
+     * @param p the Point where you want to get the tile
+     * @return Tile at the Point; if no Tile at the Point, returns null
+     */
+    public Tile getTile(Point p) {
+    	for (Tile t : tiles) {
+    		if (t.getPos().equals(p)) return t;
+    	}
+    	return null;
+    }
+    
+    /**
+     * floats all the tiles upward, generating new tiles until all slots are filled
+     */
+    public void floatAllUp() {
+    	for (int row = 0; row <= 5; row ++) {
+    		for (int col = 0; col <= 5; col ++) {
+    			Point p = new Point(row, col);
+        		if (shape.isTile(p) && getTile(p).equals(null)) {
+        			Tile nextNonEmpty = getNextTile(col);
+        			if (!nextNonEmpty.equals(null)) nextNonEmpty.setPosition(p);
+        			else tiles.add(new Tile(p,Letter.random()));
+        		}
+        	}
+    	}
+    }
+    
+    /**
+     * Gets the next non-empty tile in the column
+     * @param col the column to search
+     * @return Tile that is not empty
+     */
+    private Tile getNextTile(int col) {
+	    for (int row = 0; row <= 5; row ++) {
+			Point pBelow = new Point(row, col);
+			Tile tBelow = getTile(pBelow);
+			if (shape.isTile(pBelow) && !tBelow.equals(null)) {
+				return tBelow;
+			}
+		}
+	    return null;
+    }
 
     public ObservableList<Tile> observableTiles() {
         return tiles;
