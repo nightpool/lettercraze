@@ -7,6 +7,7 @@ import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import edu.wpi.zirconium.lettercraze.shared.views.TileView;
 import edu.wpi.zirconium.lettercraze.utils.ContainsBinding;
 import edu.wpi.zirconium.utils.TimeFormatter;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,6 +19,8 @@ import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 public class LevelScreenControllers implements Initializable {
@@ -56,6 +59,14 @@ public class LevelScreenControllers implements Initializable {
         currentRound.timeProperty().greaterThan(60).addListener(
             (_p, _o, value) -> wordLabel.setText(value ? "minutes" : "seconds"));
 
+        Timer timeUpdater = new Timer();
+        timeUpdater.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(currentRound::incrementTime);
+            }
+        }, 0, 1000);
+
         // TODO: something different for theme levels? Words remaining?
         wordsFound.textProperty().bind(currentRound.getWordsFound().sizeProperty().asString());
 
@@ -77,6 +88,9 @@ public class LevelScreenControllers implements Initializable {
                 wordPreview.textProperty().set(newWord.asString());
             });
         });
+
+        submit.setOnMouseClicked(me -> currentRound.submitMove());
+
         currentRound.reset();
     }
 
