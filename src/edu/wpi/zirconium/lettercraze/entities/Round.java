@@ -1,9 +1,16 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.beans.binding.IntegerBinding;
+import javafx.beans.binding.ListBinding;
+import javafx.beans.binding.ListExpression;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Executable state of a level in the Letter Craze Player Application.
@@ -21,20 +28,13 @@ public class Round {
     protected Board board;
 
     /** The current move in progress. Always non-null. */
-    protected SimpleObjectProperty<Move> moveInProgress = new SimpleObjectProperty<>();
+    private SimpleObjectProperty<Move> moveInProgress = new SimpleObjectProperty<>(this, "moveInProgress");
 
     /** Stack of recent Moves. */
-    protected List<Move> completedMoves;
+    private ListProperty<Move> completedMoves = new SimpleListProperty<>(this, "completedMoves", FXCollections.observableArrayList());
 
     /** The number of seconds that the game has been played for.*/
-    protected int seconds;
-
-    /** The score accumulated in this level so far. */
-    protected int score;
-
-    /** Array list of the words found so far in the game. */
-    // TODO implement the logic for this if needed.
-    protected ArrayList<Word> wordsFound;
+    private SimpleIntegerProperty seconds = new SimpleIntegerProperty(this, "seconds");
 
     /**
      * Creates round object and initializes the board with level.
@@ -42,10 +42,8 @@ public class Round {
      */
     public Round(Level level){
         this.level = level;
-        this.completedMoves = new ArrayList<>();
-        this.wordsFound = new ArrayList<>();
 
-        seconds = 0;
+        setTime(0);
         reset();
     }
 
@@ -54,12 +52,10 @@ public class Round {
      * @return true if board has reset successfully
      */
     public boolean reset() {
-        score = 0;
         // current time does not reset if level is lightning
         board = Board.random(level.getShape());
         setMoveInProgress(new Move());
         completedMoves.clear();
-        wordsFound.clear();
         return true;
     }
 
@@ -70,7 +66,6 @@ public class Round {
     public boolean submitMove() {
         Move move = getMoveInProgress();
         if (move.isMoveValid()){
-            this.score += move.getScore();
             completedMoves.add(move);
             setMoveInProgress(new Move());
             return true;
@@ -94,10 +89,34 @@ public class Round {
             }
             // otherwise, undo last move
             Move lastMove = completedMoves.remove(completedMoves.size() - 1);
-            score -= lastMove.getScore();
 
             return lastMove.undo(this);
         }
+    }
+
+    private IntegerBinding scoreBinding;
+    public IntegerBinding scoreBinding() {
+        if (scoreBinding == null) {
+            scoreBinding = new IntegerBinding() {
+                {
+                    bind(completedMoves);
+                }
+                @Override
+                public void dispose() {
+                    unbind(completedMoves);
+                }
+
+                @Override
+                public ObservableList<?> getDependencies() {
+                    return FXCollections.singletonObservableList(completedMoves);
+                }
+                @Override
+                protected int computeValue() {
+                    return completedMoves.stream().mapToInt(Move::getScore).sum();
+                }
+            };
+        }
+        return scoreBinding;
     }
 
     /**
@@ -105,7 +124,7 @@ public class Round {
      * @return return the point score
      */
     public int getScore() {
-        return this.score;
+        return scoreBinding().get();
     }
 
     /**
@@ -113,7 +132,7 @@ public class Round {
      * @return the time in seconds
      */
     public int getTime() {
-        return this.seconds;
+        return this.seconds.get();
     }
 
     /**
@@ -121,7 +140,7 @@ public class Round {
      * @return number of words successfully found
      */
     public int getNumWordsFound() {
-        return this.wordsFound.size();
+        return this.completedMoves.size();
     }
 
     /**
@@ -172,7 +191,7 @@ public class Round {
      * Increments the number of seconds by one.
      */
     public void incrementTime() {
-        this.seconds++;
+        this.setTime(this.getTime() + 1);
     }
 
     /**
@@ -199,18 +218,32 @@ public class Round {
     /**
      * @return moves the player has made so far
      */
-    public List<Move> getCompletedMoves() {
+    public ObservableList<Move> getCompletedMoves() {
         return completedMoves;
     }
 
     /**
      * @return number of seconds since the beginning of the game.
      */
-    public int getSeconds() {
+    public SimpleIntegerProperty timeProperty() {
         return seconds;
     }
 
-    public ArrayList<Word> getWordsFound() {
+    private void setTime(int seconds) {
+        this.seconds.set(seconds);
+    }
+
+    private ListBinding<Word> wordsFound;
+    public ListExpression<Word> getWordsFound() {
+        if (wordsFound == null) {
+           wordsFound = new ListBinding<Word>() {
+               @Override
+               protected ObservableList<Word> computeValue() {
+                   return FXCollections.observableList(
+                       completedMoves.stream().map(Move::getWord).collect(Collectors.toList()));
+               }
+           };
+        }
         return wordsFound;
     }
 

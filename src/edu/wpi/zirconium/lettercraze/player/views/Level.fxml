@@ -64,13 +64,54 @@
             <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
             <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
          </HBox>
-         <TextArea prefHeight="286.0" prefWidth="231.0" text="-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;">
+         <HBox alignment="CENTER">
+            <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <Text fx:id="time" text=":23">
+                  <font>
+                     <Font name="Josefin Sans Light" size="29.0" />
+                  </font>
+               </Text>
+               <Text text="seconds">
+                  <font>
+                     <Font name="Open Sans" size="14.0" />
+                  </font>
+               </Text>
+            </VBox>
+            <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <Text fx:id="score" text="350">
+                  <font>
+                     <Font name="Josefin Sans Light" size="29.0" />
+                  </font>
+               </Text>
+               <Text text="points">
+                  <font>
+                     <Font name="Open Sans" size="14.0" />
+                  </font>
+               </Text>
+            </VBox>
+            <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <Text fx:id="wordsFound" text="2">
+                  <font>
+                     <Font name="Josefin Sans Light" size="29.0" />
+                  </font>
+               </Text>
+               <Text fx:id="wordLabel" text="words">
+                  <font>
+                     <Font name="Open Sans" size="14.0" />
+                  </font>
+               </Text>
+            </VBox>
+            <VBox.margin>
+               <Insets top="15.0" />
+            </VBox.margin>
+         </HBox>
+         <TextArea fx:id="previousMovesDisplay" prefColumnCount="15" prefRowCount="15">
             <VBox.margin>
                <Insets top="15.0" />
             </VBox.margin>
          </TextArea>
-         <Button alignment="BASELINE_CENTER" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0"
-                 prefWidth="120.0" styleClass="builder-menu" text="SUBMIT" textAlignment="CENTER"/>
+         <Button fx:id="submit" alignment="BASELINE_CENTER" minWidth="-Infinity" mnemonicParsing="false"
+                 prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="SUBMIT" textAlignment="CENTER" />
       </VBox>
    </right>
 </fx:root>
