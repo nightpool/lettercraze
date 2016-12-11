@@ -195,5 +195,4 @@ public class Round {
     public void setMoveInProgress(Move moveInProgress) {
         this.moveInProgress.set(moveInProgress);
     }
-
 }

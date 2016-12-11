@@ -10,6 +10,7 @@ import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.entities.Level;
 
 /**
+ * Test cases for Round entity class.
  * @author Chris B
  *
  */
@@ -60,6 +61,7 @@ public class TestRound {
 		round.selectTile(t3);
 		assertTrue(round.submitMove());
 		assertEquals(1, round.getNumWordsFound());
+		assertEquals(9, round.getScore());
 	}
 
 	/**
