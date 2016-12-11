@@ -46,10 +46,10 @@ public class TestRound {
 	}
 
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Round#doMove()}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Round#submitMove()}.
 	 */
 	@Test
-	public void testDoMove() {
+	public void testSubmitMove() {
 		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
