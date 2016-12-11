@@ -13,7 +13,7 @@ public class Level {
 
     private StringProperty title = new SimpleStringProperty(this, "title", "Game Title");
 
-    public Level(int size, String key){
+    Level(int size, String key){
         this.key = key;
         this.shape = new LevelShape(size);
 
