@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-public class BoardView extends Pane {
+public class BoardView extends Pane implements TileContainer {
     private ObservableList<TileView> tiles = FXCollections.observableArrayList();
 
     public BoardView() {
@@ -44,17 +44,20 @@ public class BoardView extends Pane {
         return tiles;
     }
 
-    DoubleBinding getTileX(IntegerExpression x) {
+    @Override
+    public DoubleBinding getTileX(IntegerExpression x) {
         return getSizedTileWidth().multiply(x).add(getSpacingWidth().multiply(x.add(1)));
     }
 
-    DoubleBinding getTileY(IntegerExpression y) {
+    @Override
+    public DoubleBinding getTileY(IntegerExpression y) {
         return getSizedTileHeight().multiply(y).add(getSpacingHeight().multiply(y.add(1)));
     }
 
 
     private DoubleBinding tileWidth;
-    protected DoubleBinding getSizedTileWidth() {
+    @Override
+    public DoubleBinding getSizedTileWidth() {
         if (tileWidth == null) {
             tileWidth = widthProperty().divide(boardWidthProperty().multiply(8).add(3)).multiply(5);
         }
@@ -62,7 +65,8 @@ public class BoardView extends Pane {
     }
 
     private DoubleBinding tileHeight;
-    protected DoubleBinding getSizedTileHeight() {
+    @Override
+    public DoubleBinding getSizedTileHeight() {
         if (tileHeight == null) {
             tileHeight = heightProperty().divide(boardHeightProperty().multiply(8).add(3)).multiply(5);
         }
@@ -113,7 +117,10 @@ public class BoardView extends Pane {
     }
 
     public TileView newTile(Point p) {
-        return new TileView(this, p.getRow(), p.getColumn());
+        TileView tv = new TileView();
+        tv.setPos(p);
+        tv.layoutIn(this);
+        return tv;
     }
 
 }
