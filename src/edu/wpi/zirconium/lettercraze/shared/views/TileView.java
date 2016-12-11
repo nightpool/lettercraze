@@ -1,5 +1,6 @@
 package edu.wpi.zirconium.lettercraze.shared.views;
 
+import edu.wpi.zirconium.lettercraze.entities.Point;
 import edu.wpi.zirconium.utils.StyleClassProperty;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +11,8 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class TileView extends StackPane {
-    private BoardView board;
 
-    TileView(BoardView board, int x, int y) {
+    public TileView () {
         FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("Tile.fxml"));
         fxmlLoader.setRoot(this);
 
@@ -23,17 +23,21 @@ public class TileView extends StackPane {
             throw new IllegalStateException("Can't load FXML : "+getClass().getSimpleName());
         }
 
-        getRectangle().widthProperty().bind(board.getSizedTileWidth());
-        getRectangle().heightProperty().bind(board.getSizedTileHeight());
-
-        this.row.set(x);
-        this.column.set(y);
-        layoutXProperty().bind(board.getTileX(this.row));
-        layoutYProperty().bind(board.getTileY(this.column));
-
         blockedProperty().addListener(new StyleClassProperty(this, "blocked"));
         selectedProperty().addListener(new StyleClassProperty(this, "selected"));
-        this.board = board;
+    }
+
+    public void layoutIn(TileContainer container) {
+        getRectangle().widthProperty().bind(container.getSizedTileWidth());
+        getRectangle().heightProperty().bind(container.getSizedTileHeight());
+
+        layoutXProperty().bind(container.getTileX(rowProperty()));
+        layoutYProperty().bind(container.getTileY(columnProperty()));
+    }
+
+    public void setPos(Point pos) {
+        this.setColumn(pos.getColumn());
+        this.setRow(pos.getRow());
     }
 
     public int getRow() {
