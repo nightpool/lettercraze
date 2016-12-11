@@ -48,8 +48,10 @@ public class Board {
      */
     public Optional<Tile> getTile(Point p) {
     	for (Tile t : tiles) {
-    	    boolean atPos = t.getPos().isAt(p);
-    		if (atPos) return Optional.of(t);
+    	    boolean atPos = t.getPos().equals(p);
+    		if (atPos) {
+    		    return Optional.of(t);
+    		}
     	}
     	return Optional.empty();
     }
@@ -58,13 +60,13 @@ public class Board {
      * floats all the tiles upward, generating new tiles until all slots are filled
      */
     public void floatAllUp() {
-    	for (int row = 0; row <= shape.getSize(); row ++) {
-    		for (int col = 0; col <= shape.getSize(); col ++) {
+    	for (int row = 0; row < shape.getSize(); row ++) {
+    		for (int col = 0; col < shape.getSize(); col ++) {
     			Point p = new Point(row, col);
     			boolean isTile = shape.isTile(p);
     			boolean isPresent = getTile(p).isPresent();
-        		if (isTile && !isPresent) {
-        			Optional<Tile> nextNonEmpty = getNextTile(col);
+        		if (isTile && !isPresent) { 
+        			Optional<Tile> nextNonEmpty = getNextTile(row, col);
         			if (nextNonEmpty.isPresent()) nextNonEmpty.get().setPosition(p);
         			else tiles.add(new Tile(p,Letter.random()));
         		}
@@ -75,20 +77,14 @@ public class Board {
     /**
      * Gets the next non-empty tile in the column
      * @param col the column to search
+     * @param row the row to start searching from
      * @return Tile that is not empty
      */
-    private Optional<Tile> getNextTile(int col) {
+    private Optional<Tile> getNextTile(int row, int col) {
         return this.getTiles()
-            .filter(t -> t.getPos().getColumn() == 0)
+            .filter(t -> t.getPos().getColumn() == col)
+            .filter(t -> t.getPos().getRow() >= row)
             .min((t, t2) -> t.getPos().getRow() - t2.getPos().getRow());
-//	    for (int row = 0; row <= shape.getSize(); row ++) {
-//			Point pBelow = new Point(row, col);
-//			Optional<Tile> tBelow = getTile(pBelow);
-//			if (shape.isTile(pBelow) && tBelow.isPresent()) {
-//			    return tBelow.get();
-//			}
-//		}
-//	    return null;
     }
 
     public ObservableList<Tile> observableTiles() {
