@@ -33,7 +33,7 @@ public enum Letter {
 	K("K",5),
 	J("J",7),
 	X("X",7),
-	Qu("Qu",11),
+	QU("QU",11),
 	Z("Z",8);
 
 	/** The string of the actual letter character (or Qu) of the letter. */
@@ -149,7 +149,7 @@ public enum Letter {
     		letter = Letter.X;
     	}
     	else if (rand <= 0.99925) {
-    		letter = Letter.Qu;
+    		letter = Letter.QU;
     	}
     	else {
     		letter = Letter.Z;
