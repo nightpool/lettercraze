@@ -32,6 +32,10 @@ public class Point {
     public boolean isAdjacent(Point p) {
         return (Math.abs(getColumn() - p.getColumn()) <= 1 && Math.abs(getRow() - p.getRow()) <= 1);
     }
+    
+    public boolean isAt(Point p) {
+        return (this.column == p.getColumn()) && (this.row == p.getRow());
+    }
 
     @Override
     public String toString() {

@@ -42,13 +42,14 @@ public class Board {
     }
     
     /**
-     * gets the Optional<Tile> at the given position
+     * gets the Optional Tile at the given position
      * @param p the Point where you want to get the Optional<Tile>
-     * @return Optional<Tile> at the Point
+     * @return Optional Tile at the Point
      */
     public Optional<Tile> getTile(Point p) {
     	for (Tile t : tiles) {
-    		if (t.getPos().equals(p)) return Optional.of(t);
+    	    boolean atPos = t.getPos().isAt(p);
+    		if (atPos) return Optional.of(t);
     	}
     	return Optional.empty();
     }
@@ -60,9 +61,11 @@ public class Board {
     	for (int row = 0; row <= shape.getSize(); row ++) {
     		for (int col = 0; col <= shape.getSize(); col ++) {
     			Point p = new Point(row, col);
-        		if (shape.isTile(p) && getTile(p).isPresent()) {
-        			Tile nextNonEmpty = getNextTile(col);
-        			if (!nextNonEmpty.equals(null)) nextNonEmpty.setPosition(p);
+    			boolean isTile = shape.isTile(p);
+    			boolean isPresent = getTile(p).isPresent();
+        		if (isTile && !isPresent) {
+        			Optional<Tile> nextNonEmpty = getNextTile(col);
+        			if (nextNonEmpty.isPresent()) nextNonEmpty.get().setPosition(p);
         			else tiles.add(new Tile(p,Letter.random()));
         		}
         	}
@@ -74,15 +77,18 @@ public class Board {
      * @param col the column to search
      * @return Tile that is not empty
      */
-    private Tile getNextTile(int col) {
-	    for (int row = 0; row <= shape.getSize(); row ++) {
-			Point pBelow = new Point(row, col);
-			Optional<Tile> tBelow = getTile(pBelow);
-			if (shape.isTile(pBelow) && !tBelow.isPresent()) {
-			    return tBelow.get();
-			}
-		}
-	    return null;
+    private Optional<Tile> getNextTile(int col) {
+        return this.getTiles()
+            .filter(t -> t.getPos().getColumn() == 0)
+            .min((t, t2) -> t.getPos().getRow() - t2.getPos().getRow());
+//	    for (int row = 0; row <= shape.getSize(); row ++) {
+//			Point pBelow = new Point(row, col);
+//			Optional<Tile> tBelow = getTile(pBelow);
+//			if (shape.isTile(pBelow) && tBelow.isPresent()) {
+//			    return tBelow.get();
+//			}
+//		}
+//	    return null;
     }
 
     public ObservableList<Tile> observableTiles() {
@@ -107,5 +113,9 @@ public class Board {
             .map(p -> new Tile(p, Letter.random()))
             .forEach(board::addTile);
         return board;
+    }
+    
+    public LevelShape getShape() {
+        return shape;
     }
 }
