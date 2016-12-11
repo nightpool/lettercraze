@@ -34,7 +34,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testReset() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		assertEquals(0, round.getTime());
 		round.incrementTime();
@@ -50,7 +50,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testDoMove() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
 		Tile t2 = new Tile(new Point(1, 0),new Letter("c",3));
@@ -67,7 +67,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testUndoMove() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
 		Tile t2 = new Tile(new Point(1, 0),new Letter("c",3));
@@ -86,7 +86,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testUndoUncompletedMove() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		Tile t1 = new Tile(new Point(0, 0),new Letter("a",2));
 		Tile t2 = new Tile(new Point(1, 0),new Letter("c",3));
@@ -104,7 +104,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testUndoEmptyMove() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		assertFalse(round.undoMove());
 		assertEquals(0, round.getNumWordsFound());
@@ -117,7 +117,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testIsOver() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		assertEquals(level.isOver(round), round.isOver());
 	}
@@ -127,7 +127,7 @@ public class TestRound {
 	 */
 	@Test
 	public void testIncrementTime() {
-		Level level = new Level(6, "1");
+		Level level = Level.dummy(6);
 		Round round = new Round(level);
 		round.incrementTime();
 		assertEquals(1, round.getTime());
