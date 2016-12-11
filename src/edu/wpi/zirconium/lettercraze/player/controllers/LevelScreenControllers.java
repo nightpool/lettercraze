@@ -13,6 +13,7 @@ import edu.wpi.zirconium.utils.TimeFormatter;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -80,11 +81,22 @@ public class LevelScreenControllers implements Initializable {
             previousMovesDisplay.setText(moves);
         });
 
-        currentRound.getBoard().getTiles().forEach(t -> {
-            TileView v = board.newTile(t.getPos());
-            this.bindTile(v, t);
-            board.getTiles().add(v);
-        });
+        currentRound.getBoard().observableTiles().addListener(
+            (ListChangeListener<? super Tile>) l -> {
+                while (l.next()) {
+                    for (Tile t : l.getAddedSubList()) {
+                        TileView v = board.newTile(t.getPos());
+                        this.bindTile(v, t);
+                        board.getTiles().add(v);
+                    }
+
+                    for (Tile t : l.getRemoved()) {
+                        board.getTiles()
+                             .removeIf(v -> v.getPos().equals(t.getPos()));
+                    }
+                }
+            }
+        );
 
         wordPreviewBox.widthProperty().bind(board.widthProperty());
         currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {

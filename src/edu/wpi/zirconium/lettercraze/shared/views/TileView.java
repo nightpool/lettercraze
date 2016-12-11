@@ -40,6 +40,10 @@ public class TileView extends StackPane {
         this.setRow(pos.getRow());
     }
 
+    public Point getPos() {
+        return new Point(this.getRow(), this.getColumn());
+    }
+
     public int getRow() {
         return row.get();
     }

@@ -72,8 +72,9 @@ public class Move {
      */
     public boolean doMove(Round r) {
         if (isMoveValid()) {
-            // TODO this is where the board state gets saved.
-            // TODO move logic. Does Round do the move, or does Move do the move?
+            getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
+            getSelectedTiles().forEach(t ->
+                r.getBoard().addTile(new Tile(t.getPos(), Letter.random())));
             return true;
         } else return false;
     }
