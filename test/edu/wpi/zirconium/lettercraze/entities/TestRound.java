@@ -61,7 +61,7 @@ public class TestRound {
 		round.selectTile(t3);
 		assertTrue(round.submitMove());
 		assertEquals(1, round.getNumWordsFound());
-		assertEquals(9, round.getScore());
+		assertEquals(27, round.getScore());
 	}
 
 	/**
