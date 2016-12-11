@@ -3,7 +3,6 @@ package edu.wpi.zirconium.lettercraze.player.controllers;
 import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.entities.Tile;
-import edu.wpi.zirconium.lettercraze.entities.bindings.WordStringBinding;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
@@ -49,8 +48,8 @@ public class LevelScreenControllers implements Initializable {
 
         wordPreviewBox.widthProperty().bind(board.widthProperty());
         currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
-            newMove.wordBinding().addListener((wordBinding, __o, _n) -> {
-                wordPreview.textProperty().bind(new WordStringBinding(wordBinding));
+            newMove.wordBinding().addListener((_p, __o, newWord) -> {
+                wordPreview.textProperty().set(newWord.asString());
             });
         });
     }

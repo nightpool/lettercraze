@@ -1,5 +1,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.ObjectBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,25 +67,9 @@ public class Move {
     private ObjectBinding<Word> word;
     public ObjectBinding<Word> wordBinding() {
         if (word == null) {
-            word = new ObjectBinding<Word>() {
-                {
-                    this.bind(selectedTiles);
-                }
-                @Override
-                public void dispose() {
-                    this.unbind(selectedTiles);
-                }
-
-                @Override
-                public ObservableList<?> getDependencies() {
-                    return FXCollections.singletonObservableList(selectedTiles);
-                }
-
-                @Override
-                protected Word computeValue() {
-                    return new Word(selectedTiles.stream().map(Tile::getLetter).toArray(Letter[]::new));
-                }
-            };
+            word = Bindings.createObjectBinding(
+                () -> new Word(selectedTiles.stream().map(Tile::getLetter).toArray(Letter[]::new)),
+                selectedTiles);
         }
         return word;
     }
