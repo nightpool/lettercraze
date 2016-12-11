@@ -21,7 +21,7 @@ public class Move {
      * @return boolean whether the move (the word) is valid or not
      */
     public boolean isMoveValid() {
-        return getWord().isValid();
+        return getNumberSelectedTiles() > 0 && getWord().isValid();
     }
 
     /**
