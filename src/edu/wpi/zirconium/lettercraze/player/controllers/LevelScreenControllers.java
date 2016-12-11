@@ -1,33 +1,46 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
-import edu.wpi.zirconium.lettercraze.entities.Level;
-import edu.wpi.zirconium.lettercraze.entities.Round;
-import edu.wpi.zirconium.lettercraze.entities.Tile;
+import edu.wpi.zirconium.lettercraze.entities.*;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import edu.wpi.zirconium.lettercraze.shared.views.TileView;
 import edu.wpi.zirconium.lettercraze.utils.ContainsBinding;
-import javafx.event.EventHandler;
+import edu.wpi.zirconium.utils.TimeFormatter;
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.stream.Collectors;
 
 public class LevelScreenControllers implements Initializable {
 
     @FXML private LevelScreen root;
-    @FXML private Button exitLevel;
     @FXML private BoardView board;
     @FXML private Text title;
 
     @FXML private Text wordPreview;
     @FXML private Rectangle wordPreviewBox;
+
+    @FXML private Text time;
+    @FXML private Text score;
+    @FXML private Text wordsFound;
+    @FXML private Text wordLabel;
+
+    @FXML private TextArea previousMovesDisplay;
+
+    @FXML private Button exitLevel;
+    @FXML private Button submit;
 
     private Round currentRound;
 
@@ -39,7 +52,30 @@ public class LevelScreenControllers implements Initializable {
         currentRound = new Round(level);
 
         title.textProperty().bind(level.titleProperty());
-        // TODO score
+        score.textProperty().bind(currentRound.scoreBinding().asString());
+
+        time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
+        time.setOnMouseClicked(_me -> currentRound.incrementTime());
+        currentRound.timeProperty().greaterThan(60).addListener(
+            (_p, _o, value) -> wordLabel.setText(value ? "minutes" : "seconds"));
+
+        Timer timeUpdater = new Timer();
+        timeUpdater.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(currentRound::incrementTime);
+            }
+        }, 0, 1000);
+
+        // TODO: something different for theme levels? Words remaining?
+        wordsFound.textProperty().bind(currentRound.getWordsFound().sizeProperty().asString());
+
+        currentRound.getCompletedMoves().addListener((InvalidationListener) o -> {
+            String moves = currentRound.getCompletedMoves().stream()
+                .map(Move::asString).collect(Collectors.joining("\n"));
+            previousMovesDisplay.setText(moves);
+        });
+
         currentRound.getBoard().getTiles().forEach(t -> {
             TileView v = board.newTile(t.getPos());
             this.bindTile(v, t);
@@ -52,6 +88,9 @@ public class LevelScreenControllers implements Initializable {
                 wordPreview.textProperty().set(newWord.asString());
             });
         });
+
+        submit.setOnMouseClicked(me -> currentRound.submitMove());
+
         currentRound.reset();
     }
 
@@ -68,25 +107,5 @@ public class LevelScreenControllers implements Initializable {
 
     private void onExitClicked(MouseEvent mouseEvent) {
         LetterCrazePlayer.showLevelSelectScreen();
-    }
-
-    private static class ToggleTileStateController implements EventHandler<MouseEvent> {
-        private final TileView t;
-        int state;
-
-        public ToggleTileStateController(TileView t) {
-            this.t = t;
-            state = 0;
-        }
-
-        @Override
-        public void handle(MouseEvent event) {
-            switch (state){
-                case 0: t.setBlocked(true); t.setSelected(false); break;
-                case 1: t.setBlocked(false); t.setSelected(true); break;
-                case 2: t.setBlocked(false); t.setSelected(false); break;
-            }
-            state = (state + 1) % 3;
-        }
     }
 }

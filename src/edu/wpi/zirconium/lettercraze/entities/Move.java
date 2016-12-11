@@ -101,4 +101,8 @@ public class Move {
     public int getNumberSelectedTiles() {
         return selectedTiles.size();
     }
+
+    public String asString() {
+        return String.format("%s (+%d points)", getWord().asString(), getWord().getScore());
+    }
 }

@@ -25,7 +25,7 @@ public class Word {
      * @return the score of the Word
      */
     public int getScore() {
-        return letters.stream().mapToInt(Letter::getScore).sum();
+        return letters.stream().mapToInt(Letter::getScore).sum() * letters.size();
     }
 
     /**
@@ -33,6 +33,6 @@ public class Word {
      * @return the validity of the word from the dictionary
      */
     public boolean isValid() {
-        return false;    //TODO check the dictionary for this word
+        return true;    //TODO check the dictionary for this word
     }
 }
