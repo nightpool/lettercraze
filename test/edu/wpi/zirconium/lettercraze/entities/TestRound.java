@@ -82,7 +82,7 @@ public class TestRound {
 		assertTrue(round.undoMove());
 		assertEquals(0, round.getNumWordsFound());
 	}
-	
+
 	/**
 	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Round#undoMove()}.
 	 */
@@ -100,7 +100,7 @@ public class TestRound {
 		assertEquals(0, round.getNumWordsFound());
 		assertFalse(round.getMoveInProgress().isPresent());
 	}
-	
+
 	/**
 	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Round#undoMove()}.
 	 */
