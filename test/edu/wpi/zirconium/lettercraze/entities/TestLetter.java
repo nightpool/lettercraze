@@ -69,7 +69,7 @@ public class TestLetter {
 				for(int i = 0; i < 26; i++){
 					String testString = Character.toString((char)(65 + i));
 					if (testString.equalsIgnoreCase("Q"))
-						testString = "Qu";
+						testString = "QU";
 					do{
 						testLetter = Letter.random();
 					}while (!testLetter.getCharacter().equalsIgnoreCase(testString));
