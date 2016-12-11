@@ -53,6 +53,7 @@ public class LevelScreenControllers implements Initializable {
                 wordPreview.textProperty().bind(new WordStringBinding(wordBinding));
             });
         });
+        currentRound.reset();
     }
 
     private void bindTile(TileView v, Tile t) {
