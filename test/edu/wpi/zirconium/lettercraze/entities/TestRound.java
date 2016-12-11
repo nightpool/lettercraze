@@ -39,7 +39,6 @@ public class TestRound {
 		Round round = new Round(level);
 		assertEquals(0, round.getTime());
 		round.incrementTime();
-		round.score++;
 		round.reset();
 		assertEquals(1, round.getTime());
 		assertEquals(0,round.getScore());
