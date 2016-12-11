@@ -21,7 +21,7 @@ public class TestLetter {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		letter = new Letter("B",4); // TODO should not need to specify score
+		letter = Letter.B;
 	}
 
 	/**

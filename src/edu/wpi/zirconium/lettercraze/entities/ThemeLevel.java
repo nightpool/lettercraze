@@ -20,42 +20,42 @@ public class ThemeLevel extends Level{
 		List<Word> dOPWords = new ArrayList<>();
 		List<Letter> dOPLetters = new ArrayList<>();
 		
-		Letter T1 = new Letter("T", 0);
-		Letter P2 = new Letter("P", 0);
-		Letter O3 = new Letter("O", 0);
-		Letter O4 = new Letter("O", 0);
-		Letter N5 = new Letter("N", 0);
-		Letter E6 = new Letter("E", 0);
+		Letter T1 = Letter.T;
+		Letter P2 = Letter.P;
+		Letter O3 = Letter.O;
+		Letter O4 = Letter.O;
+		Letter N5 = Letter.N;
+		Letter E6 = Letter.E;
 		
-		Letter H7 = new Letter("H", 0);
-		Letter R8 = new Letter("R", 0);
-		Letter I9 = new Letter("I", 0);
-		Letter O10 = new Letter("O", 0);
+		Letter H7 = Letter.H;
+		Letter R8 = Letter.R;
+		Letter I9 = Letter.I;
+		Letter O10 = Letter.O;
 		
-		Letter U11 = new Letter("U", 0);
-		Letter E12 = new Letter("E", 0);
-		Letter O13 = new Letter("O", 0);
-		Letter F14 = new Letter("F", 0);
-		Letter N15 = new Letter("N", 0);
+		Letter U11 = Letter.U;
+		Letter E12 = Letter.E;
+		Letter O13 = Letter.O;
+		Letter F14 = Letter.F;
+		Letter N15 = Letter.N;
 		
-		Letter O16 = new Letter("O", 0);
-		Letter T17 = new Letter("T", 0);
-		Letter N18 = new Letter("N", 0);
-		Letter E19 = new Letter("E", 0);
-		Letter E20 = new Letter("E", 0);
-		Letter I21 = new Letter("I", 0);
+		Letter O16 = Letter.O;
+		Letter T17 = Letter.T;
+		Letter N18 = Letter.N;
+		Letter E19 = Letter.E;
+		Letter E20 = Letter.E;
+		Letter I21 = Letter.I;
 
-		Letter T22 = new Letter("T", 0);
-		Letter W23 = new Letter("W", 0);
-		Letter I24 = new Letter("I", 0);
-		Letter V25 = new Letter("V", 0);
+		Letter T22 = Letter.T;
+		Letter W23 = Letter.W;
+		Letter I24 = Letter.I;
+		Letter V25 = Letter.V;
 		
-		Letter F26 = new Letter("F", 0);
-		Letter R27 = new Letter("R", 0);
-		Letter E28 = new Letter("E", 0);
-		Letter N29 = new Letter("N", 0);
-		Letter N30 = new Letter("N", 0);
-		Letter E31 = new Letter("E", 0);
+		Letter F26 = Letter.F;
+		Letter R27 = Letter.R;
+		Letter E28 = Letter.E;
+		Letter N29 = Letter.N;
+		Letter N30 = Letter.N;
+		Letter E31 = Letter.E;
 		
 		
 		Word three = new Word(T1, H7, R8, E12, E19);
