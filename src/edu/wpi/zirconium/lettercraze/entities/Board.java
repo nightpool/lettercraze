@@ -1,12 +1,13 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.stream.Stream;
 
 public class Board {
     protected LevelShape shape;
-    protected List<Tile> tiles;
+    protected ObservableList<Tile> tiles;
 
     /**
      * creates Board object with a LevelShape
@@ -14,7 +15,7 @@ public class Board {
      */
     public Board(LevelShape ls) {
         this.shape = ls;
-        this.tiles = new ArrayList<>();
+        this.tiles = FXCollections.observableArrayList();
     }
 
     /**
@@ -37,6 +38,17 @@ public class Board {
 
     public Stream<Tile> getTiles() {
         return tiles.stream();
+    }
+
+    public ObservableList<Tile> observableTiles() {
+        return tiles;
+    }
+
+    public void clear() {
+        this.tiles.clear();
+        shape.unblockedPoints()
+            .map(p -> new Tile(p, Letter.random()))
+            .forEach(this::addTile);
     }
 
     public static Board dummy(int size) {

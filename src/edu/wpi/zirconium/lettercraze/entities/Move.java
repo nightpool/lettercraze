@@ -1,6 +1,8 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.binding.IntegerBinding;
 import javafx.beans.binding.ObjectBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,12 +18,24 @@ public class Move {
         this.selectedTiles = FXCollections.observableArrayList();
     }
 
+
+    private BooleanBinding valid;
+
+    public BooleanBinding isValidBinding() {
+        if (valid == null) {
+            valid = Bindings.createBooleanBinding(
+                () -> getNumberSelectedTiles() > 0 && getWord().isValid(),
+                selectedTiles);
+        }
+        return valid;
+    }
+
     /**
      * returns if the Move is valid
      * @return boolean whether the move (the word) is valid or not
      */
     public boolean isMoveValid() {
-        return getNumberSelectedTiles() > 0 && getWord().isValid();
+        return isValidBinding().get();
     }
 
     /**
@@ -58,8 +72,9 @@ public class Move {
      */
     public boolean doMove(Round r) {
         if (isMoveValid()) {
-            // TODO this is where the board state gets saved.
-            // TODO move logic. Does Round do the move, or does Move do the move?
+            getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
+            getSelectedTiles().forEach(t ->
+                r.getBoard().addTile(new Tile(t.getPos(), Letter.random())));
             return true;
         } else return false;
     }
@@ -77,6 +92,14 @@ public class Move {
         return wordBinding().get();
     };
 
+    private IntegerBinding score;
+    public IntegerBinding scoreBinding() {
+        if (score == null) {
+            score = Bindings.createIntegerBinding(() -> getWord().getScore(),
+                wordBinding());
+        }
+        return score;
+    }
     public int getScore() {
         return getWord().getScore();
     }

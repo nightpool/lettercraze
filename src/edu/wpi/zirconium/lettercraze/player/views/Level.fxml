@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import edu.wpi.zirconium.lettercraze.player.views.SubmitButton?>
 <?import edu.wpi.zirconium.lettercraze.shared.views.BoardView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -37,8 +38,7 @@
          <BorderPane.margin>
             <Insets left="30.0" top="30.0" />
          </BorderPane.margin>
-         <Button fx:id="exitLevel" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0"
-                 styleClass="builder-menu" text="Exit Level"/>
+         <Button fx:id="exitLevel" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Exit Level" />
          <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Reset" />
       </VBox>
    </left>
@@ -110,8 +110,8 @@
                <Insets top="15.0" />
             </VBox.margin>
          </TextArea>
-         <Button fx:id="submit" alignment="BASELINE_CENTER" minWidth="-Infinity" mnemonicParsing="false"
-                 prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="SUBMIT" textAlignment="CENTER" />
+         <SubmitButton fx:id="submit" alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="50.0"
+                       prefWidth="160.0" styleClass="builder-menu" textAlignment="CENTER" />
       </VBox>
    </right>
 </fx:root>
