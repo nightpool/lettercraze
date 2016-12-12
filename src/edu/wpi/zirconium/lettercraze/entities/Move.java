@@ -76,8 +76,10 @@ public class Move {
         if (isMoveValid()) {
             prevTiles = r.getBoard().getTiles().collect(Collectors.toList());
             getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
-            getSelectedTiles().forEach(t ->
-                r.getBoard().addTile(new Tile(t.getPos(), Letter.random())));
+            r.getBoard().floatAllUp();
+            r.getLevel().getShape().unblockedPoints()
+                .filter(p -> !r.getBoard().getTile(p).isPresent())
+                .forEach(p -> r.getBoard().addTile(new Tile(p, Letter.random())));
             return true;
         } else return false;
     }

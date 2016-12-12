@@ -38,4 +38,10 @@ public class LevelShape {
                 .mapToObj(i -> new Point(i%size, i/size))
                 .filter(this::isTile);
     }
+
+    public static LevelShape all(int size) {
+        LevelShape shape = new LevelShape(size);
+        shape.shape.replaceAll(c -> true);
+        return shape;
+    }
 }

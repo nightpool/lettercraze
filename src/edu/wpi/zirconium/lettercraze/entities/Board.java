@@ -47,43 +47,27 @@ public class Board {
      * @return Optional Tile at the Point
      */
     public Optional<Tile> getTile(Point p) {
-    	for (Tile t : tiles) {
-    	    boolean atPos = t.getPos().equals(p);
-    		if (atPos) {
-    		    return Optional.of(t);
-    		}
-    	}
-    	return Optional.empty();
+        return tiles.stream().filter(t -> p.equals(t.getPos())).findFirst();
     }
     
     /**
      * floats all the tiles upward, generating new tiles until all slots are filled
      */
     public void floatAllUp() {
-    	for (int row = 0; row < shape.getSize(); row ++) {
-    		for (int col = 0; col < shape.getSize(); col ++) {
-    			Point p = new Point(row, col);
-    			boolean isTile = shape.isTile(p);
-    			boolean isPresent = getTile(p).isPresent();
-        		if (isTile && !isPresent) { 
-        			Optional<Tile> nextNonEmpty = getNextTile(row, col);
-        			if (nextNonEmpty.isPresent()) nextNonEmpty.get().setPosition(p);
-        			else tiles.add(new Tile(p,Letter.random()));
-        		}
-        	}
-    	}
+        shape.unblockedPoints()
+            .filter(p -> !getTile(p).isPresent())
+            .forEach(p -> getNextTile(p).ifPresent(t -> t.setPosition(p)));
     }
     
     /**
      * Gets the next non-empty tile in the column
-     * @param col the column to search
-     * @param row the row to start searching from
+     * @param point the point to start searching downwards from
      * @return Tile that is not empty
      */
-    private Optional<Tile> getNextTile(int row, int col) {
+    private Optional<Tile> getNextTile(Point point) {
         return this.getTiles()
-            .filter(t -> t.getPos().getColumn() == col)
-            .filter(t -> t.getPos().getRow() >= row)
+            .filter(t -> t.getPos().getColumn() == point.getColumn())
+            .filter(t -> t.getPos().getRow() >= point.getRow())
             .min((t, t2) -> t.getPos().getRow() - t2.getPos().getRow());
     }
 
