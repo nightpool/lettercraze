@@ -14,12 +14,19 @@ public class Point {
         this.row = row;
         this.column = column;
     }
-
+    
+    /**
+     * Gets the row from the Point
+     * @return the row from the Point
+     */
     public int getRow() {
         return row;
     }
 
-
+    /**
+     * Gets the column from the Point
+     * @return the column from the Point
+     */
     public int getColumn() {
         return column;
     }
