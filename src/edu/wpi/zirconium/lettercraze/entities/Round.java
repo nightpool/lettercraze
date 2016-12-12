@@ -154,6 +154,8 @@ public class Round {
      * @return true if the tile was successfully selected, false otherwise
      */
     public boolean selectTile(Tile tile) {
+    	if(!canSelectTile(tile))
+    		return false;
         return getMoveInProgress().addTile(tile);
     }
 
@@ -172,6 +174,8 @@ public class Round {
      * @return true if the tile was successfully deselected, false otherwise
      */
     public boolean deselectTile(Tile tile) {
+    	if(!canDeselectTile(tile))
+    		return false;
         return getMoveInProgress().removeTile(tile);
     }
 
