@@ -120,10 +120,30 @@ public class Move {
     public ObservableList<Tile> getSelectedTiles() {
         return selectedTiles;
     }
-
+    
+    /**
+     * Checks the validity of the undo
+     * @param round the Round object
+     * @return true if the Move can be undone
+     */
+    public boolean canUndo(Round round) {
+        return !prevTiles.isEmpty();
+    }
+    
+    /**
+     * Undoes the move, setting the Round to the previous state
+     * @param round the Round
+     * @return true if the move was undone, false if not
+     */
     public boolean undo(Round round) {
-        // TODO Auto-generated method stub
-        return false;
+        if (canUndo(round)) {
+            round.getBoard().observableTiles().remove(0, round.getBoard().observableTiles().size() - 1);
+            round.getBoard().observableTiles().addAll(prevTiles);
+            round.getCompletedMoves().remove(this);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getNumberSelectedTiles() {

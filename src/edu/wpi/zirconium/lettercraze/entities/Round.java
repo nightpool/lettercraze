@@ -86,14 +86,12 @@ public class Round {
             setMoveInProgress(new Move());
             return true;
         } else {
-            // if don't have any completed moves, no undo
-            if (completedMoves.size() == 0){
+            if (!this.getCompletedMoves().isEmpty()) {
+                Move lastMove = this.getCompletedMoves().get(this.getCompletedMoves().size() - 1);
+                return lastMove.undo(this);
+            } else {
                 return false;
             }
-            // otherwise, undo last move
-            Move lastMove = completedMoves.remove(completedMoves.size() - 1);
-
-            return lastMove.undo(this);
         }
     }
 
