@@ -67,7 +67,7 @@ public class Round {
      */
     public boolean submitMove() {
         Move move = getMoveInProgress();
-        if (move.isMoveValid()){
+        if (move.isMoveValid(this)){
             move.doMove(this);
             completedMoves.add(move);
             setMoveInProgress(new Move());

@@ -26,7 +26,7 @@ public class Move {
     public BooleanBinding isValidBinding() {
         if (valid == null) {
             valid = Bindings.createBooleanBinding(
-                () -> getNumberSelectedTiles() > 0 && getWord().isValid(),
+                () -> getNumberSelectedTiles() > 0,
                 selectedTiles);
         }
         return valid;
@@ -34,10 +34,11 @@ public class Move {
 
     /**
      * returns if the Move is valid
+     * @param r 
      * @return boolean whether the move (the word) is valid or not
      */
-    public boolean isMoveValid() {
-        return isValidBinding().get();
+    public boolean isMoveValid(Round r) {
+        return isValidBinding().get() && r.getLevel().isWordValid(getWord().asString());
     }
 
     /**
@@ -73,7 +74,7 @@ public class Move {
      * @return whether the Move was completed
      */
     public boolean doMove(Round r) {
-        if (isMoveValid()) {
+        if (isMoveValid(r)) {
             prevTiles = r.getBoard().getTiles().collect(Collectors.toList());
             getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
             r.getBoard().floatAllUp();
