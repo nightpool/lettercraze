@@ -14,6 +14,18 @@ public class ThemeLevel extends Level{
         this.letters = new ArrayList<>();
     }
     
+    
+    @Override
+	public boolean isOver(Round r){
+		
+    	if(r.getCompletedMoves().size() == this.words.size()){
+    		return true;
+    	}
+    	
+		return false;
+	}
+    
+    
     public static ThemeLevel dummy(){
 		ThemeLevel digitsOfPi = new ThemeLevel(6, "DigitsOfPi");
     	

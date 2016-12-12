@@ -9,6 +9,17 @@ public class PuzzleLevel extends Level {
 		this.wordLimit = wordLimit;
 	}
 
+	@Override
+	public boolean isOver(Round r){
+		
+		if(r.getCompletedMoves().size() >= this.wordLimit){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 	public static PuzzleLevel dummy() {
 		PuzzleLevel puzzleOne = new PuzzleLevel(6, "PuzzleOne", 20);
 
@@ -66,5 +77,5 @@ public class PuzzleLevel extends Level {
 		return puzzleOne;
 
 	}
-
+	
 }
