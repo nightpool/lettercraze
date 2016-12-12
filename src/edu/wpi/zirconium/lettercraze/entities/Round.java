@@ -43,6 +43,7 @@ public class Round {
      */
     public Round(Level level){
         this.level = level;
+        this.board = new Board(level.getShape());
 
         setTime(0);
         reset();
@@ -54,9 +55,9 @@ public class Round {
      */
     public boolean reset() {
         // current time does not reset if level is lightning
-        board = Board.random(level.getShape());
-        setMoveInProgress(new Move());
+        board.clear();
         completedMoves.clear();
+        setMoveInProgress(new Move());
         return true;
     }
 
@@ -67,6 +68,7 @@ public class Round {
     public boolean submitMove() {
         Move move = getMoveInProgress();
         if (move.isMoveValid()){
+            move.doMove(this);
             completedMoves.add(move);
             setMoveInProgress(new Move());
             return true;

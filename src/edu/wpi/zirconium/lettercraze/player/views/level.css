@@ -102,6 +102,14 @@
     -fx-background-color: #efefef;
     -fx-cursor: hand;
 }
+#submit {
+    -fx-cursor: pointer;
+}
+
+#submit.valid {
+    -fx-cursor: hand;
+    -fx-text-fill: #079000;
+}
 
 #board .board--tile.blocked .board--tile-shape {
     -fx-stroke: TRANSPARENT;
