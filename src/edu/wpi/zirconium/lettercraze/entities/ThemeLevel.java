@@ -36,6 +36,22 @@ public class ThemeLevel extends Level{
     	this.letters.add(l);
     }
     
+    /**
+     * 
+     * @return The list of words that make up this theme level
+     */
+    public List<Word> getWords(){
+    	return this.words;
+    }
+    
+    /**
+     * 
+     * @return The list of letters that make up this theme level
+     */
+    public List<Letter> getLetters(){
+    	return this.letters;
+    }
+    
     
     public static ThemeLevel dummy(){
         ThemeLevel digitsOfPi = new ThemeLevel(6, "DigitsOfPi");
