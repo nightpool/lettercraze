@@ -33,11 +33,18 @@ public class Tile {
     public Letter getLetter() {
         return letter;
     }
-
+    
+    /**
+     * gets the Position of the Tile
+     * @return the Position of the Tile
+     */
     public Point getPos() {
         return position.get();
     }
 
+    /**
+     * sets the Position of the Tile
+     */
     public void setPosition(Point position) {
         this.position.set(position);
     }

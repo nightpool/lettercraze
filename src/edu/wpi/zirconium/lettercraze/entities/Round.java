@@ -77,7 +77,7 @@ public class Round {
     }
 
     /**
-     * Undos the last move.
+     * Undoes the last move.
      * @return true if either current move or last move was undone
      */
     public boolean undoMove() {
