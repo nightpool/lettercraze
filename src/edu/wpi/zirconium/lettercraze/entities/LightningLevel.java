@@ -8,6 +8,18 @@ public class LightningLevel extends Level{
         super(size, key);
     }
     
+    
+    @Override
+	public boolean isOver(Round r){
+		
+    	if(r.getTime() >= this.maxTime){
+    		return true;
+    	}
+    	
+		return false;
+	}
+    
+    
     public static LightningLevel dummy() {
 		LightningLevel lightningOne = new LightningLevel(6, "PuzzleOne");
 
