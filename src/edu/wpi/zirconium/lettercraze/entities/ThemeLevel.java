@@ -19,11 +19,45 @@ public class ThemeLevel extends Level{
         return r.getCompletedMoves().size() == this.words.size();
     }
 
+    /**
+     * 
+     * @param w Word to add to the Array List of words.
+     */
+    public void addWord(Word w){
+    	this.words.add(w);
+    }
+    
+    /**
+     * 
+     * @param l Letter to add to the Array List of letters.
+     * Must add letters in order of arrangement on the board from top to bottom, left to right.
+     */
+    public void addLetter(Letter l){
+    	this.letters.add(l);
+    }
+    
+    /**
+     * 
+     * @return The list of words that make up this theme level
+     */
+    public List<Word> getWords(){
+    	return this.words;
+    }
+    
+    /**
+     * 
+     * @return The list of letters that make up this theme level
+     */
+    public List<Letter> getLetters(){
+    	return this.letters;
+    }
+    
+    
     public static ThemeLevel dummy(){
         ThemeLevel digitsOfPi = new ThemeLevel(6, "DigitsOfPi");
 
-        List<Word> dOPWords = new ArrayList<>();
-        List<Letter> dOPLetters = new ArrayList<>();
+        //List<Word> dOPWords = new ArrayList<>();
+        //List<Letter> dOPLetters = new ArrayList<>();
 
         Letter T1 = Letter.T;
         Letter P2 = Letter.P;
@@ -71,49 +105,49 @@ public class ThemeLevel extends Level{
         Word nine = new Word(N30, I24, N29, E28);
         Word two = new Word(T22, W23, O13);
 
-        dOPWords.add(three);
-        dOPWords.add(point);
-        dOPWords.add(one1);
-        dOPWords.add(four);
-        dOPWords.add(one2);
-        dOPWords.add(five);
-        dOPWords.add(nine);
-        dOPWords.add(two);
+        digitsOfPi.addWord(three);
+        digitsOfPi.addWord(point);
+        digitsOfPi.addWord(one1);
+        digitsOfPi.addWord(four);
+        digitsOfPi.addWord(one2);
+        digitsOfPi.addWord(five);
+        digitsOfPi.addWord(nine);
+        digitsOfPi.addWord(two);
 
-        dOPLetters.add(T1);
-        dOPLetters.add(P2);
-        dOPLetters.add(O3);
-        dOPLetters.add(O4);
-        dOPLetters.add(N5);
-        dOPLetters.add(E6);
-        dOPLetters.add(H7);
-        dOPLetters.add(R8);
-        dOPLetters.add(I9);
-        dOPLetters.add(O10);
-        dOPLetters.add(U11);
-        dOPLetters.add(E12);
-        dOPLetters.add(O13);
-        dOPLetters.add(F14);
-        dOPLetters.add(N15);
-        dOPLetters.add(O16);
-        dOPLetters.add(T17);
-        dOPLetters.add(N18);
-        dOPLetters.add(E19);
-        dOPLetters.add(E20);
-        dOPLetters.add(I21);
-        dOPLetters.add(T22);
-        dOPLetters.add(W23);
-        dOPLetters.add(I24);
-        dOPLetters.add(V25);
-        dOPLetters.add(F26);
-        dOPLetters.add(R27);
-        dOPLetters.add(E28);
-        dOPLetters.add(N29);
-        dOPLetters.add(N30);
-        dOPLetters.add(E31);
+        digitsOfPi.addLetter(T1);
+        digitsOfPi.addLetter(P2);
+        digitsOfPi.addLetter(O3);
+        digitsOfPi.addLetter(O4);
+        digitsOfPi.addLetter(N5);
+        digitsOfPi.addLetter(E6);
+        digitsOfPi.addLetter(H7);
+        digitsOfPi.addLetter(R8);
+        digitsOfPi.addLetter(I9);
+        digitsOfPi.addLetter(O10);
+        digitsOfPi.addLetter(U11);
+        digitsOfPi.addLetter(E12);
+        digitsOfPi.addLetter(O13);
+        digitsOfPi.addLetter(F14);
+        digitsOfPi.addLetter(N15);
+        digitsOfPi.addLetter(O16);
+        digitsOfPi.addLetter(T17);
+        digitsOfPi.addLetter(N18);
+        digitsOfPi.addLetter(E19);
+        digitsOfPi.addLetter(E20);
+        digitsOfPi.addLetter(I21);
+        digitsOfPi.addLetter(T22);
+        digitsOfPi.addLetter(W23);
+        digitsOfPi.addLetter(I24);
+        digitsOfPi.addLetter(V25);
+        digitsOfPi.addLetter(F26);
+        digitsOfPi.addLetter(R27);
+        digitsOfPi.addLetter(E28);
+        digitsOfPi.addLetter(N29);
+        digitsOfPi.addLetter(N30);
+        digitsOfPi.addLetter(E31);
 
-        digitsOfPi.words = dOPWords;
-        digitsOfPi.letters = dOPLetters;
+        //digitsOfPi.words = dOPWords;
+        //digitsOfPi.letters = dOPLetters;
 
         LevelShape dOPShape = LevelShape.all(6);
 
