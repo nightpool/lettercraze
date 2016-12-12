@@ -11,7 +11,7 @@ public class Board {
     protected ObservableList<Tile> tiles;
 
     /**
-     * creates Board object with a LevelShape
+     * Creates Board object with a LevelShape
      * @param ls the LevelShape describing the board
      */
     public Board(LevelShape ls) {
@@ -20,7 +20,7 @@ public class Board {
     }
 
     /**
-     * adds a Tile to the Board
+     * Adds a Tile to the Board
      * @param t the Tile object to add to the Board
      * @return whether it added the Tile or not
      */
@@ -29,7 +29,7 @@ public class Board {
     }
 
     /**
-     * removes a Tile from the Board
+     * Removes a Tile from the Board
      * @param t the Tile object to remove from the Board
      * @return whether it removed the Tile or not
      */
@@ -37,12 +37,16 @@ public class Board {
         return tiles.remove(t);
     }
 
+    /**
+     * Gets the stream of Tiles that are on the board
+     * @return the Stream of Tiles that are on the board
+     */
     public Stream<Tile> getTiles() {
         return tiles.stream();
     }
     
     /**
-     * gets the Optional Tile at the given position
+     * Gets the Optional Tile at the given position
      * @param p the Point where you want to get the Optional<Tile>
      * @return Optional Tile at the Point
      */
@@ -70,23 +74,38 @@ public class Board {
             .filter(t -> t.getPos().getRow() >= point.getRow())
             .min((t, t2) -> t.getPos().getRow() - t2.getPos().getRow());
     }
-
+    
+    /**
+     * Gets the stream of Tiles that are on the board as an ObservableList of Tiles
+     * @return the Stream of Tiles that are on the board as an ObservableList of Tiles
+     */
     public ObservableList<Tile> observableTiles() {
         return tiles;
     }
 
+    /**
+     * Clears the board
+     */
     public void clear() {
         this.tiles.clear();
         shape.unblockedPoints()
             .map(p -> new Tile(p, Letter.random()))
             .forEach(this::addTile);
     }
-
+    
+    /**
+     * Creates the dummy Board of the given size
+     * @param size the dimension of one side of the square LevelShape
+     */
     public static Board dummy(int size) {
         LevelShape shape = Level.dummy(size).getShape();
         return Board.random(shape);
     }
-
+    
+    /**
+     * Creates Board with a LevelShape that contains random Tiles
+     * @param shape the LevelShape describing the board
+     */
     public static Board random(LevelShape shape) {
         Board board = new Board(shape);
         shape.unblockedPoints()
@@ -95,6 +114,10 @@ public class Board {
         return board;
     }
     
+    /**
+     * Gets the LevelShape of the Board
+     * @return the LevelShape of the Board
+     */
     public LevelShape getShape() {
         return shape;
     }
