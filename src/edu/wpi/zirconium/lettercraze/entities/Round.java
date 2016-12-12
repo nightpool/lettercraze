@@ -88,6 +88,7 @@ public class Round {
         } else {
             if (!this.getCompletedMoves().isEmpty()) {
                 Move lastMove = this.getCompletedMoves().get(this.getCompletedMoves().size() - 1);
+                completedMoves.remove(lastMove);
                 return lastMove.undo(this);
             } else {
                 return false;

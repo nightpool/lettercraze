@@ -137,9 +137,8 @@ public class Move {
      */
     public boolean undo(Round round) {
         if (canUndo(round)) {
-            round.getBoard().observableTiles().remove(0, round.getBoard().observableTiles().size() - 1);
+            round.getBoard().observableTiles().clear();
             round.getBoard().observableTiles().addAll(prevTiles);
-            round.getCompletedMoves().remove(this);
             return true;
         } else {
             return false;
