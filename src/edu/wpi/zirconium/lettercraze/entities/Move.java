@@ -16,13 +16,19 @@ public class Move {
     protected ObservableList<Tile> selectedTiles;
     protected List<Tile> prevTiles;
 
+    /**
+     * creates Move object and initialized with an empty ObservableArrayList of selected Tiles
+     */
     public Move() {
         this.selectedTiles = FXCollections.observableArrayList();
     }
 
 
     private BooleanBinding valid;
-
+    /**
+     * Gets the BooleanBinding that represents if the Binding is valid
+     * @return BooleanBinding that represents if the Binding is valid
+     */
     public BooleanBinding isValidBinding() {
         if (valid == null) {
             valid = Bindings.createBooleanBinding(
@@ -33,7 +39,7 @@ public class Move {
     }
 
     /**
-     * returns if the Move is valid
+     * Returns if the Move is valid
      * @return boolean whether the move (the word) is valid or not
      */
     public boolean isMoveValid() {
@@ -41,7 +47,7 @@ public class Move {
     }
 
     /**
-     * returns if the Tile is valid to add to the word
+     * Returns if the Tile is valid to add to the word
      * @return boolean whether the Tile is valid to add to the word
      */
     public boolean canAdd(Tile tile) {
@@ -52,23 +58,31 @@ public class Move {
     }
 
     /**
-     * creates Word object with a collection of Letters
+     * Creates Word object with a collection of Letters
      * @return whether the move (the word) is valid or not
      */
     public boolean addTile(Tile tile) {
         return selectedTiles.add(tile);
     }
 
+    /**
+     * Returns true if the Tile can be removed
+     * @return true if the Tile can be removed
+     */
     public boolean canRemove(Tile tile) {
         return lastTile().map(tile::equals).orElse(false);
     }
-
+    
+    /**
+     * Removes the Tile from the Move's list of Tiles that form the word
+     * @return true if the Tile was removed
+     */
     public boolean removeTile(Tile t) {
         return selectedTiles.remove(t);
     }
 
     /**
-     * does the move
+     * Does the move
      * @param r the round
      * @return whether the Move was completed
      */
@@ -85,6 +99,10 @@ public class Move {
     }
 
     private ObjectBinding<Word> word;
+    /**
+     * Gets the ObjectBinding that represents the Word
+     * @return the ObjectBinging of the Word
+     */
     public ObjectBinding<Word> wordBinding() {
         if (word == null) {
             word = Bindings.createObjectBinding(
@@ -93,11 +111,21 @@ public class Move {
         }
         return word;
     }
+    
+    /**
+     * Gets the Word from the currently selected Move
+     * @return the Word currently being formed
+     */
     public Word getWord() {
         return wordBinding().get();
     };
 
     private IntegerBinding score;
+    
+    /**
+     * Gets the IntegerBinding that represents the score of the currently selected word
+     * @return IntegerBinding that represents the score of the currently selected word
+     */
     public IntegerBinding scoreBinding() {
         if (score == null) {
             score = Bindings.createIntegerBinding(() -> getWord().getScore(),
@@ -105,10 +133,19 @@ public class Move {
         }
         return score;
     }
+    
+    /**
+     * Gets the score of the currently selected word
+     * @return the score of the currently selected word
+     */
     public int getScore() {
         return getWord().getScore();
     }
-
+    
+    /**
+     * Gets the last Tile in the currently selected word
+     * @return the last Tile in the word
+     */
     private Optional<Tile> lastTile() {
         if (selectedTiles.size() > 0) {
             return Optional.of(selectedTiles.get(selectedTiles.size() - 1));
@@ -116,20 +153,36 @@ public class Move {
             return Optional.empty();
         }
     }
-
+    /**
+     * Gets the ObservableList of Tiles that represents the currently selected Tiles
+     * @return ObservableList of Tiles that represents the currently selected Tiles
+     */
     public ObservableList<Tile> getSelectedTiles() {
         return selectedTiles;
     }
-
+    
+    /**
+     * Undoes the Move
+     * @param round the current Round (from which to undo)
+     * @return true if the Move was undone
+     */
     public boolean undo(Round round) {
         // TODO Auto-generated method stub
         return false;
     }
-
+    
+    /**
+     * Gets the number of currently selected Tiles
+     * @return the number of currently selected Tiles
+     */
     public int getNumberSelectedTiles() {
         return selectedTiles.size();
     }
-
+    
+    /**
+     * Returns the currently selected word as a String
+     * @return the String that represents the currently selected word
+     */
     public String asString() {
         return String.format("%s (+%d points)", getWord().asString(), getWord().getScore());
     }
