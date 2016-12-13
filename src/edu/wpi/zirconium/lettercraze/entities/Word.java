@@ -28,11 +28,4 @@ public class Word {
         return letters.stream().mapToInt(Letter::getScore).sum() * letters.size();
     }
 
-    /**
-     * gets the score of the word from all the letters in each word
-     * @return the validity of the word from the dictionary
-     */
-    public boolean isValid() {
-        return true;    //TODO check the dictionary for this word
-    }
 }
