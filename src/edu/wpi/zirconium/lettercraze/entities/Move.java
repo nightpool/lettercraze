@@ -33,9 +33,9 @@ public class Move {
     }
 
     /**
-     * returns if the Move is valid
-     * @param r 
-     * @return boolean whether the move (the word) is valid or not
+     * Returns true if the Move is valid based on Round parameters.
+     * @param r Round to base validity of move upon.
+     * @return boolean true if the move (the word) is valid
      */
     public boolean isMoveValid(Round r) {
         return isValidBinding().get() && r.getLevel().isWordValid(getWord().asString());
