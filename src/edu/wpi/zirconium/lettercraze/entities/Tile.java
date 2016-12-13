@@ -9,7 +9,7 @@ public class Tile {
     private ObjectProperty<Point> position;
 
     /**
-     * creates Tile object with a Letter, at a Position
+     * creates Tile object with a Letter, at a Position.
      * @param point the position of Tile
      * @param letter the Letter object
      */
@@ -19,7 +19,7 @@ public class Tile {
     }
 
     /**
-     * Gets the score of the Tile from the Letter object
+     * Gets the score of the Tile from the Letter object.
      * @return the score of the Tile's Letter
      */
     public int getScore() {
@@ -27,7 +27,7 @@ public class Tile {
     }
     
     /**
-     * Returns true if the Tile is adjacent
+     * Returns true if the Tile is adjacent.
      * @param t the Tile to check for adjacency
      * @return true if the Tiles are adjacent
      */
@@ -36,7 +36,7 @@ public class Tile {
     }
     
     /**
-     * Gets the Letter from the Tile
+     * Gets the Letter from the Tile.
      * @return the Letter shown on the Tile
      */
     public Letter getLetter() {
@@ -44,7 +44,7 @@ public class Tile {
     }
     
     /**
-     * Gets the Position of the Tile
+     * Gets the Position of the Tile.
      * @return the Position of the Tile
      */
     public Point getPos() {
@@ -52,14 +52,14 @@ public class Tile {
     }
 
     /**
-     * Sets the Position of the Tile
+     * Sets the Position of the Tile.
      */
     public void setPosition(Point position) {
         this.position.set(position);
     }
     
     /**
-     * Gets the ObjectProperty of the Point
+     * Gets the ObjectProperty of the Point.
      * @return the ObjectProperty of the Point
      */
     public ObjectProperty<Point> positionProperty() {

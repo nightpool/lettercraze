@@ -17,7 +17,7 @@ public class Move {
     protected List<Tile> prevTiles;
 
     /**
-     * creates Move object and initialized with an empty ObservableArrayList of selected Tiles
+     * creates Move object and initialized with an empty ObservableArrayList of selected Tiles.
      */
     public Move() {
         this.selectedTiles = FXCollections.observableArrayList();
@@ -26,7 +26,7 @@ public class Move {
 
     private BooleanBinding valid;
     /**
-     * Gets the BooleanBinding that represents if the Binding is valid
+     * Gets the BooleanBinding that represents if the Binding is valid.
      * @return BooleanBinding that represents if the Binding is valid
      */
     public BooleanBinding isValidBinding() {
@@ -39,7 +39,7 @@ public class Move {
     }
 
     /**
-     * Returns if the Move is valid
+     * Returns if the Move is valid.
      * @return boolean whether the move (the word) is valid or not
      */
     public boolean isMoveValid() {
@@ -47,7 +47,7 @@ public class Move {
     }
 
     /**
-     * Returns if the Tile is valid to add to the word
+     * Returns if the Tile is valid to add to the word.
      * @return boolean whether the Tile is valid to add to the word
      */
     public boolean canAdd(Tile tile) {
@@ -58,7 +58,7 @@ public class Move {
     }
 
     /**
-     * Creates Word object with a collection of Letters
+     * Creates Word object with a collection of Letters.
      * @return whether the move (the word) is valid or not
      */
     public boolean addTile(Tile tile) {
@@ -66,7 +66,7 @@ public class Move {
     }
 
     /**
-     * Returns true if the Tile can be removed
+     * Returns true if the Tile can be removed.
      * @return true if the Tile can be removed
      */
     public boolean canRemove(Tile tile) {
@@ -74,7 +74,7 @@ public class Move {
     }
     
     /**
-     * Removes the Tile from the Move's list of Tiles that form the word
+     * Removes the Tile from the Move's list of Tiles that form the word.
      * @return true if the Tile was removed
      */
     public boolean removeTile(Tile t) {
@@ -82,7 +82,7 @@ public class Move {
     }
 
     /**
-     * Does the move
+     * Does the move.
      * @param r the round
      * @return whether the Move was completed
      */
@@ -100,7 +100,7 @@ public class Move {
 
     private ObjectBinding<Word> word;
     /**
-     * Gets the ObjectBinding that represents the Word
+     * Gets the ObjectBinding that represents the Word.
      * @return the ObjectBinging of the Word
      */
     public ObjectBinding<Word> wordBinding() {
@@ -113,7 +113,7 @@ public class Move {
     }
     
     /**
-     * Gets the Word from the currently selected Move
+     * Gets the Word from the currently selected Move.
      * @return the Word currently being formed
      */
     public Word getWord() {
@@ -123,7 +123,7 @@ public class Move {
     private IntegerBinding score;
     
     /**
-     * Gets the IntegerBinding that represents the score of the currently selected word
+     * Gets the IntegerBinding that represents the score of the currently selected word.
      * @return IntegerBinding that represents the score of the currently selected word
      */
     public IntegerBinding scoreBinding() {
@@ -135,7 +135,7 @@ public class Move {
     }
     
     /**
-     * Gets the score of the currently selected word
+     * Gets the score of the currently selected word.
      * @return the score of the currently selected word
      */
     public int getScore() {
@@ -143,7 +143,7 @@ public class Move {
     }
     
     /**
-     * Gets the last Tile in the currently selected word
+     * Gets the last Tile in the currently selected word.
      * @return the last Tile in the word
      */
     private Optional<Tile> lastTile() {
@@ -154,7 +154,7 @@ public class Move {
         }
     }
     /**
-     * Gets the ObservableList of Tiles that represents the currently selected Tiles
+     * Gets the ObservableList of Tiles that represents the currently selected Tiles.
      * @return ObservableList of Tiles that represents the currently selected Tiles
      */
     public ObservableList<Tile> getSelectedTiles() {
@@ -162,7 +162,7 @@ public class Move {
     }
     
     /**
-     * Checks the validity of the undo
+     * Checks the validity of the undo.
      * @param round the Round object
      * @return true if the Move can be undone
      */
@@ -171,7 +171,7 @@ public class Move {
     }
     
     /**
-     * Undoes the move, setting the Round to the previous state
+     * Undoes the move, setting the Round to the previous state.
      * @param round the Round
      * @return true if the move was undone, false if not
      */
@@ -186,7 +186,7 @@ public class Move {
     }
     
     /**
-     * Gets the number of currently selected Tiles
+     * Gets the number of currently selected Tiles.
      * @return the number of currently selected Tiles
      */
     public int getNumberSelectedTiles() {
@@ -194,7 +194,7 @@ public class Move {
     }
     
     /**
-     * Returns the currently selected word as a String
+     * Returns the currently selected word as a String.
      * @return the String that represents the currently selected word
      */
     public String asString() {

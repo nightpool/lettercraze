@@ -9,7 +9,7 @@ public class Word {
     protected final List<Letter> letters;
 
     /**
-     * creates Word object with a collection of Letters
+     * creates Word object with a collection of Letters.
      * @param letters The new letters to construct the word out of
      */
     public Word(Letter... letters) {
@@ -21,7 +21,7 @@ public class Word {
     }
 
     /**
-     * gets the score of the word from all the letters in each word
+     * gets the score of the word from all the letters in each word.
      * @return the score of the Word
      */
     public int getScore() {
@@ -29,7 +29,7 @@ public class Word {
     }
 
     /**
-     * gets the score of the word from all the letters in each word
+     * gets the score of the word from all the letters in each word.
      * @return the validity of the word from the dictionary
      */
     public boolean isValid() {

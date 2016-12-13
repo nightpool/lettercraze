@@ -23,7 +23,7 @@ public class Level {
     }
 
     /**
-     * Returns the number of starts achieved in the Level based on the given score
+     * Returns the number of starts achieved in the Level based on the given score.
      * @param score the current score
      * @return the number of stars achieved (1, 2, or 3)
      */
@@ -48,15 +48,15 @@ public class Level {
     }
     
     /**
-     * Sets the LevelShape of the Level
-     * @param shape The Shape to set this.shape to
+     * Sets the LevelShape of the Level.
+     * @param shape The LevelShape to set this.shape to
      */
     public void setShape(LevelShape ls){
     	this.shape = ls;
     }
     
     /**
-     * Sets the thresholds for 1, 2, and 3 stars, respectively
+     * Sets the thresholds for 1, 2, and 3 stars, respectively.
      * @param l, m, h integer for each score threshold
      */
     public void setThresholds(int l, int m, int h){
@@ -66,7 +66,7 @@ public class Level {
     }
     
     /**
-     * Returns true if the round is over
+     * Returns true if the round is over.
      * @param r the Round
      * @return true if it is over
      */
@@ -76,7 +76,7 @@ public class Level {
     }
     
     /**
-     * Gets the key of the Level
+     * Gets the key of the Level.
      * @return the Level's key
      */
     public String getKey() {
@@ -84,7 +84,7 @@ public class Level {
     }
     
     /**
-     * Gets the title of the Level
+     * Gets the title of the Level.
      * @return the Level's title
      */
     public String getTitle() {
@@ -92,7 +92,7 @@ public class Level {
     }
     
     /**
-     * Gets the StringProperty of the Level's title
+     * Gets the StringProperty of the Level's title.
      * @return the StringProperty of the Level's title
      */
     public StringProperty titleProperty() {
@@ -100,7 +100,7 @@ public class Level {
     }
     
     /**
-     * Sets the title of the Level
+     * Sets the title of the Level.
      * @param title String representing the new title
      */
     public void setTitle(String title) {
@@ -116,7 +116,7 @@ public class Level {
     }
 
     /**
-     * Loads a dummy level of the given size
+     * Loads a dummy level of the given size.
      * @param size the length of one edge of the square level boundary
      * @return the new dummy Level
      */
