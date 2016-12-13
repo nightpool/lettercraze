@@ -3,13 +3,11 @@
  */
 package edu.wpi.zirconium.lettercraze.entities;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javafx.beans.property.SimpleIntegerProperty;
+import static org.junit.Assert.*;
 
 /**
  * @author Chris B
@@ -252,7 +250,31 @@ public class TestRound {
 		assertFalse(round.getWordsFound().isEmpty());
 		Word word = new Word(Letter.A,Letter.C,Letter.T);
 		assertEquals(word.asString(), round.getWordsFound().get(0).asString());
-		
+	}
+
+	/**
+	 * Test method for {@link Round#starsEarnedBinding()}.
+	 */
+	@Test
+	public void testStarsEarned() {
+		Word word = new Word(Letter.A,Letter.C,Letter.T);
+		level.setThresholds(1, word.getScore(), word.getScore()*2);
+		assertEquals(0, round.getStarsEarned());
+
+		Tile t1 = new Tile(new Point(0, 0), Letter.A);
+		Tile t2 = new Tile(new Point(1, 0), Letter.C);
+		Tile t3 = new Tile(new Point(2, 0), Letter.T);
+		round.selectTile(t1);
+		round.selectTile(t2);
+		round.selectTile(t3);
+		round.submitMove();
+		assertEquals(2, round.getStarsEarned());
+
+		round.selectTile(t1);
+		round.selectTile(t2);
+		round.selectTile(t3);
+		round.submitMove();
+		assertEquals(3, round.getStarsEarned());
 	}
 
 }
