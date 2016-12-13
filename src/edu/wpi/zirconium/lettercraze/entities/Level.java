@@ -40,7 +40,7 @@ public class Level {
     }
 
     /**
-     * Return the letter shape of this level.
+     * Return the LetterLhape of this Level.
      * @return this level's levelshape
      */
     LevelShape getShape() {
@@ -48,7 +48,7 @@ public class Level {
     }
     
     /**
-     * 
+     * Sets the LevelShape of the Level
      * @param shape The Shape to set this.shape to
      */
     public void setShape(LevelShape ls){
@@ -56,32 +56,53 @@ public class Level {
     }
     
     /**
-     * 
-     * @param l, m, h Integer for each score threshold
+     * Sets the thresholds for 1, 2, and 3 stars, respectively
+     * @param l, m, h integer for each score threshold
      */
     public void setThresholds(int l, int m, int h){
     	this.scoreThresholds[0] = l;
     	this.scoreThresholds[1] = m;
     	this.scoreThresholds[2] = h;
     }
-
-    boolean isOver(Round r){
+    
+    /**
+     * Returns true if the round is over
+     * @param r the Round
+     * @return true if it is over
+     */
+    public boolean isOver(Round r){
         //TODO
         return false;
     }
-
+    
+    /**
+     * Gets the key of the Level
+     * @return the Level's key
+     */
     public String getKey() {
         return key;
     }
-
+    
+    /**
+     * Gets the title of the Level
+     * @return the Level's title
+     */
     public String getTitle() {
         return title.get();
     }
-
+    
+    /**
+     * Gets the StringProperty of the Level's title
+     * @return the StringProperty of the Level's title
+     */
     public StringProperty titleProperty() {
         return title;
     }
-
+    
+    /**
+     * Sets the title of the Level
+     * @param title String representing the new title
+     */
     public void setTitle(String title) {
         this.title.set(title);
     }
@@ -94,6 +115,11 @@ public class Level {
         return Level.dummy(6);
     }
 
+    /**
+     * Loads a dummy level of the given size
+     * @param size the length of one edge of the square level boundary
+     * @return the new dummy Level
+     */
     public static Level dummy(int size) {
         Level level = new Level(size, "");
         IntStream.range(0, size).forEach(i -> {
