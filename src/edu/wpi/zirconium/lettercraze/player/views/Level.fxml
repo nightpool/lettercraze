@@ -71,7 +71,7 @@
                      <Font name="Josefin Sans Light" size="29.0" />
                   </font>
                </Text>
-               <Text text="seconds">
+               <Text fx:id="timeLabel" text="seconds">
                   <font>
                      <Font name="Open Sans" size="14.0" />
                   </font>
