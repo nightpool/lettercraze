@@ -1,9 +1,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.IntegerBinding;
-import javafx.beans.binding.ListBinding;
-import javafx.beans.binding.ListExpression;
+import javafx.beans.binding.*;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -258,5 +255,10 @@ public class Round {
 
     public void setMoveInProgress(Move moveInProgress) {
         this.moveInProgress.set(moveInProgress);
+    }
+
+    public BooleanBinding currentMoveValidBinding() {
+        return Bindings.createBooleanBinding(() ->
+            this.getMoveInProgress().isMoveValid(this), this.getMoveInProgress().wordBinding());
     }
 }
