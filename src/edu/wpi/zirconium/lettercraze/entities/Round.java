@@ -1,9 +1,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.IntegerBinding;
-import javafx.beans.binding.ListBinding;
-import javafx.beans.binding.ListExpression;
+import javafx.beans.binding.*;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -220,11 +217,19 @@ public class Round {
         return seconds;
     }
 
+    /**
+     * Set the number of seconds since the beginning of the game.
+     */
     private void setTime(int seconds) {
         this.seconds.set(seconds);
     }
 
+    /** the cached binding for getWordsFound */
     private ListBinding<Word> wordsFound;
+
+    /**
+     * @return a Binding that is a list of all of the words found so far
+     */
     public ListExpression<Word> getWordsFound() {
         if (wordsFound == null) {
             wordsFound = new ListBinding<Word>() {
@@ -252,11 +257,24 @@ public class Round {
         return wordsFound;
     }
 
+    /**
+     * @return a binding that represents the current move in progress
+     */
     public SimpleObjectProperty<Move> moveInProgressProperty() {
         return moveInProgress;
     }
 
-    public void setMoveInProgress(Move moveInProgress) {
+    /**
+     * Set the current move in progress
+     * @param moveInProgress the new Move to be in progress
+     */
+    private void setMoveInProgress(Move moveInProgress) {
         this.moveInProgress.set(moveInProgress);
+    }
+
+    public IntegerExpression starsEarnedBinding() {
+        return Bindings.createIntegerBinding(
+            () -> this.getLevel().numAchievedStars(this.getScore()),
+            scoreBinding());
     }
 }
