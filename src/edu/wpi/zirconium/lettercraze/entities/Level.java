@@ -22,6 +22,11 @@ public class Level {
         scoreThresholds[2] = 2;
     }
 
+    /**
+     * Returns the number of starts achieved in the Level based on the given score
+     * @param score the current score
+     * @return the number of stars achieved (1, 2, or 3)
+     */
     int numAchievedStars(int score){
         if(score < scoreThresholds[0]){
             return 0;
