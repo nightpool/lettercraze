@@ -18,6 +18,20 @@ public class ThemeLevel extends Level{
     public boolean isOver(Round r){
         return r.getCompletedMoves().size() == this.words.size();
     }
+    
+    /**
+     * Checks if the passed word is found in the list of words for this level.
+     * @return true if the word exists in the list of words.
+     * @param word word to test against.
+     */
+    @Override
+    public boolean isWordValid(String word){
+    	for (int i = 0; i < words.size(); i++) {
+			if (words.get(i).asString().equalsIgnoreCase(word))
+				return true;
+		}
+    	return false;
+    }
 
     /**
      * 

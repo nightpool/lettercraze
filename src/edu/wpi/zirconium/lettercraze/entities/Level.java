@@ -5,6 +5,8 @@ import javafx.beans.property.StringProperty;
 
 import java.util.stream.IntStream;
 
+import edu.wpi.zirconium.lettercraze.utils.WordTable;
+
 public class Level {
 
     private final String key;
@@ -113,6 +115,15 @@ public class Level {
      */
     public static Level get(String levelKey) {
         return Level.dummy(6);
+    }
+    
+    /**
+     * Consults the dictionary to see if the word is valid.
+     * @param word word to test if it is in the dictionary
+     * @return true if word exists in the dictionary
+     */
+    public boolean isWordValid(String word){
+    	return WordTable.isWord(word);
     }
 
     /**
