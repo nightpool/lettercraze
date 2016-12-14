@@ -78,6 +78,16 @@ public class LetterCrazeBuilder extends Application {
         }
 
     }
+    
+    public static void showSelectScreen() {
+        try {
+            Parent selector = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/LevelSelect.fxml"));
+            stage.setScene(new Scene(selector, 1024, 712));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static void showBuilderScreen() {
         try {
