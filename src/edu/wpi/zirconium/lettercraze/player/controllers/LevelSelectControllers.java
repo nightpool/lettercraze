@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 
 public class LevelSelectControllers implements Initializable {
 
@@ -29,24 +30,26 @@ public class LevelSelectControllers implements Initializable {
         this.puzzlePack.setPack(LevelPack.dummyPuzzle());
         this.lightningPack.setPack(LevelPack.dummyLightning());
         this.themePack.setPack(LevelPack.dummyTheme());
-        
-        // for each of the packs, check if the levels are unlocked and only allow clicks
-        // on the ones that are
-        puzzlePack.getTiles().forEach(lt -> {
+
+        Stream.of(puzzlePack)
+        .flatMap(LevelPackView::getTiles)
+        .forEach(lt -> {
         	String key = lt.getLevel().getKey();
         	if(this.puzzlePack.getPack().isUnlocked(lt.getLevelStats()))
         		lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
         }
         		);
-
-        lightningPack.getTiles().forEach(lt -> {
+        Stream.of(lightningPack)
+        .flatMap(LevelPackView::getTiles)
+        .forEach(lt -> {
         	String key = lt.getLevel().getKey();
         	if(this.lightningPack.getPack().isUnlocked(lt.getLevelStats()))
         		lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
         }
         		);
-
-        themePack.getTiles().forEach(lt -> {
+        Stream.of(themePack)
+        .flatMap(LevelPackView::getTiles)
+        .forEach(lt -> {
         	String key = lt.getLevel().getKey();
         	if(this.themePack.getPack().isUnlocked(lt.getLevelStats()))
         		lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
