@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.LevelSelectController">
+   <children>
+      <BorderPane prefHeight="700.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="341.33">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Puzzle Levels" textOrigin="TOP">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane hbarPolicy="NEVER" hmax="0.0" prefHeight="1000.0" prefWidth="300.0">
+                                 <content>
+                                    <VBox alignment="CENTER" minWidth="-Infinity" prefWidth="320.0">
+                                       <children>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 15 0 L0 14 L10 14 L10 28 L20 28 L20 14 L30 14" stroke="BLACK" strokeType="INSIDE" styleClass="lc-up-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M5 0 L15 10 L25 0 L30 5 L20 15 L30 25 L25 30 L15 20 L4 30 L 0 25 L10 15 L0 5" fill="RED" stroke="#000000ed" strokeType="INSIDE" styleClass="lc-delete-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M0 0 L10 0 L10 -14 L20 -14 L20 0 L30 0 L15 14 L0 0" stroke="#000000ed" strokeType="INSIDE" styleClass="lc-down-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group fx:id="level1" styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Open Sans" size="33.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 15 0 L0 14 L10 14 L10 28 L20 28 L20 14 L30 14" stroke="BLACK" strokeType="INSIDE" styleClass="lc-up-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M5 0 L15 10 L25 0 L30 5 L20 15 L30 25 L25 30 L15 20 L4 30 L 0 25 L10 15 L0 5" fill="RED" stroke="#000000ed" strokeType="INSIDE" styleClass="lc-delete-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M0 0 L10 0 L10 -14 L20 -14 L20 0 L30 0 L15 14 L0 0" stroke="#000000ed" strokeType="INSIDE" styleClass="lc-down-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group fx:id="level2" styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Open Sans" size="33.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <Group fx:id="newPuzzle" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
+                                                      <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefWidth="341.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lightning Levels" textOrigin="TOP">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="1000.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox alignment="CENTER" prefWidth="320.0">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                       <children>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <VBox fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+                                                   <children>
+                                                      <SVGPath content="M 15 0 L0 14 L10 14 L10 28 L20 28 L20 14 L30 14" stroke="BLACK" strokeType="INSIDE" styleClass="lc-up-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M5 0 L15 10 L25 0 L30 5 L20 15 L30 25 L25 30 L15 20 L4 30 L 0 25 L10 15 L0 5" fill="RED" stroke="#000000ed" strokeType="INSIDE" styleClass="lc-delete-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="2.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                      <SVGPath content="M0 0 L10 0 L10 -14 L20 -14 L20 0 L30 0 L15 14 L0 0" stroke="#000000ed" strokeType="INSIDE" styleClass="lc-down-level">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" top="2.0" />
+                                                         </VBox.margin>
+                                                      </SVGPath>
+                                                   </children>
+                                                </VBox>
+                                                <Group fx:id="level3" styleClass="lc-active-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-active-level-rect" width="100.0" />
+                                                      <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font size="20.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets top="10.0" />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2:00" textAlignment="CENTER" textOrigin="TOP" x="18.0" y="5.0">
+                                                               <font>
+                                                                  <Font name="Open Sans" size="33.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets />
+                                                               </VBox.margin>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <Group fx:id="newLightning" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
+                                                      <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefWidth="341.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutY="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theme Levels" textOrigin="TOP">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="1000.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox alignment="CENTER" prefWidth="320.0">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                       <children>
+                                          <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <Group fx:id="newTheme" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
+                                                      <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                             <padding>
+                                                <Insets left="5.0" top="5.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </center>
+         <top>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <Text layoutX="311.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add, Remove, or Edit a Level" textAlignment="CENTER" AnchorPane.leftAnchor="311.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+                  <Pane id="back-button" fx:id="backButton" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: #434343; -fx-border-width: 2px;" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="18.0">
+                     <children>
+                        <SVGPath content="M 1.55413 23.54587 L 25.10102 1.50895 25.10102 14.67997 52.35188 14.67997 52.35188 32.41176 25.10102 32.41176 25.10102 45.58279 Z" fill="TRANSPARENT" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="2.1" translateX="-2.0" translateY="2.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
