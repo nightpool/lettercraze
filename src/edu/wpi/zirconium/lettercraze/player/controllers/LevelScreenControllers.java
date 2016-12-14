@@ -49,6 +49,7 @@ public class LevelScreenControllers implements Initializable {
     @FXML private TextArea previousMovesDisplay;
 
     @FXML private Button exitLevel;
+    @FXML private Button reset;
     @FXML private SubmitButton submit;
 
     private Round currentRound;
@@ -56,6 +57,7 @@ public class LevelScreenControllers implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         exitLevel.setOnMouseClicked(this::onExitClicked);
+        reset.setOnMouseClicked(this::onResetClicked);
 
         Level level = Level.get(root.getLevelKey());
         currentRound = new Round(level);
@@ -66,9 +68,7 @@ public class LevelScreenControllers implements Initializable {
         stars.starsActiveProperty().bind(currentRound.starsEarnedBinding());
 
         time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
-        time.setOnMouseClicked(_me -> currentRound.incrementTime());
-        currentRound.timeProperty().greaterThan(60).addListener(
-            (_p, _o, value) -> timeLabel.setText(value ? "minutes" : "seconds"));
+        timeLabel.setText("time");
 
         Timer timeUpdater = new Timer(true);
         timeUpdater.schedule(new TimerTask() {
@@ -136,5 +136,9 @@ public class LevelScreenControllers implements Initializable {
 
     private void onExitClicked(MouseEvent mouseEvent) {
         LetterCrazePlayer.showLevelSelectScreen();
+    }
+    
+    private void onResetClicked(MouseEvent mouseEvent) {
+        currentRound.reset();
     }
 }
