@@ -17,11 +17,3 @@
     -fx-background-color: #efefef;
     -fx-cursor: hand;
 }
-
-.lc-active-level:hover {
-    -fx-cursor: hand;
-}
-
-.lc-active-level:hover .lc-active-level-rect {
-    -fx-fill: #efefef;
-}

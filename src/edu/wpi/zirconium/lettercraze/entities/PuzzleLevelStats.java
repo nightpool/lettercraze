@@ -1,11 +1,21 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-public class PuzzleLevelStats extends LevelStats{
+public class PuzzleLevelStats extends LevelStats {
 
-    int mostPoints;
+    private final int mostPoints;
 
-    PuzzleLevelStats(Level l, int points) {
+    PuzzleLevelStats(Level l, int mostPoints) {
         super(l);
-        this.mostPoints = points;
+        this.mostPoints = mostPoints;
+    }
+
+    @Override
+    public int thresholdValue() {
+        return mostPoints;
+    }
+
+    @Override
+    public String thresholdLabel() {
+        return "points";
     }
 }
