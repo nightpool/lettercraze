@@ -42,7 +42,7 @@ public enum Letter {
     protected final int score;
 
     /**
-     * creates Letter object with a String and a score
+     * creates Letter object with a String and a score.
      * @param s the String that is the character or combination of characters (i.e. A,B,C,Qu, etc)
      * @param score the score assigned to the Letter
      */
@@ -68,7 +68,7 @@ public enum Letter {
     }
 
     /**
-     * This generates a new random letter based on probability distribution of letters
+     * This generates a new random letter based on probability distribution of letters.
      * for the English language.
      * @return new letter based on proper distribution.
      */

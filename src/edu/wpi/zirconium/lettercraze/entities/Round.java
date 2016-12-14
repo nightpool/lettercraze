@@ -136,7 +136,7 @@ public class Round {
     }
 
     /**
-     * Returns true if it's possible to select the given tile
+     * Returns true if it's possible to select the given tile.
      * @param tile the tile in question
      * @return whether it can be selected or now
      */
@@ -145,7 +145,7 @@ public class Round {
     }
 
     /**
-     * Selects the given tile
+     * Selects the given tile.
      * @param tile the tile to be selected
      * @return true if the tile was successfully selected, false otherwise
      */
@@ -156,7 +156,7 @@ public class Round {
     }
 
     /**
-     * Can the player deselect the given tile
+     * Can the player deselect the given tile.
      * @param tile the tile in question
      * @return true if the player can deselected the tile, false otherwise
      */
@@ -165,7 +165,7 @@ public class Round {
     }
 
     /**
-     * Deselects the given tile
+     * Deselects the given tile.
      * @param tile the tile to deselect
      * @return true if the tile was successfully deselected, false otherwise
      */
@@ -183,6 +183,7 @@ public class Round {
     }
 
     /**
+     * Gets the Level object from the Round.
      * @return the base level for this round
      */
     public Level getLevel() {
@@ -190,6 +191,7 @@ public class Round {
     }
 
     /**
+     * Gets the Board object from the Round.
      * @return the current state of the board
      */
     public Board getBoard() {
@@ -197,13 +199,15 @@ public class Round {
     }
 
     /**
-     * @return the current, uncompleted move. Always non-null
+     * Gets the current Move.
+     * @return the current, uncompleted move. Always non-null.
      */
     public Move getMoveInProgress() {
         return moveInProgress.get();
     }
 
     /**
+     * Gets the ObservableList of completed moves.
      * @return moves the player has made so far
      */
     public ObservableList<Move> getCompletedMoves() {
@@ -211,6 +215,7 @@ public class Round {
     }
 
     /**
+     * Gets the SimpleIntegerProperty of the Round time (in seconds).
      * @return number of seconds since the beginning of the game.
      */
     public SimpleIntegerProperty timeProperty() {
@@ -218,16 +223,19 @@ public class Round {
     }
 
     /**
-     * Set the number of seconds since the beginning of the game.
+     * Sets the time of the Round in seconds.
+     * @param seconds the number of seconds
      */
     private void setTime(int seconds) {
         this.seconds.set(seconds);
     }
 
+
     /** the cached binding for getWordsFound */
     private ListBinding<Word> wordsFound;
 
     /**
+     * Gets the ListExpression of Words found.
      * @return a Binding that is a list of all of the words found so far
      */
     public ListExpression<Word> getWordsFound() {
@@ -258,17 +266,19 @@ public class Round {
     }
 
     /**
-     * @return a binding that represents the current move in progress
+     * Gets the SimpleObjectProperty of the Moves in progress.
+     * @return SimpleObjectProperty of the Moves in progress
      */
     public SimpleObjectProperty<Move> moveInProgressProperty() {
         return moveInProgress;
     }
-
+    
     /**
-     * Set the current move in progress
+     * Sets the current Move in progress.
      * @param moveInProgress the new Move to be in progress
      */
-    private void setMoveInProgress(Move moveInProgress) {
+    public void setMoveInProgress(Move moveInProgress) {
+
         this.moveInProgress.set(moveInProgress);
     }
 
