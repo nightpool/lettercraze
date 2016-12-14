@@ -41,6 +41,7 @@ public class LevelScreenControllers implements Initializable {
     @FXML private StarsView stars;
 
     @FXML private Text time;
+    @FXML private Text timeLabel;
     @FXML private Text score;
     @FXML private Text wordsFound;
     @FXML private Text wordLabel;
@@ -67,7 +68,7 @@ public class LevelScreenControllers implements Initializable {
         time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
         time.setOnMouseClicked(_me -> currentRound.incrementTime());
         currentRound.timeProperty().greaterThan(60).addListener(
-            (_p, _o, value) -> wordLabel.setText(value ? "minutes" : "seconds"));
+            (_p, _o, value) -> timeLabel.setText(value ? "minutes" : "seconds"));
 
         Timer timeUpdater = new Timer(true);
         timeUpdater.schedule(new TimerTask() {
