@@ -61,16 +61,11 @@ public class BuilderControllers implements Initializable {
     			}
     			);
 
-//    	System.out.println(board.getTiles().size());
-
     	//board.getTiles().forEach(t -> t.setOnMouseClicked(c -> t.toggleBlocked()));
     	realBoard.clear();
 
-    	//realBoard = new Board(new LevelShape(6));
-
-
     }
-    
+
     /**
      * Attempts to save the current level.
      */
@@ -85,7 +80,7 @@ public class BuilderControllers implements Initializable {
         else if (themeTab.isSelected()) {
         	System.out.println("I am a theme");
         }
-		
+
 	}
 
 	private void bindTile(TileView v, Tile t) {
