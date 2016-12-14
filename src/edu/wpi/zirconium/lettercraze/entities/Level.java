@@ -12,30 +12,30 @@ public class Level {
     private LevelShape shape;
     private int[] scoreThresholds = new int[3];
 
-    private StringProperty title = new SimpleStringProperty(this, "title", "Game Title");
+    private StringProperty title = new SimpleStringProperty(this, "title", "Game title");
 
     Level(int size, String key){
         this.key = key;
         this.shape = new LevelShape(size);
 
-        scoreThresholds[0] = 0;
-        scoreThresholds[1] = 1;
-        scoreThresholds[2] = 2;
+        scoreThresholds[0] = 1;
+        scoreThresholds[1] = 2;
+        scoreThresholds[2] = 3;
     }
 
     /**
-     * Returns the number of starts achieved in the Level based on the given score.
-     * @param score the current score
+     * Returns the number of starts achieved in the Level based on the given threshold values
+     * @param thresholdValue the current {@link #thresholdValue(Round)}
      * @return the number of stars achieved (1, 2, or 3)
      */
-    int numAchievedStars(int score){
-        if(score < scoreThresholds[0]){
+    int numAchievedStars(int thresholdValue) {
+        if(thresholdValue < scoreThresholds[0]){
             return 0;
-        } else if (score >= scoreThresholds[0] && score < scoreThresholds[1]){
+        } else if (thresholdValue >= scoreThresholds[0] && thresholdValue < scoreThresholds[1]){
             return 1;
-        } else if (score >= scoreThresholds[1] && score < scoreThresholds[2]){
+        } else if (thresholdValue >= scoreThresholds[1] && thresholdValue < scoreThresholds[2]){
             return 2;
-        } else { // score >= scoreThresholds[2];
+        } else { // thresholdValue >= scoreThresholds[2];
             return 3;
         }
     }
@@ -50,7 +50,7 @@ public class Level {
     
     /**
      * Sets the LevelShape of the Level.
-     * @param shape The LevelShape to set this.shape to
+     * @param ls The LevelShape to set this.shape to
      */
     public void setShape(LevelShape ls){
     	this.shape = ls;
@@ -142,4 +142,7 @@ public class Level {
         return level;
     }
 
+    public int thresholdValue(Round round) {
+        return round.getScore();
+    }
 }

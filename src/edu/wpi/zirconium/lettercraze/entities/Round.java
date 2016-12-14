@@ -295,7 +295,7 @@ public class Round {
      */
     public IntegerExpression starsEarnedBinding() {
         return Bindings.createIntegerBinding(
-            () -> this.getLevel().numAchievedStars(this.getScore()),
+            () -> this.getLevel().numAchievedStars(this.getLevel().thresholdValue(this)),
             scoreBinding());
     }
 
