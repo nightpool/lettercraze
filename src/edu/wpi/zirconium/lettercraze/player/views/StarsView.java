@@ -45,7 +45,7 @@ public class StarsView extends HBox {
             this.setStrokeWidth(2);
             this.fillProperty().bind(
                 Bindings.createObjectBinding(() -> isActive() ?
-                        Paint.valueOf("#ffe1002d") : Paint.valueOf("#ffe10000"),
+                        Paint.valueOf("#fff600") : Paint.valueOf("#ffe10000"),
                 this.activeProperty()));
         }
         BooleanProperty active = new SimpleBooleanProperty(this, "active", false);
