@@ -13,6 +13,8 @@ import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
@@ -28,11 +30,17 @@ public class BuilderControllers implements Initializable {
 
     @FXML private BoardView board;
     
+    @FXML private TabPane tabPane;
+    @FXML private Tab puzzleTab;
+    @FXML private Tab lightningTab;
+    @FXML private Tab themeTab;
+    
     private Board realBoard;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         backButton.setOnMouseClicked(_me -> LetterCrazeBuilder.showSelectScreen());
+        saveButton.setOnMouseClicked(_me -> saveLevel());
 
     	realBoard = Board.dummy(6);
 
@@ -53,7 +61,7 @@ public class BuilderControllers implements Initializable {
     			}
     			);
 
-    	System.out.println(board.getTiles().size());
+//    	System.out.println(board.getTiles().size());
 
     	//board.getTiles().forEach(t -> t.setOnMouseClicked(c -> t.toggleBlocked()));
     	realBoard.clear();
@@ -63,7 +71,24 @@ public class BuilderControllers implements Initializable {
 
     }
     
-    private void bindTile(TileView v, Tile t) {
+    /**
+     * Attempts to save the current level.
+     */
+    private void saveLevel() {
+    	// determine which type of puzzle we were actually instantiated with and adjust
+        if(puzzleTab.isSelected()){
+        	System.out.println("I am a puzzle");
+        }
+        else if (lightningTab.isSelected()) {
+        	System.out.println("I am a lightning");
+        }
+        else if (themeTab.isSelected()) {
+        	System.out.println("I am a theme");
+        }
+		
+	}
+
+	private void bindTile(TileView v, Tile t) {
         v.valueProperty().set(t.getLetter().getCharacter());
 //        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
 //            v.selectedProperty().bind(Bindings.createBooleanBinding(

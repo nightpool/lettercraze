@@ -52,9 +52,9 @@
                   <Font size="25.0" />
                </font>
             </TextField>
-            <TabPane prefHeight="250.0" styleClass="settings-pane" tabClosingPolicy="UNAVAILABLE">
+            <TabPane id="tab-pane" fx:id="tabPane" prefHeight="250.0" styleClass="settings-pane" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab closable="false" text="Puzzle">
+                <Tab fx:id="puzzleTab" closable="false" text="Puzzle">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content">
                            <children>
@@ -98,7 +98,7 @@
                            </children></AnchorPane>
                   </content>
                 </Tab>
-                  <Tab closable="false" text="Lightning">
+                  <Tab fx:id="lightningTab" closable="false" text="Lightning">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content">
                            <children>
@@ -142,7 +142,7 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                <Tab closable="false" text="Theme">
+                <Tab fx:id="themeTab" closable="false" text="Theme">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab-content">
                            <children>
