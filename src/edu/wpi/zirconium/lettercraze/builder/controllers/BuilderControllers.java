@@ -29,32 +29,38 @@ public class BuilderControllers implements Initializable {
     @FXML private BoardView board;
     
     private Board realBoard;
-    private Level level;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        backButton.setOnMouseClicked(_me -> LetterCrazeBuilder.showMenuScreen());
+    	backButton.setOnMouseClicked(_me -> LetterCrazeBuilder.showMenuScreen());
 
-        board.getTiles().forEach(t -> t.setOnMouseClicked(c -> t.toggleBlocked()));
-        
-        realBoard = new Board(new LevelShape(6));
-        
-        realBoard.observableTiles().addListener(
-                (ListChangeListener<? super Tile>) l -> {
-                    while (l.next()) {
-                        for (Tile t : l.getAddedSubList()) {
-                            TileView v = board.newTile(t.getPos());
-                            this.bindTile(v, t);
-                            board.getTiles().add(v);
-                        }
+    	realBoard = Board.dummy(6);
 
-                        for (Tile t : l.getRemoved()) {
-                            board.getTiles()
-                                 .removeIf(v -> v.getPos().equals(t.getPos()));
-                        }
-                    }
-                }
-            );
+    	realBoard.observableTiles().addListener(
+    			(ListChangeListener<? super Tile>) l -> {
+    				while (l.next()) {
+    					for (Tile t : l.getAddedSubList()) {
+    						TileView v = board.newTile(t.getPos());
+    						this.bindTile(v, t);
+    						board.getTiles().add(v);
+    					}
+
+    					for (Tile t : l.getRemoved()) {
+    						board.getTiles()
+    						.removeIf(v -> v.getPos().equals(t.getPos()));
+    					}
+    				}
+    			}
+    			);
+
+    	System.out.println(board.getTiles().size());
+
+    	//board.getTiles().forEach(t -> t.setOnMouseClicked(c -> t.toggleBlocked()));
+    	realBoard.clear();
+
+    	//realBoard = new Board(new LevelShape(6));
+
+
     }
     
     private void bindTile(TileView v, Tile t) {
