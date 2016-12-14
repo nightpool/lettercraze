@@ -16,6 +16,6 @@ public class LightningLevelStats extends LevelStats{
 
     @Override
     public String thresholdLabel() {
-        return mostWords + " words";
+        return "words";
     }
 }

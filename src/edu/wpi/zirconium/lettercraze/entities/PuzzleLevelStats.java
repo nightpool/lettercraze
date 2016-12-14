@@ -16,6 +16,6 @@ public class PuzzleLevelStats extends LevelStats {
 
     @Override
     public String thresholdLabel() {
-        return mostPoints + " points";
+        return "points";
     }
 }

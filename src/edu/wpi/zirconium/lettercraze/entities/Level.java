@@ -142,10 +142,6 @@ public class Level {
         return level;
     }
 
-    public LevelType getType() {
-        return LevelType.PUZZLE;
-    }
-
     public int thresholdValue(Round round) {
         return round.getScore();
     }

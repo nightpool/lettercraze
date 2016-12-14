@@ -18,8 +18,4 @@ public abstract class LevelStats {
     public Level getLevel() {
         return level;
     }
-
-    public LevelType getType() {
-        return level.getType();
-    }
 }
