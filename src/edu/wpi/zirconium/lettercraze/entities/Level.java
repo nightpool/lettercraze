@@ -44,7 +44,7 @@ public class Level {
      * Return the LetterLhape of this Level.
      * @return this level's levelshape
      */
-    LevelShape getShape() {
+    public LevelShape getShape() {
         return this.shape;
     }
     
