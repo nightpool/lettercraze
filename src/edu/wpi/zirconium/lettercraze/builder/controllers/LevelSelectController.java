@@ -16,6 +16,9 @@ public class LevelSelectController implements Initializable {
     @FXML private Group level1;
     @FXML private Group level2;
     @FXML private Group level3;
+    @FXML private Group newPuzzle;
+    @FXML private Group newLightning;
+    @FXML private Group newTheme;
 
 
     @Override
@@ -23,6 +26,11 @@ public class LevelSelectController implements Initializable {
         level1.setOnMouseClicked(this::showLevelScreen);
         level2.setOnMouseClicked(this::showLevelScreen);
         level3.setOnMouseClicked(this::showLevelScreen);
+        
+        // TODO eventually make this toggle new levels
+        newPuzzle.setOnMouseClicked(this::showLevelScreen);
+        newLightning.setOnMouseClicked(this::showLevelScreen);
+        newTheme.setOnMouseClicked(this::showLevelScreen);
 
         backButton.setOnMouseClicked(this::onReturnToMenuClicked);
     }
