@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.stream.Stream;
 
 public class LevelPackView extends AnchorPane {
 
@@ -61,5 +62,11 @@ public class LevelPackView extends AnchorPane {
 
     public void setPack(LevelPack pack) {
         this.pack.set(pack);
+    }
+
+    public Stream<LevelTile> getTiles() {
+        return this.getList().getChildren().stream()
+            .filter(t -> t instanceof LevelTile)
+            .map(t -> (LevelTile) t);
     }
 }

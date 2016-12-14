@@ -1,5 +1,6 @@
 package edu.wpi.zirconium.lettercraze.shared.views;
 
+import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.LevelStats;
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 public class LevelTile extends AnchorPane {
+
     public LevelTile(LevelStats levelStats) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LevelTile.fxml"));
         fxmlLoader.setRoot(this);
@@ -43,8 +45,9 @@ public class LevelTile extends AnchorPane {
             });
         }
 
+        setLevelStats(levelStats);
         setStars(levelStats.numAchievedStars());
-        scoreProperty().set(""+levelStats.thresholdValue());
+        scoreProperty().set("" + levelStats.thresholdValue());
         titleProperty().set(levelStats.getLevel().getTitle());
     }
 
@@ -103,4 +106,16 @@ public class LevelTile extends AnchorPane {
         this.stars.set(stars);
     }
 
+    private SimpleObjectProperty<LevelStats> levelStats = new SimpleObjectProperty<>(this, "levelStats");
+    public void setLevelStats(LevelStats levelStats) {
+        this.levelStats.set(levelStats);
+    }
+
+    public LevelStats getLevelStats() {
+        return this.levelStats.get();
+    }
+
+    public Level getLevel() {
+        return getLevelStats().getLevel();
+    }
 }

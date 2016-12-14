@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 
 public class LevelSelectControllers implements Initializable {
 
@@ -29,10 +30,14 @@ public class LevelSelectControllers implements Initializable {
         this.puzzlePack.setPack(LevelPack.dummyPuzzle());
         this.lightningPack.setPack(LevelPack.dummyLightning());
         this.themePack.setPack(LevelPack.dummyTheme());
-    }
 
-    private void showLevelScreen(MouseEvent mouseEvent) {
-        LetterCrazePlayer.showLevelScreen("level1");
+        Stream.of(puzzlePack, lightningPack, themePack)
+            .flatMap(LevelPackView::getTiles)
+            .forEach(lt -> {
+                String key = lt.getLevel().getKey();
+                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
+            }
+        );
     }
 
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
