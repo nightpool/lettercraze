@@ -1,11 +1,11 @@
 
 .root, .scroll-pane, .scroll-pane .viewport {
-	-fx-background-color: white;
+    -fx-background-color: white;
 }
 
 .scroll-pane {
-	-fx-border-color: white, black, white;
-	-fx-border-width: 9px, 7px, 5px;
+    -fx-border-color: white, black, white;
+    -fx-border-width: 9px, 7px, 5px;
 }
 
 #back-button {
@@ -19,9 +19,9 @@
 }
 
 .lc-active-level:hover {
-	-fx-cursor: hand;
+    -fx-cursor: hand;
 }
 
 .lc-active-level:hover .lc-active-level-rect {
-	-fx-fill: #efefef;
+    -fx-fill: #efefef;
 }

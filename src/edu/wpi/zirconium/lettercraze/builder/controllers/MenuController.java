@@ -28,7 +28,7 @@ public class MenuController implements Initializable {
     }
 
     private void showNotImplemented(MouseEvent mouseEvent) {
-        
+
     }
 
     private void onNewClicked(MouseEvent mouseEvent) {

@@ -1,238 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import edu.wpi.zirconium.lettercraze.player.views.SubmitButton?>
+<?import edu.wpi.zirconium.lettercraze.shared.views.BoardView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import edu.wpi.zirconium.lettercraze.player.views.LevelScreen?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@level.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.player.controllers.LevelController">
+<?import edu.wpi.zirconium.lettercraze.player.views.StarsView?>
+<fx:root fx:id="root" type="LevelScreen"
+         prefHeight="712.0" prefWidth="1024.0"
+         stylesheets="@level.css"
+         xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="edu.wpi.zirconium.lettercraze.player.controllers.LevelScreenControllers">
    <top>
-      <Group BorderPane.alignment="TOP_CENTER">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
-            <Insets left="-102.0" top="30.0" />
+            <Insets left="180" top="30" />
          </BorderPane.margin>
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-grid-tile" width="505.0" />
-            <Text layoutX="226.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="_______" />
-         </children>
-      </Group>
+         <Rectangle fx:id="wordPreviewBox" arcHeight="5.0" arcWidth="5.0" height="60.0" stroke="BLACK" strokeType="INSIDE" styleClass="level--preview-box" width="500" />
+         <Text fx:id="wordPreview" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+               <Font name="Open Sans Light" size="36.0" />
+            </font>
+         </Text>
+      </StackPane>
    </top>
    <left>
       <VBox prefHeight="251.0" prefWidth="120.0" spacing="30.0" styleClass="builder-menu" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="exitLevel" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Exit Level" />
-            <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Reset" />
-         </children>
          <BorderPane.margin>
             <Insets left="30.0" top="30.0" />
          </BorderPane.margin>
+         <Button fx:id="exitLevel" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Exit Level" />
+         <Button fx:id="reset" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Reset" />
+         <Button fx:id="undo" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Undo/Clear" />
       </VBox>
    </left>
    <center>
-      <TilePane hgap="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="514.0" styleClass="lc-main-grid" vgap="30.0" BorderPane.alignment="TOP_LEFT">
-         <children>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="T" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="P" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="O" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="O" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="N" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="E" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="H" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="R" />
-               </children>
-            </StackPane>
-            <StackPane />
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="I" />
-               </children>
-            </StackPane>
-            <StackPane />
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="O" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="U" />
-               </children>
-            </StackPane>
-            <StackPane />
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="E" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="O" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="F" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="N" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="O" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="T" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="N" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="E" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="E" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="I" />
-               </children>
-            </StackPane>
-            <StackPane />
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="T" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="W" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="I" />
-               </children>
-            </StackPane>
-            <StackPane />
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="V" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="F" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="R" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="E" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="N" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="N" />
-               </children>
-            </StackPane>
-            <StackPane styleClass="lc-grid-tile">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lc-grid-letter" text="E" />
-               </children>
-            </StackPane>
-         </children>
+      <BoardView fx:id="board" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
             <Insets bottom="30.0" left="30.0" top="30.0" />
          </BorderPane.margin>
-         <padding>
-            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-         </padding>
-      </TilePane>
+      </BoardView>
    </center>
    <right>
       <VBox alignment="TOP_CENTER" spacing="20.0" styleClass="builder-menu" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="30.0" right="30.0" />
          </BorderPane.margin>
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theme 5" wrappingWidth="230.6708984375">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
-            <HBox>
-               <children>
-                  <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
-                  <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
-                  <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
-               </children>
-            </HBox>
-            <TextArea prefHeight="286.0" prefWidth="231.0" text="-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;-&#10;">
-               <VBox.margin>
-                  <Insets top="15.0" />
-               </VBox.margin></TextArea>
-            <Button alignment="BASELINE_CENTER" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="SUBMIT" textAlignment="CENTER" />
-         </children>
+         <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="TITLE" wrappingWidth="230.6708984375">
+            <font>
+               <Font size="36.0" />
+            </font>
+         </Text>
+         <StarsView fx:id="stars"/>
+         <HBox alignment="CENTER">
+            <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <Text fx:id="time" text=":23">
+                  <font>
+                     <Font name="Josefin Sans Light" size="29.0" />
+                  </font>
+               </Text>
+               <Text fx:id="timeLabel" text="time">
+                  <font>
+                     <Font name="Open Sans" size="14.0" />
+                  </font>
+               </Text>
+            </VBox>
+            <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <Text fx:id="score" text="350">
+                  <font>
+                     <Font name="Josefin Sans Light" size="29.0" />
+                  </font>
+               </Text>
+               <Text text="points">
+                  <font>
+                     <Font name="Open Sans" size="14.0" />
+                  </font>
+               </Text>
+            </VBox>
+            <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+               <Text fx:id="wordsFound" text="2">
+                  <font>
+                     <Font name="Josefin Sans Light" size="29.0" />
+                  </font>
+               </Text>
+               <Text fx:id="wordLabel" text="words">
+                  <font>
+                     <Font name="Open Sans" size="14.0" />
+                  </font>
+               </Text>
+            </VBox>
+            <VBox.margin>
+               <Insets top="15.0" />
+            </VBox.margin>
+         </HBox>
+         <TextArea editable="false" fx:id="previousMovesDisplay" prefColumnCount="15" prefRowCount="15">
+            <VBox.margin>
+               <Insets top="15.0" />
+            </VBox.margin>
+         </TextArea>
+         <SubmitButton fx:id="submit" alignment="BASELINE_CENTER" mnemonicParsing="false" prefHeight="50.0"
+                       prefWidth="160.0" styleClass="builder-menu" textAlignment="CENTER" />
       </VBox>
    </right>
-</BorderPane>
+</fx:root>

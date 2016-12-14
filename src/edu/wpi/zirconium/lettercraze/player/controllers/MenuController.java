@@ -1,5 +1,6 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
+import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -8,8 +9,6 @@ import javafx.scene.layout.StackPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 
 public class MenuController implements Initializable {
 
@@ -23,10 +22,6 @@ public class MenuController implements Initializable {
     }
 
     private void onPlayClicked(MouseEvent mouseEvent) {
-        try {
-            LetterCrazePlayer.showLevelSelectScreen();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LetterCrazePlayer.showLevelSelectScreen();
     }
 }
