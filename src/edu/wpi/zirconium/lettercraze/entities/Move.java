@@ -1,7 +1,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.binding.ObjectBinding;
 import javafx.collections.FXCollections;
@@ -20,25 +19,14 @@ public class Move {
         this.selectedTiles = FXCollections.observableArrayList();
     }
 
-
-    private BooleanBinding valid;
-
-    public BooleanBinding isValidBinding() {
-        if (valid == null) {
-            valid = Bindings.createBooleanBinding(
-                () -> getNumberSelectedTiles() > 0,
-                selectedTiles);
-        }
-        return valid;
-    }
-
     /**
      * Returns true if the Move is valid based on Round parameters.
      * @param r Round to base validity of move upon.
      * @return boolean true if the move (the word) is valid
      */
     public boolean isMoveValid(Round r) {
-        return isValidBinding().get() && r.getLevel().isWordValid(getWord().asString());
+        return getNumberSelectedTiles() >= 3
+            && r.getLevel().isWordValid(getWord().asString());
     }
 
     /**

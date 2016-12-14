@@ -112,7 +112,7 @@ public class LevelScreenControllers implements Initializable {
 
         submit.setOnMouseClicked(me -> currentRound.submitMove());
         currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
-            submit.validProperty().bind(newMove.isValidBinding());
+            submit.validProperty().bind(currentRound.currentMoveValidBinding());
             submit.scoreProperty().bind(newMove.scoreBinding());
         });
 

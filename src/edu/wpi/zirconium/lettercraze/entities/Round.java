@@ -272,6 +272,7 @@ public class Round {
         this.moveInProgress.set(moveInProgress);
     }
 
+
     /**
      * @return the amount of stars currently earned in the round
      */
@@ -286,5 +287,10 @@ public class Round {
         return Bindings.createIntegerBinding(
             () -> this.getLevel().numAchievedStars(this.getScore()),
             scoreBinding());
+
+    public BooleanBinding currentMoveValidBinding() {
+        return Bindings.createBooleanBinding(() ->
+            this.getMoveInProgress().isMoveValid(this), this.getMoveInProgress().wordBinding());
+
     }
 }
