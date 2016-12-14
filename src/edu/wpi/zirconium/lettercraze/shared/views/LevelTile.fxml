@@ -1,0 +1,63 @@
+<?import javafx.geometry.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root type="AnchorPane" maxWidth="-Infinity" minWidth="-Infinity"
+         stylesheets="@level-tile.css"
+         xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets left="5.0" top="5.0"/>
+    </padding>
+    <VBox id="stars" fillWidth="false" prefHeight="120.0" prefWidth="39.0" AnchorPane.leftAnchor="-45.0">
+        <SVGPath
+                content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000"
+                fill="TRANSPARENT" stroke="#ededed" strokeType="INSIDE">
+            <VBox.margin>
+                <Insets bottom="2.0" left="10.0" top="10.0"/>
+            </VBox.margin>
+        </SVGPath>
+        <SVGPath
+                content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000"
+                fill="TRANSPARENT" stroke="#ededed" strokeType="INSIDE">
+            <VBox.margin>
+                <Insets bottom="2.0" left="10.0" top="2.0"/>
+            </VBox.margin>
+        </SVGPath>
+        <SVGPath
+                content="M 200.000 208.000L 208.817 212.135L 207.608 202.472L 214.266 195.365L 204.702 193.528L 200.000 185.000L 195.298 193.528L 185.734 195.365L 192.392 202.472L 191.183 212.135L 200.000 208.000"
+                fill="TRANSPARENT" stroke="#ededed" strokeType="INSIDE">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" top="2.0"/>
+            </VBox.margin>
+        </SVGPath>
+    </VBox>
+    <Group fx:id="container" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="120.0" stroke="BLACK"
+                   styleClass="lc-level-rect" width="120.0"/>
+        <VBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="120.0">
+            <Text id="name" strokeType="OUTSIDE" strokeWidth="0.0"
+                  textAlignment="CENTER" textOrigin="TOP">
+                <font>
+                    <Font name="Open Sans" size="20.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+            </Text>
+
+            <Text id="score" strokeType="OUTSIDE" strokeWidth="0.0"
+                  textAlignment="CENTER" textOrigin="TOP">
+                <font>
+                    <Font name="Open Sans" size="33.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="20"/>
+                </VBox.margin>
+            </Text>
+        </VBox>
+    </Group>
+</fx:root>
