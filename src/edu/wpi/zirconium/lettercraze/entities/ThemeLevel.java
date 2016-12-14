@@ -15,6 +15,11 @@ public class ThemeLevel extends Level{
     }
 
     @Override
+    public LevelType getType() {
+        return LevelType.THEME;
+    }
+
+    @Override
     public boolean isOver(Round r){
         return r.getCompletedMoves().size() == this.words.size();
     }

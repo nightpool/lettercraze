@@ -2,18 +2,22 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class ThemeLevelStats extends LevelStats{
 
-    private int wordsFound;
+    private final int wordsFound;
+    private final ThemeLevel level;
 
-    ThemeLevelStats(Level l) {
+    ThemeLevelStats(ThemeLevel l, int wordsFound) {
         super(l);
-        this.wordsFound = 0;
+        level = l;
+        this.wordsFound = wordsFound;
     }
 
-    public int getWordsFound() {
+    @Override
+    public int thresholdValue() {
         return wordsFound;
     }
 
-    public void setWordsFound(int wordsFound) {
-        this.wordsFound = wordsFound;
+    @Override
+    public String thresholdLabel() {
+        return String.format("%d/%d words", wordsFound, level.getWords().size());
     }
 }

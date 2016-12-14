@@ -7,8 +7,12 @@ public class LightningLevel extends Level{
     public LightningLevel(int size, String key) {
         super(size, key);
     }
-    
-    
+
+    @Override
+    public LevelType getType() {
+        return LevelType.LIGHTNING;
+    }
+
     @Override
     public boolean isOver(Round r){
         return r.getTime() >= this.maxTime;

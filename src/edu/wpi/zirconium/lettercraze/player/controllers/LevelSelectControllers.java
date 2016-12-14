@@ -1,32 +1,34 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
+import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
+import edu.wpi.zirconium.lettercraze.player.views.LevelPackView;
+import edu.wpi.zirconium.lettercraze.player.views.LevelSelectScreen;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LevelSelectController implements Initializable {
+public class LevelSelectControllers implements Initializable {
 
+    @FXML private LevelSelectScreen root;
     @FXML private Pane backButton;
-    @FXML private Group level1;
-    @FXML private Group level2;
-    @FXML private Group level3;
-    @FXML private Group level4;
 
+    @FXML private LevelPackView puzzlePack;
+    @FXML private LevelPackView lightningPack;
+    @FXML private LevelPackView themePack;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        level1.setOnMouseClicked(this::showLevelScreen);
-        level2.setOnMouseClicked(this::showLevelScreen);
-        level3.setOnMouseClicked(this::showLevelScreen);
-        level4.setOnMouseClicked(this::showLevelScreen);
 
         backButton.setOnMouseClicked(this::onReturnToMenuClicked);
+
+        this.puzzlePack.setPack(LevelPack.dummyPuzzle());
+        this.lightningPack.setPack(LevelPack.dummyLightning());
+        this.themePack.setPack(LevelPack.dummyTheme());
     }
 
     private void showLevelScreen(MouseEvent mouseEvent) {

@@ -10,6 +10,11 @@ public class PuzzleLevel extends Level {
     }
 
     @Override
+    public LevelType getType() {
+        return LevelType.PUZZLE;
+    }
+
+    @Override
     public boolean isOver(Round r){
 		return r.getCompletedMoves().size() >= this.wordLimit;
 	}
