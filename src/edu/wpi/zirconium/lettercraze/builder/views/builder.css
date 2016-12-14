@@ -105,6 +105,11 @@
     -fx-border-width: 2px;
 }
 
+.builder-menu .button:hover {
+    -fx-background-color: #efefef;
+    -fx-cursor: hand;
+}
+
 .lc-main-grid {
     -fx-border-color: #434343;
     -fx-border-width: 2px;
