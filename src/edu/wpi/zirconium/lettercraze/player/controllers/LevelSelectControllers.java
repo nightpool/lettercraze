@@ -31,31 +31,13 @@ public class LevelSelectControllers implements Initializable {
         this.lightningPack.setPack(LevelPack.dummyLightning());
         this.themePack.setPack(LevelPack.dummyTheme());
 
-        Stream.of(puzzlePack)
-        .flatMap(LevelPackView::getTiles)
-        .forEach(lt -> {
-        	String key = lt.getLevel().getKey();
-        	if(this.puzzlePack.getPack().isUnlocked(lt.getLevelStats()))
-        		lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
-        }
-        		);
-        Stream.of(lightningPack)
-        .flatMap(LevelPackView::getTiles)
-        .forEach(lt -> {
-        	String key = lt.getLevel().getKey();
-        	if(this.lightningPack.getPack().isUnlocked(lt.getLevelStats()))
-        		lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
-        }
-        		);
-        Stream.of(themePack)
-        .flatMap(LevelPackView::getTiles)
-        .forEach(lt -> {
-        	String key = lt.getLevel().getKey();
-        	if(this.themePack.getPack().isUnlocked(lt.getLevelStats()))
-        		lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
-        }
-        		);
-
+        Stream.of(puzzlePack, lightningPack, themePack)
+            .flatMap(LevelPackView::getTiles)
+            .forEach(lt -> {
+                String key = lt.getLevel().getKey();
+                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
+            }
+        );
     }
 
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
