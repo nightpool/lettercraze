@@ -1,9 +1,6 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.IntegerBinding;
-import javafx.beans.binding.ListBinding;
-import javafx.beans.binding.ListExpression;
+import javafx.beans.binding.*;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -232,11 +229,14 @@ public class Round {
     private void setTime(int seconds) {
         this.seconds.set(seconds);
     }
-    
+
+
+    /** the cached binding for getWordsFound */
     private ListBinding<Word> wordsFound;
+
     /**
      * Gets the ListExpression of Words found.
-     * @return the ListExpression of Words found
+     * @return a Binding that is a list of all of the words found so far
      */
     public ListExpression<Word> getWordsFound() {
         if (wordsFound == null) {
@@ -264,7 +264,7 @@ public class Round {
         }
         return wordsFound;
     }
-    
+
     /**
      * Gets the SimpleObjectProperty of the Moves in progress.
      * @return SimpleObjectProperty of the Moves in progress
@@ -274,10 +274,33 @@ public class Round {
     }
     
     /**
-     * Sets the current Move in progress
-     * @param moveInProgress the Move 
+     * Sets the current Move in progress.
+     * @param moveInProgress the new Move to be in progress
      */
     public void setMoveInProgress(Move moveInProgress) {
+
         this.moveInProgress.set(moveInProgress);
+    }
+
+
+    /**
+     * @return the amount of stars currently earned in the round
+     */
+    public int getStarsEarned() {
+        return starsEarnedBinding().get();
+    }
+
+    /**
+     * @return a binding that represents the amount of stars currently achieved in the level
+     */
+    public IntegerExpression starsEarnedBinding() {
+        return Bindings.createIntegerBinding(
+            () -> this.getLevel().numAchievedStars(this.getScore()),
+            scoreBinding());
+
+    public BooleanBinding currentMoveValidBinding() {
+        return Bindings.createBooleanBinding(() ->
+            this.getMoveInProgress().isMoveValid(this), this.getMoveInProgress().wordBinding());
+
     }
 }

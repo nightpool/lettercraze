@@ -1,11 +1,10 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import edu.wpi.zirconium.lettercraze.utils.WordTable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.util.stream.IntStream;
-
-import edu.wpi.zirconium.lettercraze.utils.WordTable;
 
 public class Level {
 

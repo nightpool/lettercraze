@@ -15,6 +15,7 @@
 <?import javafx.scene.text.Text?>
 <?import edu.wpi.zirconium.lettercraze.player.views.LevelScreen?>
 
+<?import edu.wpi.zirconium.lettercraze.player.views.StarsView?>
 <fx:root fx:id="root" type="LevelScreen"
          prefHeight="712.0" prefWidth="1024.0"
          stylesheets="@level.css"
@@ -59,11 +60,7 @@
                <Font size="36.0" />
             </font>
          </Text>
-         <HBox>
-            <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
-            <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
-            <SVGPath content="M 192.000 212.000L 215.511 224.361L 211.021 198.180L 230.042 179.639L 203.756 175.820L 192.000 152.000L 180.244 175.820L 153.958 179.639L 172.979 198.180L 168.489 224.361L 192.000 212.000" fill="#ffe10000" stroke="#00000033" strokeWidth="2.0" />
-         </HBox>
+         <StarsView fx:id="stars"/>
          <HBox alignment="CENTER">
             <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                <Text fx:id="time" text=":23">
@@ -71,7 +68,7 @@
                      <Font name="Josefin Sans Light" size="29.0" />
                   </font>
                </Text>
-               <Text text="seconds">
+               <Text fx:id="timeLabel" text="seconds">
                   <font>
                      <Font name="Open Sans" size="14.0" />
                   </font>
@@ -105,7 +102,7 @@
                <Insets top="15.0" />
             </VBox.margin>
          </HBox>
-         <TextArea fx:id="previousMovesDisplay" prefColumnCount="15" prefRowCount="15">
+         <TextArea editable="false" fx:id="previousMovesDisplay" prefColumnCount="15" prefRowCount="15">
             <VBox.margin>
                <Insets top="15.0" />
             </VBox.margin>

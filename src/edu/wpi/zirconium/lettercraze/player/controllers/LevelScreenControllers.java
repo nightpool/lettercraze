@@ -6,6 +6,7 @@ import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.entities.Tile;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
+import edu.wpi.zirconium.lettercraze.player.views.StarsView;
 import edu.wpi.zirconium.lettercraze.player.views.SubmitButton;
 import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import edu.wpi.zirconium.lettercraze.shared.views.TileView;
@@ -37,7 +38,10 @@ public class LevelScreenControllers implements Initializable {
     @FXML private Text wordPreview;
     @FXML private Rectangle wordPreviewBox;
 
+    @FXML private StarsView stars;
+
     @FXML private Text time;
+    @FXML private Text timeLabel;
     @FXML private Text score;
     @FXML private Text wordsFound;
     @FXML private Text wordLabel;
@@ -59,10 +63,12 @@ public class LevelScreenControllers implements Initializable {
         title.textProperty().bind(level.titleProperty());
         score.textProperty().bind(currentRound.scoreBinding().asString());
 
+        stars.starsActiveProperty().bind(currentRound.starsEarnedBinding());
+
         time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
         time.setOnMouseClicked(_me -> currentRound.incrementTime());
         currentRound.timeProperty().greaterThan(60).addListener(
-            (_p, _o, value) -> wordLabel.setText(value ? "minutes" : "seconds"));
+            (_p, _o, value) -> timeLabel.setText(value ? "minutes" : "seconds"));
 
         Timer timeUpdater = new Timer(true);
         timeUpdater.schedule(new TimerTask() {
@@ -107,7 +113,7 @@ public class LevelScreenControllers implements Initializable {
 
         submit.setOnMouseClicked(me -> currentRound.submitMove());
         currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
-            submit.validProperty().bind(newMove.isValidBinding());
+            submit.validProperty().bind(currentRound.currentMoveValidBinding());
             submit.scoreProperty().bind(newMove.scoreBinding());
         });
 
