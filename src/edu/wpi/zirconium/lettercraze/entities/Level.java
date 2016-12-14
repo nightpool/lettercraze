@@ -1,11 +1,10 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import edu.wpi.zirconium.lettercraze.utils.WordTable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.util.stream.IntStream;
-
-import edu.wpi.zirconium.lettercraze.utils.WordTable;
 
 public class Level {
 
@@ -46,7 +45,7 @@ public class Level {
     
     /**
      * 
-     * @param shape The Shape to set this.shape to
+     * @param ls The Shape to set this.shape to
      */
     public void setShape(LevelShape ls){
     	this.shape = ls;

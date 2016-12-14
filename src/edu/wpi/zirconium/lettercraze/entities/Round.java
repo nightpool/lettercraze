@@ -217,11 +217,19 @@ public class Round {
         return seconds;
     }
 
+    /**
+     * Set the number of seconds since the beginning of the game.
+     */
     private void setTime(int seconds) {
         this.seconds.set(seconds);
     }
 
+    /** the cached binding for getWordsFound */
     private ListBinding<Word> wordsFound;
+
+    /**
+     * @return a Binding that is a list of all of the words found so far
+     */
     public ListExpression<Word> getWordsFound() {
         if (wordsFound == null) {
             wordsFound = new ListBinding<Word>() {
@@ -249,16 +257,40 @@ public class Round {
         return wordsFound;
     }
 
+    /**
+     * @return a binding that represents the current move in progress
+     */
     public SimpleObjectProperty<Move> moveInProgressProperty() {
         return moveInProgress;
     }
 
-    public void setMoveInProgress(Move moveInProgress) {
+    /**
+     * Set the current move in progress
+     * @param moveInProgress the new Move to be in progress
+     */
+    private void setMoveInProgress(Move moveInProgress) {
         this.moveInProgress.set(moveInProgress);
     }
+
+
+    /**
+     * @return the amount of stars currently earned in the round
+     */
+    public int getStarsEarned() {
+        return starsEarnedBinding().get();
+    }
+
+    /**
+     * @return a binding that represents the amount of stars currently achieved in the level
+     */
+    public IntegerExpression starsEarnedBinding() {
+        return Bindings.createIntegerBinding(
+            () -> this.getLevel().numAchievedStars(this.getScore()),
+            scoreBinding());
 
     public BooleanBinding currentMoveValidBinding() {
         return Bindings.createBooleanBinding(() ->
             this.getMoveInProgress().isMoveValid(this), this.getMoveInProgress().wordBinding());
+
     }
 }

@@ -6,6 +6,7 @@ import edu.wpi.zirconium.lettercraze.entities.Round;
 import edu.wpi.zirconium.lettercraze.entities.Tile;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
+import edu.wpi.zirconium.lettercraze.player.views.StarsView;
 import edu.wpi.zirconium.lettercraze.player.views.SubmitButton;
 import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import edu.wpi.zirconium.lettercraze.shared.views.TileView;
@@ -37,6 +38,8 @@ public class LevelScreenControllers implements Initializable {
     @FXML private Text wordPreview;
     @FXML private Rectangle wordPreviewBox;
 
+    @FXML private StarsView stars;
+
     @FXML private Text time;
     @FXML private Text score;
     @FXML private Text wordsFound;
@@ -58,6 +61,8 @@ public class LevelScreenControllers implements Initializable {
 
         title.textProperty().bind(level.titleProperty());
         score.textProperty().bind(currentRound.scoreBinding().asString());
+
+        stars.starsActiveProperty().bind(currentRound.starsEarnedBinding());
 
         time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
         time.setOnMouseClicked(_me -> currentRound.incrementTime());
