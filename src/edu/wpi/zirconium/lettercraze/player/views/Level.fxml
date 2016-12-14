@@ -40,7 +40,8 @@
             <Insets left="30.0" top="30.0" />
          </BorderPane.margin>
          <Button fx:id="exitLevel" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Exit Level" />
-         <Button fx:id="reset" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Reset" />
+         <Button fx:id="reset" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Reset" />
+         <Button fx:id="undo" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="builder-menu" text="Undo/Clear" />
       </VBox>
    </left>
    <center>
@@ -68,7 +69,7 @@
                      <Font name="Josefin Sans Light" size="29.0" />
                   </font>
                </Text>
-               <Text fx:id="timeLabel" text="seconds">
+               <Text fx:id="timeLabel" text="time">
                   <font>
                      <Font name="Open Sans" size="14.0" />
                   </font>

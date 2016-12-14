@@ -50,6 +50,7 @@ public class LevelScreenControllers implements Initializable {
 
     @FXML private Button exitLevel;
     @FXML private Button reset;
+    @FXML private Button undo;
     @FXML private SubmitButton submit;
 
     private Round currentRound;
@@ -58,6 +59,7 @@ public class LevelScreenControllers implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         exitLevel.setOnMouseClicked(this::onExitClicked);
         reset.setOnMouseClicked(this::onResetClicked);
+        undo.setOnMouseClicked(this::onUndoClicked);
 
         Level level = Level.get(root.getLevelKey());
         currentRound = new Round(level);
@@ -68,7 +70,6 @@ public class LevelScreenControllers implements Initializable {
         stars.starsActiveProperty().bind(currentRound.starsEarnedBinding());
 
         time.textProperty().bind(TimeFormatter.forValue(currentRound.timeProperty()));
-        timeLabel.setText("time");
 
         Timer timeUpdater = new Timer(true);
         timeUpdater.schedule(new TimerTask() {
@@ -140,5 +141,9 @@ public class LevelScreenControllers implements Initializable {
     
     private void onResetClicked(MouseEvent mouseEvent) {
         currentRound.reset();
+    }
+    
+    private void onUndoClicked(MouseEvent moustEvent) {
+        currentRound.undoMove();
     }
 }

@@ -31,8 +31,8 @@ public class TileView extends StackPane {
         getRectangle().widthProperty().bind(container.getSizedTileWidth());
         getRectangle().heightProperty().bind(container.getSizedTileHeight());
 
-        layoutXProperty().bind(container.getTileX(rowProperty()));
-        layoutYProperty().bind(container.getTileY(columnProperty()));
+        layoutXProperty().bind(container.getTileX(columnProperty()));
+        layoutYProperty().bind(container.getTileY(rowProperty()));
     }
 
     public void setPos(Point pos) {
