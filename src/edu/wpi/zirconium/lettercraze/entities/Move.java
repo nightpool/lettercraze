@@ -6,6 +6,7 @@ import javafx.beans.binding.ObjectBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -74,7 +75,10 @@ public class Move {
      */
     public boolean doMove(Round r) {
         if (isMoveValid(r)) {
-            prevTiles = r.getBoard().getTiles().collect(Collectors.toList());
+            prevTiles = new ArrayList<Tile>();
+            for (Tile t : r.getBoard().getTiles().collect(Collectors.toList())) {
+                prevTiles.add(new Tile(new Point(t.getPos().getRow(),t.getPos().getColumn()), t.getLetter()));
+            }
             getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
             r.getBoard().floatAllUp();
             r.getLevel().getShape().unblockedPoints()

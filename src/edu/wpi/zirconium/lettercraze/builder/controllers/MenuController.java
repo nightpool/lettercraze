@@ -33,7 +33,7 @@ public class MenuController implements Initializable {
 
     private void onNewClicked(MouseEvent mouseEvent) {
         try {
-            LetterCrazeBuilder.showBuilderScreen();
+            LetterCrazeBuilder.showSelectScreen();
         } catch (Exception e) {
             e.printStackTrace();
         }

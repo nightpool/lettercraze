@@ -1,0 +1,47 @@
+
+.root, .scroll-pane, .scroll-pane .viewport {
+	-fx-background-color: white;
+}
+
+.scroll-pane {
+	-fx-border-color: white, black, white;
+	-fx-border-width: 9px, 7px, 5px;
+}
+
+#back-button {
+    -fx-border-color: #434343;
+    -fx-border-width: 2px;
+}
+
+#back-button:hover {
+    -fx-background-color: #efefef;
+    -fx-cursor: hand;
+}
+
+.lc-active-level:hover {
+	-fx-cursor: hand;
+}
+
+.lc-active-level:hover .lc-active-level-rect {
+	-fx-fill: #efefef;
+}
+
+.lc-new-level:hover {
+	-fx-cursor: hand;
+}
+
+.lc-new-level:hover .lc-new-level-rect {
+	-fx-fill: #efefef;
+}
+
+.lc-up-level:hover {
+	-fx-cursor: hand;
+}
+
+.lc-down-level:hover {
+	-fx-cursor: hand;
+}
+
+.lc-delete-level:hover {
+	-fx-cursor: hand;
+}
