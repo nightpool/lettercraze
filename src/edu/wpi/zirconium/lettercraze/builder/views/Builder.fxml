@@ -22,9 +22,9 @@
       <VBox spacing="30.0" styleClass="builder-menu" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="saveButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Save" />
-            <Button fx:id="newButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="New" />
-            <Button fx:id="loadButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Load" />
-            <Button fx:id="previewButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Preview" />
+            <Button fx:id="newButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="New" visible="false"/>
+            <Button fx:id="loadButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Load" visible="false"/>
+            <Button fx:id="previewButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Preview" visible="false"/>
          </children>
          <BorderPane.margin>
             <Insets left="30.0" top="30.0" />
