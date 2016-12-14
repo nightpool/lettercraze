@@ -297,6 +297,7 @@ public class Round {
         return Bindings.createIntegerBinding(
             () -> this.getLevel().numAchievedStars(this.getScore()),
             scoreBinding());
+    }
 
     public BooleanBinding currentMoveValidBinding() {
         return Bindings.createBooleanBinding(() ->
