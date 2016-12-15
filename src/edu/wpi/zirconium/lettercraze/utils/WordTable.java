@@ -17,11 +17,8 @@ import java.util.Set;
  */
 public class WordTable {
 	static Set<String> words;
-	
-	/** Default word map. */
-	public static final String wordTable = "resources/WordTable.sort";
-	
-	/**
+
+    /**
 	 * Load up word map. Note that there may be superfluous spaces throughout for formatting
 	 * reasons, and these are excised before being added to the map.
 	 * 
