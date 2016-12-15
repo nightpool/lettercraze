@@ -99,7 +99,12 @@ public class Round {
     }
 
     private void saveStats() {
-        getLevel().getPack().ifPresent(lp -> lp.replaceIfBetter(getLevelStats()));
+        getLevel().getPack().ifPresent(lp -> {
+            boolean packChanged = lp.replaceIfBetter(getLevelStats());
+            if(packChanged) {
+                lp.saveStats();
+            }
+        });
     }
 
     public LevelStats getLevelStats() {
