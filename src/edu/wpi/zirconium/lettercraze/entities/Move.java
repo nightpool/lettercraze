@@ -81,9 +81,12 @@ public class Move {
             }
             getSelectedTiles().forEach(t -> r.getBoard().removeTile(t));
             r.getBoard().floatAllUp();
+            
+            if(!(r.getLevel() instanceof ThemeLevel)){
             r.getLevel().getShape().unblockedPoints()
                 .filter(p -> !r.getBoard().getTile(p).isPresent())
                 .forEach(p -> r.getBoard().addTile(new Tile(p, Letter.random())));
+            }
             return true;
         } else return false;
     }
