@@ -2,6 +2,7 @@ package edu.wpi.zirconium.lettercraze.builder.views;
 
 import edu.wpi.zirconium.lettercraze.entities.*;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -17,6 +18,7 @@ import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -26,6 +28,9 @@ import static org.testfx.api.FxAssert.verifyThat;
 public class BuilderScreenTest {
 
     public static class BuilderLevelTest extends ApplicationTest {
+
+        private Level level;
+
         @Test
         public void testPreview() {
             clickOn("#previewButton");
@@ -36,6 +41,17 @@ public class BuilderScreenTest {
                 }
             });
             interact(() -> ((Stage)window(1)).close());
+        }
+
+        @Test
+        public void testShape() {
+            verifyThat("#board", NodeMatchers.hasChildren(36, ".board--tile"));
+            clickOn(lookup(".board--tile").nth(0).<Node>query());
+            clickOn(lookup(".board--tile").nth(1).<Node>query());
+            clickOn(lookup(".board--tile").nth(2).<Node>query());
+            clickOn(lookup(".board--tile").nth(3).<Node>query());
+            clickOn(lookup(".board--tile").nth(4).<Node>query());
+            assertThat(level.getShape().unblockedPoints().collect(Collectors.toList()), Matchers.hasSize(31));
         }
 
         @Test
@@ -52,12 +68,13 @@ public class BuilderScreenTest {
 
         @Override
         public void start(Stage stage) throws Exception {
-            BuilderScreen builder = new BuilderScreen(new Level(6) {
+            level = new Level(6) {
                 {
                     setTitle("Mock Level");
                     setShape(LevelShape.all(6));
                 }
-            });
+            };
+            BuilderScreen builder = new BuilderScreen(level);
             Scene scene = new Scene(builder, 1024, 712);
             stage.setScene(scene);
             stage.show();
