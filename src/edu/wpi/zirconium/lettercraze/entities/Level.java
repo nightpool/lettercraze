@@ -30,9 +30,9 @@ public class Level {
         this.key = key;
         this.shape = new LevelShape(size);
 
-        scoreThresholds[0] = 0;
-        scoreThresholds[1] = 0;
-        scoreThresholds[2] = 0;
+        scoreThresholds[0] = 1;
+        scoreThresholds[1] = 2;
+        scoreThresholds[2] = 3;
     }
 
     /**
@@ -41,13 +41,13 @@ public class Level {
      * @return the number of stars achieved (1, 2, or 3)
      */
     int numAchievedStars(int thresholdValue) {
-        if(thresholdValue < scoreThresholds[0]){
+        if(thresholdValue < getThreshold(0)){
             return 0;
-        } else if (thresholdValue >= scoreThresholds[0] && thresholdValue < scoreThresholds[1]){
+        } else if (thresholdValue >= getThreshold(0) && thresholdValue < getThreshold(1)){
             return 1;
-        } else if (thresholdValue >= scoreThresholds[1] && thresholdValue < scoreThresholds[2]){
+        } else if (thresholdValue >= getThreshold(1) && thresholdValue < getThreshold(2)){
             return 2;
-        } else { // thresholdValue >= scoreThresholds[2];
+        } else { // thresholdValue >= getThreshold(2);
             return 3;
         }
     }
