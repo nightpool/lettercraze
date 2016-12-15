@@ -6,8 +6,22 @@
 		<testFolder url="file://$MODULE_DIR$/test"/>
 	</contentEntry>
 	<lib name="junit4" scope="TEST"/>
-	<lib name="org.testfx:testfx-junit:4.0.4-alpha" scope="TEST"/>
-	<levels>
-		<level name="org.testfx:testfx-junit:4.0.4-alpha" value="project"/>
-	</levels>
+	<lib name="guava-18.0.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/guava-18.0.jar!/"/>
+	</lib>
+	<lib name="hamcrest-all-1.3.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/hamcrest-all-1.3.jar!/"/>
+	</lib>
+	<lib name="junit-4.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/"/>
+	</lib>
+	<lib name="testfx-core-4.0.4-alpha.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/testfx-core-4.0.4-alpha.jar!/"/>
+	</lib>
+	<lib name="testfx-junit-4.0.4-alpha-javadoc.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/testfx-junit-4.0.4-alpha-javadoc.jar!/"/>
+	</lib>
+	<lib name="testfx-junit-4.0.4-alpha.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/testfx-junit-4.0.4-alpha.jar!/"/>
+	</lib>
 </component>
