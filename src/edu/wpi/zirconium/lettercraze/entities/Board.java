@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class Board {
@@ -86,10 +87,10 @@ public class Board {
     /**
      * Clears the board
      */
-    public void clear() {
+    public void clear(Function<Point, Letter> tileFactory) {
         this.tiles.clear();
         shape.unblockedPoints()
-            .map(p -> new Tile(p, Letter.random()))
+            .map(p -> new Tile(p, tileFactory.apply(p)))
             .forEach(this::addTile);
     }
     

@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ThemeLevel extends Level{
 
-    List<String> words;
-    List<Letter> letters;
+    private List<String> words;
+    private List<Letter> letters;
 
     /**
      * Creates a ThemeLevel with the given parameters.
@@ -27,6 +27,19 @@ public class ThemeLevel extends Level{
     @Override
     public boolean isOver(Round r){
         return r.getCompletedMoves().size() == this.words.size();
+    }
+
+    public int thresholdValue(Round round) {
+        return round.getNumWordsFound();
+    }
+
+    @Override
+    public void populateBoard(Board board) {
+        board.clear(this::getLetter);
+    }
+
+    private Letter getLetter(Point p) {
+        return getLetters().get(this.getShape().indexOf(p));
     }
 
     /**

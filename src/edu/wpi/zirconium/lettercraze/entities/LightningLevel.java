@@ -32,6 +32,11 @@ public class LightningLevel extends Level{
         return r.getTime() >= getMaxTime();
     }
 
+    @Override
+    public int thresholdValue(Round round) {
+        return round.getNumWordsFound();
+    }
+
     /**
      * {@inheritDoc}
      */
