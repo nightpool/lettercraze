@@ -22,7 +22,7 @@ public class Level {
     private LevelShape shape;
     private int[] scoreThresholds = new int[3];
 
-    private StringProperty title = new SimpleStringProperty(this, "title", "Game title");
+    private StringProperty title = new SimpleStringProperty(this, "title");
     private ObjectProperty<Path> path = new SimpleObjectProperty<>(this, "path");
 
     protected Level(int size) {
@@ -161,6 +161,10 @@ public class Level {
         return round.getScore();
     }
 
+    public void populateBoard(Board board){
+        board.clear(p -> Letter.random());
+    }
+
     /**
      * @return Should stats for this level be persisted
      */
@@ -253,12 +257,12 @@ public class Level {
                             Letter thisLetter = Letter.valueOf(Character.toString(fileRows[r].charAt(c)));
                             thisLevel.addLetter(thisLetter);
                             thisShape.setTile(r-2, c, true);
-                            System.out.println("Set (" + (r-2) + ", " + c + ") to true and " + fileRows[r].charAt(c));
+//                            System.out.println("Set (" + (r-2) + ", " + c + ") to true and " + fileRows[r].charAt(c));
                         } else if(fileRows[r].charAt(c) == '-'){
                             thisShape.setTile(r-2, c, false);
-                            System.out.println("Set (" + (r-2) + ", " + c + ") to false");
+//                            System.out.println("Set (" + (r-2) + ", " + c + ") to false");
                         } else { // Improper Formatting
-                            System.out.println("The character at (" + (r-2) + ", " + c + ") is invalid");
+//                            System.out.println("The character at (" + (r-2) + ", " + c + ") is invalid");
                             bufferedReader.close();
                             return null;
                         }

@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.Collections;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -102,5 +103,9 @@ public class LevelShape {
         LevelShape shape = new LevelShape(size);
         shape.shape.replaceAll(c -> true);
         return shape;
+    }
+
+    public int indexOf(Point p) {
+        return this.unblockedPoints().collect(Collectors.toList()).indexOf(p);
     }
 }

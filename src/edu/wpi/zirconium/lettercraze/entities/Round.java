@@ -51,7 +51,7 @@ public class Round {
      * @return true if board has reset successfully
      */
     public boolean reset() {
-        board.clear();
+        level.populateBoard(board);
         completedMoves.clear();
         setMoveInProgress(new Move());
         return true;
@@ -313,7 +313,7 @@ public class Round {
     public IntegerExpression starsEarnedBinding() {
         return Bindings.createIntegerBinding(
             () -> this.getLevel().numAchievedStars(this.getLevel().thresholdValue(this)),
-            scoreBinding());
+            scoreBinding(), getCompletedMoves());
     }
 
     public BooleanBinding currentMoveValidBinding() {

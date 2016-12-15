@@ -12,7 +12,6 @@ public class PuzzleLevel extends Level {
         super(size);
     }
 
-
     public int getWordLimit() {
         return wordLimit;
     }
