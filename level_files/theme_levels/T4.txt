@@ -1,9 +1,9 @@
-Theme: One Long Word
+Theme: "One Long Word"
 0_0_1
---HN-- 
--BENE- 
-ASSDQA 
-SSEEMT 
--DTIN- 
+--HN--
+-BENE-
+ASSDQA
+SSEEMT
+-DTIN-
 --NE--
 ABSENTMINDEDNESS

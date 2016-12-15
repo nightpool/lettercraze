@@ -1,10 +1,10 @@
-Theme: Twelve Small Words
+Theme: "Twelve Small Words"
 10_11_12
-TFIQJO 
-SZEAZB 
-JAWJXA 
-OKOXAJ 
-ZFOPPY 
+TFIQJO
+SZEAZB
+JAWJXA
+OKOXAJ
+ZFOPPY
 EOYXAR
 FEZ
 ZIP
