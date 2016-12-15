@@ -27,6 +27,14 @@ public class PuzzleLevel extends Level {
 
 
     /**
+     * setWordLimit(int wl) is the setter method for Word Limit
+     * @param wl the word Limit of the puzzle level
+     */
+    public void setWordLimit(int wl){
+    	this.wordLimit = wl;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override

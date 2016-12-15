@@ -32,6 +32,14 @@ public class LightningLevel extends Level{
     }
 
     /**
+     * setTimeLimit(int tl) is the setter method for maxTime
+     * @param tl the Time Limit of the lightning level in seconds
+     */
+    public void setTimeLimit(int tl){
+    	this.maxTime = tl;
+    }
+    
+    /**
      * dummy() creates a sample Lightning Level complete with a level shape, maxTime, and score thresholds.
      * @return a static sample Lightning Level.
      */

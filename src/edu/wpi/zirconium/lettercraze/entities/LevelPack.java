@@ -1,6 +1,14 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.io.*;
+
 import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
+
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,6 +35,7 @@ public class LevelPack {
     public Optional<LevelStats> statsForLevel(Level level) {
         return levelStats.stream().filter(ls -> ls.getLevel().equals(level)).findFirst();
     }
+    
 
     public Stream<Level> getLevels() {
         return levelStats.stream().map(LevelStats::getLevel);
@@ -126,6 +135,7 @@ public class LevelPack {
             e.printStackTrace();
         }
     }
+
 
     public static LevelPack dummyPuzzle() {
         LevelPack lp = new LevelPack("puzzle_levels");
