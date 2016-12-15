@@ -51,7 +51,6 @@ public class Round {
      * @return true if board has reset successfully
      */
     public boolean reset() {
-        // current time does not reset if level is lightning
         board.clear();
         completedMoves.clear();
         setMoveInProgress(new Move());

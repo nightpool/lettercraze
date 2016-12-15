@@ -8,7 +8,6 @@ public class ThemeLevel extends Level{
     List<String> words;
     List<Letter> letters;
 
-    
     /**
      * Creates a ThemeLevel with the given parameters.
      * @param size The height/width of the LevelShape.
@@ -76,7 +75,11 @@ public class ThemeLevel extends Level{
     public List<String> getWords(){
     	return this.words;
     }
-    
+
+    public void setWords(List<String> words) {
+        this.words = words;
+    }
+
     /**
      * getLetters() is a getter method that returns a list of the ThemeLevel's letters.
      * @return The list of letters that make up this theme level.
@@ -84,7 +87,7 @@ public class ThemeLevel extends Level{
     public List<Letter> getLetters(){
     	return this.letters;
     }
-    
+
     /**
      * dummy() creates a sample ThemeLevel complete with letters, words, and levelshape.
      * @return a static ThemeLevel Sample.

@@ -2,6 +2,7 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class LightningLevel extends Level{
 
+    /** the time limit of the level */
     private int maxTime = 0;
 
     /**
@@ -13,6 +14,14 @@ public class LightningLevel extends Level{
         super(size, key);
     }
 
+    public int getMaxTime() {
+        return maxTime;
+    }
+
+    public void setMaxTime(int maxTime) {
+        this.maxTime = maxTime;
+    }
+
     /**
      * isOver(Round r) overrides method in Level.java.
      * @param r the current Round.
@@ -20,7 +29,7 @@ public class LightningLevel extends Level{
      */
     @Override
     public boolean isOver(Round r){
-        return r.getTime() >= this.maxTime;
+        return r.getTime() >= getMaxTime();
     }
 
     /**
