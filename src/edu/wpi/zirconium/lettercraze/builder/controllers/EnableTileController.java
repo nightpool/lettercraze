@@ -22,8 +22,12 @@ public class EnableTileController implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
     	if (board.getShape().isTile(tile.getPos())){
     		board.getShape().setTile(tile.getPos(), false);
+    		this.tileView.valueProperty().set("?");
+    		System.out.println("Set off");
     	}
     	else
     		board.getShape().setTile(tile.getPos(), true);
+    		this.tileView.valueProperty().set("!");
+    		System.out.println("Set ON");
     }
 }

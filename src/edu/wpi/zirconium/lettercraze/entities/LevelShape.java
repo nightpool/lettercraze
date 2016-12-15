@@ -6,14 +6,17 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class LevelShape {
 
     private final int size;
-    private List<Boolean> shape;
+    private ObservableList<Boolean> shape;
 
     public LevelShape(int size) {
         this.size = size;
-        this.shape = new ArrayList<Boolean>(size*size);
+        this.shape =FXCollections.observableArrayList();
         shape.addAll(Collections.nCopies(size*size, false));
     }
 
@@ -44,4 +47,13 @@ public class LevelShape {
         shape.shape.replaceAll(c -> true);
         return shape;
     }
+    
+    /**
+     * Gets the ObservableList of bools that represents the currently enabled Tiles.
+     * @return ObservableList of bools that represents the currently enabled Tiles
+     */
+    public ObservableList<Boolean> getTiles() {
+        return shape;
+    }
+    
 }

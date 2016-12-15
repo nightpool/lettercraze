@@ -85,6 +85,13 @@ public class BuilderControllers implements Initializable {
 
 	private void bindTile(TileView v, Tile t) {
         v.valueProperty().set(t.getLetter().getCharacter());
+//        realBoard.getShape().getTiles().addListener(new ListChangeListener<Boolean>(){
+//        	
+//        	@Override
+//        	public void onChanged(ListChangeListener.Change change){
+//        		System.out.println("Changed");
+//        	}
+//        });
 //        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
 //            v.selectedProperty().bind(Bindings.createBooleanBinding(
 //                () -> newMove.getSelectedTiles().contains(t),
