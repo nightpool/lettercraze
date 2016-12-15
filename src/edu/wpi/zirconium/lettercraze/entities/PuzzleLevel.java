@@ -32,7 +32,7 @@ public class PuzzleLevel extends Level {
      */
     public void setWordLimit(int wl){
     	this.wordLimit = wl;
-
+    }
 
     /**
      * {@inheritDoc}
