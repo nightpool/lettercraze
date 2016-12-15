@@ -54,7 +54,7 @@ public class LetterCrazeBuilder extends LetterCrazeApplication {
             stage.setScene(new Scene(selector, 1024, 712));
         } catch (IOException e) {
             e.printStackTrace();
-            throw new IllegalStateException("Can't load FXML : Builder");
+            throw new IllegalStateException("Can't load FXML : LevelSelect");
         }
     }
 

@@ -1,11 +1,14 @@
-package edu.wpi.zirconium.lettercraze.player.controllers;
+package edu.wpi.zirconium.lettercraze.builder.controllers;
 
+import edu.wpi.zirconium.lettercraze.builder.LetterCrazeBuilder;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
-import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
+import edu.wpi.zirconium.lettercraze.entities.LightningLevel;
+import edu.wpi.zirconium.lettercraze.entities.PuzzleLevel;
+import edu.wpi.zirconium.lettercraze.entities.ThemeLevel;
 import edu.wpi.zirconium.lettercraze.shared.views.LevelPackView;
-import edu.wpi.zirconium.lettercraze.player.views.LevelSelectScreen;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
@@ -15,12 +18,15 @@ import java.util.stream.Stream;
 
 public class LevelSelectControllers implements Initializable {
 
-    @FXML private LevelSelectScreen root;
     @FXML private Pane backButton;
 
     @FXML private LevelPackView puzzlePack;
     @FXML private LevelPackView lightningPack;
     @FXML private LevelPackView themePack;
+
+    @FXML private Group newPuzzle;
+    @FXML private Group newLightning;
+    @FXML private Group newTheme;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,13 +39,15 @@ public class LevelSelectControllers implements Initializable {
 
         Stream.of(puzzlePack, lightningPack, themePack)
             .flatMap(LevelPackView::getTiles)
-            .forEach(lt -> {
-                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(lt.getLevel()));
-            }
-        );
+            .forEach(lt ->
+                lt.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(lt.getLevel())));
+
+        newPuzzle.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new PuzzleLevel(6)));
+        newLightning.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new LightningLevel(6)));
+        newTheme.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new ThemeLevel(6)));
     }
 
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
-        LetterCrazePlayer.showMenuScreen();
+        LetterCrazeBuilder.showMenuScreen();
     }
 }

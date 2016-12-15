@@ -1,4 +1,4 @@
-Puzzle: "Doughnut"
+Puzzle: Doughnut
 50_150_250
 ++++++
 ++++++

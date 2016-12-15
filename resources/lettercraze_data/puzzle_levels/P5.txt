@@ -1,4 +1,4 @@
-Puzzle: "Mess"
+Puzzle: Mess
 150_300_450
 ++++++
 -+-+-+

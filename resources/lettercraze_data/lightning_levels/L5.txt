@@ -1,4 +1,4 @@
-Lightning: "Heart"
+Lightning: Heart
 6_12_18
 +++++-
 +-+-+-
