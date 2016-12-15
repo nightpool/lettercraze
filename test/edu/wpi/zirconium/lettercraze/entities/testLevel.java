@@ -42,5 +42,21 @@ public class testLevel {
 		assertNull(thisTestBadLightning);
 		
 	}
+	
+	@Test
+	public void testSettersAndGetters(){
+		Level testSetters = new ThemeLevel(6);
+		
+		testSetters.setShape(LevelShape.all(6));
+		Point p = new Point(3,4);
+		assertTrue(testSetters.getShape().isTile(p));
+		
+		testSetters.setThreshold(2, 800);
+		assertEquals(testSetters.getThreshold(2), 800);
+		
+		testSetters.setTitle("Test");
+		assertTrue(testSetters.getTitle().toString().equals("Test"));
+		assertTrue(testSetters.titleProperty().get().toString().equals("Test"));
+	}
 
 }
