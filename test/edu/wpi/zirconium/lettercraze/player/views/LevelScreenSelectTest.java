@@ -11,9 +11,13 @@ import org.testfx.matcher.base.NodeMatchers;
 
 public class LevelScreenSelectTest extends ApplicationTest {
 
+    /**
+     * Test method for {@link edu.wpi.zirconium.lettercraze.test.player.views.LevelSelectScreen#LevelSelectScreen
+     */
     @Test
-    public void testSomething() {
+    public void testLevelSelectScreen() {
         verifyThat("#root", NodeMatchers.isNotNull());
+        
     }
     
     @Override
