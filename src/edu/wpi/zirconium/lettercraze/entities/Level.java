@@ -165,6 +165,10 @@ public class Level {
         board.clear(p -> Letter.random());
     }
 
+    public Optional<Letter> regenLetter(Point p) {
+        return Optional.of(Letter.random());
+    }
+
     /**
      * @return Should stats for this level be persisted
      */

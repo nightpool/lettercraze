@@ -1,12 +1,14 @@
 package edu.wpi.zirconium.lettercraze.shared;
 
+import edu.wpi.zirconium.lettercraze.utils.WordTable;
 import javafx.application.Application;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public abstract class LetterCrazeApplication extends Application {
@@ -15,14 +17,21 @@ public abstract class LetterCrazeApplication extends Application {
     }
 
     @Override
-    public void init() {
+    public void init() throws InterruptedException {
         try {
             if (!Files.exists(dataFolder()) || !Files.isDirectory(dataFolder())) {
                 System.out.println("Creating source folder!");
-                Path source_data = Paths.get(getClass().getResource("/lettercraze_data").toURI());
+                URI resourceFolder;
+                resourceFolder = getClass().getResource("/lettercraze_data").toURI();
+                if (!resourceFolder.getScheme().equalsIgnoreCase("file")) {
+                    Map<String, String> env = new HashMap<>();
+                    env.put("create", "true");
+                    FileSystem zipfs = FileSystems.newFileSystem(resourceFolder, env);
+                }
+                Path source_data = Paths.get(resourceFolder);
                 Stream<Path> pathStream = Files.walk(source_data);
                 pathStream.forEach(src -> {
-                    Path dest = dataFolder().resolve(source_data.relativize(src));
+                    Path dest = dataFolder().resolve(source_data.relativize(src).toString());
                     try {
                         System.out.println("Copying "+src+" to "+dest);
                         Files.copy(src, dest);
@@ -34,8 +43,10 @@ public abstract class LetterCrazeApplication extends Application {
             } else {
                 System.out.println("**NOT** creating source folder!");
             }
+            WordTable.loadWordTable();
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
+        Thread.sleep(800);
     }
 }
