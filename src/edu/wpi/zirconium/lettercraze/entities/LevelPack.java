@@ -97,12 +97,15 @@ public class LevelPack {
     public static LevelPack get(String key) {
         Path folder = LetterCrazeApplication.dataFolder().resolve(key);
         try {
-            List<LevelStats> statsList = Files.lines(folder.resolve("pack.conf"))
-                .map(line -> LevelStats.fromString(line, k -> Level.fromPath(folder.resolve(k))))
+            LevelPack lp = new LevelPack(key);
+            lp.levelStats = Files.lines(folder.resolve("pack.conf"))
+                .map(line -> LevelStats.fromString(line, k -> {
+                    Level l = Level.fromPath(folder.resolve(k));
+                    l.setPack(lp);
+                    return l;
+                }))
                 .filter(s -> s != null)
                 .collect(Collectors.toList());
-            LevelPack lp = new LevelPack(key);
-            lp.levelStats = statsList;
             return lp;
         } catch (IOException e) {
             e.printStackTrace();

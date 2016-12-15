@@ -1,6 +1,7 @@
 package edu.wpi.zirconium.lettercraze.player;
 
 import com.sun.javafx.application.LauncherImpl;
+import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.player.views.LevelSelectScreen;
 import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
