@@ -4,18 +4,34 @@ public class PuzzleLevel extends Level {
 
     int wordLimit = 0;
 
-    public PuzzleLevel(int size, String key, int wordLimit) {
+    
+    /**
+     * Creates a Puzzle Level with the given parameters. 
+     * @param size Size of the LevelShape.
+     * @param key a unique string to associate with the level.
+     */
+    public PuzzleLevel(int size, String key) {
         super(size, key);
-        this.wordLimit = wordLimit;
     }
 
+    
+    /**
+     * isOver(Round r) Overrides the same method in Level.java.
+     * @param r The Round for which the method checks the end conditions of.
+     * @return True if the level-type rules show that the round is over, false otherwise.
+     */
     @Override
     public boolean isOver(Round r){
 		return r.getCompletedMoves().size() >= this.wordLimit;
 	}
 
+    
+    /**
+     * dummy() creates a sample Puzzle Level, complete with score thresholds and a moveLimit
+     * @return a static sample Puzzle Level.
+     */
     public static PuzzleLevel dummy() {
-        PuzzleLevel puzzleOne = new PuzzleLevel(6, "PuzzleOne", 20);
+        PuzzleLevel puzzleOne = new PuzzleLevel(6, "PuzzleOne");
 
         LevelShape poShape = LevelShape.all(6);
 
@@ -30,6 +46,8 @@ public class PuzzleLevel extends Level {
         // is to get points.
         puzzleOne.setThresholds(100, 150, 200);
 
+        puzzleOne.wordLimit = 20;
+        
         return puzzleOne;
     }
 }
