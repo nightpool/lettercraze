@@ -2,8 +2,8 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class Point {
 
-    protected int row;
-    protected int column;
+    protected final int row;
+    protected final int column;
 
     /**
      * creates Point object at the given row and column.

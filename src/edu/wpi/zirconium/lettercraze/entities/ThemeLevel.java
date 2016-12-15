@@ -2,6 +2,7 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ThemeLevel extends Level{
 
@@ -40,6 +41,11 @@ public class ThemeLevel extends Level{
 
     private Letter getLetter(Point p) {
         return getLetters().get(this.getShape().indexOf(p));
+    }
+
+    @Override
+    public Optional<Letter> regenLetter(Point p) {
+        return Optional.empty();
     }
 
     /**
