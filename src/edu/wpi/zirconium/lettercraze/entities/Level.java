@@ -4,6 +4,8 @@ import edu.wpi.zirconium.lettercraze.utils.WordTable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.nio.file.Path;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class Level {
@@ -47,7 +49,7 @@ public class Level {
     LevelShape getShape() {
         return this.shape;
     }
-    
+
     /**
      * Sets the LevelShape of the Level.
      * @param ls The LevelShape to set this.shape to
@@ -55,7 +57,7 @@ public class Level {
     public void setShape(LevelShape ls){
     	this.shape = ls;
     }
-    
+
     /**
      * Sets the thresholds for 1, 2, and 3 stars, respectively.
      * @param l, m, h integer for each score threshold
@@ -65,7 +67,7 @@ public class Level {
     	this.scoreThresholds[1] = m;
     	this.scoreThresholds[2] = h;
     }
-    
+
     /**
      * Returns true if the round is over.
      * @param r the Round
@@ -75,7 +77,7 @@ public class Level {
         //TODO
         return false;
     }
-    
+
     /**
      * Gets the key of the Level.
      * @return the Level's key
@@ -83,7 +85,7 @@ public class Level {
     public String getKey() {
         return key;
     }
-    
+
     /**
      * Gets the title of the Level.
      * @return the Level's title
@@ -91,7 +93,7 @@ public class Level {
     public String getTitle() {
         return title.get();
     }
-    
+
     /**
      * Gets the StringProperty of the Level's title.
      * @return the StringProperty of the Level's title
@@ -99,7 +101,7 @@ public class Level {
     public StringProperty titleProperty() {
         return title;
     }
-    
+
     /**
      * Sets the title of the Level.
      * @param title String representing the new title
@@ -115,7 +117,7 @@ public class Level {
     public static Level get(String levelKey) {
         return Level.dummy(6);
     }
-    
+
     /**
      * Consults the dictionary to see if the word is valid.
      * @param word word to test if it is in the dictionary
@@ -131,8 +133,18 @@ public class Level {
      * @return the new dummy Level
      */
     public static Level dummy(int size) {
-        Level level = new Level(size, "");
-        level.setTitle("Dummy 6");
+        return dummy(size, "");
+    }
+
+    /**
+     * Loads a dummy level of the given size.
+     * @param size the length of one edge of the square level boundary
+     * @param key
+     * @return the new dummy Level
+     */
+    public static Level dummy(int size, String key) {
+        Level level = new Level(size, key);
+        level.setTitle("Dummy "+size);
         IntStream.range(0, size).forEach(i -> {
             IntStream.range(0, size).forEach(j -> level.getShape().setTile(i, j, true));
 //            level.getShape().setTile(i, 0, true);
@@ -145,5 +157,37 @@ public class Level {
 
     public int thresholdValue(Round round) {
         return round.getScore();
+    }
+
+    /**
+     * @return Should stats for this level be persisted
+     */
+    public boolean canSave() {
+        return getPack().isPresent();
+    }
+
+    /**
+     * Creats a new LevelStats object representing the persisted data for the current state of the round
+     * @param round the round to read data from
+     * @return the persistent level stats object
+     */
+    public LevelStats statsFor(Round round) {
+        return null;
+    }
+
+    private LevelPack pack;
+    public Optional<LevelPack> getPack() {
+        return Optional.ofNullable(pack);
+    }
+
+    public void setPack(LevelPack pack) {
+        this.pack = pack;
+    }
+
+    public static Level fromPath(Path resolve) {
+        System.out.println("Loading Level '"+resolve+"'...");
+        Level level = new PuzzleLevel(6, resolve.getFileName().toString().replace(".txt",""));
+        level.setShape(LevelShape.all(6));
+        return level;
     }
 }

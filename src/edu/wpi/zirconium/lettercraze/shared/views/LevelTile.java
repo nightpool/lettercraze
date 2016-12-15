@@ -50,7 +50,7 @@ public class LevelTile extends AnchorPane {
         setLevelStats(levelStats);
         setStars(levelStats.numAchievedStars());
         scoreProperty().set("" + levelStats.thresholdValue());
-        titleProperty().set(levelStats.getLevel().getTitle());
+        titleProperty().set(getLevel().getTitle());
     }
 
     private Group getContainer() {

@@ -4,7 +4,7 @@ public class PuzzleLevelStats extends LevelStats {
 
     private final int mostPoints;
 
-    PuzzleLevelStats(Level l, int mostPoints) {
+    public PuzzleLevelStats(Level l, int mostPoints) {
         super(l);
         this.mostPoints = mostPoints;
     }

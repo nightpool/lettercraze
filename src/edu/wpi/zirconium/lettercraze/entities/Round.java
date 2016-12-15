@@ -68,6 +68,7 @@ public class Round {
             move.doMove(this);
             completedMoves.add(move);
             setMoveInProgress(new Move());
+            saveStats();
             return true;
         }
         return false;
@@ -82,15 +83,32 @@ public class Round {
         if (getMoveInProgress().getNumberSelectedTiles() > 0) {
             setMoveInProgress(new Move());
             return true;
-        } else {
-            if (!this.getCompletedMoves().isEmpty()) {
-                Move lastMove = this.getCompletedMoves().get(this.getCompletedMoves().size() - 1);
-                completedMoves.remove(lastMove);
-                return lastMove.undo(this);
-            } else {
-                return false;
-            }
         }
+
+        if (!this.getCompletedMoves().isEmpty()) {
+            Move lastMove = this.getCompletedMoves().get(this.getCompletedMoves().size() - 1);
+            boolean success = lastMove.undo(this);
+            if (success) {
+                completedMoves.remove(lastMove);
+                saveStats();
+            }
+            return success;
+        }
+
+        return false;
+    }
+
+    private void saveStats() {
+        getLevel().getPack().ifPresent(lp -> {
+            boolean packChanged = lp.replaceIfBetter(getLevelStats());
+            if(packChanged) {
+                lp.saveStats();
+            }
+        });
+    }
+
+    public LevelStats getLevelStats() {
+        return getLevel().statsFor(this);
     }
 
     private IntegerBinding scoreBinding;

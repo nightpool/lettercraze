@@ -29,7 +29,15 @@ public class ThemeLevel extends Level{
     public boolean isOver(Round r){
         return r.getCompletedMoves().size() == this.words.size();
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LevelStats statsFor(Round round) {
+        return new ThemeLevelStats(this, round.getNumWordsFound());
+    }
+
     /**
      * Checks if the passed word is found in the list of words for this level.
      * @param word word to test against.
