@@ -8,10 +8,10 @@ public class LightningLevel extends Level{
     /**
      * LightningLevel(int size, String key) creates a LightningLevel with given parameters.
      * @param size The Length and Width of the level.
-     * @param key A unique string to associate with the level.
+     *
      */
-    public LightningLevel(int size, String key) {
-        super(size, key);
+    public LightningLevel(int size) {
+        super(size);
     }
 
     public int getMaxTime() {
@@ -53,7 +53,7 @@ public class LightningLevel extends Level{
      * @return a static sample Lightning Level.
      */
     public static LightningLevel dummy() {
-        LightningLevel lightningOne = new LightningLevel(6, "LightningOne");
+        LightningLevel lightningOne = new LightningLevel(6);
 
         LevelShape loShape = LevelShape.all(6);
 
