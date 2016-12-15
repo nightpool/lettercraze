@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.wpi.zirconium.lettercraze.entities;
 
 import static org.junit.Assert.*;
@@ -167,7 +164,8 @@ public class TestMove {
 		round.selectTile(t1);
 		round.selectTile(t2);
 		round.selectTile(t3);
-		assertEquals("ACT (+18 points)", move.asString());
+		assertTrue(move.asString().contains("ACT"));
+		assertTrue(move.asString().contains("18"));
 	}
 
 }
