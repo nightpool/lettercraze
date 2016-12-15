@@ -31,7 +31,7 @@ public class PuzzleLevel extends Level {
      */
     @Override
     public LevelStats statsFor(Round round) {
-        return new PuzzleLevelStats(this, round.getNumWordsFound());
+        return new PuzzleLevelStats(this, round.getScore());
     }
     
     /**

@@ -186,7 +186,7 @@ public class Level {
 
     public static Level fromPath(Path resolve) {
         System.out.println("Loading Level '"+resolve+"'...");
-        Level level = new Level(6, resolve.getFileName().toString().replace(".txt",""));
+        Level level = new PuzzleLevel(6, resolve.getFileName().toString().replace(".txt",""));
         level.setShape(LevelShape.all(6));
         return level;
     }
