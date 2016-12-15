@@ -1,5 +1,6 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
+import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelPackView;
@@ -27,15 +28,15 @@ public class LevelSelectControllers implements Initializable {
 
         backButton.setOnMouseClicked(this::onReturnToMenuClicked);
 
-        this.puzzlePack.setPack(LevelPack.dummyPuzzle());
-        this.lightningPack.setPack(LevelPack.dummyLightning());
-        this.themePack.setPack(LevelPack.dummyTheme());
+        this.puzzlePack.setPack(LevelPack.get("puzzle_levels"));
+        this.lightningPack.setPack(LevelPack.get("lightning_levels"));
+        this.themePack.setPack(LevelPack.get("theme_levels"));
 
         Stream.of(puzzlePack, lightningPack, themePack)
             .flatMap(LevelPackView::getTiles)
             .forEach(lt -> {
                 String key = lt.getLevel().getKey();
-                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
+                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(Level.dummy(6)));
             }
         );
     }

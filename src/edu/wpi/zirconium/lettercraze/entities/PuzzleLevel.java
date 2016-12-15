@@ -2,7 +2,7 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class PuzzleLevel extends Level {
 
-    int wordLimit = 0;
+    private int wordLimit = 0;
 
     
     /**
@@ -25,12 +25,22 @@ public class PuzzleLevel extends Level {
 		return r.getCompletedMoves().size() >= this.wordLimit;
 	}
 
+
     /**
      * setWordLimit(int wl) is the setter method for Word Limit
      * @param wl the word Limit of the puzzle level
      */
     public void setWordLimit(int wl){
     	this.wordLimit = wl;
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LevelStats statsFor(Round round) {
+        return new PuzzleLevelStats(this, round.getNumWordsFound());
+
     }
     
     /**
