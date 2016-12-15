@@ -266,7 +266,7 @@ public class Level {
                             thisShape.setTile(r-2, c, false);
 //                            System.out.println("Set (" + (r-2) + ", " + c + ") to false");
                         } else { // Improper Formatting
-//                            System.out.println("The character at (" + (r-2) + ", " + c + ") is invalid");
+                            System.out.println("The character at (" + (r-2) + ", " + c + ") is invalid");
                             bufferedReader.close();
                             return null;
                         }
@@ -311,6 +311,15 @@ public class Level {
                 thisLevel.setPath(path);
 
                 if((line = bufferedReader.readLine()) != null){
+                	
+                	for(int s = 0; s < line.length(); s++){
+                        if(!(Character.isDigit(line.charAt(s)))){
+                            System.out.println("Your Word Limit MUST be an integer!");
+                            bufferedReader.close();
+                            return null;
+                        }
+                    }
+                	
                     thisLevel.setWordLimit(Integer.parseInt(line));
                 } else {
                     System.out.println("You need a new line with a word limit!");
@@ -344,6 +353,15 @@ public class Level {
                 thisLevel.setPath(path);
 
                 if((line = bufferedReader.readLine()) != null){
+                	
+                	for(int s = 0; s < line.length(); s++){
+                        if(!(Character.isDigit(line.charAt(s)))){
+                            System.out.println("Your Time Limit MUST be an integer!");
+                            bufferedReader.close();
+                            return null;
+                        }
+                    }
+                	
                     thisLevel.setTimeLimit(Integer.parseInt(line));
                 } else {
                     System.out.println("You need a new line with a time limit!");
