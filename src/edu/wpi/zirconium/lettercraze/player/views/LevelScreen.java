@@ -1,16 +1,17 @@
 package edu.wpi.zirconium.lettercraze.player.views;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import edu.wpi.zirconium.lettercraze.entities.Level;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
 public class LevelScreen extends BorderPane {
-    public LevelScreen(String levelKey) {
+    public LevelScreen(Level level) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Level.fxml"));
-        this.setLevelKey(levelKey);
+        this.setLevel(level);
         fxmlLoader.setRoot(this);
         try {
             fxmlLoader.load();
@@ -21,20 +22,20 @@ public class LevelScreen extends BorderPane {
     }
 
     public LevelScreen() {
-        this("level1");
+        this(Level.dummy(6));
     }
 
-    public String getLevelKey() {
-        return levelKey.get();
+    private ObjectProperty<Level> level = new SimpleObjectProperty<>(this, "level");
+
+    public Level getLevel() {
+        return level.get();
     }
 
-    public StringProperty levelKeyProperty() {
-        return levelKey;
+    public ObjectProperty<Level> levelProperty() {
+        return level;
     }
 
-    public void setLevelKey(String levelKey) {
-        this.levelKey.set(levelKey);
+    public void setLevel(Level level) {
+        this.level.set(level);
     }
-
-    private StringProperty levelKey = new SimpleStringProperty(this, "levelKey");
 }

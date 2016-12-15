@@ -6,5 +6,8 @@
 		<testFolder url="file://$MODULE_DIR$/test"/>
 	</contentEntry>
 	<lib name="junit4" scope="TEST"/>
-	<lib name="hamcrest" scope="TEST"/>
+	<lib name="org.testfx:testfx-junit:4.0.4-alpha" scope="TEST"/>
+	<levels>
+		<level name="org.testfx:testfx-junit:4.0.4-alpha" value="project"/>
+	</levels>
 </component>

@@ -14,7 +14,7 @@ public class Level {
 
     private StringProperty title = new SimpleStringProperty(this, "title", "Game title");
 
-    Level(int size, String key){
+    protected Level(int size, String key){
         this.key = key;
         this.shape = new LevelShape(size);
 
@@ -132,6 +132,7 @@ public class Level {
      */
     public static Level dummy(int size) {
         Level level = new Level(size, "");
+        level.setTitle("Dummy 6");
         IntStream.range(0, size).forEach(i -> {
             IntStream.range(0, size).forEach(j -> level.getShape().setTile(i, j, true));
 //            level.getShape().setTile(i, 0, true);

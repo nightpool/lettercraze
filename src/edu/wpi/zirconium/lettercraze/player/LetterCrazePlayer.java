@@ -66,8 +66,8 @@ public class LetterCrazePlayer extends Application {
         stage.setScene(new Scene(screen, 1024, 712));
     }
 
-    public static void showLevelScreen(String key) {
-        LevelScreen screen = new LevelScreen(key);
+    public static void showLevelScreen(Level level) {
+        LevelScreen screen = new LevelScreen(level);
         stage.setScene(new Scene(screen, 1024, 712));
     }
 
