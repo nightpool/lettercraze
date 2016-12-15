@@ -36,6 +36,8 @@ public class LevelTile extends AnchorPane {
             }
         }));
 
+        disableProperty().bind(unlockedProperty().not());
+
         for (int i = 0; i < 3; i++) {
             SVGPath star = getStar(i);
             int finalI = i;
