@@ -87,8 +87,6 @@ public class ThemeLevel extends Level{
         //List<Word> dOPWords = new ArrayList<>();
         //List<Letter> dOPLetters = new ArrayList<>();
 
-        digitsOfPi.setTitle("Digits of Pi");
-
         Letter T1 = Letter.T;
         Letter P2 = Letter.P;
         Letter O3 = Letter.O;
