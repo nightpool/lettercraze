@@ -1,11 +1,18 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import edu.wpi.zirconium.lettercraze.utils.WordTable;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import java.io.*;
@@ -17,14 +24,15 @@ public class Level {
     private int[] scoreThresholds = new int[3];
 
     private StringProperty title = new SimpleStringProperty(this, "title", "Game title");
+    private ObjectProperty<Path> path = new SimpleObjectProperty<>(this, "path");
 
-    protected Level(int size, String key){
+    protected Level(int size, String key) {
         this.key = key;
         this.shape = new LevelShape(size);
 
-        scoreThresholds[0] = 1;
-        scoreThresholds[1] = 2;
-        scoreThresholds[2] = 3;
+        scoreThresholds[0] = 0;
+        scoreThresholds[1] = 0;
+        scoreThresholds[2] = 0;
     }
 
     /**
@@ -48,7 +56,7 @@ public class Level {
      * Return the LetterLhape of this Level.
      * @return this level's levelshape
      */
-    LevelShape getShape() {
+    public LevelShape getShape() {
         return this.shape;
     }
 
@@ -62,13 +70,33 @@ public class Level {
 
     /**
      * Sets the thresholds for 1, 2, and 3 stars, respectively.
-     * @param l, m, h integer for each score threshold
+     * @param l the low, or first star, threshold
+     * @param m the middle, or second star, threshold
+     * @param h the high, or third star, threshold
      */
     public void setThresholds(int l, int m, int h){
     	this.scoreThresholds[0] = l;
     	this.scoreThresholds[1] = m;
     	this.scoreThresholds[2] = h;
     }
+
+    /**
+     * Set the star threshold values individually.
+     * @param i the zero-based index of the threshold to set (0, 1 or 2)
+     * @param value the value to set the threshold to
+     */
+    public void setThreshold(int i, int value) {
+        this.scoreThresholds[i] = value;
+    }
+
+	/**
+	 * Get an individual threshold value
+	 * @param i the zero-based index of the threshold to get
+	 * @return the threshold value
+	 */
+	public int getThreshold(int i) {
+		return this.scoreThresholds[i];
+	}
 
     /**
      * Returns true if the round is over.
@@ -110,14 +138,6 @@ public class Level {
      */
     public void setTitle(String title) {
         this.title.set(title);
-    }
-
-    /**
-     * Load the Level for the given key. Will cache levels to prevent loading them multiple times.
-     * @return the new or cached loaded level.
-     */
-    public static Level get(String levelKey) {
-        return Level.dummy(6);
     }
 
     /**
@@ -166,6 +186,18 @@ public class Level {
      */
     public boolean canSave() {
         return getPack().isPresent();
+    }
+
+    public Optional<Path> getPath() {
+        return Optional.ofNullable(path.get());
+    }
+
+    public ObjectProperty<Path> pathProperty() {
+        return path;
+    }
+
+    public void setPath(Path path) {
+        this.path.set(path);
     }
 
     /**
@@ -359,5 +391,21 @@ public class Level {
     		
     	//Method should not get here because there should not be an error;
     	return null;
+    }
+
+    public void save() {
+        Path path = getPath().orElseThrow(() -> new IllegalStateException("Can't save a level without a path!"));
+        try {
+            Files.write(path, Collections.singleton(toFileFormat()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String toFileFormat() {
+        String type = getClass().getSimpleName().replace("Level", "");
+        return type + ": " + getTitle() + "\n" +
+            Arrays.stream(scoreThresholds)
+                .mapToObj(Integer::toString).collect(Collectors.joining("_")) + "\n";
     }
 }
