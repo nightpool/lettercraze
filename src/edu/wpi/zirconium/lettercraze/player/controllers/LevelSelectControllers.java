@@ -1,6 +1,5 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
-import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelPackView;
@@ -36,7 +35,7 @@ public class LevelSelectControllers implements Initializable {
             .flatMap(LevelPackView::getTiles)
             .forEach(lt -> {
                 String key = lt.getLevel().getKey();
-                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(Level.dummy(6)));
+                lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(key));
             }
         );
     }
