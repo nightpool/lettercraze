@@ -32,4 +32,39 @@ public class TestBoard {
         assertEquals(Letter.B, tileB.getLetter());
         assertFalse(b.getTile(new Point(1,0)).isPresent());
     }
+    /**
+     * Test method for {@link Board#dummy()}.
+     */
+    @Test
+    public void testDummy() throws Exception {
+    	LevelShape shape = LevelShape.all(2);
+        shape.setTile(0, 1, false);
+        Board b = Board.dummy(2);
+        Board b2 = Board.dummy(2);
+        assertFalse(b.getTiles() == b2.getTiles());
+    }
+    /**
+     * Test method for {@link Board#random()}.
+     */
+    @Test
+    public void testRandom() throws Exception {
+    	LevelShape shape = LevelShape.all(2);
+        shape.setTile(0, 1, false);
+        Board b = Board.random(shape);
+        Board b2 = Board.random(shape);
+        assertFalse(b.getTiles() == b2.getTiles());
+        
+    }
+    /**
+     * Test method for {@link Board#getShape()}.
+     */
+    @Test
+    public void testGetShape() throws Exception {
+    	LevelShape shape = LevelShape.all(2);
+        shape.setTile(0, 1, false);
+        Board b = new Board(shape);
+        assertEquals(shape,b.getShape());
+    }
+    
+    
 }
