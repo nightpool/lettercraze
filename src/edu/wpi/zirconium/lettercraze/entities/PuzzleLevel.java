@@ -25,6 +25,13 @@ public class PuzzleLevel extends Level {
 		return r.getCompletedMoves().size() >= this.wordLimit;
 	}
 
+    /**
+     * setWordLimit(int wl) is the setter method for Word Limit
+     * @param wl the word Limit of the puzzle level
+     */
+    public void setWordLimit(int wl){
+    	this.wordLimit = wl;
+    }
     
     /**
      * dummy() creates a sample Puzzle Level, complete with score thresholds and a moveLimit
