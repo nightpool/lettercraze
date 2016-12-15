@@ -1,4 +1,4 @@
-Lightning: "Cookie Cutter"
+Lightning: Cookie Cutter
 7_14_21
 ++++++
 +++-++

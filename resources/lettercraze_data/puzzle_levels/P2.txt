@@ -1,4 +1,4 @@
-Puzzle: "Mountain"
+Puzzle: Mountain
 75_175_250
 +-++-+
 ++-+++

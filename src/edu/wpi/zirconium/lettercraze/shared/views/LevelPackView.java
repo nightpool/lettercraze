@@ -1,11 +1,12 @@
-package edu.wpi.zirconium.lettercraze.player.views;
+package edu.wpi.zirconium.lettercraze.shared.views;
 
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.entities.LevelStats;
-import edu.wpi.zirconium.lettercraze.shared.views.LevelTile;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -29,8 +30,10 @@ public class LevelPackView extends AnchorPane {
             this.clearTiles();
             getTitleNode().setText(getPack().getTitle());
             getPack().getLevelStats().forEach(this::addTile);
+            getList().getChildren().addAll(this.getStaticTiles());
         });
     }
+
 
     private void clearTiles() {
         this.getList().getChildren().clear();
@@ -68,5 +71,25 @@ public class LevelPackView extends AnchorPane {
         return this.getList().getChildren().stream()
             .filter(t -> t instanceof LevelTile)
             .map(t -> (LevelTile) t);
+    }
+
+    private BooleanProperty editable = new SimpleBooleanProperty(this, "editable", false);
+
+    public boolean isEditable() {
+        return editable.get();
+    }
+
+    public BooleanProperty editableProperty() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable.set(editable);
+    }
+
+    private ListProperty<Node> staticTiles = new SimpleListProperty<>(this, "staticTiles", FXCollections.observableArrayList());
+
+    public ObservableList<Node> getStaticTiles() {
+        return staticTiles.get();
     }
 }

@@ -1,4 +1,4 @@
-Puzzle: "Hourglass"
+Puzzle: Hourglass
 50_150_250
 ++++++
 -++++-

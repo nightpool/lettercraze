@@ -1,4 +1,4 @@
-Theme: "Twelve Small Words"
+Theme: Twelve Small Words
 10_11_12
 TFIQJO
 SZEAZB

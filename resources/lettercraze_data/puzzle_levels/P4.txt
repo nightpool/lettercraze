@@ -1,4 +1,4 @@
-Puzzle: "ZigZag"
+Puzzle: ZigZag
 100_200_300
 +-+-++
 -+-+++
