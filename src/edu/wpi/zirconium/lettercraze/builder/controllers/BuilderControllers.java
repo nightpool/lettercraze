@@ -116,7 +116,7 @@ public class BuilderControllers implements Initializable {
             puzzleStar2.setText(String.valueOf(puzzleSub.getThreshold(1)));
             puzzleStar3.setText(String.valueOf(puzzleSub.getThreshold(2)));
         } else {
-            puzzleSub = new PuzzleLevel(this.level.getShape().getSize(), this.level.getKey());
+            puzzleSub = new PuzzleLevel(this.level.getShape().getSize());
             puzzleSub.setShape(this.level.getShape());
             puzzleSub.titleProperty().bind(this.level.titleProperty());
         }
@@ -145,7 +145,7 @@ public class BuilderControllers implements Initializable {
             lightningStar2.setText(String.valueOf(lightningSub.getThreshold(1)));
             lightningStar3.setText(String.valueOf(lightningSub.getThreshold(2)));
         } else {
-            lightningSub = new LightningLevel(this.level.getShape().getSize(), this.level.getKey());
+            lightningSub = new LightningLevel(this.level.getShape().getSize());
             lightningSub.setShape(this.level.getShape());
             lightningSub.titleProperty().bind(this.level.titleProperty());
         }
@@ -169,7 +169,7 @@ public class BuilderControllers implements Initializable {
             themeSub = level;
             themeWords.setText(themeSub.getWords().stream().collect(Collectors.joining("\n")));
         } else {
-            themeSub = new ThemeLevel(this.level.getShape().getSize(), this.level.getKey());
+            themeSub = new ThemeLevel(this.level.getShape().getSize());
             themeSub.setShape(this.level.getShape());
             themeSub.titleProperty().bind(this.level.titleProperty());
         }

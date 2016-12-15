@@ -51,7 +51,8 @@ public abstract class LevelStats {
     public String saveString() {
         String className = this.getClass().getSimpleName().replace("Stats", "");
         return className + " " +
-            this.getLevel().getKey() + ".txt" +
-            " " + thresholdValue();
+            this.getLevel().getPath().orElseThrow(() ->
+                new IllegalStateException("Can't save a level without a path")).getFileName()
+            + " " + thresholdValue();
     }
 }

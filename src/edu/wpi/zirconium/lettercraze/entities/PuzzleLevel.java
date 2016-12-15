@@ -7,11 +7,11 @@ public class PuzzleLevel extends Level {
     /**
      * Creates a Puzzle Level with the given parameters. 
      * @param size Size of the LevelShape.
-     * @param key a unique string to associate with the level.
      */
-    public PuzzleLevel(int size, String key) {
-        super(size, key);
+    public PuzzleLevel(int size) {
+        super(size);
     }
+
 
     public int getWordLimit() {
         return wordLimit;
@@ -48,7 +48,7 @@ public class PuzzleLevel extends Level {
      * @return a static sample Puzzle Level.
      */
     public static PuzzleLevel dummy() {
-        PuzzleLevel puzzleOne = new PuzzleLevel(6, "PuzzleOne");
+        PuzzleLevel puzzleOne = new PuzzleLevel(6);
 
         LevelShape poShape = LevelShape.all(6);
 

@@ -69,7 +69,7 @@ public class LevelScreenTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) throws Exception {
-        LevelScreen ls = new LevelScreen(new Level(6, ""){
+        LevelScreen ls = new LevelScreen(new Level(6){
             {
                 setShape(LevelShape.all(6));
                 setTitle("Mock Level");

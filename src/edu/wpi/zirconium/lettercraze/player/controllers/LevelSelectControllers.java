@@ -34,7 +34,6 @@ public class LevelSelectControllers implements Initializable {
         Stream.of(puzzlePack, lightningPack, themePack)
             .flatMap(LevelPackView::getTiles)
             .forEach(lt -> {
-                String key = lt.getLevel().getKey();
                 lt.setOnMouseClicked(me -> LetterCrazePlayer.showLevelScreen(lt.getLevel()));
             }
         );

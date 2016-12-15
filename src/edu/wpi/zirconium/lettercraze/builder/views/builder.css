@@ -13,6 +13,11 @@
     -fx-cursor: hand;
 }
 
+.builder-menu .button:hover {
+    -fx-background-color: #efefef;
+    -fx-cursor: hand;
+}
+
 #builder-sidebar .title {
     -fx-background-color: TRANSPARENT;
     -fx-border-width: 0 0 4px 0;

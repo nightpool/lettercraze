@@ -21,7 +21,6 @@ public class LevelSelectController implements Initializable {
     @FXML private Group newLightning;
     @FXML private Group newTheme;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         level1.setOnMouseClicked(this::showLevelScreen);
