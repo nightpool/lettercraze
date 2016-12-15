@@ -1,4 +1,4 @@
-Theme: "Colors"
+Theme: Colors
 5_6_7
 ROLGRE
 NBELRY

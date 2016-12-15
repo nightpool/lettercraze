@@ -1,4 +1,4 @@
-Lightning: "Swirl"
+Lightning: Swirl
 10_20_30
 --+---
 -++++-

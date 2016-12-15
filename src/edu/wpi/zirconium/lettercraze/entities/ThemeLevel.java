@@ -11,10 +11,10 @@ public class ThemeLevel extends Level{
     /**
      * Creates a ThemeLevel with the given parameters.
      * @param size The height/width of the LevelShape.
-     * @param key A String with which the created level is associated.
+     *
      */
-    public ThemeLevel(int size, String key) {
-        super(size, key);
+    public ThemeLevel(int size) {
+        super(size);
         this.words = new ArrayList<>();
         this.letters = new ArrayList<>();
     }
@@ -93,7 +93,7 @@ public class ThemeLevel extends Level{
      * @return a static ThemeLevel Sample.
      */
     public static ThemeLevel dummy(){
-        ThemeLevel digitsOfPi = new ThemeLevel(6, "DigitsOfPi");
+        ThemeLevel digitsOfPi = new ThemeLevel(6);
 
         //List<Word> dOPWords = new ArrayList<>();
         //List<Letter> dOPLetters = new ArrayList<>();

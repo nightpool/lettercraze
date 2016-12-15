@@ -1,4 +1,4 @@
-Lightning: "Caste"
+Lightning: Caste
 1_2_3
 ++++-+
 +-++++

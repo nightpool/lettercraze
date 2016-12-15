@@ -1,4 +1,4 @@
-Theme: "Digits of Pi"
+Theme: Digits of Pi
 6_7_8
 TPOONE
 HR-I-O

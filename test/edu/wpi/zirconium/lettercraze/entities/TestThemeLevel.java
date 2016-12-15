@@ -3,11 +3,11 @@
  */
 package edu.wpi.zirconium.lettercraze.entities;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * @author Chris B
@@ -21,7 +21,7 @@ public class TestThemeLevel {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		level = new ThemeLevel(6, "1");
+		level = new ThemeLevel(6);
 		dummyLevel = ThemeLevel.dummy();
 		
 		level.setTitle("Level 1");
@@ -64,18 +64,16 @@ public class TestThemeLevel {
 	}
 
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.ThemeLevel#ThemeLevel(int, java.lang.String)}.
+	 * Test method for {@link ThemeLevel#ThemeLevel(int)}.
 	 */
 	@Test
 	public void testThemeLevel() {
 		assertEquals(0, level.getWords().size());
 		assertEquals(0, level.getLetters().size());
-		assertEquals("1", level.getKey());
-		assertEquals("Level 1", level.getTitle());
 	}
 
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.ThemeLevel#addWord(edu.wpi.zirconium.lettercraze.entities.Word)}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.ThemeLevel#addWord(String)}.
 	 */
 	@Test
 	public void testAddWord() {
@@ -100,8 +98,6 @@ public class TestThemeLevel {
 	public void testDummy() {
 		assertEquals(8, dummyLevel.getWords().size());
 		assertEquals(31, dummyLevel.getLetters().size());
-		assertEquals("DigitsOfPi", dummyLevel.getKey());
-		assertEquals("Dummy 1", dummyLevel.getTitle());
 	}
 
 }

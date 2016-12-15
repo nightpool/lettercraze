@@ -3,6 +3,8 @@ package edu.wpi.zirconium.lettercraze.entities;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.nio.file.Paths;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -47,19 +49,25 @@ public class LevelStatsTest {
         assertEquals(stats1.getLevel(), level);
     }
 
+    private static Level mockLevelFactory(String pathName) {
+        Level l = Level.dummy(6);
+        l.setPath(Paths.get(pathName));
+        return l;
+    }
+
     @Test
     public void testGoodLevels() throws Exception {
-        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", k -> Level.dummy(6, k.replace(".txt","")));
+        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", LevelStatsTest::mockLevelFactory);
         assertNotNull(p);
         assertEquals(PuzzleLevelStats.class, p.getClass());
         assertEquals(p.thresholdValue(), 0);
 
-        LevelStats t = LevelStats.fromString("ThemeLevel T1.txt 5", k -> Level.dummy(6, k.replace(".txt","")));
+        LevelStats t = LevelStats.fromString("ThemeLevel T1.txt 5", LevelStatsTest::mockLevelFactory);
         assertNotNull(t);
         assertEquals(ThemeLevelStats.class, t.getClass());
         assertEquals(t.thresholdValue(), 5);
 
-        LevelStats l = LevelStats.fromString("LightningLevel L1.txt 100", k -> Level.dummy(6, k.replace(".txt","")));
+        LevelStats l = LevelStats.fromString("LightningLevel L1.txt 100", LevelStatsTest::mockLevelFactory);
         assertNotNull(l);
         assertEquals(LightningLevelStats.class, l.getClass());
         assertEquals(l.thresholdValue(), 100);
@@ -67,16 +75,16 @@ public class LevelStatsTest {
 
     @Test
     public void testBadLevels() throws Exception {
-        LevelStats n1 = LevelStats.fromString("BlahBlah L1.txt 100", k -> Level.dummy(6, k.replace(".txt","")));
+        LevelStats n1 = LevelStats.fromString("BlahBlah L1.txt 100", LevelStatsTest::mockLevelFactory);
         assertNull(n1);
 
-        LevelStats n2 = LevelStats.fromString("LightningLevel L1.txt", k -> Level.dummy(6, k.replace(".txt","")));
+        LevelStats n2 = LevelStats.fromString("LightningLevel L1.txt", LevelStatsTest::mockLevelFactory);
         assertNull(n2);
     }
 
     @Test
     public void saveString() throws Exception {
-        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", k -> Level.dummy(6, k.replace(".txt","")));
+        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", LevelStatsTest::mockLevelFactory);
         assertNotNull(p);
         assertEquals("PuzzleLevel P1.txt 0", p.saveString());
     }
