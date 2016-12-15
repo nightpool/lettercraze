@@ -4,7 +4,7 @@ public class LightningLevelStats extends LevelStats{
 
     private final int mostWords;
 
-    LightningLevelStats(Level l, int mostWords) {
+    public LightningLevelStats(Level l, int mostWords) {
         super(l);
         this.mostWords = mostWords;
     }

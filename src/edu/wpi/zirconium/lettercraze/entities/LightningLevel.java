@@ -2,7 +2,7 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 public class LightningLevel extends Level{
 
-    int maxTime = 0;
+    private int maxTime = 0;
 
     /**
      * LightningLevel(int size, String key) creates a LightningLevel with given parameters.
@@ -22,7 +22,15 @@ public class LightningLevel extends Level{
     public boolean isOver(Round r){
         return r.getTime() >= this.maxTime;
     }
-    
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LevelStats statsFor(Round round) {
+        return new LightningLevelStats(this, round.getNumWordsFound());
+    }
+
     /**
      * dummy() creates a sample Lightning Level complete with a level shape, maxTime, and score thresholds.
      * @return a static sample Lightning Level.
