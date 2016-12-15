@@ -36,6 +36,10 @@
     -fx-padding: 0;
 }
 
+.settings-pane .text-field.invalid {
+    -fx-border-color: red;
+}
+
 .settings-pane .label {
     -fx-font-family: "Open Sans";
     -fx-font-size: 15px;

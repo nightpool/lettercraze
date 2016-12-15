@@ -1,15 +1,18 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
-import java.util.ArrayList;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.Collections;
-import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class LevelShape {
 
     private final int size;
-    private List<Boolean> shape;
+    private ObservableList<Boolean> shape;
 
     /**
      * Creates a LevelShape with square dimensions size by size.
@@ -17,7 +20,7 @@ public class LevelShape {
      */
     public LevelShape(int size) {
         this.size = size;
-        this.shape = new ArrayList<Boolean>(size*size);
+        this.shape = FXCollections.observableArrayList();
         shape.addAll(Collections.nCopies(size*size, false));
     }
 
@@ -57,18 +60,39 @@ public class LevelShape {
         setTile(p.getRow(), p.getColumn(), present);
     }
 
+    /**
+     * Toggle the tile at a given point
+     * @param p the point to toggle the tile at
+     */
+    public void toggleTile(Point p){
+        setTile(p, !isTile(p));
+    }
     
     /**
      * unblockedPoints() gets the user a stream of all points that a tile can be placed.
      * @return a stream of points that a tile can be placed.
      */
     public Stream<Point> unblockedPoints() {
-        return IntStream.range(0,size*size)
-                .mapToObj(i -> new Point(i%size, i/size))
-                .filter(this::isTile);
+        return points().filter(this::isTile);
     }
 
-    
+    /**
+     * points() gets the user a stream of all of the points in a shape
+     * @return a stream of all points in a LevelShape
+     */
+    public Stream<Point> points() {
+        return IntStream.range(0,size*size)
+            .mapToObj(i -> new Point(i/size, i%size));
+    }
+
+    public ObservableList<Boolean> getTiles() {
+        return shape;
+    }
+
+    public BooleanBinding bindingAt(Point p) {
+        return Bindings.booleanValueAt(shape, p.getRow() * size + p.getColumn());
+    }
+
     /**
      * all(int size) creates a LevelShape with all points/tiles set to true.
      * @param size the size of the LevelShape to be created.

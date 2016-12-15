@@ -34,6 +34,7 @@ public enum Letter {
 	J("J",7),
 	X("X",7),
 	QU("QU",11),
+	Q("QU", 11), //Letter Creation Purposes
 	Z("Z",8);
 
 	/** The string of the actual letter character (or Qu) of the letter. */

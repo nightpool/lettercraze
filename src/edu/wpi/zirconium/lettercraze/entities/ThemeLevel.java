@@ -5,10 +5,9 @@ import java.util.List;
 
 public class ThemeLevel extends Level{
 
-    List<Word> words;
+    List<String> words;
     List<Letter> letters;
 
-    
     /**
      * Creates a ThemeLevel with the given parameters.
      * @param size The height/width of the LevelShape.
@@ -46,7 +45,7 @@ public class ThemeLevel extends Level{
     @Override
     public boolean isWordValid(String word){
     	for (int i = 0; i < words.size(); i++) {
-			if (words.get(i).asString().equalsIgnoreCase(word))
+			if (words.get(i).equalsIgnoreCase(word))
 				return true;
 		}
     	return false;
@@ -56,7 +55,7 @@ public class ThemeLevel extends Level{
      * addWord(Word w) adds the given word w to the ThemeLevel's list of words to find.
      * @param w Word to add to the Array List of words.
      */
-    public void addWord(Word w){
+    public void addWord(String w){
     	this.words.add(w);
     }
     
@@ -73,10 +72,14 @@ public class ThemeLevel extends Level{
      * getWords() is a getter method that returns a list of the ThemeLevel's words.
      * @return The list of words that make up this theme level.
      */
-    public List<Word> getWords(){
+    public List<String> getWords(){
     	return this.words;
     }
-    
+
+    public void setWords(List<String> words) {
+        this.words = words;
+    }
+
     /**
      * getLetters() is a getter method that returns a list of the ThemeLevel's letters.
      * @return The list of letters that make up this theme level.
@@ -84,7 +87,7 @@ public class ThemeLevel extends Level{
     public List<Letter> getLetters(){
     	return this.letters;
     }
-    
+
     /**
      * dummy() creates a sample ThemeLevel complete with letters, words, and levelshape.
      * @return a static ThemeLevel Sample.
@@ -134,23 +137,14 @@ public class ThemeLevel extends Level{
         Letter N30 = Letter.N;
         Letter E31 = Letter.E;
 
-        Word three = new Word(T1, H7, R8, E12, E19);
-        Word point = new Word(P2, O3, I9, N18, T17);
-        Word one1 = new Word(O4, N5, E6);
-        Word four = new Word(F26, O16, U11, R27);
-        Word one2 = new Word(O10, N15, E20);
-        Word five = new Word(F14, I21, V25, E31);
-        Word nine = new Word(N30, I24, N29, E28);
-        Word two = new Word(T22, W23, O13);
-
-        digitsOfPi.addWord(three);
-        digitsOfPi.addWord(point);
-        digitsOfPi.addWord(one1);
-        digitsOfPi.addWord(four);
-        digitsOfPi.addWord(one2);
-        digitsOfPi.addWord(five);
-        digitsOfPi.addWord(nine);
-        digitsOfPi.addWord(two);
+        digitsOfPi.addWord("THREE");
+        digitsOfPi.addWord("POINT");
+        digitsOfPi.addWord("ONE");
+        digitsOfPi.addWord("FOUR");
+        digitsOfPi.addWord("ONE");
+        digitsOfPi.addWord("FIVE");
+        digitsOfPi.addWord("SIX");
+        digitsOfPi.addWord("TWO");
 
         digitsOfPi.addLetter(T1);
         digitsOfPi.addLetter(P2);

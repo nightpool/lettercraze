@@ -1,6 +1,7 @@
 package edu.wpi.zirconium.lettercraze.builder.controllers;
 
 import edu.wpi.zirconium.lettercraze.builder.LetterCrazeBuilder;
+import edu.wpi.zirconium.lettercraze.entities.PuzzleLevel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -37,7 +38,7 @@ public class LevelSelectController implements Initializable {
 
     private void showLevelScreen(MouseEvent mouseEvent) {
         try {
-            LetterCrazeBuilder.showBuilderScreen();
+            LetterCrazeBuilder.showBuilderScreen(PuzzleLevel.dummy());
         } catch (Exception e) {
             e.printStackTrace();
         }

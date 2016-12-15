@@ -7,7 +7,12 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@builder.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.BuilderControllers">
+<fx:root type="BorderPane" fx:id="root"
+         maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+         prefHeight="712.0" prefWidth="1024.0"
+         stylesheets="@builder.css"
+         xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.BuilderControllers">
    <top>
       <Pane id="back-button" fx:id="backButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
@@ -22,8 +27,8 @@
       <VBox spacing="30.0" styleClass="builder-menu" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="saveButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Save" />
-            <Button fx:id="newButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="New" />
-            <Button fx:id="loadButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Load" />
+            <!--<Button fx:id="newButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="New" />-->
+            <!--<Button fx:id="loadButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Load" />-->
             <Button fx:id="previewButton" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Preview" />
          </children>
          <BorderPane.margin>
@@ -44,7 +49,7 @@
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </BorderPane.margin>
          <children>
-            <TextField prefColumnCount="2" promptText="Title" styleClass="title">
+            <TextField fx:id="title" prefColumnCount="2" promptText="Title" styleClass="title">
                <VBox.margin>
                   <Insets bottom="30.0" />
                </VBox.margin>
@@ -52,7 +57,7 @@
                   <Font size="25.0" />
                </font>
             </TextField>
-            <TabPane prefHeight="250.0" styleClass="settings-pane" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" prefHeight="250.0" styleClass="settings-pane" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab closable="false" text="Puzzle">
                   <content>
@@ -62,7 +67,7 @@
                                  <children>
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="puzzleWords" prefColumnCount="2" promptText="50" />
                                           <Label text="words" />
                                        </children>
                                        <VBox.margin>
@@ -72,21 +77,21 @@
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
                                           <Label text="1st star: " />
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="puzzleStar1" prefColumnCount="2" promptText="50" />
                                           <Label text="points" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
                                           <Label text="2nd star: " />
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="puzzleStar2" prefColumnCount="2" promptText="60" />
                                           <Label text="points" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
                                           <Label text="3rd star: " />
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="puzzleStar3" prefColumnCount="2" promptText="80" />
                                           <Label text="points" />
                                        </children>
                                     </HBox>
@@ -106,7 +111,7 @@
                                  <children>
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="lightningTime" prefColumnCount="2" promptText="50" />
                                           <Label text="seconds" />
                                        </children>
                                        <VBox.margin>
@@ -116,21 +121,21 @@
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
                                           <Label text="1st star: " />
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="lightningStar1" prefColumnCount="2" promptText="50" />
                                           <Label text="words" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
                                           <Label text="2nd star: " />
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="lightningStar2" prefColumnCount="2" promptText="50" />
                                           <Label text="words" />
                                        </children>
                                     </HBox>
                                     <HBox alignment="BASELINE_CENTER">
                                        <children>
                                           <Label text="3rd star: " />
-                                          <TextField prefColumnCount="2" promptText="50" />
+                                          <TextField fx:id="lightningStar3" prefColumnCount="2" promptText="50" />
                                           <Label text="words" />
                                        </children>
                                     </HBox>
@@ -151,7 +156,7 @@
                                     <Insets left="20.0" right="20.0" top="10.0" />
                                  </padding>
                                  <children>
-                                    <TextArea prefRowCount="9" promptText="Word List" />
+                                    <TextArea fx:id="themeWords" prefRowCount="9" promptText="Word List" />
                                  </children>
                               </VBox>
                            </children></AnchorPane>
@@ -162,4 +167,4 @@
          </children>
       </VBox>
    </right>
-</BorderPane>
+</fx:root>

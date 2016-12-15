@@ -57,8 +57,8 @@ public class TestThemeLevel {
 	 */
 	@Test
 	public void testIsWordValid() {
-		Word w = new Word(Letter.A, Letter.C, Letter.T);
-		level.addWord(w);
+		//Word w = new Word(Letter.A, Letter.C, Letter.T);
+		level.addWord("ACT");
 		assertTrue(level.isWordValid("Act"));
 		assertFalse(level.isWordValid("TEST"));
 	}
@@ -79,8 +79,8 @@ public class TestThemeLevel {
 	 */
 	@Test
 	public void testAddWord() {
-		Word w = new Word(Letter.A, Letter.C, Letter.T);
-		level.addWord(w);
+		//Word w = new Word(Letter.A, Letter.C, Letter.T);
+		level.addWord("ACT");
 		assertEquals(1, level.getWords().size());
 	}
 
