@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +22,10 @@ import java.util.List;
  *
  */
 public class LetterCrazeBuilder extends Application {
-
+	/** Enum for differentiating which tab goes disabled. */
+	public enum TabNumber {
+		Puzzle, Lightning, Theme;
+	}
     /** The holder for the stage. TODO  */
     static private Stage stage;
 
@@ -89,9 +93,31 @@ public class LetterCrazeBuilder extends Application {
 
     }
 
-    public static void showBuilderScreen() {
+    /**
+     * Generates the builder screen and only displays the options tab valid for the type of level.
+     * @param tabIndex The tab that should be enabled.
+     */
+    public static void showBuilderScreen(TabNumber tn) {
         try {
             Parent builder = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/Builder.fxml"));
+            TabPane tb = (TabPane) builder.lookup("#tab-pane");
+            
+            if (tn == TabNumber.Puzzle){
+            	tb.getTabs().remove(1);
+            	tb.getTabs().remove(1);
+            	tb.getSelectionModel().select(0);
+            }
+            else if(tn == TabNumber.Lightning) {
+            	tb.getTabs().remove(0);
+            	tb.getTabs().remove(1);
+            	tb.getSelectionModel().select(1);
+            }
+            else {
+            	tb.getTabs().remove(0);
+            	tb.getTabs().remove(0);
+            	tb.getSelectionModel().select(2);
+            }
+            
             stage.setScene(new Scene(builder, 1024, 712));
         } catch (IOException e) {
             e.printStackTrace();

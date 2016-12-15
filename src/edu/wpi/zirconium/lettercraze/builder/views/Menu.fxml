@@ -14,10 +14,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1024.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.MenuController">
+<AnchorPane prefHeight="712.0" prefWidth="1024.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.MenuController">
    <Pane fx:id="hamburger" layoutX="30.0" layoutY="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
       <children>
-         <Group layoutX="10.0" layoutY="10.0">
+         <Group layoutX="10.0" layoutY="10.0" visible="false">
             <children>
                <Region prefHeight="5.0" prefWidth="40.0" styleClass="hamburger-component" />
                <Region layoutY="10.0" prefHeight="5.0" prefWidth="40.0" styleClass="hamburger-component" />
@@ -75,7 +75,7 @@
                         <String fx:value="lc-menu-row" />
                      </styleClass>
                   </Region>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Level">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Modify Levels">
                      <font>
                         <Font name="Josefin Sans" size="22.0" />
                      </font>
@@ -87,13 +87,13 @@
                   <Insets top="30.0" />
                </VBox.margin>
                <children>
-                  <Region prefHeight="60.0" prefWidth="350.0">
+                  <Region prefHeight="60.0" prefWidth="350.0" visible="false">
                      <styleClass>
                         <String fx:value="lc-menu-item" />
                         <String fx:value="lc-menu-row" />
                      </styleClass>
                   </Region>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Load Level">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Load Level" visible="false">
                      <font>
                         <Font name="Josefin Sans" size="22.0" />
                      </font>
@@ -104,7 +104,7 @@
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
-               <StackPane fx:id="collectionsButton" styleClass="lc-menu-container">
+               <StackPane fx:id="collectionsButton" styleClass="lc-menu-container" visible="false">
                   <children>
                      <Region prefHeight="200.0" prefWidth="200.0" styleClass="lc-menu-item" />
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Collections">
@@ -114,7 +114,7 @@
                      </Text>
                   </children>
                </StackPane>
-               <StackPane fx:id="achievementsButton" styleClass="lc-menu-container">
+               <StackPane fx:id="achievementsButton" styleClass="lc-menu-container" visible="false">
                   <children>
                      <Region prefHeight="200.0" prefWidth="200.0" styleClass="lc-menu-item" />
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Achievements">
