@@ -75,6 +75,10 @@ public class TileView extends StackPane {
         return getText().textProperty();
     }
 
+    public String getLetter() {
+        return getText().getText();
+    }
+
     private Rectangle getRectangle() {
         return (Rectangle) this.lookup(".board--tile-shape");
     }

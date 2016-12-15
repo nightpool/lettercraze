@@ -61,7 +61,7 @@ public class LevelScreenControllers implements Initializable {
         reset.setOnMouseClicked(this::onResetClicked);
         undo.setOnMouseClicked(this::onUndoClicked);
 
-        Level level = Level.get(root.getLevelKey());
+        Level level = root.getLevel();
         currentRound = new Round(level);
 
         title.textProperty().bind(level.titleProperty());
