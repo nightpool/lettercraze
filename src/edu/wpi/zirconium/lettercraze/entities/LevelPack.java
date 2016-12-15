@@ -5,10 +5,7 @@ import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,10 +17,6 @@ public class LevelPack {
 
     protected LevelPack(String key) {
         this.key = key;
-    }
-
-    public void saveStats() {
-
     }
 
     public boolean isUnlocked(LevelStats level){
@@ -114,6 +107,20 @@ public class LevelPack {
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalStateException("Can't read LevelPack : "+key);
+        }
+    }
+
+    public Stream<String> toFile() {
+        return getLevelStats().stream()
+            .map(LevelStats::saveString);
+    }
+
+    public void saveStats() {
+        Path folder = LetterCrazeApplication.dataFolder().resolve(key);
+        try {
+            Files.write(folder.resolve("pack.conf"), (Iterable<String>)toFile()::iterator);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

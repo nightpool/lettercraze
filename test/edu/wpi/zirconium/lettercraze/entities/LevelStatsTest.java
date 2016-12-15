@@ -49,17 +49,17 @@ public class LevelStatsTest {
 
     @Test
     public void testGoodLevels() throws Exception {
-        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", k -> Level.dummy(6));
+        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", k -> Level.dummy(6, k.replace(".txt","")));
         assertNotNull(p);
         assertEquals(PuzzleLevelStats.class, p.getClass());
         assertEquals(p.thresholdValue(), 0);
 
-        LevelStats t = LevelStats.fromString("ThemeLevel T1.txt 5", k -> Level.dummy(6));
+        LevelStats t = LevelStats.fromString("ThemeLevel T1.txt 5", k -> Level.dummy(6, k.replace(".txt","")));
         assertNotNull(t);
         assertEquals(ThemeLevelStats.class, t.getClass());
         assertEquals(t.thresholdValue(), 5);
 
-        LevelStats l = LevelStats.fromString("LightningLevel L1.txt 100", k -> Level.dummy(6));
+        LevelStats l = LevelStats.fromString("LightningLevel L1.txt 100", k -> Level.dummy(6, k.replace(".txt","")));
         assertNotNull(l);
         assertEquals(LightningLevelStats.class, l.getClass());
         assertEquals(l.thresholdValue(), 100);
@@ -67,10 +67,17 @@ public class LevelStatsTest {
 
     @Test
     public void testBadLevels() throws Exception {
-        LevelStats n1 = LevelStats.fromString("BlahBlah L1.txt 100", k -> Level.dummy(6));
+        LevelStats n1 = LevelStats.fromString("BlahBlah L1.txt 100", k -> Level.dummy(6, k.replace(".txt","")));
         assertNull(n1);
 
-        LevelStats n2 = LevelStats.fromString("LightningLevel L1.txt", k -> Level.dummy(6));
+        LevelStats n2 = LevelStats.fromString("LightningLevel L1.txt", k -> Level.dummy(6, k.replace(".txt","")));
         assertNull(n2);
+    }
+
+    @Test
+    public void saveString() throws Exception {
+        LevelStats p = LevelStats.fromString("PuzzleLevel P1.txt 0", k -> Level.dummy(6, k.replace(".txt","")));
+        assertNotNull(p);
+        assertEquals("PuzzleLevel P1.txt 0", p.saveString());
     }
 }

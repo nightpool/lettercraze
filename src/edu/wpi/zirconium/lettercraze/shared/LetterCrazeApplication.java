@@ -19,7 +19,6 @@ public abstract class LetterCrazeApplication extends Application {
         try {
             if (!Files.exists(dataFolder()) || !Files.isDirectory(dataFolder())) {
                 System.out.println("Creating source folder!");
-                Files.createDirectory(dataFolder());
                 Path source_data = Paths.get(getClass().getResource("/lettercraze_data").toURI());
                 Stream<Path> pathStream = Files.walk(source_data);
                 pathStream.forEach(src -> {

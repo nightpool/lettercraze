@@ -47,4 +47,11 @@ public abstract class LevelStats {
         }
         return null;
     }
+
+    public String saveString() {
+        String className = this.getClass().getSimpleName().replace("Stats", "");
+        return className + " " +
+            this.getLevel().getKey() + ".txt" +
+            " " + thresholdValue();
+    }
 }
