@@ -1,7 +1,7 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import org.junit.Test;
-
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -41,7 +41,7 @@ public class TestBoard {
         shape.setTile(0, 1, false);
         Board b = Board.dummy(2);
         Board b2 = Board.dummy(2);
-        assertFalse(b.getTiles() == b2.getTiles());
+        assertNotEquals(b.getTiles(), b2.getTiles());
     }
     /**
      * Test method for {@link Board#random()}.
@@ -52,7 +52,7 @@ public class TestBoard {
         shape.setTile(0, 1, false);
         Board b = Board.random(shape);
         Board b2 = Board.random(shape);
-        assertFalse(b.getTiles() == b2.getTiles());
+        assertNotEquals(b.getTiles(), b2.getTiles());
         
     }
     /**
