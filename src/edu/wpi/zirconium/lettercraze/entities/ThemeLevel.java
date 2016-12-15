@@ -8,12 +8,23 @@ public class ThemeLevel extends Level{
     List<Word> words;
     List<Letter> letters;
 
-    ThemeLevel(int size, String key) {
+    
+    /**
+     * Creates a ThemeLevel with the given parameters.
+     * @param size The height/width of the LevelShape.
+     * @param key A String with which the created level is associated.
+     */
+    public ThemeLevel(int size, String key) {
         super(size, key);
         this.words = new ArrayList<>();
         this.letters = new ArrayList<>();
     }
 
+    /**
+     * isOver(Round r) Overrides existing method in Level.java.
+     * @param r The Round to check the level-type-specific end conditions with
+     * @return true if the Round is over, false otherwise.
+     */
     @Override
     public boolean isOver(Round r){
         return r.getCompletedMoves().size() == this.words.size();
@@ -21,8 +32,8 @@ public class ThemeLevel extends Level{
     
     /**
      * Checks if the passed word is found in the list of words for this level.
-     * @return true if the word exists in the list of words.
      * @param word word to test against.
+     * @return true if the word exists in the list of words.
      */
     @Override
     public boolean isWordValid(String word){
@@ -34,7 +45,7 @@ public class ThemeLevel extends Level{
     }
 
     /**
-     * 
+     * addWord(Word w) adds the given word w to the ThemeLevel's list of words to find.
      * @param w Word to add to the Array List of words.
      */
     public void addWord(Word w){
@@ -42,7 +53,7 @@ public class ThemeLevel extends Level{
     }
     
     /**
-     * 
+     * addLetter(Letter l) adds the given Letter to the ThemeLevel's list of letters.
      * @param l Letter to add to the Array List of letters.
      * Must add letters in order of arrangement on the board from top to bottom, left to right.
      */
@@ -51,22 +62,25 @@ public class ThemeLevel extends Level{
     }
     
     /**
-     * 
-     * @return The list of words that make up this theme level
+     * getWords() is a getter method that returns a list of the ThemeLevel's words.
+     * @return The list of words that make up this theme level.
      */
     public List<Word> getWords(){
     	return this.words;
     }
     
     /**
-     * 
-     * @return The list of letters that make up this theme level
+     * getLetters() is a getter method that returns a list of the ThemeLevel's letters.
+     * @return The list of letters that make up this theme level.
      */
     public List<Letter> getLetters(){
     	return this.letters;
     }
     
-    
+    /**
+     * dummy() creates a sample ThemeLevel complete with letters, words, and levelshape.
+     * @return a static ThemeLevel Sample.
+     */
     public static ThemeLevel dummy(){
         ThemeLevel digitsOfPi = new ThemeLevel(6, "DigitsOfPi");
 

@@ -4,18 +4,31 @@ public class LightningLevel extends Level{
 
     int maxTime = 0;
 
+    /**
+     * LightningLevel(int size, String key) creates a LightningLevel with given parameters.
+     * @param size The Length and Width of the level.
+     * @param key A unique string to associate with the level.
+     */
     public LightningLevel(int size, String key) {
         super(size, key);
     }
 
+    /**
+     * isOver(Round r) overrides method in Level.java.
+     * @param r the current Round.
+     * @return whether or not the round is over given the current status of the game.
+     */
     @Override
     public boolean isOver(Round r){
         return r.getTime() >= this.maxTime;
     }
     
-    
+    /**
+     * dummy() creates a sample Lightning Level complete with a level shape, maxTime, and score thresholds.
+     * @return a static sample Lightning Level.
+     */
     public static LightningLevel dummy() {
-        LightningLevel lightningOne = new LightningLevel(6, "PuzzleOne");
+        LightningLevel lightningOne = new LightningLevel(6, "LightningOne");
 
         LevelShape loShape = LevelShape.all(6);
 
