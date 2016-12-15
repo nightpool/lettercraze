@@ -4,6 +4,8 @@ import edu.wpi.zirconium.lettercraze.utils.WordTable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.nio.file.Path;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class Level {
@@ -145,5 +147,35 @@ public class Level {
 
     public int thresholdValue(Round round) {
         return round.getScore();
+    }
+
+    /**
+     * @return Should stats for this level be persisted
+     */
+    public boolean canSave() {
+        return getPack().isPresent();
+    }
+
+    /**
+     * Creats a new LevelStats object representing the persisted data for the current state of the round
+     * @param round the round to read data from
+     * @return the persistent level stats object
+     */
+    public LevelStats statsFor(Round round) {
+        return null;
+    }
+
+    private LevelPack pack;
+    public Optional<LevelPack> getPack() {
+        return Optional.ofNullable(pack);
+    }
+
+    public void setPack(LevelPack pack) {
+        this.pack = pack;
+    }
+
+    public static Level fromPath(Path resolve) {
+        System.out.println("Loading Level '"+resolve+"'...");
+        return Level.dummy(6);
     }
 }
