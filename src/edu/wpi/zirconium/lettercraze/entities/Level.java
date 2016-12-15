@@ -230,8 +230,10 @@ public class Level {
             //Get Score Thresholds
             int[] thresholds = new int[3];
             int t = 0;
-            for(String num: fileRows[1].split("_"))
+            for (String num: fileRows[1].split("_")) {
                 thresholds[t] = Integer.parseInt(num);
+                t++;
+            }
 
             //Create a blank Level Shape
             LevelShape thisShape = LevelShape.all(6);

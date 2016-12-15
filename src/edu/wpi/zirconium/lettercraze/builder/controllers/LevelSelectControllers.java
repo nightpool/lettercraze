@@ -2,6 +2,9 @@ package edu.wpi.zirconium.lettercraze.builder.controllers;
 
 import edu.wpi.zirconium.lettercraze.builder.LetterCrazeBuilder;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
+import edu.wpi.zirconium.lettercraze.entities.LightningLevel;
+import edu.wpi.zirconium.lettercraze.entities.PuzzleLevel;
+import edu.wpi.zirconium.lettercraze.entities.ThemeLevel;
 import edu.wpi.zirconium.lettercraze.shared.views.LevelPackView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -38,6 +41,10 @@ public class LevelSelectControllers implements Initializable {
             .flatMap(LevelPackView::getTiles)
             .forEach(lt ->
                 lt.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(lt.getLevel())));
+
+        newPuzzle.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new PuzzleLevel(6)));
+        newLightning.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new LightningLevel(6)));
+        newTheme.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new ThemeLevel(6)));
     }
 
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
