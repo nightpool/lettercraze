@@ -55,8 +55,9 @@ public class LevelPack {
     				fileRows[i] = line;
     				System.out.println(line);
     			} else {
-    				System.out.println("Improper Formatting of Level File " + fileName + "'");
-    				break;
+    				System.out.println("Improper Formatting of Level File '" + fileName + "'");
+    				bufferedReader.close();
+    				return null;
     			}
     		}
     		
@@ -149,9 +150,9 @@ public class LevelPack {
     			for(int r = 2; r < 8; r++){
     				for(int c = 0; c < 6; c++){
     					if(fileRows[r].charAt(c) == '+'){
-    						thisShape.setTile(r, c, true);
+    						thisShape.setTile(r-2, c, true);
     					} else { // -, or a letter, or any other symbol
-    						thisShape.setTile(r, c, false);
+    						thisShape.setTile(r-2, c, false);
     					}
     				}
     			}
@@ -179,9 +180,9 @@ public class LevelPack {
     			for(int r = 2; r < 8; r++){
     				for(int c = 0; c < 6; c++){
     					if(fileRows[r].charAt(c) == '+'){
-    						thisShape.setTile(r, c, true);
+    						thisShape.setTile(r-2, c, true);
     					} else { // -, or a letter, or any other symbol
-    						thisShape.setTile(r, c, false);
+    						thisShape.setTile(r-2, c, false);
     					}
     				}
     			}
@@ -192,7 +193,7 @@ public class LevelPack {
     			return thisLevel;
     			
     		} else { //Improper Formatting
-    			System.out.println("Improper Formatting of First Row");
+    			System.out.println("Didn't recognize level type " + firstRow[0]);
     		}
     		
     		//Close file
