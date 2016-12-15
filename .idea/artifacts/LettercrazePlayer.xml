@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="LettercrazePlayer">
+    <output-path>$PROJECT_DIR$/out/artifacts/LettercrazePlayer</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer" />
+        <option name="description" value="" />
+        <option name="height" value="712" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Lettercraze" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+        <option name="width" value="1024" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="LettercrazePlayer.jar">
+        <element id="module-output" name="lettercraze" />
+      </element>
+    </root>
+  </artifact>
+</component>
