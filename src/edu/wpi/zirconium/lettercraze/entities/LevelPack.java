@@ -70,7 +70,6 @@ public class LevelPack {
     }
 
     private String title;
-
     /**
      * Generate a human-readable title for the LevelPack.
      */
@@ -138,6 +137,10 @@ public class LevelPack {
         }
     }
 
+    /**
+     * Returns the Stream of Strings in the file format
+     * @return the Stream of Files
+     */
     public Stream<String> toFile() {
         return getLevelStats().stream()
             .map(LevelStats::saveString);
