@@ -17,30 +17,82 @@ public class testLevel {
 	@Test
 	public void testParseFromFile() throws Exception{
 		Level testDummy = ThemeLevel.dummy();
-		
-		Level thisTestThemeLevel = Level.fromPath(Paths.get(getClass().getResource("testT3.txt").toURI()));
-		Level thisTestIncorrectLevelType = Level.fromPath(Paths.get(getClass().getResource("testIncorrectLevelType.txt").toURI()));
-		Level thisTestIncorrectThemeChar = Level.fromPath(Paths.get(getClass().getResource("testIncorrectThemeChar.txt").toURI()));
-		Level thisTestIncorrectThemeWord = Level.fromPath(Paths.get(getClass().getResource("testIncorrectThemeWord.txt").toURI()));
-		Level thisTestIncorrectNumWords = Level.fromPath(Paths.get(getClass().getResource("testIncorrectNumWords.txt").toURI()));
-		Level thisTestGoodPuzzle = Level.fromPath(Paths.get(getClass().getResource("testGoodPuzzle.txt").toURI()));
-		Level thisTestBadPuzzle = Level.fromPath(Paths.get(getClass().getResource("testBadPuzzle.txt").toURI()));
-		Level thisTestGoodLightning = Level.fromPath(Paths.get(getClass().getResource("testGoodLightning.txt").toURI()));
-		Level thisTestBadLightning = Level.fromPath(Paths.get(getClass().getResource("testBadLightning.txt").toURI()));
-		
-		
-		
-		assertTrue(thisTestThemeLevel.getTitle().toString().equals(" Digits of Pi"));
 		assertTrue(testDummy.getTitle().toString().equals(" Digits of Pi"));
-		assertNull(thisTestIncorrectLevelType);
-		assertNull(thisTestIncorrectThemeChar);
-		assertNull(thisTestIncorrectThemeWord);
-		assertNull(thisTestIncorrectNumWords);
-		assertTrue(thisTestGoodPuzzle.getTitle().toString().equals(" Hourglass"));
-		assertTrue(thisTestGoodLightning.getTitle().toString().equals(" Hourglass"));
-		assertNull(thisTestBadPuzzle);
-		assertNull(thisTestBadLightning);
+	
+		Level thisTestThemeLevel = Level.fromPath(Paths.get(getClass().getResource("testT3.txt").toURI()));
+		assertTrue(thisTestThemeLevel.getTitle().toString().equals(" Digits of Pi"));
+	}
+	
+	@Test(expected = LevelFileMalformationException.class)
+	public void testIncorrectLevelTypeParse() throws Exception{
+		try{
+			Level thisTestIncorrectLevelType = Level.fromPath(Paths.get(getClass().getResource("testIncorrectLevelType.txt").toURI()));
+		}
+		catch(LevelFileMalformationException ex){
+			System.out.println(ex.getMessage());
+		}
+	}
 		
+	@Test(expected = LevelFileMalformationException.class)
+	public void testIncorrectThemeCharParse() throws Exception{
+		try{
+			Level thisTestIncorrectThemeChar = Level.fromPath(Paths.get(getClass().getResource("testIncorrectThemeChar.txt").toURI()));
+		}
+		catch(LevelFileMalformationException ex){
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	@Test(expected = LevelFileMalformationException.class)
+	public void testIncorrectThemeWordParse() throws Exception{
+		try{
+			Level thisTestIncorrectThemeWord = Level.fromPath(Paths.get(getClass().getResource("testIncorrectThemeWord.txt").toURI()));
+		}
+		catch(LevelFileMalformationException ex){
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	@Test(expected = LevelFileMalformationException.class)
+	public void testIncorrectNumWordsParse() throws Exception{
+		try{
+			Level thisTestIncorrectNumWords = Level.fromPath(Paths.get(getClass().getResource("testIncorrectNumWords.txt").toURI()));
+		}
+		catch(LevelFileMalformationException ex){
+			System.out.println(ex.getMessage());
+		}
+	}
+	
+	@Test
+	public void testGoodPuzzleParse() throws Exception{
+		Level thisTestGoodPuzzle = Level.fromPath(Paths.get(getClass().getResource("testGoodPuzzle.txt").toURI()));
+		assertTrue(thisTestGoodPuzzle.getTitle().toString().equals(" Hourglass"));
+	}
+	
+	@Test
+	public void testGoodLightningParse() throws Exception{
+		Level thisTestGoodLightning = Level.fromPath(Paths.get(getClass().getResource("testGoodLightning.txt").toURI()));
+		assertTrue(thisTestGoodLightning.getTitle().toString().equals(" Hourglass"));
+	}
+	
+	@Test(expected = LevelFileMalformationException.class)
+	public void testBadPuzzleParse() throws Exception{
+		try{
+			Level thisTestBadPuzzle = Level.fromPath(Paths.get(getClass().getResource("testBadPuzzle.txt").toURI()));
+		}
+		catch(LevelFileMalformationException ex){
+			System.out.println(ex.getMessage());
+		}	
+	}
+	
+	@Test(expected = LevelFileMalformationException.class)
+	public void testBadLightningParse() throws Exception{
+		try{
+			Level thisTestBadLightning = Level.fromPath(Paths.get(getClass().getResource("testBadLightning.txt").toURI()));
+		}
+		catch(LevelFileMalformationException ex){
+			System.out.println(ex.getMessage());
+		}
 	}
 	
 	@Test

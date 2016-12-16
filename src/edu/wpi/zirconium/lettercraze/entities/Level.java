@@ -223,9 +223,9 @@ public class Level {
                     fileRows[i] = line;
                     System.out.println(line);
                 } else {
-                    System.out.println("Improper Formatting of Level File '" + path + "'");
+                    //System.out.println("Improper Formatting of Level File '" + path + "'");
                     bufferedReader.close();
-                    return null;
+                    throw new LevelFileMalformationException("Improper Formatting of Level File '" + path + "'");
                 }
             }
 
@@ -266,9 +266,8 @@ public class Level {
                             thisShape.setTile(r-2, c, false);
 //                            System.out.println("Set (" + (r-2) + ", " + c + ") to false");
                         } else { // Improper Formatting
-                            System.out.println("The character at (" + (r-2) + ", " + c + ") is invalid");
-                            bufferedReader.close();
-                            return null;
+                        	bufferedReader.close();
+                        	throw new LevelFileMalformationException("The character at (" + (r-2) + ", " + c + ") is invalid");
                         }
                     }
                 }
@@ -283,17 +282,17 @@ public class Level {
                         //check to see if the word contains anything BUT letters
                         for(int s = 0; s < line.length(); s++){
                             if(!(Character.isLetter(line.charAt(s)))){
-                                System.out.println("All Words Must Only Contain Letters!");
                                 bufferedReader.close();
-                                return null;
+                                throw new LevelFileMalformationException("All Words Must Only Contain Letters!");
+                                
                             }
                         }
                         //If not, add the word to the list of strings
                         thisLevel.addWord(line);
                     } else {
-                        System.out.println("You Have Too Many Words!");
-                        bufferedReader.close();
-                        return null;
+                       bufferedReader.close();
+                       throw new LevelFileMalformationException("You Have Too Many Words!");
+                        
                     }
                 }
 
@@ -314,18 +313,17 @@ public class Level {
                 	
                 	for(int s = 0; s < line.length(); s++){
                         if(!(Character.isDigit(line.charAt(s)))){
-                            System.out.println("Your Word Limit MUST be an integer!");
-                            bufferedReader.close();
-                            return null;
+                           bufferedReader.close();
+                           throw new LevelFileMalformationException("Your Word Limit MUST be an integer!");
+                            
                         }
                     }
                 	
                     thisLevel.setWordLimit(Integer.parseInt(line));
                 } else {
-                    System.out.println("You need a new line with a word limit!");
                     bufferedReader.close();
-
-                    return null;
+                    throw new LevelFileMalformationException("You need a new line with a word limit!");
+                    
                 }
 
                 thisLevel.setThresholds(thresholds[0], thresholds[1], thresholds[2]);
@@ -356,17 +354,15 @@ public class Level {
                 	
                 	for(int s = 0; s < line.length(); s++){
                         if(!(Character.isDigit(line.charAt(s)))){
-                            System.out.println("Your Time Limit MUST be an integer!");
-                            bufferedReader.close();
-                            return null;
+                           bufferedReader.close();
+                           throw new LevelFileMalformationException("Your Time Limit MUST be an integer!");
                         }
                     }
                 	
                     thisLevel.setTimeLimit(Integer.parseInt(line));
                 } else {
-                    System.out.println("You need a new line with a time limit!");
-                    bufferedReader.close();
-                    return null;
+                   bufferedReader.close();
+                   throw new LevelFileMalformationException("You need a new line with a time limit!");
                 }
 
                 thisLevel.setThresholds(thresholds[0], thresholds[1], thresholds[2]);
@@ -385,15 +381,13 @@ public class Level {
 
                 thisLevel.setShape(thisShape);
 
-
+                bufferedReader.close();
                 return thisLevel;
 
             } else { //Improper Formatting
-                System.out.println("Didn't recognize level type " + firstRow[0]);
+            	bufferedReader.close();
+            	throw new LevelFileMalformationException("Didn't recognize level type " + firstRow[0]);
             }
-
-            //Close file
-            bufferedReader.close();
 
         }
         catch(FileNotFoundException ex){
@@ -404,7 +398,7 @@ public class Level {
         }
 
         //Method should not get here because there should not be an error;
-        return null;
+        throw new LevelFileMalformationException("How did you get here?");
     }
 
     public void save() {
