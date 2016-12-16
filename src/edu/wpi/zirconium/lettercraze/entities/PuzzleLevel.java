@@ -41,7 +41,12 @@ public class PuzzleLevel extends Level {
     public LevelStats statsFor(Round round) {
         return new PuzzleLevelStats(this, round.getScore());
     }
-    
+
+    @Override
+    protected String boardString() {
+        return super.boardString() + "\n" + getWordLimit();
+    }
+
     /**
      * dummy() creates a sample Puzzle Level, complete with score thresholds and a moveLimit
      * @return a static sample Puzzle Level.

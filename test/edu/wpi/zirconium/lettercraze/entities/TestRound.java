@@ -173,7 +173,7 @@ public class TestRound {
 		assertFalse(round.canDeselectTile(t1));
 		round.selectTile(t1);
 		round.selectTile(t2);
-		assertFalse(round.canDeselectTile(t1));
+		assertTrue(round.canDeselectTile(t1));
 		assertTrue(round.canDeselectTile(t2));
 	}
 
@@ -191,8 +191,8 @@ public class TestRound {
 		assertFalse(round.deselectTile(t1));
 		round.selectTile(t1);
 		round.selectTile(t2);
-		assertFalse(round.deselectTile(t1));
-		assertTrue(round.deselectTile(t2));
+		assertTrue(round.deselectTile(t1));
+		assertFalse(round.getMoveInProgress().getSelectedTiles().contains(t2));
 	}
 
 	/**

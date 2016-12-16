@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -64,6 +65,15 @@ public class BuilderScreenTest {
         public void makeLightning() {
             clickOn(NodeMatchers.hasText("Lightning"));
             verifyThat("#lightningTime", NodeMatchers.isVisible());
+        }
+
+        @Test
+        public void testSave() throws Exception {
+            level.setPath(Files.createTempFile("LCBuilderScreenTestSave",""));
+
+            clickOn(NodeMatchers.hasText("Save"));
+
+            assertEquals(8, Files.readAllLines(level.getPath().get()).size());
         }
 
         @Override

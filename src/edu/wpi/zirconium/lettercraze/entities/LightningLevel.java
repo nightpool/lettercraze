@@ -52,7 +52,12 @@ public class LightningLevel extends Level{
     public void setTimeLimit(int tl){
     	this.maxTime = tl;
     }
-    
+
+    @Override
+    protected String boardString() {
+        return super.boardString() + "\n" + getMaxTime();
+    }
+
     /**
      * dummy() creates a sample Lightning Level complete with a level shape, maxTime, and score thresholds.
      * @return a static sample Lightning Level.
