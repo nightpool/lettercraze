@@ -34,7 +34,7 @@ public class Level {
     }
 
     /**
-     * Returns the number of starts achieved in the Level based on the given threshold values
+     * Returns the number of starts achieved in the Level based on the given threshold values.
      * @param thresholdValue the current {@link #thresholdValue(Round)}
      * @return the number of stars achieved (1, 2, or 3)
      */
@@ -154,7 +154,7 @@ public class Level {
     }
     
     /**
-     * Gets the threshold value for the current round
+     * Gets the threshold value for the current round.
      * @param round
      * @return
      */
@@ -163,7 +163,7 @@ public class Level {
     }
 
     /**
-     * Populates the Board with random letters
+     * Populates the Board with random letters.
      * @param board the Board to populate
      */
     public void populateBoard(Board board){
@@ -171,7 +171,7 @@ public class Level {
     }
     
     /**
-     * Regenerates the Letter at the given Point
+     * Regenerates the Letter at the given Point.
      * @param p the Point to regenerate the letter at
      * @return the Optional Letter object
      */
@@ -180,7 +180,8 @@ public class Level {
     }
 
     /**
-     * @return Should stats for this level be persisted.
+     * Returns true if the level can be saved.
+     * @return true if the pack for this level be present
      */
     public boolean canSave() {
         return getPack().isPresent();
@@ -211,9 +212,9 @@ public class Level {
     }
 
     /**
-     * Creats a new LevelStats object representing the persisted data for the current state of the round.
+     * Creates a new LevelStats object representing the persisted data for the current state of the round.
      * @param round the round to read data from
-     * @return the persistent level stats object
+     * @return the persistent LevelStats object
      */
     public LevelStats statsFor(Round round) {
         return null;
