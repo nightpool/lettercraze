@@ -16,10 +16,10 @@ public class LevelTest {
 	@Test
 	public void testParseFromFile() throws Exception{
 		Level testDummy = ThemeLevel.dummy();
-		assertTrue(testDummy.getTitle().equals(" Digits of Pi"));
+		assertTrue(testDummy.getTitle().equals("Digits of Pi"));
 
 		Level thisTestThemeLevel = Level.fromPath(Paths.get(getClass().getResource("testT3.txt").toURI()));
-		assertTrue(thisTestThemeLevel.getTitle().equals(" Digits of Pi"));
+		assertTrue(thisTestThemeLevel.getTitle().equals("Digits of Pi"));
 	}
 
 	@Test(expected = LevelFileMalformationException.class)
@@ -45,13 +45,13 @@ public class LevelTest {
 	@Test
 	public void testGoodPuzzleParse() throws Exception{
 		Level thisTestGoodPuzzle = Level.fromPath(Paths.get(getClass().getResource("testGoodPuzzle.txt").toURI()));
-		assertTrue(thisTestGoodPuzzle.getTitle().equals(" Hourglass"));
+		assertTrue(thisTestGoodPuzzle.getTitle().equals("Hourglass"));
 	}
 
 	@Test
 	public void testGoodLightningParse() throws Exception{
 		Level thisTestGoodLightning = Level.fromPath(Paths.get(getClass().getResource("testGoodLightning.txt").toURI()));
-		assertTrue(thisTestGoodLightning.getTitle().equals(" Hourglass"));
+		assertTrue(thisTestGoodLightning.getTitle().equals("Hourglass"));
 	}
 
 	@Test(expected = LevelFileMalformationException.class)
