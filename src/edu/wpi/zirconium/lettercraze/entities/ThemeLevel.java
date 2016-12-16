@@ -41,7 +41,7 @@ public class ThemeLevel extends Level{
         board.clear(this::getLetter);
     }
 
-    private Letter getLetter(Point p) {
+    public Letter getLetter(Point p) {
         return getLetters().get(this.getShape().indexOf(p));
     }
 
@@ -105,6 +105,10 @@ public class ThemeLevel extends Level{
     	return this.words;
     }
 
+    /**
+     * setWords() is a setter method that sets the list of words.
+     * @param words the list of words that make up this theme level.
+     */
     public void setWords(List<String> words) {
         this.words = words;
     }
@@ -115,6 +119,24 @@ public class ThemeLevel extends Level{
      */
     public List<Letter> getLetters(){
     	return this.letters;
+    }
+
+    /**
+     * setLetters() is a setter method that sets the list of letters.
+     * @param letters the list of letters that make up this theme level.
+     */
+    public void setLetters(List<Letter> letters) {
+        this.letters = letters;
+    }
+
+    /**
+     * @return whether the current level is valid or not
+     */
+    @Override
+    public boolean isValid() {
+        return super.isValid() &&
+            this.getShape().unblockedPoints().count() == this.getLetters().size() &&
+            this.getLetters().stream().noneMatch(p -> p == null);
     }
 
     @Override

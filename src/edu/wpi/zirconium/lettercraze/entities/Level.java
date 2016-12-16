@@ -245,6 +245,16 @@ public class Level {
     }
 
     /**
+     * @return whether the current level is valid or not
+     */
+    public boolean isValid() {
+        return getThreshold(0) > 0 &&
+            getThreshold(1) > 0 &&
+            getThreshold(2) > 0 &&
+            !this.getTitle().isEmpty();
+    }
+
+    /**
      * Returns the Level saved at the given Path (save location).
      * @param path the Path of the Level's save location
      * @return
@@ -427,6 +437,7 @@ public class Level {
     public void save() {
         Path path = getPath().orElseThrow(() -> new IllegalStateException("Can't save a level without a path!"));
         try {
+            System.out.println("Saving Level...\n"+toFileFormat());
             Files.write(path, Collections.singleton(toFileFormat()));
         } catch (IOException e) {
             e.printStackTrace();

@@ -19,6 +19,7 @@ import org.testfx.matcher.base.NodeMatchers;
 
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
@@ -52,7 +53,8 @@ public class BuilderScreenTest {
             clickOn(lookup(".board--tile").nth(2).<Node>query());
             clickOn(lookup(".board--tile").nth(3).<Node>query());
             clickOn(lookup(".board--tile").nth(4).<Node>query());
-            assertThat(level.getShape().unblockedPoints().collect(Collectors.toList()), Matchers.hasSize(31));
+            clickOn(lookup(".board--tile").nth(2).<Node>query());
+            assertThat(level.getShape().unblockedPoints().collect(Collectors.toList()), Matchers.hasSize(32));
         }
 
         @Test
@@ -73,7 +75,7 @@ public class BuilderScreenTest {
 
             clickOn(NodeMatchers.hasText("Save"));
 
-            assertEquals(8, Files.readAllLines(level.getPath().get()).size());
+            assertEquals(9, Files.readAllLines(level.getPath().get()).size());
         }
 
         @Override
@@ -195,6 +197,7 @@ public class BuilderScreenTest {
                     setShape(LevelShape.all(6));
                     setTitle("Mock Level");
                     setWords(Arrays.asList("alpha", "bravo", "charlie"));
+                    setLetters(Collections.nCopies(36, Letter.A));
                 }
             };
             BuilderScreen builder = new BuilderScreen(themeLevel);
