@@ -387,10 +387,25 @@ public class Level {
         }
     }
 
-    private String toFileFormat() {
+    protected String toFileFormat() {
         String type = getClass().getSimpleName().replace("Level", "");
         return type + ": " + getTitle() + "\n" +
             Arrays.stream(scoreThresholds)
-                .mapToObj(Integer::toString).collect(Collectors.joining("_")) + "\n";
+                .mapToObj(Integer::toString).collect(Collectors.joining("_")) + "\n" +
+            boardString();
+    }
+
+    protected String boardString() {
+        int size = this.getShape().getSize();
+        StringBuilder builder = new StringBuilder(size *(size +1));
+        int i = 0;
+        for (boolean tile : this.getShape().getTiles()) {
+            builder.append(tile ? "+" : "-");
+            i++;
+            if (i % size == 0) {
+                builder.append("\n");
+            }
+        }
+           return builder.toString().trim();
     }
 }
