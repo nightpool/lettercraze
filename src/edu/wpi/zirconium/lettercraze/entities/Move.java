@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 
 public class Move {
 
-    protected ObservableList<Tile> selectedTiles;
-    protected List<Tile> prevTiles;
+    private ObservableList<Tile> selectedTiles;
+    private List<Tile> prevTiles;
 
     /**
      * creates Move object and initialized with an empty ObservableArrayList of selected Tiles.

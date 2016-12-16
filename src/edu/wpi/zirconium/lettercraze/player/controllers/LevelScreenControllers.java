@@ -1,9 +1,6 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
-import edu.wpi.zirconium.lettercraze.entities.Level;
-import edu.wpi.zirconium.lettercraze.entities.Move;
-import edu.wpi.zirconium.lettercraze.entities.Round;
-import edu.wpi.zirconium.lettercraze.entities.Tile;
+import edu.wpi.zirconium.lettercraze.entities.*;
 import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.player.views.StarsView;
@@ -13,7 +10,6 @@ import edu.wpi.zirconium.lettercraze.shared.views.TileView;
 import edu.wpi.zirconium.utils.TimeFormatter;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
-import javafx.beans.binding.Bindings;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import org.fxmisc.easybind.EasyBind;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -106,28 +103,28 @@ public class LevelScreenControllers implements Initializable {
         );
 
         wordPreviewBox.widthProperty().bind(board.widthProperty());
-        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
-            wordPreview.textProperty().bind(Bindings.createStringBinding(
-                () -> newMove.getWord().asString(),
-                newMove.wordBinding()));
-        });
+        wordPreview.textProperty().bind(EasyBind.map(
+            EasyBind.select(currentRound.moveInProgressProperty()).selectObject(Move::wordBinding),
+            Word::asString));
 
         submit.setOnMouseClicked(me -> currentRound.submitMove());
-        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
-            submit.validProperty().bind(currentRound.currentMoveValidBinding());
-            submit.scoreProperty().bind(newMove.scoreBinding());
-        });
+        submit.validProperty().bind(
+            EasyBind.monadic(currentRound.moveInProgressProperty())
+                .flatMap(move -> EasyBind.map(move.wordBinding(), _w -> move.isMoveValid(currentRound))));
+        submit.scoreProperty().bind(
+            EasyBind.monadic(currentRound.moveInProgressProperty())
+                .flatMap(Move::scoreBinding));
 
         currentRound.reset();
     }
 
     private void bindTile(TileView v, Tile t) {
         v.valueProperty().set(t.getLetter().getCharacter());
-        currentRound.moveInProgressProperty().addListener((_m, _o, newMove) -> {
-            v.selectedProperty().bind(Bindings.createBooleanBinding(
-                () -> newMove.getSelectedTiles().contains(t),
-                newMove.getSelectedTiles()));
-        });
+
+        v.selectedProperty().bind(
+            EasyBind.monadic(currentRound.moveInProgressProperty())
+                .flatMap(move -> EasyBind.map(move.wordBinding(), _w -> move.getSelectedTiles().contains(t))));
+
         t.positionProperty().addListener((_p, oldP, newP) -> {
             v.setRow(newP.getRow());
             v.setColumn(newP.getColumn());
