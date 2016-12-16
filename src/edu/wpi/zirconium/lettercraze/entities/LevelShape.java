@@ -115,7 +115,7 @@ public class LevelShape {
     }
 
     /**
-     * Gets the index of the given Point in the Stream of Tiles
+     * Gets the index of the given Point in the Stream of Tiles.
      * @param p the Point
      * @return the index of that Point in the Stream of Tiles
      */

@@ -48,7 +48,7 @@ public class LevelSelectControllers implements Initializable {
     }
 
     /**
-     * Return to Menu Button Controller method
+     * Return to Menu Button Controller method.
      * @param mouseEvent
      */
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {

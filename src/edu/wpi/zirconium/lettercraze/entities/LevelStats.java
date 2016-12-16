@@ -21,7 +21,7 @@ public abstract class LevelStats {
     public abstract int thresholdValue();
     public abstract String thresholdLabel();
     /**
-     * Gets the Level
+     * Gets the Level.
      * @return the Level
      */
     public Level getLevel() {
@@ -29,7 +29,7 @@ public abstract class LevelStats {
     }
     
     /**
-     * Gets the LevelStats from the given String in file format
+     * Gets the LevelStats from the given String in file format.
      * @param s the file formatted String
      * @param levelFactory
      * @return the LevelStats from the given String in file format
@@ -62,7 +62,7 @@ public abstract class LevelStats {
     }
     
     /**
-     * Returns the String to put into a save file
+     * Returns the String to put into a save file.
      * @return the String
      */
     public String saveString() {

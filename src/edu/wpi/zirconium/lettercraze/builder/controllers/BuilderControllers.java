@@ -204,7 +204,7 @@ public class BuilderControllers implements Initializable {
         private Node display;
         
         /**
-         * Creates the NumberValidator
+         * Creates the NumberValidator.
          * @param consumer
          * @param display
          */

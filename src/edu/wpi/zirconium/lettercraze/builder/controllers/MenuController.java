@@ -32,7 +32,7 @@ public class MenuController implements Initializable {
     }
     
     /**
-     * New Level button Controller
+     * New Level button Controller.
      * @param mouseEvent
      */
     private void onNewClicked(MouseEvent mouseEvent) {

@@ -5,7 +5,7 @@ public class LightningLevelStats extends LevelStats{
     private final int mostWords;
 
     /**
-     * Creates the LightenningLevelStats
+     * Creates the LightningLevelStats.
      * @param l the Level
      * @param mostWords the word limit for the Level
      */
