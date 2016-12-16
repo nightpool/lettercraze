@@ -210,7 +210,6 @@ public class Level {
         //String array that will contain 8 standard rows to Level File
         String[] fileRows = new String[8];
 
-
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(path.toFile());
@@ -295,7 +294,6 @@ public class Level {
                 thisLevel.setThresholds(thresholds[0], thresholds[1], thresholds[2]);
 
                 return thisLevel;
-
 
             } else if (firstRow[0].equals("Puzzle")) {
 
