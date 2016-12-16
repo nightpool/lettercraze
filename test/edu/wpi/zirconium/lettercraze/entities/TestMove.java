@@ -16,7 +16,7 @@ public class TestMove {
 	Tile t1,t2, t3;
 	Move move;
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class TestMove {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@After
 	public void tearDown() throws Exception {

@@ -53,7 +53,7 @@ public class Tile {
 
     /**
      * Sets the Position of the Tile.
-     * @param Point position
+     * @param position point to set the tile to.
      */
     public void setPosition(Point position) {
         this.position.set(position);

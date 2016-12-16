@@ -48,7 +48,7 @@ public class Board {
     
     /**
      * Gets the Optional Tile at the given position.
-     * @param p the Point where you want to get the Optional<Tile>
+     * @param p the Point where you want to get the Optional Tile
      * @return Optional Tile at the Point
      */
     public Optional<Tile> getTile(Point p) {
@@ -85,7 +85,8 @@ public class Board {
     }
 
     /**
-     * Clears the board.
+     * Clears the board, generating new tiles appropriate for the level type.
+     * @param tileFactory factory for generating tiles.
      */
     public void clear(Function<Point, Letter> tileFactory) {
         this.tiles.clear();
@@ -97,6 +98,7 @@ public class Board {
     /**
      * Creates the dummy Board of the given size.
      * @param size the dimension of one side of the square LevelShape
+     * @return Dummy Board that was generated.
      */
     public static Board dummy(int size) {
         LevelShape shape = Level.dummy(size).getShape();
@@ -106,6 +108,7 @@ public class Board {
     /**
      * Creates Board with a LevelShape that contains random Tiles.
      * @param shape the LevelShape describing the board
+     * @return New board with random tiles.
      */
     public static Board random(LevelShape shape) {
         Board board = new Board(shape);

@@ -17,7 +17,7 @@ public class TestPuzzleLevel {
 
 	private PuzzleLevel level, dummyLevel;
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class TestPuzzleLevel {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@After
 	public void tearDown() throws Exception {

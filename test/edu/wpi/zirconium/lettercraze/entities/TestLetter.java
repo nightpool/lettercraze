@@ -17,7 +17,7 @@ public class TestLetter {
 
 	private Letter letter;
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error occurred.
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -25,7 +25,7 @@ public class TestLetter {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if errror occurred.
 	 */
 	@After
 	public void tearDown() throws Exception {

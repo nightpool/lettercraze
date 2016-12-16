@@ -36,7 +36,7 @@ public class TestLevelShape {
     
 
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#isTile(int, int)}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.LevelShape#isTile(Point)}.
 	 */
 	@Test
 	public void testIsTile() {

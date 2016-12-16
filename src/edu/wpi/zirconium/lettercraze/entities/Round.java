@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 /**
  * Executable state of a level in the Letter Craze Player Application.
- * <p>
  *
  * <p>
  * @author Christopher Bove (cpbove@wpi.edu)

@@ -159,8 +159,8 @@ public class Level {
     
     /**
      * Gets the threshold value for the current round.
-     * @param round
-     * @return
+     * @param round the round data to use for evaluating the score.
+     * @return score of the round.
      */
     public int thresholdValue(Round round) {
         return round.getScore();
@@ -261,7 +261,8 @@ public class Level {
     /**
      * Returns the Level saved at the given Path (save location).
      * @param path the Path of the Level's save location
-     * @return
+     * @return Static level that was found at the path.
+     * @throws LevelFileMalformationException exception if could not read file from path.
      */
     public static Level fromPath(Path path) {
         //String array that will contain 8 standard rows to Level File

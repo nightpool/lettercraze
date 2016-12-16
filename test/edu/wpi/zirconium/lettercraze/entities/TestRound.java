@@ -18,7 +18,7 @@ public class TestRound {
 	Round round;
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -27,7 +27,7 @@ public class TestRound {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@After
 	public void tearDown() throws Exception {

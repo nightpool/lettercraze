@@ -15,7 +15,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 public class LevelScreenSelectTest extends ApplicationTest {
 
     /**
-     * Test method for {@link LevelSelectScreen}
+     * Test method for {@link LevelSelectScreen#LevelSelectScreen()}
      */
     @Test
     public void testLevelSelectScreen() {
