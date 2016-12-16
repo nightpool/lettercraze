@@ -85,6 +85,8 @@ public class LevelScreenControllers implements Initializable {
             previousMovesDisplay.setText(moves);
         });
 
+        board.setBoardHeight(level.getShape().getSize());
+        board.setBoardWidth(level.getShape().getSize());
         currentRound.getBoard().observableTiles().addListener(
             (ListChangeListener<? super Tile>) l -> {
                 while (l.next()) {
