@@ -56,7 +56,7 @@ public class Board {
     }
     
     /**
-     * floats all the tiles upward, generating new tiles until all slots are filled.
+     * Floats all the tiles upward.
      */
     public void floatAllUp() {
         shape.unblockedPoints()
@@ -85,7 +85,7 @@ public class Board {
     }
 
     /**
-     * Clears the board
+     * Clears the board.
      */
     public void clear(Function<Point, Letter> tileFactory) {
         this.tiles.clear();

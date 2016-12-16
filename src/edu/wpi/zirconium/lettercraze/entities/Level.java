@@ -34,7 +34,7 @@ public class Level {
     }
 
     /**
-     * Returns the number of starts achieved in the Level based on the given threshold values
+     * Returns the number of starts achieved in the Level based on the given threshold values.
      * @param thresholdValue the current {@link #thresholdValue(Round)}
      * @return the number of stars achieved (1, 2, or 3)
      */
@@ -88,7 +88,7 @@ public class Level {
     }
 
     /**
-     * Get an individual threshold value
+     * Get an individual threshold value.
      * @param i the zero-based index of the threshold to get
      * @return the threshold value
      */
@@ -149,63 +149,99 @@ public class Level {
         level.setTitle("Dummy "+size);
         IntStream.range(0, size).forEach(i -> {
             IntStream.range(0, size).forEach(j -> level.getShape().setTile(i, j, true));
-//            level.getShape().setTile(i, 0, true);
-//            level.getShape().setTile(0, i, true);
-//            level.getShape().setTile(i, size-1, true);
-//            level.getShape().setTile(size-1, i, true);
         });
         return level;
     }
-
+    
+    /**
+     * Gets the threshold value for the current round.
+     * @param round
+     * @return
+     */
     public int thresholdValue(Round round) {
         return round.getScore();
     }
 
+    /**
+     * Populates the Board with random letters.
+     * @param board the Board to populate
+     */
     public void populateBoard(Board board){
         board.clear(p -> Letter.random());
     }
-
+    
+    /**
+     * Regenerates the Letter at the given Point.
+     * @param p the Point to regenerate the letter at
+     * @return the Optional Letter object
+     */
     public Optional<Letter> regenLetter(Point p) {
         return Optional.of(Letter.random());
     }
 
     /**
-     * @return Should stats for this level be persisted
+     * Returns true if the level can be saved.
+     * @return true if the pack for this level be present
      */
     public boolean canSave() {
         return getPack().isPresent();
     }
-
+    
+    /**
+     * Gets the Optional Path object for the save location.
+     * @return the Optional Path for the save location
+     */
     public Optional<Path> getPath() {
         return Optional.ofNullable(path.get());
     }
-
+    
+    /**
+     * Gets the ObjectProperty Path object for the save location.
+     * @return the ObjectProperty Path for the save location
+     */
     public ObjectProperty<Path> pathProperty() {
         return path;
     }
-
+    
+    /**
+     * Sets the Path for the save location.
+     * @param path the Path object for the save location
+     */
     public void setPath(Path path) {
         this.path.set(path);
     }
 
     /**
-     * Creats a new LevelStats object representing the persisted data for the current state of the round
+     * Creates a new LevelStats object representing the persisted data for the current state of the round.
      * @param round the round to read data from
-     * @return the persistent level stats object
+     * @return the persistent LevelStats object
      */
     public LevelStats statsFor(Round round) {
         return null;
     }
-
+    
     private LevelPack pack;
+    /**
+     * Gets the LevelPack from the Level.
+     * @return the Optional LevelPack from the Level
+     */
     public Optional<LevelPack> getPack() {
         return Optional.ofNullable(pack);
     }
 
+    /**
+     * Sets the LevelPack of the Level.
+     * @param pack the LevelPack to set
+     */
     public void setPack(LevelPack pack) {
         this.pack = pack;
     }
 
+    /**
+     * Returns the Level saved at the given Path (save location).
+     * @param path the Path of the Level's save location
+     * @return
+     */
     public static Level fromPath(Path path) {
         //String array that will contain 8 standard rows to Level File
         String[] fileRows = new String[8];
@@ -378,6 +414,9 @@ public class Level {
         }
     }
 
+    /**
+     * Saves the Level.
+     */
     public void save() {
         Path path = getPath().orElseThrow(() -> new IllegalStateException("Can't save a level without a path!"));
         try {
@@ -387,6 +426,10 @@ public class Level {
         }
     }
 
+    /**
+     * Returns the String to put in the save file for the Level.
+     * @return the String to put in the save file for the Level
+     */
     protected String toFileFormat() {
         String type = getClass().getSimpleName().replace("Level", "");
         return type + ": " + getTitle() + "\n" +

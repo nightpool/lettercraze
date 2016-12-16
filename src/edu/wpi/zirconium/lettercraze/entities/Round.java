@@ -105,12 +105,20 @@ public class Round {
             }
         });
     }
-
+    
+    /**
+     * Gets the LevelStats of the Round.
+     * @return the LevelStats of the Round
+     */
     public LevelStats getLevelStats() {
         return getLevel().statsFor(this);
     }
 
     private IntegerBinding scoreBinding;
+    /**
+     * Gets the IntegerBinding of the score.
+     * @return the IntegerBinding of the score
+     */
     public IntegerBinding scoreBinding() {
         if (scoreBinding == null) {
             scoreBinding = Bindings.createIntegerBinding(

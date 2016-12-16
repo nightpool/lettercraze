@@ -33,6 +33,7 @@ public class MenuController implements Initializable {
     private void showNotImplemented(MouseEvent mouseEvent) {
 
     }
+
     /**
      * Navigates to the builder level select screen.
      * @param mouseEvent

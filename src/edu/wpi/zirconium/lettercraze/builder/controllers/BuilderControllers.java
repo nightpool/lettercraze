@@ -83,9 +83,10 @@ public class BuilderControllers implements Initializable {
 
         tabPane.getSelectionModel().selectedIndexProperty().addListener(i -> getLevel());
     }
+
     /**
-     * Gets the current level.
-     * @return the current level
+     * Gets the current Level being edited.
+     * @return the Level being edited
      */
     private Level getLevel() {
         if (tabPane.getSelectionModel().getSelectedIndex() == 0) {
@@ -113,10 +114,9 @@ public class BuilderControllers implements Initializable {
     @FXML private TextField puzzleStar3;
 
     private PuzzleLevel puzzleSub;
-    
     /**
-     * Sets up attributes of a given PuzzleLevel.
-     * @param PuzzleLevel level
+     * Sets up the PuzzleLevel.
+     * @param level the PuzzleLevel to set up
      */
     private void setupPuzzle(PuzzleLevel level) {
         if (level != null) {
@@ -148,8 +148,8 @@ public class BuilderControllers implements Initializable {
 
     private LightningLevel lightningSub;
     /**
-     * Sets up attributes of a given LightningLevel.
-     * @param LightningLevel level
+     * Sets up the LighteningLevel.
+     * @param level the LighteningLevel to set up
      */
     private void setupLightning(LightningLevel level) {
         if (level != null) {
@@ -178,10 +178,9 @@ public class BuilderControllers implements Initializable {
     @FXML private TextArea themeWords;
 
     private ThemeLevel themeSub;
-    
     /**
-     * Sets up attributes of a given ThemeLevel.
-     * @param ThemeLevel level
+     * Sets up the ThemeLevel.
+     * @param level the ThemeLevel to set up
      */
     private void setupTheme(ThemeLevel level) {
         if (level != null) {
@@ -203,7 +202,12 @@ public class BuilderControllers implements Initializable {
     private static class NumberValidator implements ChangeListener<String> {
         private Consumer<Integer> consumer;
         private Node display;
-
+        
+        /**
+         * Creates the NumberValidator.
+         * @param consumer
+         * @param display
+         */
         private NumberValidator(Consumer<Integer> consumer, Node display) {
             this.consumer = consumer;
             this.display = display;
