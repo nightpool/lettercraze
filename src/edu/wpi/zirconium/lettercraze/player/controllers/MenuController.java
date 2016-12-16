@@ -20,7 +20,10 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         playButton.setOnMouseClicked(this::onPlayClicked);
     }
-
+    /**
+     * Navigate to play level select screen.
+     * @param mouseEvent
+     */
     private void onPlayClicked(MouseEvent mouseEvent) {
         LetterCrazePlayer.showLevelSelectScreen();
     }

@@ -3,6 +3,7 @@ package edu.wpi.zirconium.lettercraze.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class ThemeLevel extends Level{
 
@@ -107,6 +108,28 @@ public class ThemeLevel extends Level{
     	return this.letters;
     }
 
+    @Override
+    protected String boardString() {
+        int size = this.getShape().getSize();
+        StringBuilder builder = new StringBuilder(size *(size +1));
+
+        int i = 0;
+        for (boolean tile : this.getShape().getTiles()) {
+            if (tile) {
+                builder.append(getLetter(new Point(i / size, i%size)));
+            } else {
+                builder.append("-");
+            }
+
+            i++;
+            if (i % size == 0) {
+                builder.append("\n");
+            }
+        }
+
+        return builder.toString() + getWords().stream().collect(Collectors.joining("\n"));
+    }
+
     /**
      * dummy() creates a sample ThemeLevel complete with letters, words, and levelshape.
      * @return a static ThemeLevel Sample.
@@ -162,7 +185,7 @@ public class ThemeLevel extends Level{
         digitsOfPi.addWord("FOUR");
         digitsOfPi.addWord("ONE");
         digitsOfPi.addWord("FIVE");
-        digitsOfPi.addWord("SIX");
+        digitsOfPi.addWord("NINE");
         digitsOfPi.addWord("TWO");
 
         digitsOfPi.addLetter(T1);

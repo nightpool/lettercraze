@@ -56,7 +56,7 @@ public class Move {
      * @return true if the Tile can be removed
      */
     public boolean canRemove(Tile tile) {
-        return lastTile().map(tile::equals).orElse(false);
+        return getSelectedTiles().contains(tile);
     }
     
     /**
@@ -64,7 +64,10 @@ public class Move {
      * @return true if the Tile was removed
      */
     public boolean removeTile(Tile t) {
-        return selectedTiles.remove(t);
+        if (!canRemove(t)) return false;
+
+        selectedTiles.remove(selectedTiles.indexOf(t), selectedTiles.size());
+        return true;
     }
 
     /**

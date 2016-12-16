@@ -51,7 +51,25 @@ public class TestThemeLevel {
 		assertFalse(dummyLevel.isOver(r2));
 		
 	}
-
+	
+	/**
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.ThemeLevel#thresholdValue(edu.wpi.zirconium.lettercraze.entities.Round)}.
+	 */
+	@Test
+	public void testThresholdValue() {
+		Round r = new Round(dummyLevel);
+		assertEquals(0,level.thresholdValue(r));
+	}
+	
+	/**
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.ThemeLevel#statsFor(edu.wpi.zirconium.lettercraze.entities.Round)}.
+	 */
+	@Test
+	public void testStatsFor() {
+		Round r = new Round(dummyLevel);
+		assertEquals(0,level.statsFor(r).thresholdValue());
+	}
+	
 	/**
 	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.ThemeLevel#isWordValid(java.lang.String)}.
 	 */

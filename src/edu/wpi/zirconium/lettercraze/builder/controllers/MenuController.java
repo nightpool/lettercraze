@@ -26,13 +26,16 @@ public class MenuController implements Initializable {
         collectionsButton.setOnMouseClicked(this::showNotImplemented);
         achievementsButton.setOnMouseClicked(this::showNotImplemented);
     }
-
+    /**
+     * Does nothing.
+     * @param mouseEvent
+     */
     private void showNotImplemented(MouseEvent mouseEvent) {
 
     }
-    
+
     /**
-     * New Level button Controller.
+     * Navigates to the builder level select screen.
      * @param mouseEvent
      */
     private void onNewClicked(MouseEvent mouseEvent) {

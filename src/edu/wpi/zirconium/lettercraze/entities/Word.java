@@ -15,7 +15,11 @@ public class Word {
     public Word(Letter... letters) {
         this.letters = Arrays.asList(letters);
     }
-
+    
+    /**
+     * Returns the Word as a string of letters.
+     * @return String of letters in the word
+     */
     public String asString() {
         return letters.stream().map(Letter::getCharacter).collect(Collectors.joining(""));
     }
