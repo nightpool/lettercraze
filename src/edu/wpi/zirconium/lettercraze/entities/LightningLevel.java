@@ -1,5 +1,7 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import java.util.Optional;
+
 public class LightningLevel extends Level{
 
     /** the time limit of the level */
@@ -20,6 +22,14 @@ public class LightningLevel extends Level{
      */
     public int getMaxTime() {
         return maxTime;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional<Integer> getTimeLimit() {
+        return Optional.of(getMaxTime());
     }
 
     /**

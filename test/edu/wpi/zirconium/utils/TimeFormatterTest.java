@@ -29,6 +29,12 @@ public class TimeFormatterTest {
     }
 
     @Test
+    public void testNegative() {
+        secondsValue.set(-10);
+        assertEquals(":00", formattedValue.get());
+    }
+
+    @Test
     public void testMany() {
         secondsValue.set(35);
         assertEquals(":35", formattedValue.get());
