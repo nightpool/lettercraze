@@ -119,7 +119,11 @@ public class LevelScreenControllers implements Initializable {
 
         currentRound.reset();
     }
-
+    /**
+     * Bind a Tile object to its TileView.
+     * @param v The View
+     * @param t The Tile
+     */
     private void bindTile(TileView v, Tile t) {
         v.valueProperty().set(t.getLetter().getCharacter());
 
@@ -133,15 +137,27 @@ public class LevelScreenControllers implements Initializable {
         });
         v.setOnMouseClicked(new SelectTileController(currentRound, t, v));
     }
-
+    
+    /**
+     * Navigate to the player level select screen.
+     * @param mouseEvent
+     */
     private void onExitClicked(MouseEvent mouseEvent) {
         LetterCrazePlayer.showLevelSelectScreen();
     }
     
+    /**
+     * Reset the current Round.
+     * @param mouseEvent
+     */
     private void onResetClicked(MouseEvent mouseEvent) {
         currentRound.reset();
     }
     
+    /**
+     * Undo the most recent move.
+     * @param moustEvent
+     */
     private void onUndoClicked(MouseEvent moustEvent) {
         currentRound.undoMove();
     }
