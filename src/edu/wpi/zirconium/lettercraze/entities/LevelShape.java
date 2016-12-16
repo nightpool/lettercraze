@@ -78,7 +78,7 @@ public class LevelShape {
     }
 
     /**
-     * points() gets the user a stream of all of the points in a shape
+     * points() gets the user a stream of all of the points in a shape.
      * @return a stream of all points in a LevelShape
      */
     public Stream<Point> points() {
@@ -86,10 +86,19 @@ public class LevelShape {
             .mapToObj(i -> new Point(i/size, i%size));
     }
 
+    /**
+     * Gets the shape as an ObservableList of Booleans.
+     * @return the shape as an ObservableList of Booleans
+     */
     public ObservableList<Boolean> getTiles() {
         return shape;
     }
-
+    
+    /**
+     * Returns the BooleanBinding at the Point.
+     * @param p the Point to get the BooleanBinding from
+     * @return the BooleanBinding representing the availability of the tile
+     */
     public BooleanBinding bindingAt(Point p) {
         return Bindings.booleanValueAt(shape, p.getRow() * size + p.getColumn());
     }
@@ -105,6 +114,11 @@ public class LevelShape {
         return shape;
     }
 
+    /**
+     * Gets the index of the given Point in the Stream of Tiles
+     * @param p the Point
+     * @return the index of that Point in the Stream of Tiles
+     */
     public int indexOf(Point p) {
         return this.unblockedPoints().collect(Collectors.toList()).indexOf(p);
     }

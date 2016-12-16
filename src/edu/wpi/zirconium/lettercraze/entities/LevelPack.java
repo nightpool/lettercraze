@@ -138,14 +138,17 @@ public class LevelPack {
     }
 
     /**
-     * Returns the Stream of Strings in the file format
-     * @return the Stream of Files
+     * Returns the Stream of Strings in the file format.
+     * @return the Stream of Strings for the file
      */
     public Stream<String> toFile() {
         return getLevelStats().stream()
             .map(LevelStats::saveString);
     }
 
+    /**
+     * Saves the stats of the LevelPack.
+     */
     public void saveStats() {
         Path folder = LetterCrazeApplication.dataFolder().resolve(key);
         try {
