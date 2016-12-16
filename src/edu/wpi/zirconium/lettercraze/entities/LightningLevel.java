@@ -54,6 +54,14 @@ public class LightningLevel extends Level{
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LevelStats initialStats() {
+        return new LightningLevelStats(this, 0);
+    }
+
+    /**
      * setTimeLimit(int tl) is the setter method for maxTime.
      * @param tl the Time Limit of the lightning level in seconds
      */

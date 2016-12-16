@@ -9,6 +9,7 @@ import edu.wpi.zirconium.lettercraze.entities.ThemeLevel;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import edu.wpi.zirconium.lettercraze.shared.views.TileView;
+import edu.wpi.zirconium.utils.FadeInOut;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -34,6 +36,7 @@ public class BuilderControllers implements Initializable {
     @FXML private BuilderScreen root;
 
     @FXML private Pane backButton;
+    @FXML private SVGPath saveCheck;
     @FXML private Button saveButton;
     @FXML private Button previewButton;
 
@@ -50,7 +53,10 @@ public class BuilderControllers implements Initializable {
         backButton.setOnMouseClicked(_me -> LetterCrazeBuilder.showSelectScreen());
 
         saveButton.disableProperty().bind(level.pathProperty().isNull());
-        saveButton.setOnMouseClicked(_me -> level.save());
+        saveButton.setOnMouseClicked(_me -> {
+            new FadeInOut(saveCheck, 250, 1000, 750);
+            level.save();
+        });
 
         title.textProperty().bindBidirectional(level.titleProperty());
 

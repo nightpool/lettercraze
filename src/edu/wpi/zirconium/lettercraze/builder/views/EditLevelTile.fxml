@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxWidth="-Infinity" minWidth="-Infinity" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox fx:id="container" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <StackPane styleClass="edit-tile">
+            <Rectangle strokeWidth="2" fill="#ffffff00" height="50.0" stroke="BLACK" styleClass="edit-tile--rect" width="120.0" />
+            <Text id="name" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="TOP">
+                <font>
+                    <Font name="Open Sans" size="20.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Text>
+        </StackPane>
+        <HBox alignment="CENTER" spacing="7.0">
+            <StackPane fx:id="upControl" styleClass="edit-tile--control"><SVGPath content="M 12 0 L0 14 L8 14 L8 28 L16 28 L16 14 L24 14 z" fill="#909090" stroke="TRANSPARENT"/></StackPane>
+            <StackPane fx:id="removeControl" styleClass="edit-tile--control"><SVGPath content="M5 0 L15 10 L25 0 L30 5 L20 15 L30 25 L25 30 L15 20 L4 30 L 0 25 L10 15 L0 5" fill="#ff6464" stroke="TRANSPARENT" strokeType="INSIDE"/></StackPane>
+            <StackPane fx:id="downControl" styleClass="edit-tile--control"><SVGPath content="M 12 0 L0 14 L8 14 L8 28 L16 28 L16 14 L24 14 z" fill="#909090" rotate="180.0" stroke="TRANSPARENT"/></StackPane>
+        </HBox>
+    </VBox>
+   <padding>
+      <Insets bottom="15.0" />
+   </padding>
+</fx:root>

@@ -46,6 +46,14 @@ public class PuzzleLevel extends Level {
         return new PuzzleLevelStats(this, round.getScore());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LevelStats initialStats() {
+        return new PuzzleLevelStats(this, 0);
+    }
+
     @Override
     protected String boardString() {
         return super.boardString() + "\n" + getWordLimit();

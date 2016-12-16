@@ -18,7 +18,7 @@
         <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="1000.0" prefWidth="200.0">
             <VBox fx:id="pane" alignment="CENTER" minWidth="-Infinity" prefWidth="320.0" spacing="15">
                 <padding>
-                    <Insets left="10.0"/>
+                    <Insets top="15"/>
                 </padding>
             </VBox>
         </ScrollPane>

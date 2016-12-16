@@ -17,3 +17,15 @@
     -fx-background-color: #efefef;
     -fx-cursor: hand;
 }
+
+.level-tile--inactive #score, .level-tile--inactive #stars{
+    visibility: hidden;
+}
+
+.level-tile--inactive #name {
+    -fx-fill: #aaa;
+}
+
+.level-tile--inactive .lc-level-rect {
+    -fx-stroke: #aaa;
+}
