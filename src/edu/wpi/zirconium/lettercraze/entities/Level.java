@@ -106,6 +106,10 @@ public class Level {
         return false;
     }
 
+    public Optional<Integer> getTimeLimit() {
+        return Optional.empty();
+    }
+
     /**
      * Gets the title of the Level.
      * @return the Level's title
