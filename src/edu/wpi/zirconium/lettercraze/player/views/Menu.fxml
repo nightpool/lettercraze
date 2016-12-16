@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1024.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.player.controllers.MenuController">
+<AnchorPane prefHeight="712.0" prefWidth="1024.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.player.controllers.MenuController">
    <Pane fx:id="hamburger" layoutX="30.0" layoutY="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
       <children>
          <Group layoutX="10.0" layoutY="10.0">
@@ -82,7 +82,7 @@
                   </Text>
                </children>
             </StackPane>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="350.0" spacing="20.0" styleClass="lc-menu-row">
+            <!--<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="350.0" spacing="20.0" styleClass="lc-menu-row">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -106,11 +106,11 @@
                      </Text>
                   </children>
                </StackPane>
-            </HBox>
+            </HBox>-->
          </VBox>
       </center>
    </BorderPane>
-   <StackPane fx:id="creditsButton" prefHeight="60.0" prefWidth="180.0" styleClass="lc-menu-item" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0">
+   <!--<StackPane fx:id="creditsButton" prefHeight="60.0" prefWidth="180.0" styleClass="lc-menu-item" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0">
       <children>
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credits">
             <font>
@@ -118,7 +118,7 @@
             </font>
          </Text>
       </children>
-   </StackPane>
+   </StackPane>-->
    <StackPane fx:id="exitButton" prefHeight="60.0" prefWidth="180.0" styleClass="lc-menu-item" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
       <children>
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Exit">

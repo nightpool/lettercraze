@@ -15,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import org.fxmisc.easybind.EasyBind;
@@ -109,7 +109,8 @@ public class LevelScreenControllers implements Initializable {
             EasyBind.select(currentRound.moveInProgressProperty()).selectObject(Move::wordBinding),
             Word::asString));
 
-        submit.setOnMouseClicked(me -> currentRound.submitMove());
+        submit.setOnAction(me -> currentRound.submitMove());
+
         submit.validProperty().bind(
             EasyBind.monadic(currentRound.moveInProgressProperty())
                 .flatMap(move -> EasyBind.map(move.wordBinding(), _w -> move.isMoveValid(currentRound))));
@@ -118,6 +119,15 @@ public class LevelScreenControllers implements Initializable {
                 .flatMap(Move::scoreBinding));
 
         currentRound.reset();
+
+        Platform.runLater(() -> {
+            root.getScene().getAccelerators().put(
+                new KeyCodeCombination(KeyCode.ENTER), currentRound::submitMove);
+            root.getScene().getAccelerators().put(
+                new KeyCodeCombination(KeyCode.ESCAPE), currentRound::clearCurrentMove);
+            root.getScene().getAccelerators().put(
+                new KeyCodeCombination(KeyCode.LEFT), currentRound::undoMove);
+        });
     }
     /**
      * Bind a Tile object to its TileView.

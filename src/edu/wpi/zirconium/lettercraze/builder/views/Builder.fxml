@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@builder.css" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.BuilderControllers">
+<fx:root fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1024.0" stylesheets="@builder.css" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.45-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.BuilderControllers">
    <top>
       <Pane id="back-button" fx:id="backButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>

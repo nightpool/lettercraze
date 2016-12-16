@@ -4,7 +4,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<fx:root styleClass="board--tile" type="StackPane" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root styleClass="board--tile" type="StackPane" xmlns="http://javafx.com/javafx/8.0.45-ea" xmlns:fx="http://javafx.com/fxml/1">
     <Rectangle styleClass="board--tile-shape"/>
     <Text styleClass="board--letter" boundsType="VISUAL"/>
 </fx:root>

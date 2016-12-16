@@ -1,9 +1,7 @@
 package edu.wpi.zirconium.lettercraze.builder;
 
 import com.sun.javafx.application.LauncherImpl;
-import edu.wpi.zirconium.lettercraze.builder.views.BuilderScreen;
 import edu.wpi.zirconium.lettercraze.builder.views.LevelSelectScreen;
-import edu.wpi.zirconium.lettercraze.entities.Level;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
 import edu.wpi.zirconium.lettercraze.shared.views.SplashScreen;
@@ -23,7 +21,7 @@ import java.io.IOException;
  */
 public class LetterCrazeBuilder extends LetterCrazeApplication {
 
-    /** The holder for the stage. TODO  */
+    /** The holder for the stage. */
     static private Stage stage;
 
     @Override
@@ -53,11 +51,6 @@ public class LetterCrazeBuilder extends LetterCrazeApplication {
     public static void showSelectScreen() {
         LevelSelectScreen levelSelect = new LevelSelectScreen(LevelPack::get);
         stage.setScene(new Scene(levelSelect, 1024, 940));
-    }
-
-    public static void showBuilderScreen(Level level) {
-        BuilderScreen builder = new BuilderScreen(level);
-        stage.setScene(new Scene(builder, 1024, 712));
     }
 
     public static void main(String[] args) {
