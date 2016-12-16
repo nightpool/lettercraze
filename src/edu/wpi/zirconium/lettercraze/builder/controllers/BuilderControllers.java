@@ -83,7 +83,10 @@ public class BuilderControllers implements Initializable {
 
         tabPane.getSelectionModel().selectedIndexProperty().addListener(i -> getLevel());
     }
-
+    /**
+     * Gets the current level.
+     * @return the current level
+     */
     private Level getLevel() {
         if (tabPane.getSelectionModel().getSelectedIndex() == 0) {
             if (puzzleSub == null) {
@@ -110,6 +113,11 @@ public class BuilderControllers implements Initializable {
     @FXML private TextField puzzleStar3;
 
     private PuzzleLevel puzzleSub;
+    
+    /**
+     * Sets up attributes of a given PuzzleLevel.
+     * @param PuzzleLevel level
+     */
     private void setupPuzzle(PuzzleLevel level) {
         if (level != null) {
             puzzleSub = level;
@@ -139,6 +147,10 @@ public class BuilderControllers implements Initializable {
     @FXML private TextField lightningStar3;
 
     private LightningLevel lightningSub;
+    /**
+     * Sets up attributes of a given LightningLevel.
+     * @param LightningLevel level
+     */
     private void setupLightning(LightningLevel level) {
         if (level != null) {
             lightningSub = level;
@@ -166,6 +178,11 @@ public class BuilderControllers implements Initializable {
     @FXML private TextArea themeWords;
 
     private ThemeLevel themeSub;
+    
+    /**
+     * Sets up attributes of a given ThemeLevel.
+     * @param ThemeLevel level
+     */
     private void setupTheme(ThemeLevel level) {
         if (level != null) {
             themeSub = level;

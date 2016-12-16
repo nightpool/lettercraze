@@ -10,7 +10,13 @@ public class SelectTileController implements EventHandler<MouseEvent> {
     private final Tile tile;
     private final TileView tileView;
     private final Round round;
-
+    
+    /**
+     * Creates a SelectTileController given a Round, Tile, and TileView.
+     * @param round
+     * @param tile
+     * @param tileView
+     */
     public SelectTileController(Round round, Tile tile, TileView tileView) {
         this.round = round;
         this.tile = tile;

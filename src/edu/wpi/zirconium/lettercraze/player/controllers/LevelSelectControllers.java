@@ -38,7 +38,10 @@ public class LevelSelectControllers implements Initializable {
             }
         );
     }
-
+    /**
+     * Navigate to the player main menu screen.
+     * @param mouseEvent
+     */
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
         LetterCrazePlayer.showMenuScreen();
     }

@@ -46,7 +46,10 @@ public class LevelSelectControllers implements Initializable {
         newLightning.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new LightningLevel(6)));
         newTheme.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new ThemeLevel(6)));
     }
-
+    /**
+     * Navigates to the menu screen.
+     * @param mouseEvent
+     */
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
         LetterCrazeBuilder.showMenuScreen();
     }
