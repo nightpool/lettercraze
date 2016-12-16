@@ -12,7 +12,7 @@ import org.testfx.matcher.base.NodeMatchers;
 public class LevelScreenSelectTest extends ApplicationTest {
 
     /**
-     * Test method for {@link edu.wpi.zirconium.lettercraze.test.player.views.LevelSelectScreen#LevelSelectScreen
+     * Test method for {@link LevelSelectScreen#LevelSelectScreen()}
      */
     @Test
     public void testLevelSelectScreen() {

@@ -64,8 +64,9 @@ public class LevelPack {
     }
 
     /**
-     * The unique name of the level pack.
+     * The unique name or key of the level pack.
      * This is the name of the folder representing the level pack in the filesystem (if any)
+     * @return string of the level key.
      */
     public String getKey() {
         return key;
@@ -74,6 +75,7 @@ public class LevelPack {
     private String title;
     /**
      * Generate a human-readable title for the LevelPack.
+     * @return the string of the level pack title.
      */
     public String getTitle() {
         if(title == null) {

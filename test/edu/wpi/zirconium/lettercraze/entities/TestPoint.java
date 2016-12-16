@@ -17,7 +17,7 @@ public class TestPoint {
 
 	private Point point;
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -25,7 +25,7 @@ public class TestPoint {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if errror
 	 */
 	@After
 	public void tearDown() throws Exception {
@@ -68,7 +68,7 @@ public class TestPoint {
 	}
 	
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Point#isAdjacentDiagonal(edu.wpi.zirconium.lettercraze.entities.Point)}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Point#isAdjacent(edu.wpi.zirconium.lettercraze.entities.Point)}.
 	 */
 	@Test
 	public void testIsAdjacentDiagonal() {
@@ -76,14 +76,14 @@ public class TestPoint {
 		assertTrue(point.isAdjacent(new Point(0,3)));
 	}
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Point#isAdjacentOnlyRow(edu.wpi.zirconium.lettercraze.entities.Point)}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Point#isAdjacent(edu.wpi.zirconium.lettercraze.entities.Point)}.
 	 */
 	@Test
 	public void testIsAdjacentOnlyRow() {
 		assertFalse(point.isAdjacent(new Point(2,4)));
 	}
 	/**
-	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Point#isAdjacentOnlyColumn(edu.wpi.zirconium.lettercraze.entities.Point)}.
+	 * Test method for {@link edu.wpi.zirconium.lettercraze.entities.Point#isAdjacent(edu.wpi.zirconium.lettercraze.entities.Point)}.
 	 */
 	@Test
 	public void testIsAdjacentOnlyColumn() {

@@ -39,7 +39,7 @@ public class WordTable {
 	/**
 	 * Converts word to lowercase and checks whether exists within map.
 	 * 
-	 * @param s
+	 * @param s String to check if word.
 	 * @return     <code>true</code> if a word in the map; <code>false</code> otherwise.
 	 */
 	public static boolean isWord(String s) {

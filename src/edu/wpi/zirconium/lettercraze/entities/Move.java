@@ -34,6 +34,7 @@ public class Move {
 
     /**
      * Returns if the Tile is valid to add to the word.
+     * @param tile Tile to check whether it can be added.
      * @return boolean whether the Tile is valid to add to the word
      */
     public boolean canAdd(Tile tile) {
@@ -45,6 +46,7 @@ public class Move {
 
     /**
      * Creates Word object with a collection of Letters.
+     * @param tile Tile to try adding to selected tiles.
      * @return whether the move (the word) is valid or not
      */
     public boolean addTile(Tile tile) {
@@ -52,7 +54,8 @@ public class Move {
     }
 
     /**
-     * Returns true if the Tile can be removed.
+     * Returns true if the Tile can be removed from the selected tiles.
+     * @param tile Tile to try removing from selected tiles.
      * @return true if the Tile can be removed
      */
     public boolean canRemove(Tile tile) {
@@ -61,6 +64,7 @@ public class Move {
     
     /**
      * Removes the Tile from the Move's list of Tiles that form the word.
+     * @param t Tile to try removing.
      * @return true if the Tile was removed
      */
     public boolean removeTile(Tile t) {

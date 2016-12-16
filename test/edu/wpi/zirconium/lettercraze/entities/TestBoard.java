@@ -9,6 +9,7 @@ public class TestBoard {
 
     /**
      * Test method for {@link Board#floatAllUp()}.
+     * @throws Exception exception if tests failed at runtime.
      */
     @Test
     public void testFloatAllUp() throws Exception {
@@ -33,7 +34,8 @@ public class TestBoard {
         assertFalse(b.getTile(new Point(1,0)).isPresent());
     }
     /**
-     * Test method for {@link Board#dummy()}.
+     * Test method for {@link Board#dummy(int)}.
+     * @throws Exception for errors.
      */
     @Test
     public void testDummy() throws Exception {
@@ -44,7 +46,8 @@ public class TestBoard {
         assertNotEquals(b.getTiles(), b2.getTiles());
     }
     /**
-     * Test method for {@link Board#random()}.
+     * Test method for {@link Board#random(LevelShape)}.
+     * @throws Exception if things went poorly.
      */
     @Test
     public void testRandom() throws Exception {
@@ -57,6 +60,7 @@ public class TestBoard {
     }
     /**
      * Test method for {@link Board#getShape()}.
+     * @throws Exception if errors occurred.
      */
     @Test
     public void testGetShape() throws Exception {

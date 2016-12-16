@@ -17,7 +17,7 @@ public class TestLightningLevel {
 
 	private LightningLevel level, dummyLevel;
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error occurred
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class TestLightningLevel {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error occurred.
 	 */
 	@After
 	public void tearDown() throws Exception {

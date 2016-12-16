@@ -13,9 +13,9 @@ public class SelectTileController implements EventHandler<MouseEvent> {
     
     /**
      * Creates a SelectTileController given a Round, Tile, and TileView.
-     * @param round
-     * @param tile
-     * @param tileView
+     * @param round Round to bind controller to.
+     * @param tile Tile to bind controller to.
+     * @param tileView TileView to bind controller to.
      */
     public SelectTileController(Round round, Tile tile, TileView tileView) {
         this.round = round;

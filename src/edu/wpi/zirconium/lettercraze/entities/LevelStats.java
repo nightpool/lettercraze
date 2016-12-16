@@ -30,8 +30,8 @@ public abstract class LevelStats {
     
     /**
      * Gets the LevelStats from the given String in file format.
-     * @param s the file formatted String
-     * @param levelFactory
+     * @param s the file formatted as a String
+     * @param levelFactory factory that creates levels based on key and level.
      * @return the LevelStats from the given String in file format
      */
     public static LevelStats fromString(String s, Function< String, Level> levelFactory) {

@@ -17,7 +17,7 @@ public class TestThemeLevel {
 	ThemeLevel level, dummyLevel;
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class TestThemeLevel {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@After
 	public void tearDown() throws Exception {

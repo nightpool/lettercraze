@@ -29,7 +29,7 @@ public class TestWord {
 	private Letter letterT;
 	
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -43,7 +43,7 @@ public class TestWord {
 	}
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if error
 	 */
 	@After
 	public void tearDown() throws Exception {
