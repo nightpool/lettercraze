@@ -1,13 +1,11 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
 import javafx.beans.binding.*;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
@@ -33,6 +31,8 @@ public class Round {
 
     /** The number of seconds that the game has been played for.*/
     private SimpleIntegerProperty seconds = new SimpleIntegerProperty(this, "seconds");
+
+    private Consumer<Boolean> isOverCallback = (x -> {});
 
     /**
      * Creates round object and initializes the board with level.
@@ -63,11 +63,14 @@ public class Round {
      */
     public boolean submitMove() {
         Move move = getMoveInProgress();
-        if (move.isMoveValid(this)){
+        if (!isOver() && move.isMoveValid(this)) {
             move.doMove(this);
             completedMoves.add(move);
             clearCurrentMove();
             saveStats();
+            if (isOver()) {
+                getIsOverCallback().accept(true);
+            }
             return true;
         }
         return false;
@@ -86,16 +89,22 @@ public class Round {
      */
     public boolean undoMove() {
         // clear out current move if it is in progress
-        if (getMoveInProgress().getNumberSelectedTiles() > 0) {
+        if (!isOver() && getMoveInProgress().getNumberSelectedTiles() > 0) {
             getMoveInProgress().getSelectedTiles().clear();
             return true;
         }
+
+        boolean wasOver = isOver();
 
         if (!this.getCompletedMoves().isEmpty()) {
             Move lastMove = this.getCompletedMoves().get(this.getCompletedMoves().size() - 1);
             boolean success = lastMove.undo(this);
             if (success) {
                 completedMoves.remove(lastMove);
+                clearCurrentMove();
+                if (wasOver && !isOver()) {
+                    getIsOverCallback().accept(false);
+                }
                 saveStats();
             }
             return success;
@@ -173,7 +182,7 @@ public class Round {
      * @return whether it can be selected or now
      */
     public boolean canSelectTile(Tile tile) {
-        return getMoveInProgress().canAdd(tile);
+        return !isOver() && getMoveInProgress().canAdd(tile);
     }
 
     /**
@@ -193,7 +202,7 @@ public class Round {
      * @return true if the player can deselected the tile, false otherwise
      */
     public boolean canDeselectTile(Tile tile) {
-        return getMoveInProgress().canRemove(tile);
+        return !isOver() && getMoveInProgress().canRemove(tile);
     }
 
     /**
@@ -211,7 +220,12 @@ public class Round {
      * Increments the number of seconds by one.
      */
     public void incrementTime() {
-        this.setTime(this.getTime() + 1);
+        if(!isOver()) {
+            this.setTime(this.getTime() + 1);
+            if (isOver()) {
+                getIsOverCallback().accept(true);
+            }
+        }
     }
 
     /**
@@ -329,5 +343,19 @@ public class Round {
         return Bindings.createIntegerBinding(
             () -> this.getLevel().numAchievedStars(this.getLevel().thresholdValue(this)),
             scoreBinding(), getCompletedMoves());
+    }
+
+    /**
+     * @return A runnable to call when the game is over
+     */
+    private Consumer<Boolean> getIsOverCallback() {
+        return isOverCallback;
+    }
+
+    /**
+     * @param isOverCallback The callback to call when the game is over
+     */
+    public void setIsOverCallback(Consumer<Boolean> isOverCallback) {
+        this.isOverCallback = isOverCallback;
     }
 }

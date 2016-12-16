@@ -106,6 +106,10 @@ public class Level {
         return false;
     }
 
+    public Optional<Integer> getTimeLimit() {
+        return Optional.empty();
+    }
+
     /**
      * Gets the title of the Level.
      * @return the Level's title
@@ -251,7 +255,7 @@ public class Level {
         return getThreshold(0) > 0 &&
             getThreshold(1) > 0 &&
             getThreshold(2) > 0 &&
-            !this.getTitle().isEmpty();
+            this.getTitle() != null && !this.getTitle().isEmpty();
     }
 
     /**
