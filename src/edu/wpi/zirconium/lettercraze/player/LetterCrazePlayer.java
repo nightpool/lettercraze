@@ -2,6 +2,7 @@ package edu.wpi.zirconium.lettercraze.player;
 
 import com.sun.javafx.application.LauncherImpl;
 import edu.wpi.zirconium.lettercraze.entities.Level;
+import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.player.views.LevelSelectScreen;
 import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
@@ -42,7 +43,7 @@ public class LetterCrazePlayer extends LetterCrazeApplication {
     }
 
     public static void showLevelSelectScreen() {
-        LevelSelectScreen screen = new LevelSelectScreen();
+        LevelSelectScreen screen = new LevelSelectScreen(LevelPack::get);
         stage.setScene(new Scene(screen, 1024, 712));
     }
 
