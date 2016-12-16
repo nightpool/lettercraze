@@ -18,24 +18,45 @@ public class LevelPack {
 
     private final String key;
 
+    /**
+     * Creates the LevelPack object with the given key.
+     * @param key the key of the LevelPack
+     */
     protected LevelPack(String key) {
         this.key = key;
     }
 
+    /**
+     * Returns true if the level is unlocked.
+     * @param level the LevelStats object to check
+     * @return true if the level is unlocked
+     */
     public boolean isUnlocked(LevelStats level){
         int index = levelStats.indexOf(level) - 1;
         return index < 0 || levelStats.get(index).numAchievedStars() > 0;
     }
 
+    /**
+     * Returns the LevelStats of the Level.
+     * @param level the Level to get the LevelStats for
+     * @return the Optional LevelStats of the Level
+     */
     public Optional<LevelStats> statsForLevel(Level level) {
         return levelStats.stream().filter(ls -> ls.getLevel().equals(level)).findFirst();
     }
-    
-
+        
+    /**
+     * Gets the Levels from the LevelPack.
+     * @return the Stream of Levels in the LevelPack
+     */
     public Stream<Level> getLevels() {
         return levelStats.stream().map(LevelStats::getLevel);
     }
 
+    /**
+     * Gets the LevelStats from the LevelPack.
+     * @return the List of LevelStats in the LevelPack
+     */
     public List<LevelStats> getLevelStats() {
         return levelStats;
     }
