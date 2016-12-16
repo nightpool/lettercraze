@@ -10,6 +10,7 @@ import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.shared.views.BoardView;
 import edu.wpi.zirconium.lettercraze.shared.views.TileView;
 import edu.wpi.zirconium.utils.FadeInOut;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -54,8 +55,10 @@ public class BuilderControllers implements Initializable {
 
         saveButton.disableProperty().bind(level.pathProperty().isNull());
         saveButton.setOnMouseClicked(_me -> {
-            new FadeInOut(saveCheck, 250, 1000, 750);
-            level.save();
+            if (getLevel().isValid()) {
+                getLevel().save();
+                new FadeInOut(saveCheck, 250, 1000, 750);
+            }
         });
 
         title.textProperty().bindBidirectional(level.titleProperty());
@@ -83,10 +86,13 @@ public class BuilderControllers implements Initializable {
 
         if (level instanceof PuzzleLevel) {
             setupPuzzle((PuzzleLevel) level);
+            tabPane.getSelectionModel().select(0);
         } else if (level instanceof LightningLevel) {
             setupLightning((LightningLevel) level);
+            tabPane.getSelectionModel().select(1);
         } else if (level instanceof ThemeLevel) {
             setupTheme((ThemeLevel) level);
+            tabPane.getSelectionModel().select(2);
         }
 
         tabPane.getSelectionModel().selectedIndexProperty().addListener(i -> getLevel());
@@ -113,7 +119,7 @@ public class BuilderControllers implements Initializable {
             }
             return themeSub;
         }
-        return null;
+        throw new IllegalStateException("no tab selected!");
     }
 
     @FXML private TextField puzzleWords;
@@ -137,6 +143,8 @@ public class BuilderControllers implements Initializable {
             puzzleSub = new PuzzleLevel(this.level.getShape().getSize());
             puzzleSub.setShape(this.level.getShape());
             puzzleSub.titleProperty().bind(this.level.titleProperty());
+            this.level.getPath().ifPresent(p -> puzzleSub.setPath(p));
+            this.level.getPack().ifPresent(p -> puzzleSub.setPack(p));
         }
         puzzleWords.textProperty().addListener(new NumberValidator(
             i -> puzzleSub.setWordLimit(i), puzzleWords));
@@ -170,6 +178,8 @@ public class BuilderControllers implements Initializable {
             lightningSub = new LightningLevel(this.level.getShape().getSize());
             lightningSub.setShape(this.level.getShape());
             lightningSub.titleProperty().bind(this.level.titleProperty());
+            this.level.getPath().ifPresent(p -> lightningSub.setPath(p));
+            this.level.getPack().ifPresent(p -> lightningSub.setPack(p));
         }
 
         lightningTime.textProperty().addListener(new NumberValidator(
@@ -194,10 +204,15 @@ public class BuilderControllers implements Initializable {
         if (level != null) {
             themeSub = level;
             themeWords.setText(themeSub.getWords().stream().collect(Collectors.joining("\n")));
+            board.getTiles().stream()
+                .filter(t -> !t.isBlocked())
+                .forEach(t -> t.editProperty().set(themeSub.getLetter(t.getPos()).getCharacter()));
         } else {
             themeSub = new ThemeLevel(this.level.getShape().getSize());
             themeSub.setShape(this.level.getShape());
             themeSub.titleProperty().bind(this.level.titleProperty());
+            this.level.getPath().ifPresent(p -> themeSub.setPath(p));
+            this.level.getPack().ifPresent(p -> themeSub.setPack(p));
         }
 
         themeWords.textProperty().addListener((_o, _v, newValue) -> {
@@ -205,6 +220,21 @@ public class BuilderControllers implements Initializable {
                 Stream.of(newValue.split("\n")).collect(Collectors.toList())
             );
         });
+
+        board.getTiles().forEach(tv -> {
+            tv.editableProperty().bind(Bindings.and(
+                Bindings.equal(2, tabPane.getSelectionModel().selectedIndexProperty()),
+                tv.blockedProperty().not()));
+            tv.editProperty().addListener(i -> regenThemeLetters());
+            tv.blockedProperty().addListener(i -> regenThemeLetters());
+        });
+    }
+
+    private void regenThemeLetters() {
+        themeSub.setLetters(board.getTiles().stream()
+            .filter(t -> !t.isBlocked())
+            .map(TileView::editValue)
+            .collect(Collectors.toList()));
     }
 
     private static class NumberValidator implements ChangeListener<String> {

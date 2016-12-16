@@ -30,3 +30,11 @@
 .board--tile.blocked .board--letter {
     visibility: hidden;
 }
+
+.board--tile .board--letter-edit {
+    visibility: hidden;
+}
+
+.board--tile.editable .board--letter-edit {
+    visibility: visible;
+}

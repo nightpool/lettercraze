@@ -52,6 +52,7 @@ public enum Letter {
         this.score = score;
     }
 
+
     /**
      * Returns the point score of this letter tile.
      * @return int score associated with this letter tile
@@ -67,6 +68,14 @@ public enum Letter {
     public String getCharacter() {
         return character;
     }
+
+	public static Letter forString(String l) {
+		l = l.toUpperCase();
+		if (l.equals("Q")) {
+			l = "QU";
+		}
+		return Letter.valueOf(l);
+	}
 
     /**
      * This generates a new random letter based on probability distribution of letters.
