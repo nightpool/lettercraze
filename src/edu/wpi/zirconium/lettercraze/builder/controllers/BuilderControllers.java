@@ -75,7 +75,9 @@ public class BuilderControllers implements Initializable {
             Stage stage = new Stage();
             stage.initOwner(root.getScene().getWindow());
             stage.initModality(Modality.WINDOW_MODAL);
-            stage.setScene(new Scene(new LevelScreen(getLevel()), 1024, 712));
+            LevelScreen levelScreen = new LevelScreen(getLevel());
+            levelScreen.setExitHandler(stage::close);
+            stage.setScene(new Scene(levelScreen, 1024, 712));
             stage.show();
         });
 

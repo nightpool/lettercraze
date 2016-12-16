@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class LevelScreen extends BorderPane {
+
     public LevelScreen(Level level) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Level.fxml"));
         this.setLevel(level);
@@ -33,5 +34,20 @@ public class LevelScreen extends BorderPane {
 
     public void setLevel(Level level) {
         this.level.set(level);
+    }
+
+    private Runnable exitHandler;
+    public void onExit() {
+        if (getExitHandler() != null) {
+            getExitHandler().run();
+        }
+    }
+
+    private Runnable getExitHandler() {
+        return exitHandler;
+    }
+
+    public void setExitHandler(Runnable exitHandler) {
+        this.exitHandler = exitHandler;
     }
 }

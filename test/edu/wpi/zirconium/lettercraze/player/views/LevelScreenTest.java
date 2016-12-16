@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
 
+import static org.junit.Assert.assertFalse;
 import static org.testfx.api.FxAssert.verifyThat;
 
 public class LevelScreenTest extends ApplicationTest {
@@ -67,6 +68,12 @@ public class LevelScreenTest extends ApplicationTest {
         verifyThat("#previousMovesDisplay", NodeMatchers.hasText(new StringContains(word.asString())));
     }
 
+    @Test
+    public void testExit() throws Exception {
+        clickOn("#exitLevel");
+        assertFalse(targetWindow().isShowing());
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         LevelScreen ls = new LevelScreen(new Level(6){
@@ -79,6 +86,7 @@ public class LevelScreenTest extends ApplicationTest {
                 return true;
             }
         });
+        ls.setExitHandler(stage::hide);
         Scene scene = new Scene(ls, 1024, 712);
         stage.setScene(scene);
         stage.show();
