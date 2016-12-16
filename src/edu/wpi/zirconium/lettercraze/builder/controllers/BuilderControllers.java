@@ -54,6 +54,8 @@ public class BuilderControllers implements Initializable {
 
         title.textProperty().bindBidirectional(level.titleProperty());
 
+        board.setBoardHeight(level.getShape().getSize());
+        board.setBoardWidth(level.getShape().getSize());
         level.getShape().points().forEach(p -> {
             TileView v = board.newTile(p);
             v.blockedProperty().bind(level.getShape().bindingAt(p).not());

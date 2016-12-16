@@ -23,4 +23,10 @@
 	<lib name="testfx-junit-4.0.4-alpha.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/testfx-junit-4.0.4-alpha.jar!/"/>
 	</lib>
+	<lib name="easybind-1.0.3.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/easybind-1.0.3.jar!/"/>
+	</lib>
+	<lib name="easybind-1.0.3-sources.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/easybind-1.0.3-sources.jar!/"/>
+	</lib>
 </component>

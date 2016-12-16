@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -130,37 +129,5 @@ public class LevelPack {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    public static LevelPack dummyPuzzle() {
-        LevelPack lp = new LevelPack("puzzle_levels");
-        lp.levelStats = Arrays.asList(
-            new PuzzleLevelStats(Level.dummy(6), 1),
-            new PuzzleLevelStats(Level.dummy(6), 2),
-            new PuzzleLevelStats(Level.dummy(6), 3),
-            new PuzzleLevelStats(Level.dummy(6), 0),
-            new PuzzleLevelStats(Level.dummy(6), 0));
-        lp.levelStats.forEach(ls -> ls.getLevel().setPack(lp));
-        return lp;
-    }
-
-    public static LevelPack dummyLightning() {
-        LevelPack lp = new LevelPack("lightning_levels");
-        lp.levelStats = Arrays.asList(
-            new LightningLevelStats(LightningLevel.dummy(), 15),
-            new LightningLevelStats(LightningLevel.dummy(), 0),
-            new LightningLevelStats(LightningLevel.dummy(), 0));
-        lp.levelStats.forEach(ls -> ls.getLevel().setPack(lp));
-        return lp;
-    }
-
-    public static LevelPack dummyTheme() {
-        LevelPack lp = new LevelPack("theme_levels");
-        lp.levelStats = Arrays.asList(
-            new ThemeLevelStats(ThemeLevel.dummy(), 8),
-            new ThemeLevelStats(ThemeLevel.dummy(), 0));
-        lp.levelStats.forEach(ls -> ls.getLevel().setPack(lp));
-        return lp;
     }
 }

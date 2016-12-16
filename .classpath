@@ -10,5 +10,7 @@
 	<classpathentry kind="lib" path="lib/testfx-core-4.0.4-alpha.jar"/>
 	<classpathentry kind="lib" path="lib/testfx-junit-4.0.4-alpha-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/testfx-junit-4.0.4-alpha.jar"/>
+	<classpathentry kind="lib" path="lib/easybind-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/easybind-1.0.3-sources.jar"/>
 	<classpathentry kind="output" path="out/production/lettercraze"/>
 </classpath>

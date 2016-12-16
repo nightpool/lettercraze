@@ -21,10 +21,6 @@ public class LevelScreen extends BorderPane {
         }
     }
 
-    public LevelScreen() {
-        this(Level.dummy(6));
-    }
-
     private ObjectProperty<Level> level = new SimpleObjectProperty<>(this, "level");
 
     public Level getLevel() {
