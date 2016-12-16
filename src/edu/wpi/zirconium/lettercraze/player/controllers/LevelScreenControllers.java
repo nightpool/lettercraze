@@ -1,7 +1,6 @@
 package edu.wpi.zirconium.lettercraze.player.controllers;
 
 import edu.wpi.zirconium.lettercraze.entities.*;
-import edu.wpi.zirconium.lettercraze.player.LetterCrazePlayer;
 import edu.wpi.zirconium.lettercraze.player.views.LevelScreen;
 import edu.wpi.zirconium.lettercraze.player.views.StarsView;
 import edu.wpi.zirconium.lettercraze.player.views.SubmitButton;
@@ -15,7 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import org.fxmisc.easybind.EasyBind;
@@ -54,9 +54,9 @@ public class LevelScreenControllers implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        exitLevel.setOnMouseClicked(this::onExitClicked);
-        reset.setOnMouseClicked(this::onResetClicked);
-        undo.setOnMouseClicked(this::onUndoClicked);
+        exitLevel.setOnMouseClicked(me -> root.onExit());
+        reset.setOnMouseClicked(me -> currentRound.reset());
+        undo.setOnMouseClicked(me -> currentRound.undoMove());
 
         Level level = root.getLevel();
         currentRound = new Round(level);
@@ -109,7 +109,8 @@ public class LevelScreenControllers implements Initializable {
             EasyBind.select(currentRound.moveInProgressProperty()).selectObject(Move::wordBinding),
             Word::asString));
 
-        submit.setOnMouseClicked(me -> currentRound.submitMove());
+        submit.setOnAction(me -> currentRound.submitMove());
+
         submit.validProperty().bind(
             EasyBind.monadic(currentRound.moveInProgressProperty())
                 .flatMap(move -> EasyBind.map(move.wordBinding(), _w -> move.isMoveValid(currentRound))));
@@ -118,7 +119,17 @@ public class LevelScreenControllers implements Initializable {
                 .flatMap(Move::scoreBinding));
 
         currentRound.reset();
+
+        Platform.runLater(() -> {
+            root.getScene().getAccelerators().put(
+                new KeyCodeCombination(KeyCode.ENTER), currentRound::submitMove);
+            root.getScene().getAccelerators().put(
+                new KeyCodeCombination(KeyCode.ESCAPE), currentRound::clearCurrentMove);
+            root.getScene().getAccelerators().put(
+                new KeyCodeCombination(KeyCode.LEFT), currentRound::undoMove);
+        });
     }
+
     /**
      * Bind a Tile object to its TileView.
      * @param v The View
@@ -136,29 +147,5 @@ public class LevelScreenControllers implements Initializable {
             v.setColumn(newP.getColumn());
         });
         v.setOnMouseClicked(new SelectTileController(currentRound, t, v));
-    }
-    
-    /**
-     * Navigate to the player level select screen.
-     * @param mouseEvent
-     */
-    private void onExitClicked(MouseEvent mouseEvent) {
-        LetterCrazePlayer.showLevelSelectScreen();
-    }
-    
-    /**
-     * Reset the current Round.
-     * @param mouseEvent
-     */
-    private void onResetClicked(MouseEvent mouseEvent) {
-        currentRound.reset();
-    }
-    
-    /**
-     * Undo the most recent move.
-     * @param moustEvent
-     */
-    private void onUndoClicked(MouseEvent moustEvent) {
-        currentRound.undoMove();
     }
 }

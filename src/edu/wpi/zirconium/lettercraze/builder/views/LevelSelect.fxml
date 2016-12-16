@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 <fx:root fx:id="root" type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
          prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css"
-         xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+         xmlns="http://javafx.com/javafx/8.0.45" xmlns:fx="http://javafx.com/fxml/1"
          fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.LevelSelectControllers">
    <children>
       <BorderPane prefHeight="700.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

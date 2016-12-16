@@ -48,6 +48,7 @@ public class LetterCrazePlayer extends LetterCrazeApplication {
 
     public static void showLevelScreen(Level level) {
         LevelScreen screen = new LevelScreen(level);
+        screen.setExitHandler(LetterCrazePlayer::showLevelSelectScreen);
         stage.setScene(new Scene(screen, 1024, 712));
     }
 

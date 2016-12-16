@@ -53,7 +53,7 @@ public class Round {
     public boolean reset() {
         level.populateBoard(board);
         completedMoves.clear();
-        setMoveInProgress(new Move());
+        clearCurrentMove();
         return true;
     }
 
@@ -66,11 +66,18 @@ public class Round {
         if (move.isMoveValid(this)){
             move.doMove(this);
             completedMoves.add(move);
-            setMoveInProgress(new Move());
+            clearCurrentMove();
             saveStats();
             return true;
         }
         return false;
+    }
+
+    /**
+     * Clear the current move in progress.
+     */
+    public void clearCurrentMove() {
+        this.setMoveInProgress(new Move());
     }
 
     /**

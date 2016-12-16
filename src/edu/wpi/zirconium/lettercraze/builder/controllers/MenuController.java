@@ -13,25 +13,11 @@ import java.util.ResourceBundle;
 public class MenuController implements Initializable {
 
     @FXML private StackPane newButton;
-    @FXML private StackPane loadButton;
-    @FXML private StackPane collectionsButton;
-    @FXML private StackPane achievementsButton;
     @FXML private Pane hamburger;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         newButton.setOnMouseClicked(this::onNewClicked);
-
-        loadButton.setOnMouseClicked(this::showNotImplemented);
-        collectionsButton.setOnMouseClicked(this::showNotImplemented);
-        achievementsButton.setOnMouseClicked(this::showNotImplemented);
-    }
-    /**
-     * Does nothing.
-     * @param mouseEvent
-     */
-    private void showNotImplemented(MouseEvent mouseEvent) {
-
     }
 
     /**
