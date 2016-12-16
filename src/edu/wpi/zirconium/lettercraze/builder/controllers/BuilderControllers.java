@@ -148,7 +148,7 @@ public class BuilderControllers implements Initializable {
 
     private LightningLevel lightningSub;
     /**
-     * Sets up attributes of a given LightningLevel
+     * Sets up attributes of a given LightningLevel.
      * @param LightningLevel level
      */
     private void setupLightning(LightningLevel level) {
@@ -180,7 +180,7 @@ public class BuilderControllers implements Initializable {
     private ThemeLevel themeSub;
     
     /**
-     * Sets up attributes of a given ThemeLevel
+     * Sets up attributes of a given ThemeLevel.
      * @param ThemeLevel level
      */
     private void setupTheme(ThemeLevel level) {
