@@ -4,6 +4,11 @@ public class LightningLevelStats extends LevelStats{
 
     private final int mostWords;
 
+    /**
+     * Creates the LightenningLevelStats
+     * @param l the Level
+     * @param mostWords the word limit for the Level
+     */
     public LightningLevelStats(Level l, int mostWords) {
         super(l);
         this.mostWords = mostWords;

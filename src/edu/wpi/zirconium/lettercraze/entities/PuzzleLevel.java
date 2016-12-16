@@ -12,12 +12,16 @@ public class PuzzleLevel extends Level {
         super(size);
     }
 
+    /**
+     * Gets the word limit for the Puzzle Level.
+     * @return the word limit as an integer
+     */
     public int getWordLimit() {
         return wordLimit;
     }
 
     /**
-     * setWordLimit(int wl) is the setter method for Word Limit
+     * setWordLimit(int wl) is the setter method for Word Limit.
      * @param wordLimit the word Limit of the puzzle level
      */
     public void setWordLimit(int wordLimit) {
@@ -43,7 +47,7 @@ public class PuzzleLevel extends Level {
     }
     
     /**
-     * dummy() creates a sample Puzzle Level, complete with score thresholds and a moveLimit
+     * dummy() creates a sample Puzzle Level, complete with score thresholds and a moveLimit.
      * @return a static sample Puzzle Level.
      */
     public static PuzzleLevel dummy() {

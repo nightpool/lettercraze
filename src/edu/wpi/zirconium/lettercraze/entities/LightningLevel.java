@@ -14,10 +14,18 @@ public class LightningLevel extends Level{
         super(size);
     }
 
+    /**
+     * Gets the maximum time allowed of the Level
+     * @return the maximum time
+     */
     public int getMaxTime() {
         return maxTime;
     }
 
+    /**
+     * Sets the maximum time for the Level
+     * @param maxTime the maximum time
+     */
     public void setMaxTime(int maxTime) {
         this.maxTime = maxTime;
     }
