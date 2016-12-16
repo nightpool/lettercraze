@@ -1,0 +1,11 @@
+edu.wpi.zirconium.lettercraze.builder
+edu.wpi.zirconium.lettercraze.builder.controllers
+edu.wpi.zirconium.lettercraze.builder.views
+edu.wpi.zirconium.lettercraze.entities
+edu.wpi.zirconium.lettercraze.player
+edu.wpi.zirconium.lettercraze.player.controllers
+edu.wpi.zirconium.lettercraze.player.views
+edu.wpi.zirconium.lettercraze.shared
+edu.wpi.zirconium.lettercraze.shared.views
+edu.wpi.zirconium.lettercraze.utils
+edu.wpi.zirconium.utils
