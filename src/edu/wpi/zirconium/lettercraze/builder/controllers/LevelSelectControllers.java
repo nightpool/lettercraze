@@ -47,6 +47,10 @@ public class LevelSelectControllers implements Initializable {
         newTheme.setOnMouseClicked(me -> LetterCrazeBuilder.showBuilderScreen(new ThemeLevel(6)));
     }
 
+    /**
+     * Return to Menu Button Controller method
+     * @param mouseEvent
+     */
     private void onReturnToMenuClicked(MouseEvent mouseEvent) {
         LetterCrazeBuilder.showMenuScreen();
     }

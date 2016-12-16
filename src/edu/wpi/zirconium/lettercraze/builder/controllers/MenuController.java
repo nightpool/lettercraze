@@ -30,7 +30,11 @@ public class MenuController implements Initializable {
     private void showNotImplemented(MouseEvent mouseEvent) {
 
     }
-
+    
+    /**
+     * New Level button Controller
+     * @param mouseEvent
+     */
     private void onNewClicked(MouseEvent mouseEvent) {
         try {
             LetterCrazeBuilder.showSelectScreen();

@@ -88,7 +88,7 @@ public class Level {
     }
 
     /**
-     * Get an individual threshold value
+     * Get an individual threshold value.
      * @param i the zero-based index of the threshold to get
      * @return the threshold value
      */
@@ -156,11 +156,17 @@ public class Level {
         });
         return level;
     }
-
+    
+    /**
+     * Gets the threshold value for the current round
+     * @param round
+     * @return
+     */
     public int thresholdValue(Round round) {
         return round.getScore();
     }
 
+    
     public void populateBoard(Board board){
         board.clear(p -> Letter.random());
     }
