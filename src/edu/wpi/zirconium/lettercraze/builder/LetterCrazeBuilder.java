@@ -2,7 +2,9 @@ package edu.wpi.zirconium.lettercraze.builder;
 
 import com.sun.javafx.application.LauncherImpl;
 import edu.wpi.zirconium.lettercraze.builder.views.BuilderScreen;
+import edu.wpi.zirconium.lettercraze.builder.views.LevelSelectScreen;
 import edu.wpi.zirconium.lettercraze.entities.Level;
+import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
 import edu.wpi.zirconium.lettercraze.shared.views.SplashScreen;
 import javafx.fxml.FXMLLoader;
@@ -49,13 +51,8 @@ public class LetterCrazeBuilder extends LetterCrazeApplication {
     }
     
     public static void showSelectScreen() {
-        try {
-            Parent selector = FXMLLoader.load(LetterCrazeBuilder.class.getResource("views/LevelSelect.fxml"));
-            stage.setScene(new Scene(selector, 1024, 712));
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalStateException("Can't load FXML : LevelSelect");
-        }
+        LevelSelectScreen levelSelect = new LevelSelectScreen(LevelPack::get);
+        stage.setScene(new Scene(levelSelect, 1024, 940));
     }
 
     public static void showBuilderScreen(Level level) {

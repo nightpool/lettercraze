@@ -4,6 +4,7 @@ import edu.wpi.zirconium.lettercraze.entities.Level;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -33,5 +34,9 @@ public class BuilderScreen extends BorderPane {
 
     public void setLevel(Level level) {
         this.level.set(level);
+    }
+
+    public static Scene scene(Level level) {
+        return new Scene(new BuilderScreen(level), 1024, 712);
     }
 }

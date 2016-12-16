@@ -6,15 +6,3 @@
 .level-tile--active:hover .lc-level-rect {
     -fx-fill: #efefef;
 }
-
-.level-tile--inactive #name {
-    -fx-fill: #aaa;
-}
-
-.level-tile--inactive .lc-level-rect {
-    -fx-stroke: #aaa;
-}
-
-.level-tile--inactive #score, .level-tile--inactive #stars{
-    visibility: hidden;
-}

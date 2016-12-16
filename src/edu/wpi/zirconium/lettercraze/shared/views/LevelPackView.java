@@ -1,7 +1,9 @@
 package edu.wpi.zirconium.lettercraze.shared.views;
 
+import edu.wpi.zirconium.lettercraze.builder.views.EditLevelTile;
 import edu.wpi.zirconium.lettercraze.entities.LevelPack;
 import edu.wpi.zirconium.lettercraze.entities.LevelStats;
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +15,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class LevelPackView extends AnchorPane {
@@ -26,14 +31,28 @@ public class LevelPackView extends AnchorPane {
             e.printStackTrace();
             throw new IllegalStateException("Can't load FXML : " + getClass().getSimpleName());
         }
-        pack.addListener(i -> {
+
+        pack.addListener(_i -> {
             this.clearTiles();
+            packList.clear();
             getTitleNode().setText(getPack().getTitle());
             getPack().getLevelStats().forEach(this::addTile);
             getList().getChildren().addAll(this.getStaticTiles());
+            getPack().getLevelStats().addListener((InvalidationListener) __i -> {
+                this.clearTiles();
+                getPack().getLevelStats().forEach(ls -> {
+                    if(packList.containsKey(ls)) {
+                        getList().getChildren().add(packList.get(ls));
+                    } else {
+                        addTile(ls);
+                    }
+                });
+                getList().getChildren().addAll(this.getStaticTiles());
+            });
         });
     }
 
+    private Map<LevelStats, Node> packList = new HashMap<>();
 
     private void clearTiles() {
         this.getList().getChildren().clear();
@@ -47,10 +66,28 @@ public class LevelPackView extends AnchorPane {
         return (Text) lookup("#title");
     }
 
+    public Stream<LevelTile> getTiles() {
+        return this.getList().getChildren().stream()
+            .filter(t -> t instanceof LevelTile)
+            .map(t -> (LevelTile) t);
+    }
+
+    private Consumer<EditLevelTile> onNewEditTile;
+    public void setOnNewEditTile(Consumer<EditLevelTile> onNewEditTile) {
+        this.onNewEditTile = onNewEditTile;
+    }
+
     private void addTile(LevelStats levelStats) {
-        LevelTile tile = new LevelTile(levelStats);
-        tile.setUnlocked(getPack().isUnlocked(levelStats));
-        this.getList().getChildren().add(tile);
+        if (this.isEditable()) {
+            EditLevelTile tile = new EditLevelTile();
+            tile.setLevel(levelStats.getLevel());
+            this.getList().getChildren().add(tile);
+            onNewEditTile.accept(tile);
+        } else {
+            LevelTile tile = new LevelTile(levelStats);
+            tile.setUnlocked(getPack().isUnlocked(levelStats));
+            this.getList().getChildren().add(tile);
+        }
     }
 
     private final ObjectProperty<LevelPack> pack = new SimpleObjectProperty<>(this, "pack");
@@ -67,16 +104,10 @@ public class LevelPackView extends AnchorPane {
         this.pack.set(pack);
     }
 
-    public Stream<LevelTile> getTiles() {
-        return this.getList().getChildren().stream()
-            .filter(t -> t instanceof LevelTile)
-            .map(t -> (LevelTile) t);
-    }
-
     private BooleanProperty editable = new SimpleBooleanProperty(this, "editable", false);
 
     public boolean isEditable() {
-        return editable.get();
+        return editableProperty().get();
     }
 
     public BooleanProperty editableProperty() {
@@ -84,7 +115,7 @@ public class LevelPackView extends AnchorPane {
     }
 
     public void setEditable(boolean editable) {
-        this.editable.set(editable);
+        this.editableProperty().set(editable);
     }
 
     private ListProperty<Node> staticTiles = new SimpleListProperty<>(this, "staticTiles", FXCollections.observableArrayList());

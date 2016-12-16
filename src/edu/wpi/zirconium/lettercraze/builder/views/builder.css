@@ -1,4 +1,6 @@
 
+@import "/fonts/fonts.css";
+
 .root {
     -fx-background-color: white;
 }
@@ -16,6 +18,11 @@
 .builder-menu .button:hover {
     -fx-background-color: #efefef;
     -fx-cursor: hand;
+}
+
+.builder-menu .button {
+    -fx-font-family: "Josefin Sans";
+    -fx-font-size: 20px;
 }
 
 #builder-sidebar .title {

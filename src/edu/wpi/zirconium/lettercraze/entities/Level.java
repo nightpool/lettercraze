@@ -219,7 +219,14 @@ public class Level {
     public LevelStats statsFor(Round round) {
         return null;
     }
-    
+
+    /**
+     * @return The default Level Stats object for this level
+     */
+    public LevelStats initialStats() {
+        return null;
+    };
+
     private LevelPack pack;
     /**
      * Gets the LevelPack from the Level.

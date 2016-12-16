@@ -31,6 +31,7 @@ public class ThemeLevel extends Level{
         return r.getCompletedMoves().size() == this.words.size();
     }
 
+    @Override
     public int thresholdValue(Round round) {
         return round.getNumWordsFound();
     }
@@ -55,6 +56,14 @@ public class ThemeLevel extends Level{
     @Override
     public LevelStats statsFor(Round round) {
         return new ThemeLevelStats(this, round.getNumWordsFound());
+    }
+
+    /**
+     * @return the default stats for this level
+     */
+    @Override
+    public LevelStats initialStats() {
+        return new ThemeLevelStats(this, 0);
     }
 
     /**

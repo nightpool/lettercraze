@@ -1,9 +1,9 @@
 package edu.wpi.zirconium.lettercraze.entities;
 
+import javafx.collections.FXCollections;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +14,7 @@ public class LevelPackTest {
     public void setUp() throws Exception {
         mockPack = new LevelPack("mock_levels"){
             {
-                levelStats = Arrays.asList(
+                levelStats = FXCollections.observableArrayList(
                     new PuzzleLevelStats(Level.dummy(6), 1),
                     new PuzzleLevelStats(Level.dummy(6), 2),
                     new PuzzleLevelStats(Level.dummy(6), 3),
@@ -22,6 +22,8 @@ public class LevelPackTest {
                     new PuzzleLevelStats(Level.dummy(6), 0));
                 levelStats.forEach(ls -> ls.getLevel().setPack(this));
             }
+            @Override
+            public void saveStats() { /* noop */ }
         };
     }
 
@@ -75,4 +77,15 @@ public class LevelPackTest {
         assertNotEquals(mockPack.getLevelStats().get(0), newls);
     }
 
+    @Test
+    public void testNewLevel() throws Exception {
+        Level l = mockPack.newLevel(() -> new PuzzleLevel(6));
+
+        assertTrue(l.canSave());
+        assertThat(l, Matchers.instanceOf(PuzzleLevel.class));
+        assertThat(() -> mockPack.getLevels().iterator(), Matchers.hasItem(l));
+
+        assertTrue(mockPack.statsForLevel(l).isPresent());
+        assertThat(mockPack.statsForLevel(l).get(), Matchers.instanceOf(PuzzleLevelStats.class));
+    }
 }

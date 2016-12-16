@@ -2,19 +2,21 @@ package edu.wpi.zirconium.lettercraze.entities;
 
 
 import edu.wpi.zirconium.lettercraze.shared.LetterCrazeApplication;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
 public class LevelPack {
-    protected List<LevelStats> levelStats = new ArrayList<>();
+    protected ObservableList<LevelStats> levelStats = FXCollections.observableArrayList();
 
     private final String key;
 
@@ -57,7 +59,7 @@ public class LevelPack {
      * Gets the LevelStats from the LevelPack.
      * @return the List of LevelStats in the LevelPack
      */
-    public List<LevelStats> getLevelStats() {
+    public ObservableList<LevelStats> getLevelStats() {
         return levelStats;
     }
 
@@ -129,7 +131,7 @@ public class LevelPack {
                     return l;
                 }))
                 .filter(s -> s != null)
-                .collect(Collectors.toList());
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
             return lp;
         } catch (IOException e) {
             e.printStackTrace();
@@ -150,11 +152,30 @@ public class LevelPack {
      * Saves the stats of the LevelPack.
      */
     public void saveStats() {
-        Path folder = LetterCrazeApplication.dataFolder().resolve(key);
         try {
-            Files.write(folder.resolve("pack.conf"), (Iterable<String>)toFile()::iterator);
+            Files.write(getFolder().resolve("pack.conf"), (Iterable<String>)toFile()::iterator);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private Path getFolder() {
+        return LetterCrazeApplication.dataFolder().resolve(key);
+    }
+
+    /**
+     * Create a new Level and add it to this collection.
+     *
+     * @param levelFactory a factory for the level to be created
+     * @return the newly created level, whose level stats are new part of this pack.
+     */
+    public Level newLevel(Supplier<? extends Level> levelFactory) {
+        Level l = levelFactory.get();
+        l.setPack(this);
+        Random random = new Random();
+        l.setPath(getFolder().resolve("level_"+Integer.toHexString(random.nextInt())+".txt"));
+        getLevelStats().add(l.initialStats());
+        this.saveStats();
+        return l;
     }
 }

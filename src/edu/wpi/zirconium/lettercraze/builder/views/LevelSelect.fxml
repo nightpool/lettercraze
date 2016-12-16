@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import edu.wpi.zirconium.lettercraze.shared.views.LevelPackView?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.Group?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css"
-            xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.LevelSelectControllers">
+<fx:root fx:id="root" type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+         prefHeight="712.0" prefWidth="1024.0" stylesheets="@levelselect.css"
+         xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="edu.wpi.zirconium.lettercraze.builder.controllers.LevelSelectControllers">
    <children>
       <BorderPane prefHeight="700.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -21,53 +20,38 @@
                <children>
                   <LevelPackView fx:id="puzzlePack" editable="true">
                      <staticTiles>
-                        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
-                           <children>
-                              <Group fx:id="newPuzzle" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
-                                    <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
-                                 </children>
-                              </Group>
-                           </children>
+                        <StackPane fx:id="newPuzzle">
                            <padding>
-                              <Insets left="5.0" top="5.0" />
+                              <Insets top="5" bottom="5"/>
                            </padding>
-                        </AnchorPane>
+                           <StackPane styleClass="lc-new-level">
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="50.0" stroke="#909090" styleClass="lc-level-rect" width="120.0" />
+                              <SVGPath styleClass="svg-path" content="M15 0 L25 0 L25 15 L40 15 L40 25 L25 25 L25 40 L15 40 L15 25 L0 25 L0 15 L15 15 L15 0" layoutX="26.0" layoutY="26.0"
+                                    fill="TRANSPARENT" scaleX="0.9" scaleY="0.9" stroke="#909090" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.86" />
+                           </StackPane>
+                        </StackPane>
                      </staticTiles>
                   </LevelPackView>
                   <LevelPackView fx:id="lightningPack" editable="true">
                      <staticTiles>
-                        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
-                           <children>
-                              <Group fx:id="newLightning" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
-                                    <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
-                                 </children>
-                              </Group>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" top="5.0" />
-                           </padding>
-                        </AnchorPane>
+                        <StackPane styleClass="lc-new-level">
+                           <StackPane fx:id="newLightning">
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="50.0" stroke="#909090" styleClass="lc-level-rect" width="120.0" />
+                              <SVGPath styleClass="svg-path" content="M15 0 L25 0 L25 15 L40 15 L40 25 L25 25 L25 40 L15 40 L15 25 L0 25 L0 15 L15 15 L15 0" layoutX="26.0" layoutY="26.0"
+                                       fill="TRANSPARENT" scaleX="0.9" scaleY="0.9" stroke="#909090" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.86" />
+                           </StackPane>
+                        </StackPane>
                      </staticTiles>
                   </LevelPackView>
                   <LevelPackView fx:id="themePack" editable="true">
                      <staticTiles>
-                        <AnchorPane maxWidth="-Infinity" minWidth="-Infinity">
-                           <children>
-                              <Group fx:id="newTheme" styleClass="lc-new-level" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8a89a499" height="100.0" stroke="BLACK" strokeType="INSIDE" styleClass="lc-new-level-rect" width="100.0" />
-                                    <SVGPath content="M20 0 L30 0 L30 20 L50 20 L50 30 L30 30 L30 50 L20 50 L20 30 L0 30 L0 20 L20 20 L20 0" disable="true" fill="LIME" layoutX="26.0" layoutY="26.0" />
-                                 </children>
-                              </Group>
-                           </children>
-                           <padding>
-                              <Insets left="5.0" top="5.0" />
-                           </padding>
-                        </AnchorPane>
+                        <StackPane styleClass="lc-new-level">
+                           <StackPane fx:id="newTheme">
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="50.0" stroke="#909090" styleClass="lc-level-rect" width="120.0" />
+                              <SVGPath styleClass="svg-path" content="M15 0 L25 0 L25 15 L40 15 L40 25 L25 25 L25 40 L15 40 L15 25 L0 25 L0 15 L15 15 L15 0" layoutX="26.0" layoutY="26.0"
+                                       fill="TRANSPARENT" scaleX="0.9" scaleY="0.9" stroke="#909090" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.86" />
+                           </StackPane>
+                        </StackPane>
                      </staticTiles>
                   </LevelPackView>
                </children>
@@ -86,7 +70,8 @@
                   </Text>
                   <Pane id="back-button" fx:id="backButton" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: #434343; -fx-border-width: 2px;" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="18.0">
                      <children>
-                        <SVGPath content="M 1.55413 23.54587 L 25.10102 1.50895 25.10102 14.67997 52.35188 14.67997 52.35188 32.41176 25.10102 32.41176 25.10102 45.58279 Z" fill="TRANSPARENT" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="2.1" translateX="-2.0" translateY="2.0" />
+                        <SVGPath content="M 1.55413 23.54587 L 25.10102 1.50895 25.10102 14.67997 52.35188 14.67997 52.35188 32.41176 25.10102 32.41176 25.10102 45.58279 Z" fill="TRANSPARENT"
+                                 scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="2.1" translateX="-2.0" translateY="2.0" />
                      </children>
                   </Pane>
                </children>
@@ -94,4 +79,4 @@
          </top>
       </BorderPane>
    </children>
-</AnchorPane>
+</fx:root>

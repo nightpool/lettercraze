@@ -18,30 +18,18 @@
     -fx-cursor: hand;
 }
 
-.lc-active-level:hover {
+.edit-tile:hover, .lc-new-level:hover {
 	-fx-cursor: hand;
 }
 
-.lc-active-level:hover .lc-active-level-rect {
-	-fx-fill: #efefef;
+.edit-tile:hover .edit-tile--rect {
+	-fx-fill: #f0f0f0;
 }
 
-.lc-new-level:hover {
-	-fx-cursor: hand;
+.lc-new-level:hover .lc-level-rect, .lc-new-level:hover .svg-path {
+	-fx-stroke: black;
 }
 
-.lc-new-level:hover .lc-new-level-rect {
-	-fx-fill: #efefef;
-}
-
-.lc-up-level:hover {
-	-fx-cursor: hand;
-}
-
-.lc-down-level:hover {
-	-fx-cursor: hand;
-}
-
-.lc-delete-level:hover {
+.edit-tile--control:hover {
 	-fx-cursor: hand;
 }
