@@ -255,7 +255,7 @@ public class Level {
         return getThreshold(0) > 0 &&
             getThreshold(1) > 0 &&
             getThreshold(2) > 0 &&
-            !this.getTitle().isEmpty();
+            this.getTitle() != null && !this.getTitle().isEmpty();
     }
 
     /**
