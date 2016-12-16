@@ -80,7 +80,7 @@ public class Round {
     public boolean undoMove() {
         // clear out current move if it is in progress
         if (getMoveInProgress().getNumberSelectedTiles() > 0) {
-            setMoveInProgress(new Move());
+            getMoveInProgress().getSelectedTiles().clear();
             return true;
         }
 
@@ -314,11 +314,5 @@ public class Round {
         return Bindings.createIntegerBinding(
             () -> this.getLevel().numAchievedStars(this.getLevel().thresholdValue(this)),
             scoreBinding(), getCompletedMoves());
-    }
-
-    public BooleanBinding currentMoveValidBinding() {
-        return Bindings.createBooleanBinding(() ->
-            this.getMoveInProgress().isMoveValid(this), this.getMoveInProgress().wordBinding());
-
     }
 }

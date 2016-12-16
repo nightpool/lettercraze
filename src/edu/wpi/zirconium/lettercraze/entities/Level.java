@@ -366,6 +366,7 @@ public class Level {
                 }
 
                 thisLevel.setShape(thisShape);
+
                 return thisLevel;
 
             } else {

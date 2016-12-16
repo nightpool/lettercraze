@@ -89,8 +89,8 @@ public class BoardView extends Pane implements TileContainer {
         return spacingHeight;
     }
 
-    private IntegerProperty boardWidth = new SimpleIntegerProperty(this, "boardWidth", 6);
-    private IntegerProperty boardHeight = new SimpleIntegerProperty(this, "boardHeight", 6);
+    private IntegerProperty boardWidth = new SimpleIntegerProperty(this, "boardWidth");
+    private IntegerProperty boardHeight = new SimpleIntegerProperty(this, "boardHeight");
 
     public int getBoardWidth() {
         return boardWidth.get();

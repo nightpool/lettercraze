@@ -23,16 +23,8 @@ public class StarsView extends HBox {
 
     private IntegerProperty starsActive = new SimpleIntegerProperty(this, "starsActive", 0);
 
-    public int getStarsActive() {
-        return starsActive.get();
-    }
-
     public IntegerProperty starsActiveProperty() {
         return starsActive;
-    }
-
-    public void setStarsActive(int starsActive) {
-        this.starsActive.set(starsActive);
     }
 
     private static class StarView extends SVGPath {
@@ -58,8 +50,5 @@ public class StarsView extends HBox {
             return active;
         }
 
-        public void setActive(boolean active) {
-            this.active.set(active);
-        }
     }
 }
