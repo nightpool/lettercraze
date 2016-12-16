@@ -211,20 +211,21 @@ public class Level {
         String[] fileRows = new String[8];
 
 
+        FileReader fileReader = null;
         try {
-            FileReader fileReader = new FileReader(path.toFile());
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            fileReader = new FileReader(path.toFile());
+        } catch (FileNotFoundException e) {
+            throw new LevelFileMalformationException("Can't access "+path);
+        }
 
-            String line = null;
+        try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String line;
 
             //Read 8 standard rows into string array
-            for(int i = 0; i < 8; i++){
-                if((line = bufferedReader.readLine()) != null){
+            for (int i = 0; i < 8; i++) {
+                if ((line = bufferedReader.readLine()) != null) {
                     fileRows[i] = line;
-                    System.out.println(line);
                 } else {
-                    //System.out.println("Improper Formatting of Level File '" + path + "'");
-                    bufferedReader.close();
                     throw new LevelFileMalformationException("Improper Formatting of Level File '" + path + "'");
                 }
             }
@@ -232,13 +233,13 @@ public class Level {
             //Get LevelType[0] and Key[1]
             String[] firstRow = new String[2];
             int n = 0;
-            for(String val: fileRows[0].split(":"))
+            for (String val : fileRows[0].split(":"))
                 firstRow[n++] = val;
 
             //Get Score Thresholds
             int[] thresholds = new int[3];
             int t = 0;
-            for (String num: fileRows[1].split("_")) {
+            for (String num : fileRows[1].split("_")) {
                 thresholds[t] = Integer.parseInt(num);
                 t++;
             }
@@ -247,95 +248,85 @@ public class Level {
             LevelShape thisShape = LevelShape.all(6);
 
             //Determine what type of level file is creating
-            if(firstRow[0].equals("Theme")){
+            if (firstRow[0].equals("Theme")) {
 
                 ThemeLevel thisLevel = new ThemeLevel(6);
-                thisLevel.setTitle(firstRow[1]);
+                thisLevel.setTitle(firstRow[1].trim());
                 thisLevel.setPath(path);
 
                 //Enter all of the letters into the ThemeLevel
-                for(int r = 2; r < 8; r++){
-                    for(int c = 0; c < 6; c++){
-                        //System.out.println("The character at (" + (r-2) + ", " + c + ") is " + fileRows[r].charAt(c));
-                        if(Character.isLetter(fileRows[r].charAt(c))){
+                for (int r = 2; r < 8; r++) {
+                    for (int c = 0; c < 6; c++) {
+                        if (Character.isLetter(fileRows[r].charAt(c))) {
                             Letter thisLetter = Letter.valueOf(Character.toString(fileRows[r].charAt(c)));
                             thisLevel.addLetter(thisLetter);
-                            thisShape.setTile(r-2, c, true);
-//                            System.out.println("Set (" + (r-2) + ", " + c + ") to true and " + fileRows[r].charAt(c));
-                        } else if(fileRows[r].charAt(c) == '-'){
-                            thisShape.setTile(r-2, c, false);
-//                            System.out.println("Set (" + (r-2) + ", " + c + ") to false");
-                        } else { // Improper Formatting
-                        	bufferedReader.close();
-                        	throw new LevelFileMalformationException("The character at (" + (r-2) + ", " + c + ") is invalid");
+                            thisShape.setTile(r - 2, c, true);
+                        } else if (fileRows[r].charAt(c) == '-') {
+                            thisShape.setTile(r - 2, c, false);
+                        } else {
+                            throw new LevelFileMalformationException("The character at (" + (r - 2) + ", " + c + ") is invalid");
                         }
                     }
                 }
 
                 //Enter all of the Words into the ThemeLevel
                 int numWords = 0;
-                while((line = bufferedReader.readLine()) != null){
+                while ((line = bufferedReader.readLine()) != null) {
                     numWords++;
-                    if(numWords <= 12){
+                    if (numWords <= 12) {
                         // Add Line to thisLevel.words
 
                         //check to see if the word contains anything BUT letters
-                        for(int s = 0; s < line.length(); s++){
-                            if(!(Character.isLetter(line.charAt(s)))){
-                                bufferedReader.close();
+                        for (int s = 0; s < line.length(); s++) {
+                            if (!(Character.isLetter(line.charAt(s)))) {
                                 throw new LevelFileMalformationException("All Words Must Only Contain Letters!");
-                                
+
                             }
                         }
                         //If not, add the word to the list of strings
                         thisLevel.addWord(line);
                     } else {
-                       bufferedReader.close();
-                       throw new LevelFileMalformationException("You Have Too Many Words!");
-                        
+                        throw new LevelFileMalformationException("You Have Too Many Words!");
+
                     }
                 }
 
                 thisLevel.setShape(thisShape);
                 thisLevel.setThresholds(thresholds[0], thresholds[1], thresholds[2]);
 
-                bufferedReader.close();
                 return thisLevel;
 
 
-            } else if (firstRow[0].equals("Puzzle")){
+            } else if (firstRow[0].equals("Puzzle")) {
 
                 PuzzleLevel thisLevel = new PuzzleLevel(6);
-                thisLevel.setTitle(firstRow[1]);
+                thisLevel.setTitle(firstRow[1].trim());
                 thisLevel.setPath(path);
 
-                if((line = bufferedReader.readLine()) != null){
-                	
-                	for(int s = 0; s < line.length(); s++){
-                        if(!(Character.isDigit(line.charAt(s)))){
-                           bufferedReader.close();
-                           throw new LevelFileMalformationException("Your Word Limit MUST be an integer!");
-                            
+                if ((line = bufferedReader.readLine()) != null) {
+
+                    for (int s = 0; s < line.length(); s++) {
+                        if (!(Character.isDigit(line.charAt(s)))) {
+                            throw new LevelFileMalformationException("Your Word Limit MUST be an integer!");
+
                         }
                     }
-                	
+
                     thisLevel.setWordLimit(Integer.parseInt(line));
                 } else {
-                    bufferedReader.close();
                     throw new LevelFileMalformationException("You need a new line with a word limit!");
-                    
+
                 }
 
                 thisLevel.setThresholds(thresholds[0], thresholds[1], thresholds[2]);
-                bufferedReader.close();
 
                 //Edit Level Shape
-                for(int r = 2; r < 8; r++){
-                    for(int c = 0; c < 6; c++){
-                        if(fileRows[r].charAt(c) == '+'){
-                            thisShape.setTile(r-2, c, true);
+                for (int r = 2; r < 8; r++) {
+                    for (int c = 0; c < 6; c++) {
+                        if (fileRows[r].charAt(c) == '+') {
+                            thisShape.setTile(r - 2, c, true);
                         } else { // -, or a letter, or any other symbol
-                            thisShape.setTile(r-2, c, false);
+                            thisShape.setTile(r - 2, c, false);
                         }
                     }
                 }
@@ -344,61 +335,48 @@ public class Level {
 
                 return thisLevel;
 
-            } else if (firstRow[0].equals("Lightning")){
+            } else if (firstRow[0].equals("Lightning")) {
 
                 LightningLevel thisLevel = new LightningLevel(6);
-                thisLevel.setTitle(firstRow[1]);
+                thisLevel.setTitle(firstRow[1].trim());
                 thisLevel.setPath(path);
 
-                if((line = bufferedReader.readLine()) != null){
-                	
-                	for(int s = 0; s < line.length(); s++){
-                        if(!(Character.isDigit(line.charAt(s)))){
-                           bufferedReader.close();
-                           throw new LevelFileMalformationException("Your Time Limit MUST be an integer!");
+                if ((line = bufferedReader.readLine()) != null) {
+
+                    for (int s = 0; s < line.length(); s++) {
+                        if (!(Character.isDigit(line.charAt(s)))) {
+                            throw new LevelFileMalformationException("Your Time Limit MUST be an integer!");
                         }
                     }
-                	
+
                     thisLevel.setTimeLimit(Integer.parseInt(line));
                 } else {
-                   bufferedReader.close();
-                   throw new LevelFileMalformationException("You need a new line with a time limit!");
+                    throw new LevelFileMalformationException("You need a new line with a time limit!");
                 }
 
                 thisLevel.setThresholds(thresholds[0], thresholds[1], thresholds[2]);
-                bufferedReader.close();
 
                 //Edit Level Shape
-                for(int r = 2; r < 8; r++){
-                    for(int c = 0; c < 6; c++){
-                        if(fileRows[r].charAt(c) == '+'){
-                            thisShape.setTile(r-2, c, true);
+                for (int r = 2; r < 8; r++) {
+                    for (int c = 0; c < 6; c++) {
+                        if (fileRows[r].charAt(c) == '+') {
+                            thisShape.setTile(r - 2, c, true);
                         } else { // -, or a letter, or any other symbol
-                            thisShape.setTile(r-2, c, false);
+                            thisShape.setTile(r - 2, c, false);
                         }
                     }
                 }
 
                 thisLevel.setShape(thisShape);
-
-                bufferedReader.close();
                 return thisLevel;
 
-            } else { //Improper Formatting
-            	bufferedReader.close();
-            	throw new LevelFileMalformationException("Didn't recognize level type " + firstRow[0]);
+            } else {
+                throw new LevelFileMalformationException("Didn't recognize level type " + firstRow[0]);
             }
 
+        } catch (IOException ex) {
+            throw new LevelFileMalformationException("How did you get here?");
         }
-        catch(FileNotFoundException ex){
-            System.out.println("Unable to open file '" + path + "'");
-        }
-        catch(IOException ex){
-            System.out.println("Error reading file '" + path + "'");
-        }
-
-        //Method should not get here because there should not be an error;
-        throw new LevelFileMalformationException("How did you get here?");
     }
 
     public void save() {
